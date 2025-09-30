@@ -3,189 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Debug Console - Simplified Twitter Feed</title>
+    <title>AI Debugging Feed: JavaScript 'undefined'</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f6f9f9;
+            color: #14171a;
+            margin: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
-            padding-top: 20px;
         }
-        .twitter-feed {
+        .feed-container {
             width: 100%;
             max-width: 600px;
         }
-        .post {
+        .tweet {
             background-color: #ffffff;
             border: 1px solid #ebeef0;
+            border-radius: 8px;
             padding: 15px;
-            margin-bottom: 12px;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            transition: background-color 0.2s;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.09);
+            position: relative;
         }
-        .post-header {
+        .header {
             display: flex;
             align-items: center;
-            margin-bottom: 8px;
-        }
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #1da1f2; /* Twitter blue for placeholder */
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 16px;
-            margin-right: 10px;
-            flex-shrink: 0;
+            margin-bottom: 10px;
         }
         .poster-name {
             font-weight: bold;
-            color: #0f1419;
+            color: #14171a;
+            margin-right: 8px;
             font-size: 15px;
         }
-        .post-content {
+        .handle {
+            color: #657786;
+            font-size: 14px;
+        }
+        .content {
             font-size: 15px;
             line-height: 1.4;
-            color: #0f1419;
-            word-wrap: break-word;
+            margin-bottom: 15px;
+            white-space: pre-wrap; /* Important for handling multiline text */
+        }
+        .footer {
+            display: flex;
+            align-items: center;
+            color: #657786;
+            font-size: 13px;
+        }
+        .likes {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .likes:hover {
+            color: #e0245e;
+        }
+        .icon {
+            margin-right: 5px;
+            width: 16px;
+            height: 16px;
+        }
+        .icon-heart {
+            fill: currentColor;
         }
 
-        /* Style variations based on displayStyle for debugging clarity */
-        .style-COMMENT .avatar { background-color: #55acee; }
-        .style-EXERCISE .avatar { background-color: #e81c4f; }
-        .style-WEB_IMAGE .avatar { background-color: #00a884; }
-        .style-QUIZ .avatar { background-color: #ff9900; }
-        .style-SOURCES .avatar { background-color: #7c3aed; }
-        .style-BASIC .avatar { background-color: #1da1f2; }
-        
-        .post-footer {
-            margin-top: 10px;
-            font-size: 12px;
-            color: #536471;
+        /* Style variations based on displayStyle */
+        .style-AI_IMAGE .content, .style-WEB_IMAGE .content {
+            background-color: #e7f3ff;
+            border-left: 4px solid #1da1f2;
+            padding: 10px;
+            border-radius: 4px;
+            font-style: italic;
         }
-        .style-badge {
-            padding: 3px 8px;
-            border-radius: 15px;
-            font-weight: 600;
-            margin-left: 10px;
-            text-transform: uppercase;
+        .style-COMMENT .content {
+            color: #5c6b7a;
+            border-left: 2px solid #ffad1f;
+            padding-left: 10px;
         }
-        .style-COMMENT .style-badge { background-color: #e7f3ff; color: #1d9bf0; }
-        .style-EXERCISE .style-badge { background-color: #fcdde4; color: #e81c4f; }
-        .style-WEB_IMAGE .style-badge { background-color: #d1f4e6; color: #00a884; }
-        .style-QUIZ .style-badge { background-color: #fff2e6; color: #ff9900; }
-        .style-SOURCES .style-badge { background-color: #e0d5fb; color: #7c3aed; }
-        .style-BASIC .style-badge { background-color: #e7f3ff; color: #1d9bf0; }
-
-        .debug-info {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background-color: #ffffff;
-            padding: 15px;
-            border-bottom: 1px solid #ebeef0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        .style-MEME .content {
+            border: 2px dashed #cc181e;
+            padding: 10px;
             text-align: center;
         }
-        .debug-info h1 {
-            margin: 0;
-            font-size: 20px;
+        .style-SOURCES .content {
+            background-color: #f4f6f0;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 10px;
+        }
+
+        /* Quiz Styling */
+        .quiz-container {
+            border-top: 1px solid #ebeef0;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .quiz-question {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .quiz-answer {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 5px 0;
+        }
+        .quiz-answer li {
+            background-color: #f5f8fa;
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin-bottom: 3px;
+            font-size: 14px;
+            border: 1px solid #eee;
+        }
+        .quiz-answer li::before {
+            content: "•";
+            margin-right: 8px;
             color: #1da1f2;
+        }
+        .quiz-header {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1da1f2;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-
-    <div class="twitter-feed">
-        <div class="debug-info">
-            <h1>AI Debug Console Feed</h1>
-            <p style="margin: 5px 0 0 0; font-size: 12px; color: #536471;">Displaying generated data structures styled like a timeline.</p>
-        </div>
-
-        <div id="feed-container">
-            <!-- Posts will be injected here by JavaScript -->
-        </div>
+    <div class="feed-container" id="feedContainer">
+        <h1>JS 'undefined' Debug Feed</h1>
+        <!-- Content will be inserted here -->
     </div>
 
     <script>
         const jsonData = [
           {
-            "posterName": "React Fundamentals",
-            "text": "React is a JavaScript library for building user interfaces, primarily focused on single-page applications where data changes over time. It was developed and is maintained by Facebook (Meta).",
-            "displayStyle": "BASIC"
+            "posterName": "Initializer",
+            "text": "In JavaScript, 'undefined' is a primitive value automatically assigned to variables that have been declared but not yet initialized with a value.",
+            "displayStyle": "BASIC",
+            "likes": 450
           },
           {
-            "posterName": "Developer Insights",
-            "text": "The core building block of any React application is the Component. Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.",
-            "displayStyle": "COMMENT"
+            "posterName": "VisualCoder",
+            "text": "Visualizing 'undefined': A labeled box ready for content, but currently empty. It represents the lack of an assigned value.",
+            "displayStyle": "AI_IMAGE",
+            "aiImagePrompt": "A minimalist drawing of an empty, transparent variable box floating in space, labeled clearly with the word 'undefined'.",
+            "likes": 620
           },
           {
-            "posterName": "Code Visualizer",
-            "text": "JSX (JavaScript XML) allows you to write HTML structures in the same file as JavaScript code. It's not required, but highly recommended for defining the structure of your components.",
-            "displayStyle": "WEB_IMAGE"
+            "posterName": "DebuggerDan",
+            "text": "Important distinction: If you try to access a variable that hasn't even been *declared* (not just uninitialized), you will get a ReferenceError, not 'undefined'. 'undefined' applies only to existing, uninitialized declarations.",
+            "displayStyle": "COMMENT",
+            "likes": 310
           },
           {
-            "posterName": "React Trainer",
-            "text": "Exercise: Write a functional component using the 'useState' hook to manage a simple counter that increments when a button is clicked. Focus on the concept of 'State' being immutable.",
-            "displayStyle": "EXERCISE"
+            "posterName": "JSMemeLord",
+            "text": "When you spend 3 hours debugging why your function returns 'undefined', only to realize you forgot the 'return' statement.",
+            "displayStyle": "MEME",
+            "likes": 980
           },
           {
-            "posterName": "Official Documentation",
-            "text": "For deep dives into hooks, context, and performance optimization, always refer to the official React documentation (react.dev). It is the most reliable source of truth.",
-            "displayStyle": "SOURCES"
+            "posterName": "Quiz",
+            "text": "",
+            "displayStyle": "QUIZ",
+            "quizQuestions": [
+              {
+                "question": "Which context *guarantees* a variable will be 'undefined'?",
+                "answers": [
+                  "Declared but not initialized.",
+                  "A function explicitly returning nothing.",
+                  "Accessing a non-existent object property."
+                ],
+                "correctIndex": 0
+              },
+              {
+                "question": "What is the `typeof` operator's result for an `undefined` variable?",
+                "answers": [
+                  "\"null\"",
+                  "\"void\"",
+                  "\"undefined\""
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Is `undefined` considered a truthy or falsy value in JavaScript?",
+                "answers": [
+                  "Truthy",
+                  "Falsy",
+                  "Depends on the context"
+                ],
+                "correctIndex": 1
+              }
+            ],
+            "likes": 700
           },
           {
-            "posterName": "React Quiz Master",
-            "text": "Quiz: What is the primary benefit of React's Virtual DOM compared to directly manipulating the browser's native DOM?",
-            "displayStyle": "QUIZ"
+            "posterName": "TypeChecker",
+            "text": "Remember the difference: `undefined` means a variable exists but lacks an assigned value. `null` means a variable exists and has been explicitly assigned the value of \"no value\" or \"empty\".",
+            "displayStyle": "BASIC",
+            "likes": 550
           },
           {
-            "posterName": "React Best Practices",
-            "text": "Tip: Always use keys when rendering lists of elements in React. Keys help React identify which items have changed, been added, or been removed, ensuring efficient updates.",
-            "displayStyle": "BASIC"
+            "posterName": "CodeSleuth",
+            "text": "Here is a common scenario where 'undefined' appears: accessing an array index that is out of bounds.",
+            "displayStyle": "WEB_IMAGE",
+            "imageSearchQuery": "JavaScript array out of bounds accessing undefined example",
+            "likes": 490
+          },
+          {
+            "posterName": "StrictModeGuru",
+            "text": "Pro-Tip: When checking for 'undefined', always use the strict equality operator (`===`). This avoids type coercion issues that could make `== undefined` evaluate true for both `null` and `undefined`.",
+            "displayStyle": "COMMENT",
+            "likes": 710
+          },
+          {
+            "posterName": "VisualCoder",
+            "text": "Functions that do not explicitly return a value implicitly return 'undefined'. It's the silent default return ticket.",
+            "displayStyle": "AI_IMAGE",
+            "aiImagePrompt": "A minimalistic illustration of a function machine processing inputs and letting the output conveyor belt run empty, with a small tag labeled 'undefined' attached to the end of the empty belt.",
+            "likes": 600
+          },
+          {
+            "posterName": "Quiz",
+            "text": "",
+            "displayStyle": "QUIZ",
+            "quizQuestions": [
+              {
+                "question": "What is the result of `undefined == null`?",
+                "answers": [
+                  "true",
+                  "false",
+                  "TypeError"
+                ],
+                "correctIndex": 0
+              },
+              {
+                "question": "Which method is generally preferred for checking if a variable is undefined?",
+                "answers": [
+                  "`if (variable === undefined)`",
+                  "`if (!variable)`",
+                  "`if (variable == null)`"
+                ],
+                "correctIndex": 0
+              },
+              {
+                "question": "Can you intentionally assign the value `undefined` to a variable?",
+                "answers": [
+                  "No, it is read-only.",
+                  "Yes, but it is generally discouraged.",
+                  "Only in strict mode."
+                ],
+                "correctIndex": 1
+              }
+            ],
+            "likes": 750
+          },
+          {
+            "posterName": "BugHunter",
+            "text": "Me: I swear I passed that argument into the function. The function receiving the argument: (shows 'undefined').",
+            "displayStyle": "MEME",
+            "likes": 880
+          },
+          {
+            "posterName": "LanguageHistorian",
+            "text": "Historically, JavaScript's decision to have both `null` and `undefined` is often cited as a language design mistake, contributing to confusion for newcomers.",
+            "displayStyle": "BASIC",
+            "likes": 420
+          },
+          {
+            "posterName": "DeepDiver",
+            "text": "Want to master `undefined` vs `null`? Check out MDN's guide on equality comparisons and falsy values. Understanding coercion is key here!",
+            "displayStyle": "SOURCES",
+            "imageSearchQuery": "MDN JavaScript undefined null comparison",
+            "likes": 530
+          },
+          {
+            "posterName": "PerformanceNerd",
+            "text": "While checking for `undefined` is crucial, remember that modern tooling (like TypeScript) often helps prevent these runtime errors by catching uninitialized variables during compilation/transpilation.",
+            "displayStyle": "COMMENT",
+            "likes": 390
+          },
+          {
+            "posterName": "Quiz",
+            "text": "",
+            "displayStyle": "QUIZ",
+            "quizQuestions": [
+              {
+                "question": "What happens if you try to destructure an object property that doesn't exist?",
+                "answers": [
+                  "It throws a ReferenceError.",
+                  "The resulting variable is assigned `undefined`.",
+                  "The resulting variable is assigned `null`."
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Is `undefined` a mutable or immutable primitive value?",
+                "answers": [
+                  "Mutable",
+                  "Immutable",
+                  "Depends on context"
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "In non-strict mode, can you redefine the global variable `undefined`?",
+                "answers": [
+                  "Yes, but it is strongly discouraged.",
+                  "No, it is always read-only.",
+                  "Only if using `var`."
+                ],
+                "correctIndex": 0
+              }
+            ],
+            "likes": 650
           }
         ];
 
-        const feedContainer = document.getElementById('feed-container');
+        function createQuizHtml(questions) {
+            let html = `<div class="quiz-container">
+                            <div class="quiz-header">Interactive Quiz (${questions.length} Questions)</div>`;
+            
+            questions.forEach((q, qIndex) => {
+                html += `<div class="quiz-question">${qIndex + 1}. ${q.question}</div>
+                         <ul class="quiz-answer">`;
+                q.answers.forEach((answer, aIndex) => {
+                    // For simple display, we'll show the correct answer slightly emphasized
+                    const isCorrect = aIndex === q.correctIndex;
+                    html += `<li style="background-color: ${isCorrect ? '#d4edda' : '#f5f8fa'}; border-color: ${isCorrect ? '#c3e6cb' : '#eee'};">${answer} ${isCorrect ? '(CORRECT)' : ''}</li>`;
+                });
+                html += `</ul>`;
+            });
 
-        function getInitials(name) {
-            // Use the first letter of the first word for the avatar
-            return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+            html += `</div>`;
+            return html;
         }
 
-        function createPostElement(data) {
-            const postDiv = document.createElement('div');
-            postDiv.className = `post style-${data.displayStyle}`;
+        function renderFeed() {
+            const container = document.getElementById('feedContainer');
+            let htmlContent = '<h1>JS \'undefined\' Debug Feed</h1>';
 
-            const avatarInitial = getInitials(data.posterName);
+            jsonData.forEach(item => {
+                let contentBody = `<div class="content">${item.text || ''}</div>`;
+                
+                // Handle specialized display styles
+                if (item.displayStyle === 'QUIZ') {
+                    contentBody = createQuizHtml(item.quizQuestions);
+                } else if (item.displayStyle === 'AI_IMAGE' || item.displayStyle === 'WEB_IMAGE') {
+                    // For AI/Web images, we just show the prompt/query in the content block as we cannot render actual images/prompts here simply.
+                    const description = item.displayStyle === 'AI_IMAGE' 
+                        ? `[Simulated AI Image Prompt]: ${item.aiImagePrompt}` 
+                        : `[Simulated Web Search Result]: ${item.imageSearchQuery}`;
+                    contentBody = `<div class="content" style="font-style: italic;">${item.text || ''} <br><br> --- DEBUG VISUAL --- <br> ${description}</div>`;
+                }
 
-            postDiv.innerHTML = `
-                <div class="post-header">
-                    <div class="avatar">${avatarInitial}</div>
-                    <span class="poster-name">${data.posterName}</span>
-                    <span class="style-badge">${data.displayStyle}</span>
-                </div>
-                <div class="post-content">
-                    ${data.text}
-                </div>
-                <div class="post-footer">
-                    Debug Time: ${new Date().toLocaleTimeString()} | Style: ${data.displayStyle}
-                </div>
-            `;
-            return postDiv;
+                const tweetHtml = `
+                    <div class="tweet style-${item.displayStyle}">
+                        <div class="header">
+                            <span class="poster-name">${item.posterName}</span>
+                            <span class="handle">@${item.posterName.toLowerCase().replace(/\s/g, '')}</span>
+                        </div>
+                        ${contentBody}
+                        <div class="footer">
+                            <div class="likes" onclick="this.querySelector('span').textContent = parseInt(this.querySelector('span').textContent) + 1;">
+                                <svg class="icon icon-heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                <span id="likes-${Math.random()}">${item.likes}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                htmlContent += tweetHtml;
+            });
+
+            container.innerHTML = htmlContent;
         }
 
-        jsonData.forEach(item => {
-            const element = createPostElement(item);
-            feedContainer.appendChild(element);
-        });
+        document.addEventListener('DOMContentLoaded', renderFeed);
     </script>
-
 </body>
 </html>

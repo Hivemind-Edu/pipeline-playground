@@ -1,42 +1,183 @@
 [
   {
-    "posterName": "React Fundamentals",
-    "text": "React is a JavaScript library for building user interfaces, primarily focused on single-page applications where data changes over time.",
-    "displayStyle": "BASIC"
+    "posterName": "Initializer",
+    "text": "In JavaScript, 'undefined' is a primitive value automatically assigned to variables that have been declared but not yet initialized with a value.",
+    "displayStyle": "BASIC",
+    "likes": 450
   },
   {
-    "posterName": "Component Architect",
-    "text": "The core building block of any React application is the Component. Components are independent and reusable pieces of UI, often categorized as functional or class-based.",
-    "displayStyle": "BASIC"
+    "posterName": "VisualCoder",
+    "text": "Visualizing 'undefined': A labeled box ready for content, but currently empty. It represents the lack of an assigned value.",
+    "displayStyle": "AI_IMAGE",
+    "aiImagePrompt": "A minimalist drawing of an empty, transparent variable box floating in space, labeled clearly with the word 'undefined'.",
+    "likes": 620
   },
   {
-    "posterName": "React Quiz Master",
-    "text": "Quiz: What does JSX stand for? A) JavaScript XML B) JavaScript Extension C) JSON XML D) Java Syntax Extension",
-    "displayStyle": "QUIZ"
+    "posterName": "DebuggerDan",
+    "text": "Important distinction: If you try to access a variable that hasn't even been *declared* (not just uninitialized), you will get a ReferenceError, not 'undefined'. 'undefined' applies only to existing, uninitialized declarations.",
+    "displayStyle": "COMMENT",
+    "likes": 310
   },
   {
-    "posterName": "Coding Practice",
-    "text": "Exercise: Create a simple functional component that uses the useState hook to manage a counter value, incrementing it with a button click. Focus on proper state updates.",
-    "displayStyle": "EXERCISE"
+    "posterName": "JSMemeLord",
+    "text": "When you spend 3 hours debugging why your function returns 'undefined', only to realize you forgot the 'return' statement.",
+    "displayStyle": "MEME",
+    "likes": 980
   },
   {
-    "posterName": "Performance Insights",
-    "text": "The Virtual DOM is a programming concept where a virtual representation of a UI is kept in memory and synced with the 'real' DOM. React uses this for performance optimization.",
-    "displayStyle": "BASIC"
+    "posterName": "Quiz",
+    "text": "",
+    "displayStyle": "QUIZ",
+    "quizQuestions": [
+      {
+        "question": "Which context *guarantees* a variable will be 'undefined'?",
+        "answers": [
+          "Declared but not initialized.",
+          "A function explicitly returning nothing.",
+          "Accessing a non-existent object property."
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What is the `typeof` operator's result for an `undefined` variable?",
+        "answers": [
+          "\"null\"",
+          "\"void\"",
+          "\"undefined\""
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Is `undefined` considered a truthy or falsy value in JavaScript?",
+        "answers": [
+          "Truthy",
+          "Falsy",
+          "Depends on the context"
+        ],
+        "correctIndex": 1
+      }
+    ],
+    "likes": 700
   },
   {
-    "posterName": "Resource Hub",
-    "text": "Official Documentation: The best place to start and reference is the official React documentation (react.dev). It provides up-to-date information on Hooks and concurrent rendering.",
-    "displayStyle": "SOURCES"
+    "posterName": "TypeChecker",
+    "text": "Remember the difference: `undefined` means a variable exists but lacks an assigned value. `null` means a variable exists and has been explicitly assigned the value of \"no value\" or \"empty\".",
+    "displayStyle": "BASIC",
+    "likes": 550
   },
   {
-    "posterName": "React Developer",
-    "text": "Using React Hooks (like useEffect and useState) allows developers to use state and other React features without writing a class component. This is the modern standard.",
-    "displayStyle": "COMMENT"
+    "posterName": "CodeSleuth",
+    "text": "Here is a common scenario where 'undefined' appears: accessing an array index that is out of bounds.",
+    "displayStyle": "WEB_IMAGE",
+    "imageSearchQuery": "JavaScript array out of bounds accessing undefined example",
+    "likes": 490
   },
   {
-    "posterName": "Web Image Placeholder",
-    "text": "Image demonstrating the difference between the Component Tree structure and the actual DOM structure.",
-    "displayStyle": "WEB_IMAGE"
+    "posterName": "StrictModeGuru",
+    "text": "Pro-Tip: When checking for 'undefined', always use the strict equality operator (`===`). This avoids type coercion issues that could make `== undefined` evaluate true for both `null` and `undefined`.",
+    "displayStyle": "COMMENT",
+    "likes": 710
+  },
+  {
+    "posterName": "VisualCoder",
+    "text": "Functions that do not explicitly return a value implicitly return 'undefined'. It's the silent default return ticket.",
+    "displayStyle": "AI_IMAGE",
+    "aiImagePrompt": "A minimalistic illustration of a function machine processing inputs and letting the output conveyor belt run empty, with a small tag labeled 'undefined' attached to the end of the empty belt.",
+    "likes": 600
+  },
+  {
+    "posterName": "Quiz",
+    "text": "",
+    "displayStyle": "QUIZ",
+    "quizQuestions": [
+      {
+        "question": "What is the result of `undefined == null`?",
+        "answers": [
+          "true",
+          "false",
+          "TypeError"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which method is generally preferred for checking if a variable is undefined?",
+        "answers": [
+          "`if (variable === undefined)`",
+          "`if (!variable)`",
+          "`if (variable == null)`"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Can you intentionally assign the value `undefined` to a variable?",
+        "answers": [
+          "No, it is read-only.",
+          "Yes, but it is generally discouraged.",
+          "Only in strict mode."
+        ],
+        "correctIndex": 1
+      }
+    ],
+    "likes": 750
+  },
+  {
+    "posterName": "BugHunter",
+    "text": "Me: I swear I passed that argument into the function. The function receiving the argument: (shows 'undefined').",
+    "displayStyle": "MEME",
+    "likes": 880
+  },
+  {
+    "posterName": "LanguageHistorian",
+    "text": "Historically, JavaScript's decision to have both `null` and `undefined` is often cited as a language design mistake, contributing to confusion for newcomers.",
+    "displayStyle": "BASIC",
+    "likes": 420
+  },
+  {
+    "posterName": "DeepDiver",
+    "text": "Want to master `undefined` vs `null`? Check out MDN's guide on equality comparisons and falsy values. Understanding coercion is key here!",
+    "displayStyle": "SOURCES",
+    "imageSearchQuery": "MDN JavaScript undefined null comparison",
+    "likes": 530
+  },
+  {
+    "posterName": "PerformanceNerd",
+    "text": "While checking for `undefined` is crucial, remember that modern tooling (like TypeScript) often helps prevent these runtime errors by catching uninitialized variables during compilation/transpilation.",
+    "displayStyle": "COMMENT",
+    "likes": 390
+  },
+  {
+    "posterName": "Quiz",
+    "text": "",
+    "displayStyle": "QUIZ",
+    "quizQuestions": [
+      {
+        "question": "What happens if you try to destructure an object property that doesn't exist?",
+        "answers": [
+          "It throws a ReferenceError.",
+          "The resulting variable is assigned `undefined`.",
+          "The resulting variable is assigned `null`."
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Is `undefined` a mutable or immutable primitive value?",
+        "answers": [
+          "Mutable",
+          "Immutable",
+          "Depends on context"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "In non-strict mode, can you redefine the global variable `undefined`?",
+        "answers": [
+          "Yes, but it is strongly discouraged.",
+          "No, it is always read-only.",
+          "Only if using `var`."
+        ],
+        "correctIndex": 0
+      }
+    ],
+    "likes": 650
   }
 ]

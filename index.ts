@@ -6,6 +6,8 @@ import { z } from "zod";
 
 import "./setupTracing"; // langfuse tracing
 
+import { visualize } from "./visualize";
+
 const {
 	values: { topic },
 } = parseArgs({
@@ -28,27 +30,56 @@ const PostSchema = z.object({
 		"COMMENT",
 		"MEME",
 		"QUIZ",
-		"EXERCISE",
 		"SOURCES",
 		"WEB_IMAGE",
-		"IMAGE_FROM_PDF",
 	]),
+	quizQuestions: z
+		.array(
+			z.object({
+				question: z.string(),
+				answers: z.array(z.string()),
+				correctIndex: z.number(),
+			}),
+		)
+		.optional(),
+	aiImagePrompt: z.string().optional(),
+	imageSearchQuery: z.string().optional(),
+	likes: z.number().int().min(0),
 });
 
-type Post = z.infer<typeof PostSchema>;
+export type Post = z.infer<typeof PostSchema>;
 
 const { elementStream } = streamObject({
 	model: google("gemini-2.5-flash-preview-09-2025"),
-	prompt: `Create a learning feed for the topic "${topic}".`,
+	prompt: `Create a learning feed for the topic "${topic}".
+Output at least 15 posts
+    
+Display styles:
+
+BASIC - Minimalist standalone posts; when the text is powerful enough alone
+QUIZ - A quiz with multiple choice questions. Add 3-5 quizQuestions with 3 answers each. Every 5th post should be a quiz. QuizPost username always "Quiz" and empty text.
+AI_IMAGE - Visual concepts that need illustration; simplifying complex ideas. It is like BASIC but with an image attached. Add the aiImagePrompt to specify how the image should look.
+WEB_IMAGE - An image from the web. Add the imageSearchQuery to specify what image should be used.
+COMMENT - When immediate clarification, counterpoint, or dialogue adds value
+MEME - Making lessons memorable through humor; debunking misconceptions; failure scenarios
+SOURCES - When external learning resources would help users dive deeper.
+
+Add the number of likes for each post.
+`,
+
 	output: "array",
 	schema: PostSchema,
 	temperature: 0.7,
 	providerOptions: {
-		google: {
+		/* 		google: {
 			thinkingConfig: {
 				thinkingBudget: 0,
 			},
-		},
+		}, */
+	},
+	experimental_telemetry: {
+		isEnabled: true,
+		functionId: "PLAYGROUND-FEED",
 	},
 });
 
@@ -61,20 +92,4 @@ for await (const partialObject of elementStream) {
 	await Bun.write("output.json", JSON.stringify(array, null, 2));
 }
 
-const { text: html } = await generateText({
-	model: google("gemini-2.5-flash-lite-preview-09-2025"),
-	prompt: `Please convert this JSON array into a HTML page. It should be functional and simple and display all the data directly, preferrably in a UI that looks like a simplified Twitter
-The site should be for debugging purposes so I can see the data i generate via AI.
-
-JSON data:
-${JSON.stringify(array, null, 2)}
-
-Return only the complete HTML document.`,
-});
-
-const htmlCleaned = html.replace(/^```html\n/, "").replace(/\n```$/, "");
-
-await Bun.write("visualization.html", htmlCleaned);
-console.log("✅ HTML saved to visualization.html");
-
-Bun.spawn(["open", "visualization.html"]);
+await visualize(array);
