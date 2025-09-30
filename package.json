@@ -1,0 +1,20 @@
+{
+  "name": "pipeline-playground",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^2.0.17",
+    "@ai-sdk/openai": "^2.0.42",
+    "@langfuse/otel": "^4.2.0",
+    "@opentelemetry/sdk-trace-node": "^2.1.0",
+    "ai": "^5.0.59",
+    "jsonrepair": "^3.13.1"
+  }
+}

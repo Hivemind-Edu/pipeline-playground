@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Debug Console - Simplified Twitter Feed</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+        .twitter-feed {
+            width: 100%;
+            max-width: 600px;
+        }
+        .post {
+            background-color: #ffffff;
+            border: 1px solid #ebeef0;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: background-color 0.2s;
+        }
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1da1f2; /* Twitter blue for placeholder */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .poster-name {
+            font-weight: bold;
+            color: #0f1419;
+            font-size: 15px;
+        }
+        .post-content {
+            font-size: 15px;
+            line-height: 1.4;
+            color: #0f1419;
+            word-wrap: break-word;
+        }
+
+        /* Style variations based on displayStyle for debugging clarity */
+        .style-COMMENT .avatar { background-color: #55acee; }
+        .style-EXERCISE .avatar { background-color: #e81c4f; }
+        .style-WEB_IMAGE .avatar { background-color: #00a884; }
+        .style-QUIZ .avatar { background-color: #ff9900; }
+        .style-SOURCES .avatar { background-color: #7c3aed; }
+        .style-BASIC .avatar { background-color: #1da1f2; }
+        
+        .post-footer {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #536471;
+        }
+        .style-badge {
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-weight: 600;
+            margin-left: 10px;
+            text-transform: uppercase;
+        }
+        .style-COMMENT .style-badge { background-color: #e7f3ff; color: #1d9bf0; }
+        .style-EXERCISE .style-badge { background-color: #fcdde4; color: #e81c4f; }
+        .style-WEB_IMAGE .style-badge { background-color: #d1f4e6; color: #00a884; }
+        .style-QUIZ .style-badge { background-color: #fff2e6; color: #ff9900; }
+        .style-SOURCES .style-badge { background-color: #e0d5fb; color: #7c3aed; }
+        .style-BASIC .style-badge { background-color: #e7f3ff; color: #1d9bf0; }
+
+        .debug-info {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #ffffff;
+            padding: 15px;
+            border-bottom: 1px solid #ebeef0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .debug-info h1 {
+            margin: 0;
+            font-size: 20px;
+            color: #1da1f2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="twitter-feed">
+        <div class="debug-info">
+            <h1>AI Debug Console Feed</h1>
+            <p style="margin: 5px 0 0 0; font-size: 12px; color: #536471;">Displaying generated data structures styled like a timeline.</p>
+        </div>
+
+        <div id="feed-container">
+            <!-- Posts will be injected here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const jsonData = [
+          {
+            "posterName": "React Fundamentals",
+            "text": "React is a JavaScript library for building user interfaces, primarily focused on single-page applications where data changes over time. It was developed and is maintained by Facebook (Meta).",
+            "displayStyle": "BASIC"
+          },
+          {
+            "posterName": "Developer Insights",
+            "text": "The core building block of any React application is the Component. Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.",
+            "displayStyle": "COMMENT"
+          },
+          {
+            "posterName": "Code Visualizer",
+            "text": "JSX (JavaScript XML) allows you to write HTML structures in the same file as JavaScript code. It's not required, but highly recommended for defining the structure of your components.",
+            "displayStyle": "WEB_IMAGE"
+          },
+          {
+            "posterName": "React Trainer",
+            "text": "Exercise: Write a functional component using the 'useState' hook to manage a simple counter that increments when a button is clicked. Focus on the concept of 'State' being immutable.",
+            "displayStyle": "EXERCISE"
+          },
+          {
+            "posterName": "Official Documentation",
+            "text": "For deep dives into hooks, context, and performance optimization, always refer to the official React documentation (react.dev). It is the most reliable source of truth.",
+            "displayStyle": "SOURCES"
+          },
+          {
+            "posterName": "React Quiz Master",
+            "text": "Quiz: What is the primary benefit of React's Virtual DOM compared to directly manipulating the browser's native DOM?",
+            "displayStyle": "QUIZ"
+          },
+          {
+            "posterName": "React Best Practices",
+            "text": "Tip: Always use keys when rendering lists of elements in React. Keys help React identify which items have changed, been added, or been removed, ensuring efficient updates.",
+            "displayStyle": "BASIC"
+          }
+        ];
+
+        const feedContainer = document.getElementById('feed-container');
+
+        function getInitials(name) {
+            // Use the first letter of the first word for the avatar
+            return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+        }
+
+        function createPostElement(data) {
+            const postDiv = document.createElement('div');
+            postDiv.className = `post style-${data.displayStyle}`;
+
+            const avatarInitial = getInitials(data.posterName);
+
+            postDiv.innerHTML = `
+                <div class="post-header">
+                    <div class="avatar">${avatarInitial}</div>
+                    <span class="poster-name">${data.posterName}</span>
+                    <span class="style-badge">${data.displayStyle}</span>
+                </div>
+                <div class="post-content">
+                    ${data.text}
+                </div>
+                <div class="post-footer">
+                    Debug Time: ${new Date().toLocaleTimeString()} | Style: ${data.displayStyle}
+                </div>
+            `;
+            return postDiv;
+        }
+
+        jsonData.forEach(item => {
+            const element = createPostElement(item);
+            feedContainer.appendChild(element);
+        });
+    </script>
+
+</body>
+</html>

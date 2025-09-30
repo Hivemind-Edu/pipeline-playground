@@ -1,0 +1,42 @@
+[
+  {
+    "posterName": "React Fundamentals",
+    "text": "React is a JavaScript library for building user interfaces, primarily focused on single-page applications where data changes over time.",
+    "displayStyle": "BASIC"
+  },
+  {
+    "posterName": "Component Architect",
+    "text": "The core building block of any React application is the Component. Components are independent and reusable pieces of UI, often categorized as functional or class-based.",
+    "displayStyle": "BASIC"
+  },
+  {
+    "posterName": "React Quiz Master",
+    "text": "Quiz: What does JSX stand for? A) JavaScript XML B) JavaScript Extension C) JSON XML D) Java Syntax Extension",
+    "displayStyle": "QUIZ"
+  },
+  {
+    "posterName": "Coding Practice",
+    "text": "Exercise: Create a simple functional component that uses the useState hook to manage a counter value, incrementing it with a button click. Focus on proper state updates.",
+    "displayStyle": "EXERCISE"
+  },
+  {
+    "posterName": "Performance Insights",
+    "text": "The Virtual DOM is a programming concept where a virtual representation of a UI is kept in memory and synced with the 'real' DOM. React uses this for performance optimization.",
+    "displayStyle": "BASIC"
+  },
+  {
+    "posterName": "Resource Hub",
+    "text": "Official Documentation: The best place to start and reference is the official React documentation (react.dev). It provides up-to-date information on Hooks and concurrent rendering.",
+    "displayStyle": "SOURCES"
+  },
+  {
+    "posterName": "React Developer",
+    "text": "Using React Hooks (like useEffect and useState) allows developers to use state and other React features without writing a class component. This is the modern standard.",
+    "displayStyle": "COMMENT"
+  },
+  {
+    "posterName": "Web Image Placeholder",
+    "text": "Image demonstrating the difference between the Component Tree structure and the actual DOM structure.",
+    "displayStyle": "WEB_IMAGE"
+  }
+]
