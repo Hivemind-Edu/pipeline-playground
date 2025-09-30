@@ -1,20 +1,21 @@
 import { google } from "@ai-sdk/google";
 import { generateText } from "ai";
-import type { Post } from "./index";
 
-export async function visualize(array: Post[]) {
+export async function visualize(data: string) {
 	console.log("Visualizing...");
 	const { text: html } = await generateText({
 		model: google("gemini-2.5-flash-lite-preview-09-2025"),
-		prompt: `Please convert this JSON array into a HTML page. It should be functional and simple and display all the data directly, preferrably in a UI that looks like a simplified Twitter
+		prompt: `Please convert this data into a HTML page. It should be functional and simple and display all the data directly, preferrably in a UI that looks like a simplified Twitter
     The site should be for debugging purposes so I can see the data i generate via AI.
+
+	Use tailwindCSS from "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
 
     Don't invent anything, just display the data from the json in a functional way.
     
     JSON data:
-    ${JSON.stringify(array, null, 2)}
+    ${data}
     
-    Return only the complete HTML document.`,
+    Return ONLY the complete HTML document, no other text.`,
 		providerOptions: {
 			google: {
 				thinkingConfig: {
@@ -37,6 +38,6 @@ export async function visualize(array: Post[]) {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-	const array = await Bun.file("output.json").json();
-	await visualize(array as Post[]);
+	const array = await Bun.file("output.json").text();
+	await visualize(array);
 }

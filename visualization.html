@@ -3,168 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Debugging Feed: JavaScript 'undefined'</title>
+    <title>AI Debugging Feed</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f6f9f9;
-            color: #14171a;
-            margin: 0;
-            padding: 20px;
+        /* Custom styling for UI elements, if needed, otherwise Tailwind handles most */
+        .post-container {
+            border-bottom: 1px solid #ebeef0;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e0e7ff; /* Indigo-100 */
             display: flex;
+            align-items: center;
             justify-content: center;
-        }
-        .feed-container {
-            width: 100%;
-            max-width: 600px;
-        }
-        .tweet {
-            background-color: #ffffff;
-            border: 1px solid #ebeef0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.09);
-            position: relative;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .poster-name {
             font-weight: bold;
-            color: #14171a;
-            margin-right: 8px;
-            font-size: 15px;
-        }
-        .handle {
-            color: #657786;
-            font-size: 14px;
-        }
-        .content {
-            font-size: 15px;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            white-space: pre-wrap; /* Important for handling multiline text */
-        }
-        .footer {
-            display: flex;
-            align-items: center;
-            color: #657786;
-            font-size: 13px;
-        }
-        .likes {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        .likes:hover {
-            color: #e0245e;
-        }
-        .icon {
-            margin-right: 5px;
-            width: 16px;
-            height: 16px;
-        }
-        .icon-heart {
-            fill: currentColor;
-        }
-
-        /* Style variations based on displayStyle */
-        .style-AI_IMAGE .content, .style-WEB_IMAGE .content {
-            background-color: #e7f3ff;
-            border-left: 4px solid #1da1f2;
-            padding: 10px;
-            border-radius: 4px;
-            font-style: italic;
-        }
-        .style-COMMENT .content {
-            color: #5c6b7a;
-            border-left: 2px solid #ffad1f;
-            padding-left: 10px;
-        }
-        .style-MEME .content {
-            border: 2px dashed #cc181e;
-            padding: 10px;
-            text-align: center;
-        }
-        .style-SOURCES .content {
-            background-color: #f4f6f0;
-            border-bottom: 1px solid #cccccc;
-            padding-bottom: 10px;
-        }
-
-        /* Quiz Styling */
-        .quiz-container {
-            border-top: 1px solid #ebeef0;
-            padding-top: 10px;
-            margin-top: 10px;
-        }
-        .quiz-question {
-            font-weight: bold;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-        .quiz-answer {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 5px 0;
-        }
-        .quiz-answer li {
-            background-color: #f5f8fa;
-            padding: 5px 10px;
-            border-radius: 3px;
-            margin-bottom: 3px;
-            font-size: 14px;
-            border: 1px solid #eee;
-        }
-        .quiz-answer li::before {
-            content: "•";
-            margin-right: 8px;
-            color: #1da1f2;
-        }
-        .quiz-header {
-            font-size: 16px;
-            font-weight: bold;
-            color: #1da1f2;
-            margin-bottom: 10px;
+            color: #4f46e5; /* Indigo-600 */
         }
     </style>
 </head>
-<body>
-    <div class="feed-container" id="feedContainer">
-        <h1>JS 'undefined' Debug Feed</h1>
-        <!-- Content will be inserted here -->
+<body class="bg-gray-50 min-h-screen">
+
+    <div id="app" class="max-w-3xl mx-auto bg-white shadow-lg md:mt-4 rounded-lg">
+        
+        <!-- Header Bar -->
+        <header class="p-4 border-b border-gray-200 sticky top-0 bg-white z-10">
+            <h1 class="text-xl font-bold text-gray-900">AI Debug Log Feed</h1>
+            <p class="text-sm text-gray-500">Displaying generated data entries</p>
+        </header>
+
+        <main id="feed-container">
+            <!-- Posts will be injected here -->
+        </main>
+
     </div>
 
     <script>
-        const jsonData = [
+        const data = [
           {
-            "posterName": "Initializer",
-            "text": "In JavaScript, 'undefined' is a primitive value automatically assigned to variables that have been declared but not yet initialized with a value.",
-            "displayStyle": "BASIC",
-            "likes": 450
+            "posterName": "JS_Beginner",
+            "text": "In JavaScript, what does 'undefined' actually mean? Is it the same as 'null'?",
+            "displayStyle": "BASIC"
           },
           {
-            "posterName": "VisualCoder",
-            "text": "Visualizing 'undefined': A labeled box ready for content, but currently empty. It represents the lack of an assigned value.",
-            "displayStyle": "AI_IMAGE",
-            "aiImagePrompt": "A minimalist drawing of an empty, transparent variable box floating in space, labeled clearly with the word 'undefined'.",
-            "likes": 620
+            "posterName": "CodeMentor",
+            "text": "No, 'undefined' and 'null' are distinct! 'Undefined' means a variable has been declared but has not been assigned a value. It's the default state.",
+            "displayStyle": "COMMENT"
           },
           {
-            "posterName": "DebuggerDan",
-            "text": "Important distinction: If you try to access a variable that hasn't even been *declared* (not just uninitialized), you will get a ReferenceError, not 'undefined'. 'undefined' applies only to existing, uninitialized declarations.",
-            "displayStyle": "COMMENT",
-            "likes": 310
+            "posterName": "TypeWatcher",
+            "text": "If you try to access an object property that doesn't exist, JavaScript also returns 'undefined'. This is a common source of bugs!",
+            "displayStyle": "BASIC"
           },
           {
-            "posterName": "JSMemeLord",
-            "text": "When you spend 3 hours debugging why your function returns 'undefined', only to realize you forgot the 'return' statement.",
-            "displayStyle": "MEME",
-            "likes": 980
+            "posterName": "TheMathematician",
+            "text": "It's not just programming. In mathematics, 'undefined' often refers to operations that have no meaning, like division by zero. The concept crosses disciplines.",
+            "displayStyle": "WEB_IMAGE",
+            "imageSearchQuery": "mathematical concept of division by zero"
           },
           {
             "posterName": "Quiz",
@@ -172,60 +68,54 @@
             "displayStyle": "QUIZ",
             "quizQuestions": [
               {
-                "question": "Which context *guarantees* a variable will be 'undefined'?",
+                "question": "What is the primary difference between 'undefined' and 'null' in JavaScript?",
                 "answers": [
-                  "Declared but not initialized.",
-                  "A function explicitly returning nothing.",
-                  "Accessing a non-existent object property."
+                  "They are exactly the same.",
+                  "'Undefined' is automatically assigned, 'null' is explicitly assigned.",
+                  "'Null' means the variable hasn't been declared."
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "What is the `typeof` operator's result for an `undefined` variable?",
+                "question": "What happens when you declare a variable in JavaScript but don't assign it a value?",
                 "answers": [
-                  "\"null\"",
-                  "\"void\"",
-                  "\"undefined\""
+                  "It is assigned the value 'null'.",
+                  "It throws an error.",
+                  "It is assigned the value 'undefined'."
                 ],
                 "correctIndex": 2
               },
               {
-                "question": "Is `undefined` considered a truthy or falsy value in JavaScript?",
+                "question": "Which mathematical operation typically results in an undefined value?",
                 "answers": [
-                  "Truthy",
-                  "Falsy",
-                  "Depends on the context"
+                  "Multiplication by zero.",
+                  "Division by zero.",
+                  "Taking the square root of a positive number."
                 ],
                 "correctIndex": 1
               }
-            ],
-            "likes": 700
+            ]
+          },
+          {
+            "posterName": "DataScientist",
+            "text": "In data analysis (especially with languages like Python/Pandas), missing data is often represented by NaN (Not a Number), which is conceptually similar to 'undefined' in that it signifies a lack of meaningful value.",
+            "displayStyle": "BASIC"
           },
           {
             "posterName": "TypeChecker",
-            "text": "Remember the difference: `undefined` means a variable exists but lacks an assigned value. `null` means a variable exists and has been explicitly assigned the value of \"no value\" or \"empty\".",
-            "displayStyle": "BASIC",
-            "likes": 550
-          },
-          {
-            "posterName": "CodeSleuth",
-            "text": "Here is a common scenario where 'undefined' appears: accessing an array index that is out of bounds.",
-            "displayStyle": "WEB_IMAGE",
-            "imageSearchQuery": "JavaScript array out of bounds accessing undefined example",
-            "likes": 490
-          },
-          {
-            "posterName": "StrictModeGuru",
-            "text": "Pro-Tip: When checking for 'undefined', always use the strict equality operator (`===`). This avoids type coercion issues that could make `== undefined` evaluate true for both `null` and `undefined`.",
-            "displayStyle": "COMMENT",
-            "likes": 710
-          },
-          {
-            "posterName": "VisualCoder",
-            "text": "Functions that do not explicitly return a value implicitly return 'undefined'. It's the silent default return ticket.",
+            "text": "Pro-Tip: Use the strict equality operator (`===`) when checking for 'undefined' to avoid type coercion issues, which can confuse it with other falsy values.",
             "displayStyle": "AI_IMAGE",
-            "aiImagePrompt": "A minimalistic illustration of a function machine processing inputs and letting the output conveyor belt run empty, with a small tag labeled 'undefined' attached to the end of the empty belt.",
-            "likes": 600
+            "aiImagePrompt": "a magnifying glass focusing on three equal signs (===) next to a ghosted out value"
+          },
+          {
+            "posterName": "Debugger",
+            "text": "A common mistake: When a function doesn't explicitly return a value, it implicitly returns 'undefined'. Always check your return statements!",
+            "displayStyle": "COMMENT"
+          },
+          {
+            "posterName": "JS_Beginner",
+            "text": "So, if I see 'undefined' in my console, it usually means I forgot to initialize something or misspelled a variable name?",
+            "displayStyle": "COMMENT"
           },
           {
             "posterName": "Quiz",
@@ -233,156 +123,257 @@
             "displayStyle": "QUIZ",
             "quizQuestions": [
               {
-                "question": "What is the result of `undefined == null`?",
+                "question": "What is the implicit return value of a JavaScript function that has no explicit return statement?",
                 "answers": [
-                  "true",
-                  "false",
-                  "TypeError"
+                  "0",
+                  "null",
+                  "undefined"
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Which method is generally preferred for checking if a variable is undefined?",
+                "question": "What does the `typeof` operator return for an 'undefined' value?",
                 "answers": [
-                  "`if (variable === undefined)`",
-                  "`if (!variable)`",
-                  "`if (variable == null)`"
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Can you intentionally assign the value `undefined` to a variable?",
-                "answers": [
-                  "No, it is read-only.",
-                  "Yes, but it is generally discouraged.",
-                  "Only in strict mode."
+                  "'object'",
+                  "'undefined'",
+                  "'null'"
                 ],
                 "correctIndex": 1
+              },
+              {
+                "question": "Which equality operator is recommended when checking for 'undefined' to prevent type coercion?",
+                "answers": [
+                  "==",
+                  "!=",
+                  "==="
+                ],
+                "correctIndex": 2
               }
-            ],
-            "likes": 750
+            ]
           },
           {
-            "posterName": "BugHunter",
-            "text": "Me: I swear I passed that argument into the function. The function receiving the argument: (shows 'undefined').",
-            "displayStyle": "MEME",
-            "likes": 880
+            "posterName": "Explainer",
+            "text": "Explain the concept of 'undefined' to a non-technical friend. Focus on the difference between 'not having a value' and 'having no value'.",
+            "displayStyle": "EXERCISE",
+            "exerciseQuestions": [
+              "Explain the difference between a variable being 'undefined' and a variable being assigned 'null'.",
+              "Describe a scenario in programming where you would encounter 'undefined' unintentionally.",
+              "How does the mathematical concept of 'undefined' relate to the programming concept?"
+            ]
           },
           {
-            "posterName": "LanguageHistorian",
-            "text": "Historically, JavaScript's decision to have both `null` and `undefined` is often cited as a language design mistake, contributing to confusion for newcomers.",
-            "displayStyle": "BASIC",
-            "likes": 420
+            "posterName": "FunctionalFan",
+            "text": "In robust programming, try to minimize 'undefined' values. Use default parameters or Optional Chaining (`?.`) to handle potential missing values gracefully, preventing runtime errors.",
+            "displayStyle": "WEB_IMAGE",
+            "imageSearchQuery": "optional chaining operator javascript diagram"
           },
           {
-            "posterName": "DeepDiver",
-            "text": "Want to master `undefined` vs `null`? Check out MDN's guide on equality comparisons and falsy values. Understanding coercion is key here!",
-            "displayStyle": "SOURCES",
-            "imageSearchQuery": "MDN JavaScript undefined null comparison",
-            "likes": 530
+            "posterName": "TypeWatcher",
+            "text": "The `typeof` operator for `undefined` correctly returns the string `'undefined'`. However, be careful: `typeof null` returns `'object'`, which is a historical JavaScript mistake!",
+            "displayStyle": "MEME"
           },
           {
-            "posterName": "PerformanceNerd",
-            "text": "While checking for `undefined` is crucial, remember that modern tooling (like TypeScript) often helps prevent these runtime errors by catching uninitialized variables during compilation/transpilation.",
-            "displayStyle": "COMMENT",
-            "likes": 390
-          },
-          {
-            "posterName": "Quiz",
-            "text": "",
-            "displayStyle": "QUIZ",
-            "quizQuestions": [
-              {
-                "question": "What happens if you try to destructure an object property that doesn't exist?",
-                "answers": [
-                  "It throws a ReferenceError.",
-                  "The resulting variable is assigned `undefined`.",
-                  "The resulting variable is assigned `null`."
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Is `undefined` a mutable or immutable primitive value?",
-                "answers": [
-                  "Mutable",
-                  "Immutable",
-                  "Depends on context"
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "In non-strict mode, can you redefine the global variable `undefined`?",
-                "answers": [
-                  "Yes, but it is strongly discouraged.",
-                  "No, it is always read-only.",
-                  "Only if using `var`."
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "likes": 650
+            "posterName": "LibraryLover",
+            "text": "Want to dive deeper into how different programming languages handle missing values? This resource compares JavaScript, Python, and Haskell.",
+            "displayStyle": "SOURCES"
           }
         ];
 
-        function createQuizHtml(questions) {
-            let html = `<div class="quiz-container">
-                            <div class="quiz-header">Interactive Quiz (${questions.length} Questions)</div>`;
-            
-            questions.forEach((q, qIndex) => {
-                html += `<div class="quiz-question">${qIndex + 1}. ${q.question}</div>
-                         <ul class="quiz-answer">`;
-                q.answers.forEach((answer, aIndex) => {
-                    // For simple display, we'll show the correct answer slightly emphasized
-                    const isCorrect = aIndex === q.correctIndex;
-                    html += `<li style="background-color: ${isCorrect ? '#d4edda' : '#f5f8fa'}; border-color: ${isCorrect ? '#c3e6cb' : '#eee'};">${answer} ${isCorrect ? '(CORRECT)' : ''}</li>`;
-                });
-                html += `</ul>`;
-            });
+        const feedContainer = document.getElementById('feed-container');
 
-            html += `</div>`;
-            return html;
+        // Helper function to create a standard tweet-like structure
+        function createBasePost(poster, content, isComment = false) {
+            const baseDiv = document.createElement('div');
+            baseDiv.className = `post-container p-4 transition duration-150 ${isComment ? 'pl-12 border-l-2 border-gray-100 ml-4' : ''}`;
+            
+            const avatarLetter = poster ? poster.charAt(0) : '?';
+            const displayName = poster || 'System';
+            
+            let contentHtml = `
+                <div class="flex mb-2 items-start">
+                    <div class="avatar mr-3 flex-shrink-0">${avatarLetter}</div>
+                    <div class="flex-grow">
+                        <span class="font-bold text-gray-900">${displayName}</span>
+                        <span class="text-gray-500 text-sm ml-2">· ${new Date().toLocaleTimeString()}</span>
+                    </div>
+                </div>
+                <div class="text-gray-800 whitespace-pre-wrap">${content}</div>
+            `;
+
+            baseDiv.innerHTML = contentHtml;
+            return baseDiv;
         }
 
-        function renderFeed() {
-            const container = document.getElementById('feedContainer');
-            let htmlContent = '<h1>JS \'undefined\' Debug Feed</h1>';
+        // --- Renderer Functions for Specific Styles ---
 
-            jsonData.forEach(item => {
-                let contentBody = `<div class="content">${item.text || ''}</div>`;
-                
-                // Handle specialized display styles
-                if (item.displayStyle === 'QUIZ') {
-                    contentBody = createQuizHtml(item.quizQuestions);
-                } else if (item.displayStyle === 'AI_IMAGE' || item.displayStyle === 'WEB_IMAGE') {
-                    // For AI/Web images, we just show the prompt/query in the content block as we cannot render actual images/prompts here simply.
-                    const description = item.displayStyle === 'AI_IMAGE' 
-                        ? `[Simulated AI Image Prompt]: ${item.aiImagePrompt}` 
-                        : `[Simulated Web Search Result]: ${item.imageSearchQuery}`;
-                    contentBody = `<div class="content" style="font-style: italic;">${item.text || ''} <br><br> --- DEBUG VISUAL --- <br> ${description}</div>`;
-                }
+        function renderBasic(item) {
+            const element = createBasePost(item.posterName, item.text);
+            element.querySelector('.text-gray-800').classList.add('text-base', 'font-medium');
+            return element;
+        }
 
-                const tweetHtml = `
-                    <div class="tweet style-${item.displayStyle}">
-                        <div class="header">
-                            <span class="poster-name">${item.posterName}</span>
-                            <span class="handle">@${item.posterName.toLowerCase().replace(/\s/g, '')}</span>
-                        </div>
-                        ${contentBody}
-                        <div class="footer">
-                            <div class="likes" onclick="this.querySelector('span').textContent = parseInt(this.querySelector('span').textContent) + 1;">
-                                <svg class="icon icon-heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                <span id="likes-${Math.random()}">${item.likes}</span>
-                            </div>
-                        </div>
+        function renderComment(item) {
+            const element = createBasePost(item.posterName, item.text, true);
+            // Styling comments slightly differently, maybe a lighter text color or bolded name
+            element.querySelector('.text-gray-800').classList.add('text-sm', 'text-gray-700');
+            element.querySelector('.font-bold').classList.add('text-sm');
+            return element;
+        }
+
+        function renderWebImage(item) {
+            const element = createBasePost(item.posterName, item.text);
+            const imageContainer = document.createElement('div');
+            imageContainer.className = "mt-3 border border-gray-200 rounded-lg overflow-hidden bg-gray-100 p-2 shadow-inner";
+            
+            // Since we cannot actually fetch images via search query dynamically in this isolated environment, 
+            // we use a placeholder to represent the intended functionality.
+            const placeholderText = `[WEB_IMAGE Placeholder: Search for "${item.imageSearchQuery}"]`;
+            
+            imageContainer.innerHTML = `
+                <div class="w-full h-40 bg-indigo-100 flex items-center justify-center text-indigo-700 font-semibold text-center p-4">
+                    ${placeholderText}
+                </div>
+                <p class="text-xs text-gray-500 p-1">Context: ${item.imageSearchQuery}</p>
+            `;
+            element.querySelector('.text-gray-800').insertAdjacentElement('afterend', imageContainer);
+            return element;
+        }
+        
+        function renderAIImage(item) {
+            const element = createBasePost(item.posterName, item.text);
+            const imageContainer = document.createElement('div');
+            imageContainer.className = "mt-3 border-2 border-dashed border-purple-300 rounded-lg overflow-hidden bg-purple-50 p-2 shadow-md";
+            
+            const placeholderText = `[AI_IMAGE Placeholder: Prompt: "${item.aiImagePrompt}"]`;
+            
+            imageContainer.innerHTML = `
+                <div class="w-full h-48 flex items-center justify-center text-purple-700 font-semibold text-center p-4">
+                    ${placeholderText}
+                </div>
+                <p class="text-xs text-gray-500 p-1">Prompt used for generation.</p>
+            `;
+            element.querySelector('.text-gray-800').insertAdjacentElement('afterend', imageContainer);
+            return element;
+        }
+
+        function renderQuiz(item) {
+            const element = createBasePost(item.posterName, "🧠 Knowledge Check:", false); // Quiz header
+            element.querySelector('.text-gray-800').innerHTML = "🧠 **Knowledge Check** (See below for details)";
+            
+            let quizHtml = `<div class="mt-3 p-3 border border-yellow-300 bg-yellow-50 rounded-lg shadow-sm">`;
+            
+            item.quizQuestions.forEach((q, index) => {
+                quizHtml += `
+                    <div class="mb-4 p-2 border-b ${index < item.quizQuestions.length - 1 ? 'border-yellow-200' : ''}">
+                        <p class="font-semibold text-sm text-yellow-800 mb-1">${index + 1}. ${q.question}</p>
+                        <ul class="text-xs space-y-1 list-disc list-inside ml-2">
+                            ${q.answers.map((answer, ansIndex) => `
+                                <li class="${ansIndex === q.correctIndex ? 'text-green-700 font-medium' : 'text-gray-700'}">
+                                    ${ansIndex === q.correctIndex ? '✅ Correct: ' : '⚪ Option: '} ${answer}
+                                </li>
+                            `).join('')}
+                        </ul>
                     </div>
                 `;
-                htmlContent += tweetHtml;
             });
 
-            container.innerHTML = htmlContent;
+            quizHtml += `<p class="text-xs italic mt-2 text-yellow-600">Correct answers are marked above for debugging visibility.</p></div>`;
+            
+            element.querySelector('.text-gray-800').insertAdjacentHTML('afterend', quizHtml);
+            return element;
+        }
+        
+        function renderExercise(item) {
+            const element = createBasePost(item.posterName, "📝 Debugging Exercise:", false);
+            element.querySelector('.text-gray-800').innerHTML = `
+                <p class="font-semibold text-base mb-2">${item.text}</p>
+                <div class="mt-3 p-3 border border-blue-300 bg-blue-50 rounded-lg shadow-sm">
+                    <p class="font-bold text-sm text-blue-800 mb-1">Questions to Address:</p>
+                    <ul class="text-sm space-y-2 ml-2">
+                        ${item.exerciseQuestions.map(q => `
+                            <li class="flex items-start text-gray-700">
+                                <span class="mr-2 text-blue-500">&bull;</span> 
+                                <span>${q}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+            return element;
         }
 
-        document.addEventListener('DOMContentLoaded', renderFeed);
+        function renderSources(item) {
+            const element = createBasePost(item.posterName, item.text);
+            element.querySelector('.text-gray-800').classList.add('text-sm');
+            
+            const sourceDiv = document.createElement('div');
+            sourceDiv.className = "mt-3 p-3 border border-green-300 bg-green-50 rounded-lg shadow-sm";
+            sourceDiv.innerHTML = `
+                <p class="font-semibold text-green-800">References Available:</p>
+                <a href="#" class="text-green-600 hover:text-green-800 text-sm underline block mt-1">[Link Placeholder: Language Comparison Resource]</a>
+            `;
+            element.querySelector('.text-gray-800').insertAdjacentElement('afterend', sourceDiv);
+            return element;
+        }
+
+        function renderMeme(item) {
+            const element = createBasePost(item.posterName, item.text, false);
+            element.querySelector('.text-gray-800').classList.add('text-lg', 'font-bold', 'text-pink-700');
+            
+            const memeDiv = document.createElement('div');
+            memeDiv.className = "mt-3 p-4 border-4 border-pink-500 rounded-xl bg-pink-100 shadow-xl flex items-center justify-center h-40";
+            memeDiv.innerHTML = `<span class="text-2xl font-extrabold text-pink-800">😂 MEME: ${item.posterName} moment</span>`;
+            
+            element.querySelector('.text-gray-800').insertAdjacentElement('afterend', memeDiv);
+            return element;
+        }
+
+
+        // --- Main Rendering Logic ---
+
+        function renderFeed() {
+            data.forEach(item => {
+                let postElement = null;
+
+                switch (item.displayStyle) {
+                    case "BASIC":
+                        postElement = renderBasic(item);
+                        break;
+                    case "COMMENT":
+                        postElement = renderComment(item);
+                        break;
+                    case "WEB_IMAGE":
+                        postElement = renderWebImage(item);
+                        break;
+                    case "AI_IMAGE":
+                        postElement = renderAIImage(item);
+                        break;
+                    case "QUIZ":
+                        postElement = renderQuiz(item);
+                        break;
+                    case "EXERCISE":
+                        postElement = renderExercise(item);
+                        break;
+                    case "SOURCES":
+                        postElement = renderSources(item);
+                        break;
+                    case "MEME":
+                        postElement = renderMeme(item);
+                        break;
+                    default:
+                        // Default to basic display if style is unknown
+                        postElement = createBasePost(item.posterName, `[Unknown Style: ${item.displayStyle}] ${item.text}`);
+                        break;
+                }
+
+                if (postElement) {
+                    feedContainer.appendChild(postElement);
+                }
+            });
+        }
+
+        renderFeed();
     </script>
+
 </body>
 </html>
