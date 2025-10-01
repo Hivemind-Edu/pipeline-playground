@@ -3,66 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Debug Feed - Simplified Twitter UI</title>
-    <!-- Tailwind CSS CDN -->
+    <title>AI Debug Feed - AI SDK 5 Data</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        /* Custom styles for the simplified Twitter look */
+        /* Custom styles for the Twitter-like UI */
         .tweet-border {
-            border-bottom: 1px solid #2f3336; /* Twitter dark mode separator */
+            border-bottom: 1px solid #2f3336; /* Darker Twitter line */
         }
-        .tweet-container {
-            border-left: 1px solid #2f3336;
-            border-right: 1px solid #2f3336;
+        .tweet-hover:hover {
+            background-color: #080808; /* Slightly lighter dark on hover */
         }
     </style>
 </head>
-<body class="bg-black text-white antialiased">
+<body class="bg-black text-white font-sans">
 
-    <div class="flex justify-center min-h-screen">
-        <!-- Main Content Area / Feed -->
-        <div class="w-full max-w-xl tweet-container">
+    <div class="max-w-xl mx-auto border-x border-[#2f3336] min-h-screen">
 
-            <!-- Header -->
-            <header class="sticky top-0 z-10 bg-black bg-opacity-95 p-4 tweet-border">
-                <h1 class="text-xl font-bold">AI Debug Feed</h1>
-                <p class="text-sm text-gray-500">Source Data Visualization</p>
-            </header>
+        <!-- Header -->
+        <header class="sticky top-0 bg-black/95 backdrop-blur-sm px-4 py-3 border-b border-[#2f3336] z-10">
+            <h1 class="text-xl font-bold">AI Debug Feed</h1>
+        </header>
 
-            <!-- Feed Content -->
-            <main id="feed-container">
-                <!-- Posts will be injected here by the script -->
-            </main>
+        <!-- Main Feed -->
+        <main id="feed-container">
+            <!-- Tweets will be injected here -->
+        </main>
 
-            <!-- Footer Placeholder -->
-            <footer class="p-8 text-center text-gray-600 tweet-border border-t">
-                End of Feed Data
-            </footer>
-        </div>
     </div>
 
     <script>
         const jsonData = [
           {
-            "posterName": "React Simplified",
-            "text": "Welcome to your learning feed for React! Let's start with the absolute basics. React is a JavaScript library for building user interfaces. It lets you create reusable UI components.",
+            "posterName": "AI Navigator",
+            "text": "Welcome to your learning feed on AI SDK 5! Get ready to dive into the world of building AI-powered applications with the latest and greatest toolkit for TypeScript developers.",
             "displayStyle": "BASIC"
           },
           {
-            "posterName": "CodeCrafter",
-            "text": "One of the first things you'll encounter in React is JSX. It looks like HTML, but it's actually a syntax extension for JavaScript. This allows you to write what your UI should look like right inside your JavaScript code.",
+            "posterName": "Code Architect",
+            "text": "AI SDK 5, from the creators of Next.js, is a free, open-source library that provides the tools you need to build AI-powered products. It's designed to be framework-agnostic, working seamlessly with React, Next, Vue, Nuxt, SvelteKit, and more.",
+            "displayStyle": "BASIC"
+          },
+          {
+            "posterName": "Feature Spotlight",
+            "text": "One of the standout features of AI SDK 5 is its end-to-end type safety. From the server to the client, every piece of data, tool call, and metadata is fully typed, which is a huge win for TypeScript developers.",
             "displayStyle": "AI_IMAGE",
-            "aiImagePrompt": "A futuristic code editor showing a mix of HTML tags and JavaScript code, with glowing lines connecting them, symbolizing the integration of JSX."
+            "aiImagePrompt": "A futuristic cityscape with glowing lines of code and the TypeScript logo prominently displayed, representing the type-safe environment of AI SDK 5."
           },
           {
-            "posterName": "Component King",
-            "text": "In React, everything is a component. Think of them as independent and reusable bits of code. A component is like a JavaScript function that returns a piece of the user interface.",
-            "displayStyle": "WEB_IMAGE",
-            "imageSearchQuery": "Lego bricks being assembled into a structure"
-          },
-          {
-            "posterName": "State & Props",
-            "text": "To pass data to your components, you use 'props'. Props are like function arguments and are passed from a parent component to a child component. They are read-only, meaning a child component cannot change the props it receives.",
+            "posterName": "Dr. DX",
+            "text": "The developer experience with AI SDK 5 is a dream. It offers a unified provider API, meaning you can switch between different AI models from providers like OpenAI, Anthropic, and Google with just a single line of code.",
             "displayStyle": "BASIC"
           },
           {
@@ -71,60 +60,60 @@
             "displayStyle": "QUIZ",
             "quizQuestions": [
               {
-                "question": "What is React?",
+                "question": "Which of the following is a key feature of AI SDK 5?",
                 "answers": [
-                  "A JavaScript framework for building mobile apps.",
-                  "A JavaScript library for building user interfaces.",
-                  "A database management system."
+                  "Exclusive support for React",
+                  "A unified provider API for various language models",
+                  "A closed-source, paid library"
                 ],
                 "correctIndex": 1
               },
               {
-                "question": "What is JSX?",
+                "question": "What is a major benefit of AI SDK 5's fully typed nature?",
                 "answers": [
-                  "A templating language for JavaScript.",
-                  "A syntax extension for JavaScript that looks like HTML.",
-                  "A CSS preprocessor."
+                  "It makes the code harder to read.",
+                  "It introduces more runtime errors.",
+                  "It enhances code quality and reduces runtime errors."
                 ],
-                "correctIndex": 1
+                "correctIndex": 2
               },
               {
-                "question": "How is data passed from a parent to a child component?",
+                "question": "AI SDK 5 is primarily designed for which programming language?",
                 "answers": [
-                  "Through state",
-                  "Through props",
-                  "Through context"
+                  "Python",
+                  "TypeScript",
+                  "Java"
                 ],
                 "correctIndex": 1
               }
             ]
+          },
+          {
+            "posterName": "The Streamer",
+            "text": "Don't keep your users waiting! AI SDK 5 enables streaming of AI responses, allowing you to send them to the user instantly for a much more responsive experience.",
+            "displayStyle": "WEB_IMAGE",
+            "imageSearchQuery": "data streaming animation"
+          },
+          {
+            "posterName": "Agent Smith",
+            "text": "Building AI agents is a breeze with AI SDK 5. It provides robust support for type-safe tool calls using Zod schemas, allowing your AI to interact with external systems.",
+            "displayStyle": "BASIC"
+          },
+          {
+            "posterName": "UI Master",
+            "text": "AI SDK 5 isn't just for the backend. It includes a UI component that works with popular frameworks like React, Svelte, Vue, and Angular to create highly customizable chat integrations.",
+            "displayStyle": "AI_IMAGE",
+            "aiImagePrompt": "A user interface for a chatbot with sleek, modern design elements, showcasing the customizability of AI SDK 5's chat components."
           },
           {
             "posterName": "Deep Dive",
-            "text": "Let's talk about 'state'. While props are for passing data down, 'state' is for managing a component's internal data that can change over time. Think of it as a component's personal memory.",
-            "displayStyle": "AI_IMAGE",
-            "aiImagePrompt": "An illustration of a robot with a thought bubble above its head, inside the bubble are various icons representing data and user interactions, symbolizing internal state."
-          },
-          {
-            "posterName": "The Feynman",
-            "text": "Time for a check-in! Explain these concepts in your own words as if you were teaching them to someone else.",
+            "text": "Let's talk about 'Agentic Loop Control.' This new feature in AI SDK 5 gives you more fine-grained control over the execution flow of your AI agents.",
             "displayStyle": "EXERCISE",
             "exerciseQuestions": [
-              "What is the difference between props and state?",
-              "Why is it said that data flows one-way in React?",
-              "What is the purpose of JSX and how does it get converted to regular JavaScript?"
+              "In your own words, what do you think 'Agentic Loop Control' might refer to in the context of an AI agent?",
+              "How might this feature be beneficial when building a complex AI-powered application?",
+              "Can you think of a specific use case where precise control over an agent's execution loop would be critical?"
             ]
-          },
-          {
-            "posterName": "React Internals",
-            "text": "Ever wondered how React is so fast? It uses a Virtual DOM! Instead of directly manipulating the slow browser DOM, React creates a lightweight copy in memory. When the state changes, it updates this virtual representation first, and then efficiently updates only the changed parts of the real DOM.",
-            "displayStyle": "BASIC"
-          },
-          {
-            "posterName": "Lifecycle Methods",
-            "text": "Every React component goes through a lifecycle of events. You can tap into these events using special methods. The main phases are Mounting (being created and inserted into the DOM), Updating (re-rendering due to prop or state changes), and Unmounting (being removed from the DOM).",
-            "displayStyle": "WEB_IMAGE",
-            "imageSearchQuery": "Diagram of a plant lifecycle from seed to withering"
           },
           {
             "posterName": "Quiz",
@@ -132,60 +121,55 @@
             "displayStyle": "QUIZ",
             "quizQuestions": [
               {
-                "question": "What is the main difference between props and state?",
+                "question": "Which new capabilities were introduced in AI SDK 5 for richer interactions?",
                 "answers": [
-                  "Props are for external data, state is for internal data.",
-                  "Props can be changed by the component, state cannot.",
-                  "Props are passed from child to parent, state is local."
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "What is the Virtual DOM?",
-                "answers": [
-                  "A direct representation of the HTML in the browser.",
-                  "A lightweight in-memory copy of the real DOM.",
-                  "A way to style React components."
+                  "Video editing and 3D modeling",
+                  "Speech Generation & Transcription",
+                  "Database management"
                 ],
                 "correctIndex": 1
               },
               {
-                "question": "Which is NOT a phase of the component lifecycle?",
+                "question": "What is the recommended way to handle different AI model providers in AI SDK 5?",
                 "answers": [
-                  "Mounting",
-                  "Initializing",
-                  "Updating"
+                  "Write separate code for each provider.",
+                  "Use the unified provider API.",
+                  "AI SDK 5 only supports one provider."
                 ],
                 "correctIndex": 1
+              },
+              {
+                "question": "For what purpose can you use Zod schemas with AI SDK 5?",
+                "answers": [
+                  "Styling the user interface.",
+                  "Defining the database structure.",
+                  "Ensuring type-safe tool calls for AI agents."
+                ],
+                "correctIndex": 2
               }
             ]
           },
           {
-            "posterName": "List Master",
-            "text": "When rendering lists of elements in React, it's crucial to provide a unique 'key' for each item. Keys help React identify which items have changed, are added, or are removed, which helps in efficiently updating the UI.",
+            "posterName": "Sound On",
+            "text": "AI SDK 5 is not just about text! It introduces Speech Generation & Transcription capabilities, opening up a whole new world of voice-based AI applications.",
+            "displayStyle": "WEB_IMAGE",
+            "imageSearchQuery": "sound wave visualization"
+          },
+          {
+            "posterName": "The Upgrader",
+            "text": "Thinking of moving from a previous version? Vercel provides codemods to help automate the upgrade process to AI SDK 5, making the transition smoother.",
             "displayStyle": "BASIC"
           },
           {
-            "posterName": "The Feynman",
-            "text": "Let's solidify your understanding. Explain these concepts clearly and concisely.",
-            "displayStyle": "EXERCISE",
-            "exerciseQuestions": [
-              "Explain the concept of the Virtual DOM and why it's beneficial for performance.",
-              "Describe the three main phases of a component's lifecycle and give an example of a method for each.",
-              "Why are keys important when rendering lists in React?"
-            ]
-          },
-          {
-            "posterName": "Context is Key",
-            "text": "Tired of passing props down through many levels of components? The Context API is here to help! It provides a way to share data that can be considered “global” for a tree of React components, like themes or user authentication, without having to pass props down manually at every level.",
+            "posterName": "Generative UI",
+            "text": "Go beyond simple text responses. With AI SDK 5, you can create dynamic, AI-powered user interfaces that can amaze your users.",
             "displayStyle": "AI_IMAGE",
-            "aiImagePrompt": "A glowing orb of data at the top of a tree-like structure, with light trickling down and illuminating various branches (components) directly, bypassing the need to travel down the trunk."
+            "aiImagePrompt": "An animated user interface that is actively being constructed and modified by an AI, with elements appearing and rearranging in a fluid, intelligent manner."
           },
           {
-            "posterName": "State Management Pro",
-            "text": "For more complex applications, you might need a dedicated state management library. Redux is a popular choice. It provides a predictable state container, making it easier to manage the state of your entire application in one place.",
-            "displayStyle": "WEB_IMAGE",
-            "imageSearchQuery": "centralized data hub with connections to multiple devices"
+            "posterName": "The Pragmatist",
+            "text": "AI SDK 5 introduces a clearer distinction between UI messages and model messages. This separation helps in cleaning up front-end code and makes it more readable.",
+            "displayStyle": "BASIC"
           },
           {
             "posterName": "Quiz",
@@ -193,176 +177,211 @@
             "displayStyle": "QUIZ",
             "quizQuestions": [
               {
-                "question": "What is the primary purpose of the Context API?",
+                "question": "What is the purpose of the UI component in AI SDK 5?",
                 "answers": [
-                  "To replace Redux in all applications.",
-                  "To avoid 'prop drilling' by passing data through the component tree without manually passing props at every level.",
-                  "To manage local component state."
+                  "To manage server-side logic.",
+                  "To provide hooks for building chat interfaces.",
+                  "To handle database migrations."
                 ],
                 "correctIndex": 1
               },
               {
-                "question": "What is Redux?",
+                "question": "What does 'streaming AI responses' mean in the context of AI SDK 5?",
                 "answers": [
-                  "A React component library.",
-                  "A predictable state container for JavaScript apps.",
-                  "A tool for testing React components."
+                  "Watching videos about AI.",
+                  "Sending the complete AI response at once.",
+                  "Sending the AI response token by token as it's generated."
                 ],
-                "correctIndex": 1
+                "correctIndex": 2
               },
               {
-                "question": "When should you use a 'key' prop?",
+                "question": "Which of these frameworks is NOT explicitly mentioned as being supported by AI SDK 5's chat integration?",
                 "answers": [
-                  "When creating any React element.",
-                  "When rendering a list of elements.",
-                  "When passing a function as a prop."
+                  "React",
+                  "Angular",
+                  "jQuery"
                 ],
-                "correctIndex": 1
+                "correctIndex": 2
               }
             ]
           },
           {
-            "posterName": "Test Master",
-            "text": "Testing your React components is crucial for building robust applications. Tools like Jest and React Testing Library help you write tests to ensure your components behave as expected. React Testing Library encourages you to test your components in a way that resembles how a user would interact with them.",
-            "displayStyle": "BASIC"
+            "posterName": "The Explorer",
+            "text": "Ready to start building? The official documentation and playground are the best places to begin your journey with AI SDK 5.",
+            "displayStyle": "SOURCES"
+          },
+          {
+            "posterName": "Meme Lord",
+            "text": "When you realize you can swap out massive language models with a single line of code in AI SDK 5.",
+            "displayStyle": "MEME"
           }
         ];
 
         const feedContainer = document.getElementById('feed-container');
 
-        // Helper function to create HTML for a generic tweet structure
-        function createTweet(post, contentHTML) {
-            // Placeholder for a generic avatar
-            const avatarHTML = `
-                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-xl font-bold text-black uppercase">
-                    ${post.posterName[0]}
-                </div>
-            `;
-
-            return `
-                <div class="p-4 flex space-x-3 tweet-border hover:bg-gray-950 transition duration-150 ease-in-out">
-                    <!-- Avatar -->
-                    <div>${avatarHTML}</div>
-                    
-                    <!-- Content -->
-                    <div class="flex-1">
-                        <!-- Poster Name & Handle -->
-                        <div class="flex items-center space-x-1">
-                            <span class="font-bold hover:underline">${post.posterName}</span>
-                            <span class="text-gray-500 text-sm">@${post.posterName.toLowerCase().replace(/\s/g, '_')}</span>
-                        </div>
-
-                        <!-- Main Content (Text + Media/Interactive) -->
-                        <div class="mt-1">
-                            ${post.text ? `<p class="text-white whitespace-pre-wrap">${post.text}</p>` : ''}
-                            <div class="mt-2">
-                                ${contentHTML}
-                            </div>
-                        </div>
-
-                        <!-- Debug Info (Optional) -->
-                        <div class="mt-2 text-xs text-gray-700">
-                            Style: <span class="font-mono text-gray-500">${post.displayStyle}</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Renderer functions based on displayStyle
-        const renderers = {
-            BASIC: (post) => {
-                return ''; // Basic tweets only have text, which is handled above
-            },
-
-            AI_IMAGE: (post) => {
-                return `
-                    <div class="border border-gray-700 rounded-xl overflow-hidden mt-3 p-3 bg-gray-900">
-                        <p class="text-sm font-semibold text-blue-400">AI Image Prompt:</p>
-                        <p class="text-sm text-gray-400 italic">${post.aiImagePrompt}</p>
-                        <div class="w-full h-40 bg-gray-800 flex items-center justify-center rounded-lg mt-2 text-gray-500">
-                            [Simulated AI Image Placeholder]
-                        </div>
-                    </div>
-                `;
-            },
-
-            WEB_IMAGE: (post) => {
-                return `
-                    <div class="border border-gray-700 rounded-xl overflow-hidden mt-3 p-3 bg-gray-900">
-                        <p class="text-sm font-semibold text-green-400">Web Image Search:</p>
-                        <p class="text-sm text-gray-400 italic">${post.imageSearchQuery}</p>
-                        <div class="w-full h-40 bg-gray-800 flex items-center justify-center rounded-lg mt-2 text-gray-500">
-                            [Simulated Web Image Placeholder]
-                        </div>
-                    </div>
-                `;
-            },
-
-            QUIZ: (post) => {
-                let quizHtml = '<div class="space-y-4 p-4 border border-blue-600 rounded-xl bg-gray-900">';
-                quizHtml += '<h3 class="text-lg font-bold text-blue-400">Interactive Quiz Time!</h3>';
-                
-                post.quizQuestions.forEach((q, qIndex) => {
-                    quizHtml += `<div class="mt-4">
-                        <p class="font-semibold text-white">Q${qIndex + 1}: ${q.question}</p>
-                        <ul class="mt-1 space-y-1">`;
-                    
-                    q.answers.forEach((answer, aIndex) => {
-                        const isCorrect = aIndex === q.correctIndex;
-                        const bgColor = isCorrect ? 'bg-green-700/50' : 'bg-gray-700/50';
-                        const borderColor = isCorrect ? 'border-green-500' : 'border-gray-500';
-                        const status = isCorrect ? ' (Correct Answer)' : '';
-
-                        quizHtml += `
-                            <li class="p-2 border ${borderColor} rounded text-sm flex items-center ${bgColor}">
-                                <span class="font-mono text-xs w-4">${String.fromCharCode(65 + aIndex)}.</span>
-                                <span>${answer}</span>
-                                <span class="ml-auto text-xs ${isCorrect ? 'text-green-300' : 'text-gray-400'}">${status}</span>
-                            </li>
-                        `;
-                    });
-                    quizHtml += `</ul></div>`;
-                });
-                
-                quizHtml += '</div>';
-                return quizHtml;
-            },
-
-            EXERCISE: (post) => {
-                let exerciseHtml = '<div class="space-y-4 p-4 border border-yellow-600 rounded-xl bg-gray-900">';
-                exerciseHtml += '<h3 class="text-lg font-bold text-yellow-400">Exercise / Self-Reflection</h3>';
-                exerciseHtml += `<p class="text-gray-300">${post.text}</p>`;
-
-                exerciseHtml += '<ul class="mt-3 space-y-2 list-disc list-inside text-gray-300">';
-                post.exerciseQuestions.forEach((question, index) => {
-                    exerciseHtml += `<li class="pl-1"><span class="font-semibold text-white">Question ${index + 1}:</span> ${question}</li>`;
-                });
-                exerciseHtml += '</ul>';
-                
-                // Add a simple interaction placeholder
-                exerciseHtml += '<div class="mt-4 pt-3 border-t border-gray-700">';
-                exerciseHtml += '<textarea class="w-full h-20 p-2 text-sm bg-black border border-gray-700 rounded placeholder-gray-500 focus:ring-yellow-500 focus:border-yellow-500" placeholder="Type your explanation here for debugging purposes..."></textarea>';
-                exerciseHtml += '</div>';
-
-                exerciseHtml += '</div>';
-                return exerciseHtml;
-            }
+        const styleColors = {
+            'BASIC': 'border-blue-500 bg-gray-900',
+            'AI_IMAGE': 'border-purple-500 bg-purple-900/20',
+            'WEB_IMAGE': 'border-green-500 bg-green-900/20',
+            'QUIZ': 'border-yellow-500 bg-yellow-900/20',
+            'EXERCISE': 'border-orange-500 bg-orange-900/20',
+            'SOURCES': 'border-indigo-500 bg-indigo-900/20',
+            'MEME': 'border-red-500 bg-red-900/20'
         };
 
-        // Main rendering loop
-        jsonData.forEach(post => {
-            const renderer = renderers[post.displayStyle];
+        function renderPost(post) {
+            const styleClass = styleColors[post.displayStyle] || styleColors['BASIC'];
+
             let contentHTML = '';
 
-            if (renderer) {
-                contentHTML = renderer(post);
-            } else {
-                contentHTML = `<div class="p-2 text-red-500 border border-red-700 rounded bg-red-900/20">Unknown displayStyle: ${post.displayStyle}</div>`;
+            // 1. Main Text
+            if (post.text) {
+                contentHTML += `<p class="whitespace-pre-wrap mb-2">${post.text}</p>`;
             }
 
-            feedContainer.innerHTML += createTweet(post, contentHTML);
-        });
+            // 2. Specific Content based on displayStyle
+            switch (post.displayStyle) {
+                case 'AI_IMAGE':
+                    contentHTML += `
+                        <div class="p-3 mt-2 rounded-lg border border-purple-700 bg-purple-900/30">
+                            <h4 class="text-sm text-purple-400 font-semibold mb-1">AI Image Prompt (Data Only)</h4>
+                            <p class="text-xs italic">${post.aiImagePrompt}</p>
+                            <div class="mt-2 text-center text-xs text-purple-300 bg-purple-800/50 p-1 rounded">
+                                [Placeholder for AI-generated Image]
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'WEB_IMAGE':
+                    contentHTML += `
+                        <div class="p-3 mt-2 rounded-lg border border-green-700 bg-green-900/30">
+                            <h4 class="text-sm text-green-400 font-semibold mb-1">Web Image Search Query (Data Only)</h4>
+                            <p class="text-xs italic">${post.imageSearchQuery}</p>
+                            <div class="mt-2 text-center text-xs text-green-300 bg-green-800/50 p-1 rounded">
+                                [Placeholder for Web Image]
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'QUIZ':
+                    if (post.quizQuestions && post.quizQuestions.length > 0) {
+                        contentHTML += `<div class="p-3 mt-2 rounded-lg border border-yellow-700 bg-yellow-900/30">
+                            <h4 class="text-base text-yellow-400 font-semibold mb-3">QUIZ: Test Your Knowledge!</h4>`;
+                        post.quizQuestions.forEach((q, qIndex) => {
+                            contentHTML += `
+                                <div class="mb-4 p-2 border-l-4 border-yellow-500 bg-black/30 rounded">
+                                    <p class="font-medium mb-2">Q${qIndex + 1}: ${q.question}</p>
+                                    <ul class="space-y-1 text-sm">
+                            `;
+                            q.answers.forEach((answer, aIndex) => {
+                                const isCorrect = aIndex === q.correctIndex;
+                                const answerClass = isCorrect ? 'text-green-400 bg-green-900/30 border-green-600' : 'text-gray-400 bg-gray-800 border-gray-700';
+                                contentHTML += `
+                                    <li class="flex items-start p-1 rounded border ${answerClass}">
+                                        <span class="mr-2 font-bold">${String.fromCharCode(65 + aIndex)}.</span>
+                                        <span>${answer}</span>
+                                        ${isCorrect ? '<span class="ml-auto text-xs font-bold">(Correct)</span>' : ''}
+                                    </li>
+                                `;
+                            });
+                            contentHTML += `</ul></div>`;
+                        });
+                        contentHTML += `</div>`;
+                    }
+                    break;
+                case 'EXERCISE':
+                    if (post.exerciseQuestions && post.exerciseQuestions.length > 0) {
+                        contentHTML += `<div class="p-3 mt-2 rounded-lg border border-orange-700 bg-orange-900/30">
+                            <h4 class="text-base text-orange-400 font-semibold mb-3">EXERCISE: Deep Dive Questions</h4>`;
+                        post.exerciseQuestions.forEach((q, qIndex) => {
+                            contentHTML += `
+                                <div class="mb-3 p-2 border-l-4 border-orange-500 bg-black/30 rounded">
+                                    <p class="font-medium mb-1">Question ${qIndex + 1}:</p>
+                                    <p class="text-sm italic">${q}</p>
+                                </div>
+                            `;
+                        });
+                        contentHTML += `<p class="text-xs text-orange-300 mt-2">These are open-ended thought questions.</p></div>`;
+                    }
+                    break;
+                case 'SOURCES':
+                    contentHTML += `
+                        <div class="p-3 mt-2 rounded-lg border border-indigo-700 bg-indigo-900/30">
+                            <h4 class="text-sm text-indigo-400 font-semibold mb-1">Sources/Resources (Data Only)</h4>
+                            <p class="text-xs">This post indicates external resources are available.</p>
+                            <div class="mt-2 text-center text-xs text-indigo-300 bg-indigo-800/50 p-1 rounded">
+                                [Placeholder for Documentation Links]
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'MEME':
+                    contentHTML += `
+                        <div class="p-3 mt-2 rounded-lg border border-red-700 bg-red-900/30 text-center">
+                            <h4 class="text-sm text-red-400 font-semibold mb-1">Meme Content (Data Only)</h4>
+                            <p class="text-xl my-4">😂🤣</p>
+                            <div class="mt-2 text-xs text-red-300 bg-red-800/50 p-1 rounded">
+                                [Placeholder for Image/GIF]
+                            </div>
+                        </div>
+                    `;
+                    break;
+            }
+
+            // Tweet structure
+            const tweetHTML = `
+                <div class="p-4 tweet-border tweet-hover flex transition-colors duration-200">
+                    <!-- Avatar Placeholder -->
+                    <div class="w-10 h-10 bg-gray-600 rounded-full mr-3 flex-shrink-0 flex items-center justify-center text-lg font-bold">
+                        ${post.posterName.charAt(0)}
+                    </div>
+
+                    <!-- Content -->
+                    <div class="flex-grow">
+                        <div class="flex items-center space-x-1">
+                            <span class="font-bold hover:underline">${post.posterName}</span>
+                            <span class="text-gray-500">@${post.posterName.toLowerCase().replace(/\s/g, '')}</span>
+                            <span class="text-gray-500">·</span>
+                            <span class="text-gray-500">now</span>
+                        </div>
+                        
+                        <!-- Main Text & Specific Content -->
+                        <div class="mt-1">
+                            ${contentHTML}
+                        </div>
+
+                        <!-- Debug/Style Tag -->
+                        <div class="mt-3 inline-block px-2 py-0.5 text-xs font-mono rounded-full border ${styleClass} text-gray-200 opacity-80">
+                            Style: ${post.displayStyle}
+                        </div>
+
+                        <!-- Footer (Simulated Twitter actions) -->
+                        <div class="flex justify-between mt-3 text-gray-500 text-sm max-w-sm">
+                            <div class="flex items-center space-x-1 hover:text-blue-500 cursor-pointer">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                                <span>${Math.floor(Math.random() * 50)}</span>
+                            </div>
+                            <div class="flex items-center space-x-1 hover:text-green-500 cursor-pointer">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                <span>${Math.floor(Math.random() * 20)}</span>
+                            </div>
+                            <div class="flex items-center space-x-1 hover:text-red-500 cursor-pointer">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                <span>${Math.floor(Math.random() * 100)}</span>
+                            </div>
+                            <div class="flex items-center space-x-1 hover:text-blue-500 cursor-pointer">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            feedContainer.innerHTML += tweetHTML;
+        }
+
+        // Render all posts
+        jsonData.forEach(renderPost);
     </script>
+
 </body>
 </html>

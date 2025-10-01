@@ -1,8 +1,9 @@
 import { z } from "zod";
 
+import { EXAMPLE_BLUEPRINT } from "./EXAMPLE_BLUEPRINT";
+
 export const createPrompt = (
 	topic: string,
-	PostSchema: z.ZodSchema,
 ) => `Create a learning feed for the topic "${topic}".
 Output AT LEAST 15 posts!
     
@@ -17,7 +18,26 @@ COMMENT - When immediate clarification, counterpoint, or dialogue adds value
 MEME - It is like BASIC but with a meme attached.
 SOURCES - When external learning resources would help users dive deeper.
 
-The output should be YAML Documents, each one representing a post.
-Post schema:
 
-${JSON.stringify(z.toJSONSchema(PostSchema), null, 2)}`;
+The output should be YAML Documents, each one representing a post.
+Every YAML Document should be separated by a "---" line.
+
+Every Post should strictly adhere to the following type:
+
+type Post = {
+    posterName: string;
+    text: string;
+    displayStyle: "BASIC" | "AI_IMAGE" | "COMMENT" | "MEME" | "QUIZ" | "SOURCES" | "WEB_IMAGE" | "EXERCISE";
+    quizQuestions?: {
+        question: string;
+        answers: string[];
+        correctIndex: number;
+    }[] // only add quizQuestions if displayStyle is QUIZ
+    exerciseQuestions?: string[] | undefined; // only add exerciseQuestions if displayStyle is EXERCISE
+    aiImagePrompt?: string | undefined; // only add aiImagePrompt if displayStyle is AI_IMAGE
+    imageSearchQuery?: string | undefined; // only add imageSearchQuery if displayStyle is WEB_IMAGE
+}
+
+Example output:
+${EXAMPLE_BLUEPRINT}
+`;

@@ -21,38 +21,43 @@ import { createPrompt } from "./prompt";
 	allowPositionals: true,
 });
  */
-const TOPIC = "React";
+const TOPIC = "AI SDK 5";
 
-const PostSchema = z.object({
-	posterName: z.string(),
-	text: z.string(),
-	displayStyle: z.enum([
-		"BASIC",
-		"AI_IMAGE",
-		"COMMENT",
-		"MEME",
-		"QUIZ",
-		"SOURCES",
-		"WEB_IMAGE",
-		"EXERCISE",
-	]),
-	quizQuestions: z
-		.array(
-			z.object({
-				question: z.string(),
-				answers: z.array(z.string()),
-				correctIndex: z.number(),
-			}),
-		)
-		.optional(),
-	exerciseQuestions: z.array(z.string()).optional(),
-	aiImagePrompt: z.string().optional(),
-	imageSearchQuery: z.string().optional(),
-});
+const PostSchema = z.union([
+	z.object({
+		posterName: z.string(),
+		text: z.string(),
+		displayStyle: z.enum([
+			"BASIC",
+			"AI_IMAGE",
+			"COMMENT",
+			"MEME",
+			"QUIZ",
+			"SOURCES",
+			"WEB_IMAGE",
+			"EXERCISE",
+		]),
+		quizQuestions: z
+			.array(
+				z.object({
+					question: z.string(),
+					answers: z.array(z.string()),
+					correctIndex: z.number(),
+				}),
+			)
+			.optional(),
+		exerciseQuestions: z.array(z.string()).optional(),
+		aiImagePrompt: z.string().optional(),
+		imageSearchQuery: z.string().optional(),
+	}),
+	z.object({
+		nextTopicSuggestions: z.array(z.string()).min(3).max(3),
+	}),
+]);
 
 export type Post = z.infer<typeof PostSchema>;
 
-const prompt = createPrompt(TOPIC, PostSchema);
+const prompt = createPrompt(TOPIC);
 
 console.log(prompt);
 
