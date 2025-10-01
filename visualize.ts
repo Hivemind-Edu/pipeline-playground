@@ -7,27 +7,47 @@ const daisyUICollapseDocs = await fetch(
 
 const daisyUICollapseDocsText = await daisyUICollapseDocs.text();
 
-export async function visualize(data: string) {
+export async function visualize(data: string, htmlFilePath?: string) {
+  let oldVisualizationHTML: string | undefined;
+  if (htmlFilePath) {
+    try {
+      oldVisualizationHTML = await Bun.file(htmlFilePath).text();
+    } catch (error) {
+      console.error(
+        `Error loading old visualization HTML from ${htmlFilePath}: ${error}`
+      );
+    }
+  }
+
   console.log("Visualizing...");
   const { text: html } = await generateText({
     model: google("gemini-2.5-flash-lite-preview-09-2025"),
-    prompt: `Please convert this data into a HTML page. It should be functional and simple and display all the data directly, preferrably in a UI that looks like a simplified Twitter
+    prompt: `Please convert this data into a HTML page. It should be functional and simple and display all the data directly.
     The site should be for debugging purposes so I can see the data i generate via AI.
+	No interactivity is needed, just build a beautiful HTML page that is inspired by a Twitter feed.
 
-	Use DaisyUI and TailwindCSS:
-	<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/4.1.13/lib.min.js"></script>
+	Define the JSON inside a <script> tag
 
-    Don't invent anything, just display the data from the json in a functional way.
-    
+	Use TailwindCSS 4 from this exact cdn link:
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    Use dark mode for the UI.
+
     JSON data:
     ${data}
     
-    Return ONLY the complete HTML document, no other text.`,
+    Return ONLY the complete HTML document, no other text.
+	
+	${
+    oldVisualizationHTML
+      ? `The UI should look similar to this: ${oldVisualizationHTML}. DO NOT USE THE DATA FROM THIS EXAMPLE, USE THE DATA FROM ABOVE INSTEAD.`
+      : ""
+  }
+	`,
     providerOptions: {
       google: {
         thinkingConfig: {
-          thinkingBudget: -1,
+          thinkingBudget: 0,
         },
       },
     },
@@ -40,13 +60,13 @@ export async function visualize(data: string) {
 
   const htmlCleaned = html.replace(/^```html\n/, "").replace(/\n```$/, "");
 
-  await Bun.write("visualization.html", htmlCleaned);
-  console.log("✅ HTML saved to visualization.html");
+  await Bun.write(htmlFilePath ?? "visualization.html", htmlCleaned);
+  console.log("✅ HTML saved");
 
-  Bun.spawn(["open", "visualization.html"]);
+  Bun.spawn(["open", htmlFilePath ?? "visualization.html"]);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const array = await Bun.file("output.json").text();
-  await visualize(array);
+  await visualize(array, "visualization.html");
 }

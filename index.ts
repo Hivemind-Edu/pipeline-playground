@@ -115,20 +115,43 @@ await startActiveObservation("debug-generateFeed", async (span) => {
       },
       null,
       2
-    )
+    ),
+    "visualization.html"
   );
 
-  const postsWithChildren = await Promise.all(
-    array.map(async (post) => {
-      if (PostSchema.safeParse(post).success) {
-        return {
-          ...post,
-          children: await generateThread(post as Post, metadata),
-        };
-      }
-      return post;
-    })
-  );
+  const postsWithChildren = [];
+  const generatedThreads: Array<{ post: Post; children: any[] }> = [];
+
+  for (const post of array) {
+    if (PostSchema.safeParse(post).success) {
+      const previousThreadsString =
+        generatedThreads.length > 0
+          ? `Previous threads (for context):
+${generatedThreads
+  .slice(-3)
+  .map(
+    (thread, idx) => `
+Previous thread ${idx + 1}:
+Root post: ${JSON.stringify(thread.post, null, 2)}
+Children: ${JSON.stringify(thread.children, null, 2)}`
+  )
+  .join("\n")}`
+          : "";
+
+      const children = await generateThread(
+        post as Post,
+        metadata,
+        previousThreadsString
+      );
+      generatedThreads.push({ post: post as Post, children });
+      postsWithChildren.push({
+        ...post,
+        children,
+      });
+    } else {
+      postsWithChildren.push(post);
+    }
+  }
 
   await visual1Promise;
 
@@ -136,6 +159,9 @@ await startActiveObservation("debug-generateFeed", async (span) => {
     "outputWithChildren.json",
     JSON.stringify(postsWithChildren, null, 2)
   );
-  console.log(postsWithChildren);
-  await visualize(JSON.stringify({ postsWithChildren }, null, 2));
+  console.log("Saved posts with children. Visualizing...");
+  await visualize(
+    JSON.stringify({ postsWithChildren }, null, 2),
+    "visualizationWithChildren.html"
+  );
 });

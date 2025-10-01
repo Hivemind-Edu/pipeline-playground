@@ -1,28 +1,33 @@
 [
   {
     "posterName": "React Fundamentals",
-    "text": "Welcome to your learning feed on React! React is a powerful JavaScript library used for building user interfaces, especially for single-page applications. It allows developers to create reusable UI components, which makes building complex interfaces much more manageable.",
+    "text": "Welcome to your learning feed on React! React is a powerful JavaScript library for building user interfaces, developed by Facebook. It allows developers to create reusable UI components and build complex applications efficiently.",
     "displayStyle": "BASIC",
     "type": "Post"
   },
   {
     "posterName": "React Explained",
-    "text": "At its core, React enables the creation of dynamic and interactive user interfaces. It uses a component-based architecture, meaning you build encapsulated components that manage their own state and compose them to make complex UIs.",
+    "text": "At its core, React uses a component-based architecture. Think of components as independent, reusable pieces of code, much like JavaScript functions, that return HTML. This modular approach makes it easier to manage and scale your applications.",
     "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "A visual representation of a user interface being assembled from various interlocking blocks, each labeled with a different component name like 'Navbar', 'Sidebar', and 'Feed'.",
+    "aiImagePrompt": "A visual representation of a user interface being assembled from various interlocking blocks, each labeled as a 'Component'. The blocks should have different colors and sizes, symbolizing the variety and reusability of React components. The overall image should convey a sense of modularity and organization.",
     "type": "Post"
   },
   {
-    "posterName": "JSX - JavaScript XML",
-    "text": "JSX, or JavaScript XML, is a syntax extension for JavaScript that looks very similar to HTML. It allows you to write what your UI should look like in a declarative way, making your code more readable and intuitive. Behind the scenes, JSX is converted into regular JavaScript by a tool called Babel.",
+    "posterName": "JSX",
+    "text": "One of the first things you'll encounter in React is JSX, which stands for JavaScript XML. It's a syntax extension that allows you to write HTML-like code directly within your JavaScript. This makes your code more readable and expressive.",
     "displayStyle": "WEB_IMAGE",
-    "imageSearchQuery": "JSX code example",
+    "imageSearchQuery": "react jsx code example",
     "type": "Post"
   },
   {
-    "posterName": "Developer Dan",
-    "text": "Just starting with React and I'm a bit confused about JSX. Is it just HTML in JavaScript?",
-    "displayStyle": "COMMENT",
+    "posterName": "The Virtual DOM",
+    "text": "React's secret to performance is the Virtual DOM. It's a lightweight copy of the real DOM kept in memory. When the state of your application changes, React first updates the Virtual DOM, then efficiently calculates the minimal changes needed to update the actual DOM. This process is called reconciliation.",
+    "displayStyle": "EXERCISE",
+    "exerciseQuestions": [
+      "In your own words, what is the Virtual DOM and why is it beneficial for performance?",
+      "Explain the concept of 'reconciliation' in the context of React's Virtual DOM.",
+      "How does the Virtual DOM differ from the Shadow DOM?"
+    ],
     "type": "Post"
   },
   {
@@ -33,27 +38,27 @@
       {
         "question": "What is React primarily used for?",
         "answers": [
-          "Building mobile applications",
+          "Backend development",
           "Building user interfaces",
-          "Managing databases"
+          "Database management"
         ],
         "correctIndex": 1
       },
       {
-        "question": "What is JSX?",
+        "question": "What does JSX stand for?",
         "answers": [
-          "A new programming language",
-          "A syntax extension for JavaScript",
-          "A database query language"
+          "JavaScript XML",
+          "Java Syntax Extension",
+          "JSON Syntax"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       },
       {
-        "question": "What is the name of the tool that converts JSX into regular JavaScript?",
+        "question": "What is the main benefit of the Virtual DOM?",
         "answers": [
-          "Webpack",
-          "Babel",
-          "Node.js"
+          "It makes the code easier to write.",
+          "It improves application performance.",
+          "It's a replacement for the real DOM."
         ],
         "correctIndex": 1
       }
@@ -61,93 +66,27 @@
     "type": "Post"
   },
   {
-    "posterName": "React Components",
-    "text": "Components are the building blocks of any React application. They are independent and reusable pieces of code that return a description of what should appear on the screen. Think of them as custom, reusable HTML elements.",
+    "posterName": "State vs. Props",
+    "text": "In React, data flows in one direction. 'Props' (short for properties) are used to pass data from a parent component to a child component and are read-only. 'State' is for managing a component's internal data that can change over time. State is managed within the component and can be updated, triggering a re-render.",
     "displayStyle": "BASIC",
     "type": "Post"
   },
   {
-    "posterName": "Functional vs. Class Components",
-    "text": "In React, you can create components in two ways: as JavaScript functions (functional components) or as ES6 classes (class components). While both can achieve the same results, functional components with Hooks are the more modern and recommended approach.",
+    "posterName": "Component Lifecycle",
+    "text": "Every React component has a lifecycle with three main phases: Mounting, Updating, and Unmounting. These phases have specific methods that allow you to run code at particular times, like when a component is first added to the DOM (`componentDidMount`) or just before it's removed (`componentWillUnmount`).",
     "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "A split-screen image. On one side, a simple, elegant function icon representing a functional component. On the other side, a more complex, blueprint-style icon representing a class component.",
+    "aiImagePrompt": "An illustration showing a plant's lifecycle, from a seed (Mounting), to a growing plant (Updating), and finally a wilting plant (Unmounting). Each stage should be clearly labeled with the corresponding React component lifecycle phase.",
     "type": "Post"
   },
   {
-    "posterName": "React Props",
-    "text": "Props (short for properties) are how you pass data from a parent component to a child component. This is a one-way data flow, making it easier to understand and debug your application. Props are read-only, meaning a child component cannot change the props it receives.",
-    "displayStyle": "WEB_IMAGE",
-    "imageSearchQuery": "React props data flow diagram",
+    "posterName": "ProTip",
+    "text": "Remember to bind your event handlers in class components to ensure `this` refers to the component instance. With functional components and hooks, this is often not an issue!",
+    "displayStyle": "COMMENT",
     "type": "Post"
   },
   {
-    "posterName": "Code Snippet",
-    "text": "Here's a simple example of passing a 'name' prop to a 'Welcome' component:\n\n```javascript\nfunction Welcome(props) {\n  return <h1>Hello, {props.name}</h1>;\n}\n\nfunction App() {\n  return <Welcome name=\"Sarah\" />;\n}\n```",
-    "displayStyle": "BASIC",
-    "type": "Post"
-  },
-  {
-    "posterName": "Quiz",
-    "text": "",
-    "displayStyle": "QUIZ",
-    "quizQuestions": [
-      {
-        "question": "What are the two types of components in React?",
-        "answers": [
-          "Simple and Complex",
-          "Functional and Class",
-          "Static and Dynamic"
-        ],
-        "correctIndex": 1
-      },
-      {
-        "question": "What is the primary purpose of props?",
-        "answers": [
-          "To style components",
-          "To handle user events",
-          "To pass data to child components"
-        ],
-        "correctIndex": 2
-      },
-      {
-        "question": "Are props mutable or immutable within the child component?",
-        "answers": [
-          "Mutable",
-          "Immutable",
-          "It depends on the data type"
-        ],
-        "correctIndex": 1
-      }
-    ],
-    "type": "Post"
-  },
-  {
-    "posterName": "React State",
-    "text": "While props are for passing data down, 'state' is for managing a component's internal data that can change over time. When a component's state changes, React will re-render the component to reflect the new data.",
-    "displayStyle": "BASIC",
-    "type": "Post"
-  },
-  {
-    "posterName": "React Feynman",
-    "text": "Time to test your understanding! Try to explain these concepts in your own words, as if you were teaching them to someone else.",
-    "displayStyle": "EXERCISE",
-    "exerciseQuestions": [
-      "What is the difference between props and state?",
-      "Why is it important that component names start with a capital letter?",
-      "What is the purpose of a React Fragment (<>...</>)?"
-    ],
-    "type": "Post"
-  },
-  {
-    "posterName": "useState Hook",
-    "text": "With functional components, we use the `useState` Hook to add state. A Hook is a special function that lets you “hook into” React features. `useState` returns an array with two elements: the current state value and a function to update it.",
-    "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "A visual of a hook pulling a state variable out of a function component, with an arrow showing the state being updated and causing the component to re-render.",
-    "type": "Post"
-  },
-  {
-    "posterName": "Meme Time",
-    "text": "When you finally understand the difference between props and state.",
+    "posterName": "React Hooks",
+    "text": "Hooks are a powerful feature introduced in React 16.8 that let you use state and other React features in functional components without writing a class. The most common hooks are `useState` for managing state and `useEffect` for handling side effects.",
     "displayStyle": "MEME",
     "type": "Post"
   },
@@ -157,29 +96,29 @@
     "displayStyle": "QUIZ",
     "quizQuestions": [
       {
-        "question": "What is used to manage a component's internal data that changes over time?",
+        "question": "What is the primary way to pass data from a parent to a child component?",
         "answers": [
-          "Props",
           "State",
-          "Functions"
+          "Props",
+          "Events"
         ],
         "correctIndex": 1
       },
       {
-        "question": "What does the `useState` Hook return?",
+        "question": "Which lifecycle method is called after a component is rendered for the first time?",
         "answers": [
-          "The state value and a function to update it",
-          "Only the state value",
-          "A boolean indicating if the state has changed"
+          "componentDidMount",
+          "componentWillUnmount",
+          "render"
         ],
         "correctIndex": 0
       },
       {
-        "question": "What happens when a component's state changes?",
+        "question": "What do React Hooks allow you to do?",
         "answers": [
-          "The entire application reloads",
-          "The component re-renders",
-          "An error is thrown"
+          "Use state in class components",
+          "Use state and lifecycle features in functional components",
+          "Replace the need for props"
         ],
         "correctIndex": 1
       }
@@ -187,16 +126,75 @@
     "type": "Post"
   },
   {
-    "posterName": "React Resources",
-    "text": "Ready to dive deeper? Here are some excellent resources to continue your React journey:",
+    "posterName": "React Router",
+    "text": "React itself is a library for building user interfaces, not a full framework. For handling navigation between different pages in a single-page application, you'll often use a library like React Router. It provides components for defining routes and linking between them.",
+    "displayStyle": "BASIC",
+    "type": "Post"
+  },
+  {
+    "posterName": "State Management",
+    "text": "For larger applications, managing state can become complex. While React has its own Context API, many developers turn to libraries like Redux for a more centralized and predictable way to manage the application's state.",
+    "displayStyle": "AI_IMAGE",
+    "aiImagePrompt": "A diagram showing a central 'store' of data with arrows pointing to various components of a user interface. This illustrates the concept of a centralized state management library like Redux, where the state is held in a single location and components can access and update it.",
+    "type": "Post"
+  },
+  {
+    "posterName": "Testing React",
+    "text": "To ensure your components work as expected, you'll want to write tests. The React Testing Library is a popular choice that encourages testing your application in a way that resembles how a user would interact with it.",
+    "displayStyle": "EXERCISE",
+    "exerciseQuestions": [
+      "Why is it important to test React components from a user's perspective?",
+      "What is the purpose of a test runner like Jest in the context of React testing?",
+      "Describe a scenario where you would use a query like `getByText` in React Testing Library."
+    ],
+    "type": "Post"
+  },
+  {
+    "posterName": "Deeper Dive",
+    "text": "Ready to go further? Explore these resources to expand your React knowledge.",
     "displayStyle": "SOURCES",
     "type": "Post"
   },
   {
+    "posterName": "Quiz",
+    "text": "",
+    "displayStyle": "QUIZ",
+    "quizQuestions": [
+      {
+        "question": "What is React Router used for?",
+        "answers": [
+          "Styling components",
+          "Managing application state",
+          "Handling navigation and routing"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which of the following is a popular state management library for React?",
+        "answers": [
+          "React Router",
+          "Redux",
+          "Jest"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is the main philosophy of the React Testing Library?",
+        "answers": [
+          "To test the implementation details of components",
+          "To test components in a way that resembles user interaction",
+          "To only test the visual appearance of components"
+        ],
+        "correctIndex": 1
+      }
+    ],
+    "type": "Post"
+  },
+  {
     "nextTopicSuggestions": [
-      "React Hooks",
-      "React Router",
-      "State Management with Redux"
+      "Next.js",
+      "React Native",
+      "GraphQL with React"
     ],
     "type": "NewSuggestions"
   }

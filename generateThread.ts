@@ -13,10 +13,13 @@ const ChildPostSchema = z.object({
 
 export async function generateThread(
   firstPost: Post,
-  groundingMetadata?: GoogleGenerativeAIProviderMetadata
+  groundingMetadata?: GoogleGenerativeAIProviderMetadata,
+  previousThreads?: string
 ) {
   const prompt = `Given a post, generate a thread of posts that are answers to the post.
     Post: ${JSON.stringify(firstPost)}
+
+    ${previousThreads || ""}
 
     ${
       groundingMetadata

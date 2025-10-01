@@ -1,998 +1,473 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Debug Feed - React Fundamentals</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS 4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        /* Custom styles for a simplified Twitter look */
-        body {
-            background-color: #f7f9f9; /* Light background */
+        /* Custom dark scrollbar for better aesthetics */
+        body::-webkit-scrollbar {
+            width: 8px;
         }
-        .feed-container {
-            max-width: 600px;
-            margin: 0 auto;
-            border-left: 1px solid #eff3f4;
-            border-right: 1px solid #eff3f4;
-            min-height: 100vh;
-            background-color: white;
+        body::-webkit-scrollbar-track {
+            background: #111827; /* bg-gray-900 */
         }
-        .post-card {
-            border-bottom: 1px solid #eff3f4;
-            padding: 16px;
+        body::-webkit-scrollbar-thumb {
+            background-color: #374151; /* bg-gray-700 */
+            border-radius: 20px;
         }
-        .post-header {
-            font-weight: bold;
-            color: #0f1419;
-        }
-        .post-text {
-            margin-top: 8px;
-            line-height: 1.4;
-        }
-        .comment-card {
-            border-left: 2px solid #eff3f4;
-            margin-left: 16px;
-            padding-left: 16px;
-            margin-top: 8px;
-        }
-        .code-snippet {
-            background-color: #f6f8fa;
-            border-radius: 6px;
-            padding: 12px;
-            margin-top: 10px;
-            overflow-x: auto;
-        }
-        .code-snippet pre {
-            margin: 0;
-            font-size: 0.85rem;
-            color: #24292e;
+        /* Custom background color for post bodies to distinguish from main background */
+        .bg-gray-850 {
+            background-color: #1f2937; /* A slightly lighter dark gray */
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-900 text-white min-h-screen font-sans">
 
-    <div class="feed-container shadow-lg">
-        <header class="sticky top-0 bg-white border-b border-gray-200 p-4 z-10">
-            <h1 class="text-xl font-extrabold text-gray-900">AI Debug Feed</h1>
-            <p class="text-sm text-gray-500">React Fundamentals Data</p>
-        </header>
+    <div class="flex justify-center">
+        
+        <!-- Main Feed Container (Twitter-like width) -->
+        <div id="feed-container" class="w-full max-w-xl border-x border-gray-800">
+            
+            <!-- Header -->
+            <header class="sticky top-0 bg-gray-900/95 backdrop-blur-sm z-10 p-4 border-b border-gray-800">
+                <h1 class="text-xl font-extrabold">AI Debug Feed</h1>
+                <p class="text-sm text-gray-500">Generated Content: React Fundamentals</p>
+            </header>
 
-        <main>
-            <!-- JSON Data Start -->
-            <div id="data-feed">
-                
-                <!-- Post Loop Start -->
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">R</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">React Fundamentals</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: BASIC</p>
-                            <div class="post-text">
-                                Welcome to your learning feed on React! React is a powerful JavaScript library used for building user interfaces, especially for single-page applications. It allows developers to create reusable UI components, which makes building complex interfaces much more manageable.
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Deep Dive</p>
-                                    <p class="text-sm text-gray-700">That's a great intro! To elaborate, React's core power lies in its component-based architecture. This means you build encapsulated components that manage their own state and compose them together to make complex UIs.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">JSX Fundamentals</p>
-                                    <p class="text-sm text-gray-700">Before you write those reusable components, you'll encounter JSX. JSX, or JavaScript XML, is a syntax extension that looks like HTML but allows you to write what your UI should look like in a declarative way within JavaScript, making the code intuitive.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Components</p>
-                                    <p class="text-sm text-gray-700">Speaking of components, they are the true building blocks. You can define them in two ways: as JavaScript functions (functional components) or as ES6 classes (class components). Functional components with Hooks are the modern, recommended approach.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Data Flow Expert</p>
-                                    <p class="text-sm text-gray-700">How do these components communicate? They primarily use 'props' (properties). Props are how data is passed down from a parent component to a child component. Critically, props are read-only; this one-way data flow simplifies debugging.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">State Manager</p>
-                                    <p class="text-sm text-gray-700">While props handle external data flow, 'state' manages a component's internal data that changes over time (like a counter or user input). You use Hooks, like useState, to 'hook into' React features and manage this internal data.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">R</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">React Explained</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: AI_IMAGE</p>
-                            <div class="post-text">
-                                At its core, React enables the creation of dynamic and interactive user interfaces. It uses a component-based architecture, meaning you build encapsulated components that manage their own state and compose them to make complex UIs.
-                            </div>
-                            
-                            <div class="mt-3 p-3 bg-gray-100 rounded-lg border border-dashed border-gray-300">
-                                <p class="text-xs font-semibold text-gray-600">AI Image Prompt:</p>
-                                <p class="text-sm italic text-gray-700">A visual representation of a user interface being assembled from various interlocking blocks, each labeled with a different component name like 'Navbar', 'Sidebar', and 'Feed'.</p>
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">JSX - JavaScript XML</p>
-                                    <p class="text-sm text-gray-700">JSX, or JavaScript XML, is a syntax extension for JavaScript that looks very similar to HTML. It allows you to write what your UI should look like in a declarative way, making your code more readable and intuitive. Behind the scenes, JSX is converted into regular JavaScript by a tool called Babel.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Components</p>
-                                    <p class="text-sm text-gray-700">Components are indeed the core building blocks. They are independent and reusable pieces of code that return a description of what should appear on the screen. You can create components in two primary ways: as JavaScript functions (functional components) or as ES6 classes (class components).</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Modern React</p>
-                                    <p class="text-sm text-gray-700">To add to that, while both functional and class components can achieve the same results, functional components combined with Hooks are the modern, recommended approach. Hooks (like useState and useEffect) allow functional components to manage state and lifecycle features, making them generally simpler and more powerful.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Data Flow</p>
-                                    <p class="text-sm text-gray-700">The distinction between state and props is vital for data management. 'Props' (short for properties) are used exclusively to pass data down from a parent component to a child component. They are read-only (immutable) within the child. 'State' is for managing a component's internal data that can change over time. This separation ensures a clean, unidirectional data flow, which simplifies debugging.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">J</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">JSX - JavaScript XML</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: WEB_IMAGE</p>
-                            <div class="post-text">
-                                JSX, or JavaScript XML, is a syntax extension for JavaScript that looks very similar to HTML. It allows you to write what your UI should look like in a declarative way, making your code more readable and intuitive. Behind the scenes, JSX is converted into regular JavaScript by a tool called Babel.
-                            </div>
-                            
-                            <div class="mt-3 p-3 bg-gray-100 rounded-lg border border-dashed border-gray-300">
-                                <p class="text-xs font-semibold text-gray-600">Web Image Search Query:</p>
-                                <p class="text-sm italic text-gray-700">JSX code example</p>
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Fundamentals</p>
-                                    <p class="text-sm text-gray-700">That's an excellent summary! The seamless integration of HTML structure and JavaScript logic via JSX is what makes writing React components so intuitive. It’s important to remember that JSX is not mandatory for React—you could write everything using React.createElement() calls—but it vastly improves developer experience and readability.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Frontend Developer</p>
-                                    <p class="text-sm text-gray-700">A crucial point about JSX is how it handles dynamic content. Since it is still JavaScript, you can embed any JavaScript expression within the JSX using curly braces {}. This is how you dynamically inject variables, map over arrays to generate lists, or conditionally render elements.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Component Builder</p>
-                                    <p class="text-sm text-gray-700">Furthermore, while JSX looks like HTML, there are key differences. For instance, you must use `className` instead of `class` for defining CSS classes, and inline styles are written as JavaScript objects (`style={{color: 'red'}}`)—not simple strings. These differences prevent naming collisions with JavaScript reserved keywords.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Compiler Info</p>
-                                    <p class="text-sm text-gray-700">To reinforce the Babel point: when JSX is compiled, a simple tag like `<button>` is converted into a `React.createElement('button', ...)` call. JSX is truly just syntactic sugar that simplifies the process of creating React elements, which are the objects React uses to construct the Virtual DOM.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">D</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">Developer Dan</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: COMMENT</p>
-                            <div class="post-text">
-                                Just starting with React and I'm a bit confused about JSX. Is it just HTML in JavaScript?
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Developer Dan</p>
-                                    <p class="text-sm text-gray-700">Just starting with React and I'm a bit confused about JSX. Is it just HTML in JavaScript?</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">ReactRookie</p>
-                                    <p class="text-sm text-gray-700">That's a great question! JSX (JavaScript XML) looks like HTML, but it's actually a syntax extension for JavaScript. It allows you to write UI structure in a declarative way within your JS files. The browser doesn't understand it directly—it gets transformed into regular JavaScript function calls (like React.createElement()) by a compiler, usually Babel.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">SeniorDevSam</p>
-                                    <p class="text-sm text-gray-700">To add to that: the biggest difference is that JSX is highly integrated with JavaScript. You can embed any JavaScript expression inside JSX by wrapping it in curly braces {}. This is how you dynamically render data, which you can't do in plain HTML. It makes your code much more readable and intuitive!</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Developer Dan</p>
-                                    <p class="text-sm text-gray-700">That makes sense! So if it gets compiled, what handles all the UI elements I write in JSX? Are they called components?</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">ReactRookie</p>
-                                    <p class="text-sm text-gray-700">Exactly! The elements you write in JSX are used to describe your UI, and those elements are contained within *Components*. Components are the building blocks of any React app—independent, reusable pieces of code that define what should appear on the screen. JSX is the language you use inside those components to define their structure.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card bg-yellow-50 border-l-4 border-yellow-400">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">Q</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">Quiz</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: QUIZ</p>
-                            <div class="post-text">
-                                
-                                <div class="space-y-4 mt-2">
-                                    <div class="p-3 bg-white rounded-lg shadow-sm border">
-                                        <p class="font-semibold mb-2">1. What is React primarily used for?</p>
-                                        <ul class="space-y-1 text-sm">
-                                            <li class="p-1 rounded bg-gray-100">Building mobile applications</li>
-                                            <li class="p-1 rounded bg-green-100 font-medium">Building user interfaces (Correct)</li>
-                                            <li class="p-1 rounded bg-gray-100">Managing databases</li>
-                                        </ul>
-                                    </div>
-                                    <div class="p-3 bg-white rounded-lg shadow-sm border">
-                                        <p class="font-semibold mb-2">2. What is JSX?</p>
-                                        <ul class="space-y-1 text-sm">
-                                            <li class="p-1 rounded bg-gray-100">A new programming language</li>
-                                            <li class="p-1 rounded bg-green-100 font-medium">A syntax extension for JavaScript (Correct)</li>
-                                            <li class="p-1 rounded bg-gray-100">A database query language</li>
-                                        </ul>
-                                    </div>
-                                    <div class="p-3 bg-white rounded-lg shadow-sm border">
-                                        <p class="font-semibold mb-2">3. What is the name of the tool that converts JSX into regular JavaScript?</p>
-                                        <ul class="space-y-1 text-sm">
-                                            <li class="p-1 rounded bg-gray-100">Webpack</li>
-                                            <li class="p-1 rounded bg-green-100 font-medium">Babel (Correct)</li>
-                                            <li class="p-1 rounded bg-gray-100">Node.js</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">The React Dev</p>
-                                    <p class="text-sm text-gray-700">Great quiz! Here are the correct answers: 1. Building user interfaces. 2. A syntax extension for JavaScript. 3. Babel. These are core concepts for anyone starting with React!</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">UI Enthusiast</p>
-                                    <p class="text-sm text-gray-700">To elaborate on the first answer: React is a JavaScript library that focuses exclusively on the 'View' layer, which is why it's best for Building User Interfaces. It uses a component-based architecture and a Virtual DOM for efficient rendering.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Syntax Sleuth</p>
-                                    <p class="text-sm text-gray-700">JSX is awesome because it allows developers to write declarative UI descriptions that mix HTML-like tags directly within their JavaScript code. It's essentially syntactic sugar that improves readability.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Transpiler Tech</p>
-                                    <p class="text-sm text-gray-700">Babel is required because standard web browsers cannot natively interpret JSX syntax. It steps in to 'transpile' the JSX into plain, executable JavaScript function calls (like React.createElement()) that all browsers understand.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">R</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">React Components</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: BASIC</p>
-                            <div class="post-text">
-                                Components are the building blocks of any React application. They are independent and reusable pieces of code that return a description of what should appear on the screen. Think of them as custom, reusable HTML elements.
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Junior Dev</p>
-                                    <p class="text-sm text-gray-700">That makes sense! Since components are the building blocks, are there different types of components we should know about? Like, how do we actually write them?</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Expert</p>
-                                    <p class="text-sm text-gray-700">Great question! Historically, React had two main types: Functional Components (simple JavaScript functions) and Class Components (ES6 classes). Today, Functional Components, often paired with React Hooks like useState, are the modern and recommended way to write components, as they are generally cleaner and simpler.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Data Flow Fan</p>
-                                    <p class="text-sm text-gray-700">To truly be reusable and dynamic, components need to communicate. This is where 'props' come in, short for properties. Props allow parent components to pass data down to their children. Crucially, remember that this is a one-way data flow and props are read-only (immutable) within the child component.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">State Manager</p>
-                                    <p class="text-sm text-gray-700">And while props manage external data passed down, components also need 'state' to manage their own internal data that can change over time. State is what makes a component dynamic—when state changes, React efficiently re-renders the component to show the update.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">F</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">Functional vs. Class Components</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: AI_IMAGE</p>
-                            <div class="post-text">
-                                In React, you can create components in two ways: as JavaScript functions (functional components) or as ES6 classes (class components). While both can achieve the same results, functional components with Hooks are the more modern and recommended approach.
-                            </div>
-                            
-                            <div class="mt-3 p-3 bg-gray-100 rounded-lg border border-dashed border-gray-300">
-                                <p class="text-xs font-semibold text-gray-600">AI Image Prompt:</p>
-                                <p class="text-sm italic text-gray-700">A split-screen image. On one side, a simple, elegant function icon representing a functional component. On the other side, a more complex, blueprint-style icon representing a class component.</p>
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Modern React Dev</p>
-                                    <p class="text-sm text-gray-700">The key reason functional components became the standard is Hooks! Functional components used to be 'stateless,' but Hooks (like useState and useEffect) let us manage state and lifecycle effects right inside the function. This transition eliminated the complex 'this' context and lifecycle methods associated with classes, leading to much cleaner, more concise code.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Historian</p>
-                                    <p class="text-sm text-gray-700">The conceptual shift is huge. In class components, you manage state via `this.state` and control side effects using separate lifecycle methods (e.g., `componentDidMount`, `componentDidUpdate`). Hooks allow you to collocate related logic (like fetching data and state updates) within a single functional component, making it much easier to read and maintain.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Pragmatic Coder</p>
-                                    <p class="text-sm text-gray-700">While functional components are the way forward, remember that class components still work. You will likely encounter them in older or larger enterprise codebases. It's important to understand the basics of class components, especially if you need to maintain legacy code, but for new development, stick to functional components and Hooks.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">R</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">React Props</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: WEB_IMAGE</p>
-                            <div class="post-text">
-                                Props (short for properties) are how you pass data from a parent component to a child component. This is a one-way data flow, making it easier to understand and debug your application. Props are read-only, meaning a child component cannot change the props it receives.
-                            </div>
-                            
-                            <div class="mt-3 p-3 bg-gray-100 rounded-lg border border-dashed border-gray-300">
-                                <p class="text-xs font-semibold text-gray-600">Web Image Search Query:</p>
-                                <p class="text-sm italic text-gray-700">React props data flow diagram</p>
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Unidirectional Flow</p>
-                                    <p class="text-sm text-gray-700">Exactly! This concept reinforces React's predictable and stable architecture. Because the data flow is strictly unidirectional (parent to child), tracing data changes and debugging complex applications becomes significantly simpler.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Immutability Rule</p>
-                                    <p class="text-sm text-gray-700">The read-only nature of props is crucial. If a child component needed to change its props, it would break the single source of truth and make the component tree state unpredictable. To cause a change upstream, the parent must pass a callback function as a prop.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Code Example</p>
-                                    <p class="text-sm text-gray-700">Consider a functional component: function Greeting({ name }) { return <h1>Hello, {name}</h1>; } The 'name' received here is a prop. If the parent renders <Greeting name=\"Alex\" />, the Greeting component can only use 'Alex', never change it.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Props vs. State</p>
-                                    <p class="text-sm text-gray-700">It's important to distinguish Props from State. If Props are the component's *external* configuration (like function arguments), State is the component's *internal* memory. State is mutable and used for data that changes within the component itself (e.g., a counter value or input field content).</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Key Takeaway</p>
-                                    <p class="text-sm text-gray-700">The motto to remember: If a component needs data that might change, it either receives it via immutable *Props* (data owned by a parent) or manages it internally via mutable *State* (data owned by the component itself).</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">C</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">Code Snippet</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: BASIC</p>
-                            <div class="post-text">
-                                Here's a simple example of passing a 'name' prop to a 'Welcome' component:
-                                <div class="code-snippet">
-                                    <pre><code>function Welcome(props) {
-  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
-}
+            <!-- Posts will be injected here -->
+        </div>
 
-function App() {
-  return &lt;Welcome name="Sarah" /&gt;;
-}</code></pre>
-                                </div>
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Fundamentals</p>
-                                    <p class="text-sm text-gray-700">This is a great, simple illustration of how 'props' work in React! The `Welcome` function is a *functional component* that accepts a single `props` object as an argument. The `App` component then renders `Welcome` and passes a property named `name` with the value "Sarah".</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Data Flow Diagrammer</p>
-                                    <p class="text-sm text-gray-700">To emphasize the concept: The value "Sarah" is flowing *down* from the parent component (`App`) to the child component (`Welcome`) via the `props` object. This unidirectional data flow is a core principle of React.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Props Explainer</p>
-                                    <p class="text-sm text-gray-700">Exactly. And it's crucial to remember that props are *read-only* (immutable) in the child component. The `Welcome` component can use `props.name` to display the greeting, but it cannot change the value of `name` itself. If you needed `Welcome` to manage changing data, you'd use *state*.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Modern React User</p>
-                                    <p class="text-sm text-gray-700">This code is using a functional component, which is the modern, recommended approach in React. For developers starting out, it's also helpful to know how this would look using object destructuring for cleaner code:
-                                        <div class="code-snippet">
-                                            <pre><code>function Welcome({ name }) {
-  return &lt;h1&gt;Hello, {name}&lt;/h1&gt;;
-}
-// The usage in App remains the same:
-// function App() {
-//   return &lt;Welcome name="Sarah" /&gt;;
-// }</code></pre>
-                                        </div>
-                                        Destructuring makes accessing props much cleaner than using `props.name`.
-                                    </p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">JSX Newbie</p>
-                                    <p class="text-sm text-gray-700">I'm still learning JSX. Is `<h1>Hello, {props.name}</h1>;` just HTML inside JavaScript? The curly braces `{props.name}` are what tell React to insert the JavaScript variable value, right?</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">JSX Expert</p>
-                                    <p class="text-sm text-gray-700">You got it! JSX looks like HTML, but it's actually JavaScript XML. The curly braces `{}` are used to embed any JavaScript expression—variables, functions, calculations—directly into the JSX markup. It's how React dynamically renders data.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Component Types</p>
-                                    <p class="text-sm text-gray-700">Just to round out the discussion for beginners, this `Welcome` component is a functional component (a JavaScript function). The other main type, though less common now, is a *class component* (an ES6 class). Functional components, especially when combined with *Hooks*, are generally preferred today.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+        <!-- Debug/Metadata Sidebar -->
+        <div class="hidden lg:block w-80 ml-8 pt-4">
+            <div class="sticky top-4 bg-gray-800 p-4 rounded-xl shadow-lg">
+                <h2 class="text-lg font-bold mb-3 text-blue-400">System Metadata</h2>
+                <div id="metadata-container" class="space-y-4 text-sm">
+                    <!-- Metadata will be injected here -->
                 </div>
-                
-                <div class="post-card bg-yellow-50 border-l-4 border-yellow-400">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">Q</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">Quiz</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: QUIZ</p>
-                            <div class="post-text">
-                                
-                                <div class="space-y-4 mt-2">
-                                    <div class="p-3 bg-white rounded-lg shadow-sm border">
-                                        <p class="font-semibold mb-2">1. What are the two types of components in React?</p>
-                                        <ul class="space-y-1 text-sm">
-                                            <li class="p-1 rounded bg-gray-100">Simple and Complex</li>
-                                            <li class="p-1 rounded bg-green-100 font-medium">Functional and Class (Correct)</li>
-                                            <li class="p-1 rounded bg-gray-100">Static and Dynamic</li>
-                                        </ul>
-                                    </div>
-                                    <div class="p-3 bg-white rounded-lg shadow-sm border">
-                                        <p class="font-semibold mb-2">2. What is the primary purpose of props?</p>
-                                        <ul class="space-y-1 text-sm">
-                                            <li class="p-1 rounded bg-gray-100">To style components</li>
-                                            <li class="p-1 rounded bg-gray-100">To handle user events</li>
-                                            <li class="p-1 rounded bg-green-100 font-medium">To pass data to child components (Correct)</li>
-                                        </ul>
-                                    </div>
-                                    <div class="p-3 bg-white rounded-lg shadow-sm border">
-                                        <p class="font-semibold mb-2">3. Are props mutable or immutable within the child component?</p>
-                                        <ul class="space-y-1 text-sm">
-                                            <li class="p-1 rounded bg-gray-100">Mutable</li>
-                                            <li class="p-1 rounded bg-green-100 font-medium">Immutable (Correct)</li>
-                                            <li class="p-1 rounded bg-gray-100">It depends on the data type</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">ReactLearner</p>
-                                    <p class="text-sm text-gray-700">Great quiz! Here are the correct answers: 1. The two main types of components are Functional and Class Components. 2. The primary purpose of props is To pass data to child components. 3. Props are Immutable within the child component. Let's dive a little deeper into these core concepts!</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">ComponentPro</p>
-                                    <p class="text-sm text-gray-700">React components are the building blocks of any React application. The two ways to define them are as JavaScript functions (Functional Components) or as ES6 classes (Class Components). Functional components, especially with Hooks, are the more modern and recommended approach today. They are independent and reusable pieces of code that return a description of what should appear on the screen.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">DataFlowGuru</p>
-                                    <p class="text-sm text-gray-700">The purpose of props (properties) is crucial for passing data down from parent to child. This establishes a clear, one-way data flow. Because they originate from the parent, props are read-only and are considered immutable within the child component. A child cannot modify the props it receives; only the parent component can change the data and pass down new props.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">R</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">React State</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: BASIC</p>
-                            <div class="post-text">
-                                While props are for passing data down, 'state' is for managing a component's internal data that can change over time. When a component's state changes, React will re-render the component to reflect the new data.
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Dev</p>
-                                    <p class="text-sm text-gray-700">That's a great summary! For modern functional components, we manage state using the `useState` Hook. It returns the current state value and a function to update it, triggering that re-render you mentioned. This is the recommended way now, rather than using `this.state` in class components.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Beginner Coder</p>
-                                    <p class="text-sm text-gray-700">So, since state changes cause a re-render, what happens if I have multiple state updates happening quickly? Does React re-render for every single update?</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Performance Analyst</p>
-                                    <p class="text-sm text-gray-700">React generally batches multiple state updates that happen within the same event loop cycle (like a button click handler) into a single re-render for efficiency. However, be careful! Updates happening outside of React event handlers (like in a `setTimeout` or a plain JavaScript callback) might not be batched automatically, which could lead to more renders than necessary.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Senior Engineer</p>
-                                    <p class="text-sm text-gray-700">To add to that, remember that state updates can be asynchronous. If you rely on the previous state to calculate the new state, you must pass a function to the state setter (e.g., `setCount(prevCount => prevCount + 1)`). Never rely on `count + 1` directly if the update is critical.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card bg-indigo-50 border-l-4 border-indigo-400">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-indigo-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">R</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">React Feynman</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: EXERCISE</p>
-                            <div class="post-text">
-                                Time to test your understanding! Try to explain these concepts in your own words, as if you were teaching them to someone else.
-                                <div class="mt-3 space-y-2 p-3 bg-white rounded-lg shadow-sm border">
-                                    <p class="font-semibold">Exercise Questions:</p>
-                                    <ul class="list-disc list-inside ml-4 text-sm space-y-1">
-                                        <li>What is the difference between props and state?</li>
-                                        <li>Why is it important that component names start with a capital letter?</li>
-                                        <li>What is the purpose of a React Fragment (<>...</>)?</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Dev Advocate</p>
-                                    <p class="text-sm text-gray-700">Great questions! Let's tackle the difference between props and state first. Think of them both as plain JavaScript objects that hold information, but their purpose and source are distinct. Props (short for properties) are like arguments passed to a function. They are external, passed down from a parent component to a child component, and are immutable—meaning the child component cannot change the props it receives. State, on the other hand, is the component's internal memory. It manages data that is local to the component and is expected to change over time, typically in response to user actions (like clicking a button or typing in an input field). When state changes, React re-renders the component.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Intern</p>
-                                    <p class="text-sm text-gray-700">I can explain the component naming rule! In React's JSX syntax, the capitalization is not just a style choice; it's a critical convention that tells React how to interpret the tag. When React sees a tag starting with a lowercase letter (e.g., `<div>`, `<p>`, `<img>`), it treats it as a standard HTML element. However, when it encounters a tag starting with a capital letter (e.g., `<Welcome>`, `<Sidebar>`, `<MyButton>`), it recognizes it as a custom React Component that needs to be rendered and managed by your application. If you don't capitalize your custom components, React will try to render them as undefined HTML tags.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Senior Developer</p>
-                                    <p class="text-sm text-gray-700">The third question about React Fragments (`<>...</>`) is all about keeping the Document Object Model (DOM) clean! React components must return a single element. Often, you need to group several elements together (like a list of items or adjacent headers and paragraphs) without wrapping them in an extra HTML element like a `<div>`. If you were to wrap them in a redundant `<div>`, it adds unnecessary depth and complexity to the DOM tree, which can sometimes impact performance or layout flexibility. A Fragment allows you to group multiple elements to satisfy the 'single return element' requirement without introducing any extra nodes into the actual rendered HTML.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">U</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">useState Hook</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: AI_IMAGE</p>
-                            <div class="post-text">
-                                With functional components, we use the `useState` Hook to add state. A Hook is a special function that lets you “hook into” React features. `useState` returns an array with two elements: the current state value and a function to update it.
-                            </div>
-                            
-                            <div class="mt-3 p-3 bg-gray-100 rounded-lg border border-dashed border-gray-300">
-                                <p class="text-xs font-semibold text-gray-600">AI Image Prompt:</p>
-                                <p class="text-sm italic text-gray-700">A visual of a hook pulling a state variable out of a function component, with an arrow showing the state being updated and causing the component to re-render.</p>
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Developer 1</p>
-                                    <p class="text-sm text-gray-700">This is a great explanation! Can you show a quick code example of how to use `useState` to manage a simple counter?</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Code Snippet</p>
-                                    <p class="text-sm text-gray-700">Certainly. Here is the basic structure for a counter:
-                                        <div class="code-snippet">
-                                            <pre><code>import React, { useState } from 'react';
-
-function Counter() {
-  // Declares a state variable 'count' initialized to 0
-  const [count, setCount] = useState(0);
-
-  return (
-    &lt;div&gt;
-      &lt;p&gt;You clicked {count} times&lt;/p&gt;
-      &lt;button onClick={() => setCount(count + 1)}&gt;
-        Click me
-      &lt;/button&gt;
-    &lt;/div&gt;
-  );
-}
-
-export default Counter;</code></pre>
-                                        </div>
-                                    </p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Developer 2</p>
-                                    <p class="text-sm text-gray-700">That makes sense. So, `count` holds the current value, and `setCount` is the function we call to update it. Does calling `setCount` always cause the component to re-render?</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">useState Hook</p>
-                                    <p class="text-sm text-gray-700">Yes, generally it does. When you call the state setter function (like `setCount`), React queues a re-render of the component with the new state value. However, React is smart enough to skip the re-render if the new value is identical to the current value (using `Object.is` comparison).</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Developer 3</p>
-                                    <p class="text-sm text-gray-700">What if I need to update the state based on the *previous* state? Like, if the user clicks very rapidly, is it safer to use a function form of `setCount`?</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">useState Hook</p>
-                                    <p class="text-sm text-gray-700">That's an excellent point, especially when the state update depends on the current state. In scenarios like rapid clicks or updates based on asynchronous operations, it's safer to pass a function to the setter. This function receives the *previous* state as an argument and returns the new state.
-                                        <div class="code-snippet">
-                                            <pre><code>// Safe update using a function:
-&lt;button onClick={() => setCount(prevCount => prevCount + 1)}&gt;
-  Click me
-&lt;/button&gt;</code></pre>
-                                        </div>
-                                        This prevents issues caused by stale state closures.
-                                    </p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Developer 4</p>
-                                    <p class="text-sm text-gray-700">Can `useState` handle complex data types, like objects or arrays, instead of just numbers or strings?</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">useState Hook</p>
-                                    <p class="text-sm text-gray-700">Absolutely! `useState` can hold any JavaScript value. When using objects or arrays, remember that the setter function completely *replaces* the old state with the new value. 
-                                        <br><br>
-                                        If you're updating an object, you must manually merge the properties you want to keep:
-                                        <div class="code-snippet">
-                                            <pre><code>const [user, setUser] = useState({ name: 'Alice', age: 30 });
-
-const updateAge = () => {
-  // Use the spread operator to keep 'name' and update 'age'
-  setUser(prevUser => ({
-    ...prevUser,
-    age: prevUser.age + 1
-  }));
-};</code></pre>
-                                        </div>
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">M</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">Meme Time</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: MEME</p>
-                            <div class="post-text">
-                                When you finally understand the difference between props and state.
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Dev</p>
-                                    <p class="text-sm text-gray-700">The moment you realize: Props are like function arguments (immutable), and State is like variables declared inside the function (mutable). Pure genius!</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Junior Coder</p>
-                                    <p class="text-sm text-gray-700">This! I spent an hour trying to figure out why I couldn't change `this.props.userId`. Your analogy just clicked for me. Props = read-only, State = for internal changes.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React State</p>
-                                    <p class="text-sm text-gray-700">Exactly! State is what allows a component to remember user input, change its displayed content, or update based on a timer. It's the engine for dynamic behavior.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Meme Time</p>
-                                    <p class="text-sm text-gray-700">I can finally sleep at night. 😴</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Functional Fan</p>
-                                    <p class="text-sm text-gray-700">For anyone still struggling: In functional components, this is handled by the `useState` Hook. It makes managing that internal, mutable data super clean.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Code Snippet</p>
-                                    <p class="text-sm text-gray-700">Quick illustration:
-                                        <div class="code-snippet">
-                                            <pre><code>// Props: Passed from parent (immutable here)
-function Greeting({ name }) { 
-  return &lt;h1&gt;Hello, {name}&lt;/h1&gt;;
-}
-
-// State: Internal counter (mutable here)
-function Counter() {
-  const [count, setCount] = React.useState(0);
-  return &lt;button onClick={() => setCount(count + 1)}&gt;{count}&lt;/button&gt;;
-}</code></pre>
-                                        </div>
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card bg-yellow-50 border-l-4 border-yellow-400">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">Q</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">Quiz</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: QUIZ</p>
-                            <div class="post-text">
-                                
-                                <div class="space-y-4 mt-2">
-                                    <div class="p-3 bg-white rounded-lg shadow-sm border">
-                                        <p class="font-semibold mb-2">1. What is used to manage a component's internal data that changes over time?</p>
-                                        <ul class="space-y-1 text-sm">
-                                            <li class="p-1 rounded bg-gray-100">Props</li>
-                                            <li class="p-1 rounded bg-green-100 font-medium">State (Correct)</li>
-                                            <li class="p-1 rounded bg-gray-100">Functions</li>
-                                        </ul>
-                                    </div>
-                                    <div class="p-3 bg-white rounded-lg shadow-sm border">
-                                        <p class="font-semibold mb-2">2. What does the `useState` Hook return?</p>
-                                        <ul class="space-y-1 text-sm">
-                                            <li class="p-1 rounded bg-green-100 font-medium">The state value and a function to update it (Correct)</li>
-                                            <li class="p-1 rounded bg-gray-100">Only the state value</li>
-                                            <li class="p-1 rounded bg-gray-100">A boolean indicating if the state has changed</li>
-                                        </ul>
-                                    </div>
-                                    <div class="p-3 bg-white rounded-lg shadow-sm border">
-                                        <p class="font-semibold mb-2">3. What happens when a component's state changes?</p>
-                                        <ul class="space-y-1 text-sm">
-                                            <li class="p-1 rounded bg-gray-100">The entire application reloads</li>
-                                            <li class="p-1 rounded bg-green-100 font-medium">The component re-renders (Correct)</li>
-                                            <li class="p-1 rounded bg-gray-100">An error is thrown</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">React Student</p>
-                                    <p class="text-sm text-gray-700">Great quiz! Here are my answers based on the fundamentals:
-1. State
-2. The state value and a function to update it
-3. The component re-renders</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Dev Advocate</p>
-                                    <p class="text-sm text-gray-700">That's exactly right! To elaborate on the first question: 'State' is crucial because it allows components to be dynamic. Unlike 'props', which are passed down and are immutable, state is managed internally by the component itself and can change over time due to user actions or other events. This internal, changing data is what drives component updates.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Hook Helper</p>
-                                    <p class="text-sm text-gray-700">The `useState` Hook is the modern way to manage state in functional components. It follows the array destructuring pattern: `const [count, setCount] = useState(0);`. The first element (`count`) is the current state value, and the second (`setCount`) is the function used to update that value. It's essential to use this setter function, not modify the state directly.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Performance Geek</p>
-                                    <p class="text-sm text-gray-700">And regarding the re-render question: when you call the state update function (like `setCount`), React queues a re-render. It efficiently determines which components need updating by comparing the new state/props with the previous ones, only updating the necessary parts of the DOM. This targeted re-render is key to React's performance.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="flex items-start space-x-3">
-                        <div class="avatar placeholder">
-                            <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                                <span class="text-lg">R</span>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="post-header">React Resources</p>
-                            <p class="text-sm text-gray-500">Type: Post | Style: SOURCES</p>
-                            <div class="post-text">
-                                Ready to dive deeper? Here are some excellent resources to continue your React journey:
-                            </div>
-                            
-                            <!-- Children/Comments -->
-                            <div class="mt-4 space-y-3">
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Official Guide</p>
-                                    <p class="text-sm text-gray-700">The absolute best starting point is always the official React documentation at react.dev. The new guides are fantastic for covering the fundamental concepts, including JSX, components, state, and props, often with interactive examples.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Community Picks</p>
-                                    <p class="text-sm text-gray-700">I second the official docs! For hands-on practice, resources like freeCodeCamp's React course or The Odin Project are project-based and help solidify your understanding of building reusable UI components and using Hooks.</p>
-                                </div>
-                                
-                                <div class="comment-card">
-                                    <p class="font-semibold text-sm">Advanced Learner</p>
-                                    <p class="text-sm text-gray-700">For truly diving deeper, after mastering functional components and Hooks (like useState and useEffect), look into advanced topics. Focus on performance optimization, memoization (React.memo, useCallback, useMemo), and advanced state management patterns using the Context API or dedicated libraries like Redux or Zustand.</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- New Suggestions Block -->
-                <div class="p-4 bg-gray-100 border-t border-gray-200">
-                    <p class="font-bold text-lg text-gray-800 mb-2">Next Topic Suggestions</p>
-                    <div class="flex flex-wrap gap-2">
-                        
-                        <span class="badge badge-lg badge-info text-white">React Hooks</span>
-                        
-                        <span class="badge badge-lg badge-info text-white">React Router</span>
-                        
-                        <span class="badge badge-lg badge-info text-white">State Management with Redux</span>
-                        
-                    </div>
-                </div>
-                
-                <!-- Post Loop End -->
-
             </div>
-            <!-- JSON Data End -->
-        </main>
-
-        <footer class="p-4 text-center text-sm text-gray-500 border-t border-gray-200">
-            End of Feed | Debug View
-        </footer>
+        </div>
     </div>
+
+    <script>
+        const rawData = {
+  "array": [
+    {
+      "posterName": "React Fundamentals",
+      "text": "Welcome to your learning feed on React! React is a powerful JavaScript library for building user interfaces, developed by Facebook. It allows developers to create reusable UI components and build complex applications efficiently.",
+      "displayStyle": "BASIC",
+      "type": "Post"
+    },
+    {
+      "posterName": "React Explained",
+      "text": "At its core, React uses a component-based architecture. Think of components as independent, reusable pieces of code, much like JavaScript functions, that return HTML. This modular approach makes it easier to manage and scale your applications.",
+      "displayStyle": "AI_IMAGE",
+      "aiImagePrompt": "A visual representation of a user interface being assembled from various interlocking blocks, each labeled as a 'Component'. The blocks should have different colors and sizes, symbolizing the variety and reusability of React components. The overall image should convey a sense of modularity and organization.",
+      "type": "Post"
+    },
+    {
+      "posterName": "JSX",
+      "text": "One of the first things you'll encounter in React is JSX, which stands for JavaScript XML. It's a syntax extension that allows you to write HTML-like code directly within your JavaScript. This makes your code more readable and expressive.",
+      "displayStyle": "WEB_IMAGE",
+      "imageSearchQuery": "react jsx code example",
+      "type": "Post"
+    },
+    {
+      "posterName": "The Virtual DOM",
+      "text": "React's secret to performance is the Virtual DOM. It's a lightweight copy of the real DOM kept in memory. When the state of your application changes, React first updates the Virtual DOM, then efficiently calculates the minimal changes needed to update the actual DOM. This process is called reconciliation.",
+      "displayStyle": "EXERCISE",
+      "exerciseQuestions": [
+        "In your own words, what is the Virtual DOM and why is it beneficial for performance?",
+        "Explain the concept of 'reconciliation' in the context of React's Virtual DOM.",
+        "How does the Virtual DOM differ from the Shadow DOM?"
+      ],
+      "type": "Post"
+    },
+    {
+      "posterName": "Quiz",
+      "text": "",
+      "displayStyle": "QUIZ",
+      "quizQuestions": [
+        {
+          "question": "What is React primarily used for?",
+          "answers": [
+            "Backend development",
+            "Building user interfaces",
+            "Database management"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "What does JSX stand for?",
+          "answers": [
+            "JavaScript XML",
+            "Java Syntax Extension",
+            "JSON Syntax"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "What is the main benefit of the Virtual DOM?",
+          "answers": [
+            "It makes the code easier to write.",
+            "It improves application performance.",
+            "It's a replacement for the real DOM."
+          ],
+          "correctIndex": 1
+        }
+      ],
+      "type": "Post"
+    },
+    {
+      "posterName": "State vs. Props",
+      "text": "In React, data flows in one direction. 'Props' (short for properties) are used to pass data from a parent component to a child component and are read-only. 'State' is for managing a component's internal data that can change over time. State is managed within the component and can be updated, triggering a re-render.",
+      "displayStyle": "BASIC",
+      "type": "Post"
+    },
+    {
+      "posterName": "Component Lifecycle",
+      "text": "Every React component has a lifecycle with three main phases: Mounting, Updating, and Unmounting. These phases have specific methods that allow you to run code at particular times, like when a component is first added to the DOM (`componentDidMount`) or just before it's removed (`componentWillUnmount`).",
+      "displayStyle": "AI_IMAGE",
+      "aiImagePrompt": "An illustration showing a plant's lifecycle, from a seed (Mounting), to a growing plant (Updating), and finally a wilting plant (Unmounting). Each stage should be clearly labeled with the corresponding React component lifecycle phase.",
+      "type": "Post"
+    },
+    {
+      "posterName": "ProTip",
+      "text": "Remember to bind your event handlers in class components to ensure `this` refers to the component instance. With functional components and hooks, this is often not an issue!",
+      "displayStyle": "COMMENT",
+      "type": "Post"
+    },
+    {
+      "posterName": "React Hooks",
+      "text": "Hooks are a powerful feature introduced in React 16.8 that let you use state and other React features in functional components without writing a class. The most common hooks are `useState` for managing state and `useEffect` for handling side effects.",
+      "displayStyle": "MEME",
+      "type": "Post"
+    },
+    {
+      "posterName": "Quiz",
+      "text": "",
+      "displayStyle": "QUIZ",
+      "quizQuestions": [
+        {
+          "question": "What is the primary way to pass data from a parent to a child component?",
+          "answers": [
+            "State",
+            "Props",
+            "Events"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Which lifecycle method is called after a component is rendered for the first time?",
+          "answers": [
+            "componentDidMount",
+            "componentWillUnmount",
+            "render"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "What do React Hooks allow you to do?",
+          "answers": [
+            "Use state in class components",
+            "Use state and lifecycle features in functional components",
+            "Replace the need for props"
+          ],
+          "correctIndex": 1
+        }
+      ],
+      "type": "Post"
+    },
+    {
+      "posterName": "React Router",
+      "text": "React itself is a library for building user interfaces, not a full framework. For handling navigation between different pages in a single-page application, you'll often use a library like React Router. It provides components for defining routes and linking between them.",
+      "displayStyle": "BASIC",
+      "type": "Post"
+    },
+    {
+      "posterName": "State Management",
+      "text": "For larger applications, managing state can become complex. While React has its own Context API, many developers turn to libraries like Redux for a more centralized and predictable way to manage the application's state.",
+      "displayStyle": "AI_IMAGE",
+      "aiImagePrompt": "A diagram showing a central 'store' of data with arrows pointing to various components of a user interface. This illustrates the concept of a centralized state management library like Redux, where the state is held in a single location and components can access and update it.",
+      "type": "Post"
+    },
+    {
+      "posterName": "Testing React",
+      "text": "To ensure your components work as expected, you'll want to write tests. The React Testing Library is a popular choice that encourages testing your application in a way that resembles how a user would interact with it.",
+      "displayStyle": "EXERCISE",
+      "exerciseQuestions": [
+        "Why is it important to test React components from a user's perspective?",
+        "What is the purpose of a test runner like Jest in the context of React testing?",
+        "Describe a scenario where you would use a query like `getByText` in React Testing Library."
+      ],
+      "type": "Post"
+    },
+    {
+      "posterName": "Deeper Dive",
+      "text": "Ready to go further? Explore these resources to expand your React knowledge.",
+      "displayStyle": "SOURCES",
+      "type": "Post"
+    },
+    {
+      "posterName": "Quiz",
+      "text": "",
+      "displayStyle": "QUIZ",
+      "quizQuestions": [
+        {
+          "question": "What is React Router used for?",
+          "answers": [
+            "Styling components",
+            "Managing application state",
+            "Handling navigation and routing"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Which of the following is a popular state management library for React?",
+          "answers": [
+            "React Router",
+            "Redux",
+            "Jest"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "What is the main philosophy of the React Testing Library?",
+          "answers": [
+            "To test the implementation details of components",
+            "To test components in a way that resembles user interaction",
+            "To only test the visual appearance of components"
+          ],
+          "correctIndex": 1
+        }
+      ],
+      "type": "Post"
+    },
+    {
+      "nextTopicSuggestions": [
+        "Next.js",
+        "React Native",
+        "GraphQL with React"
+      ],
+      "type": "NewSuggestions"
+    }
+  ],
+  "webSearchQueries": [
+    "what is react js",
+    "react js core concepts",
+    "what are react components",
+    "what is JSX in react",
+    "react state vs props",
+    "what is virtual dom in react",
+    "react component lifecycle",
+    "what are react hooks",
+    "useState and useEffect hooks explained",
+    "event handling in react",
+    "what is react router",
+    "react context api tutorial",
+    "what is redux in react",
+    "react testing library tutorial",
+    "what is next.js"
+  ]
+};
+
+        const feedContainer = document.getElementById('feed-container');
+        const metadataContainer = document.getElementById('metadata-container');
+
+        function getAvatar(name) {
+            const initial = name ? name[0].toUpperCase() : '?';
+            // Simple color hashing based on initial for variety
+            const colors = ['bg-blue-500', 'bg-red-500', 'bg-green-500', 'bg-yellow-500', 'bg-indigo-500', 'bg-pink-500'];
+            const color = colors[initial.charCodeAt(0) % colors.length];
+            
+            return `<div class="w-10 h-10 ${color} rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">${initial}</div>`;
+        }
+
+        function renderPost(post) {
+            let contentHtml = '';
+            let specialStyle = '';
+            let icon = '';
+
+            // Determine special content and styling based on displayStyle
+            switch (post.displayStyle) {
+                case 'AI_IMAGE':
+                    specialStyle = 'border-l-4 border-purple-500 bg-gray-850';
+                    icon = `<svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>`;
+                    contentHtml = `
+                        <p class="text-gray-300 mt-1">${post.text}</p>
+                        <div class="mt-3 p-3 bg-gray-900 border border-purple-600/50 rounded-lg">
+                            <p class="text-purple-400 font-semibold text-xs mb-1">AI Image Prompt:</p>
+                            <p class="text-gray-400 text-xs italic">${post.aiImagePrompt}</p>
+                        </div>
+                    `;
+                    break;
+
+                case 'WEB_IMAGE':
+                    specialStyle = 'border-l-4 border-green-500 bg-gray-850';
+                    icon = `<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>`;
+                    contentHtml = `
+                        <p class="text-gray-300 mt-1">${post.text}</p>
+                        <div class="mt-3 p-3 bg-gray-900 border border-green-600/50 rounded-lg">
+                            <p class="text-green-400 font-semibold text-xs mb-1">Web Search Query:</p>
+                            <p class="text-gray-400 text-xs italic">${post.imageSearchQuery}</p>
+                        </div>
+                    `;
+                    break;
+
+                case 'QUIZ':
+                    specialStyle = 'border-l-4 border-yellow-500 bg-gray-850';
+                    icon = `<svg class="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0121 12c0 3.368-.804 6.502-2.27 9.284M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"></path></svg>`;
+                    
+                    let quizHtml = post.quizQuestions.map((q, qIndex) => `
+                        <div class="mb-4 p-3 border border-yellow-700 rounded-lg bg-gray-900">
+                            <p class="font-semibold text-yellow-300 mb-2">Q${qIndex + 1}: ${q.question}</p>
+                            <ul class="mt-2 space-y-1 text-sm">
+                                ${q.answers.map((a, aIndex) => `
+                                    <li class="${aIndex === q.correctIndex ? 'bg-yellow-900/50 text-yellow-200 font-medium' : 'text-gray-400'} p-1 rounded">
+                                        ${String.fromCharCode(65 + aIndex)}. ${a} 
+                                        ${aIndex === q.correctIndex ? '<span class="text-xs text-yellow-400 ml-2">(Correct)</span>' : ''}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    `).join('');
+                    contentHtml = `<p class="text-gray-300 mt-1">Interactive Quiz Time!</p><div class="mt-3">${quizHtml}</div>`;
+                    break;
+
+                case 'EXERCISE':
+                    specialStyle = 'border-l-4 border-red-500 bg-gray-850';
+                    icon = `<svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>`;
+                    
+                    let exerciseHtml = post.exerciseQuestions.map((q, qIndex) => `
+                        <li class="mb-2 text-gray-300">
+                            <span class="font-semibold text-red-300 mr-1">Q${qIndex + 1}:</span> ${q}
+                        </li>
+                    `).join('');
+                    contentHtml = `
+                        <p class="text-gray-300 mt-1">${post.text}</p>
+                        <div class="mt-3 p-3 bg-gray-900 border border-red-600/50 rounded-lg">
+                            <p class="text-red-400 font-semibold mb-2 text-sm">Self-Reflection Prompts:</p>
+                            <ol class="list-decimal list-inside ml-2 text-sm space-y-1">${exerciseHtml}</ol>
+                        </div>
+                    `;
+                    break;
+
+                case 'SOURCES':
+                    specialStyle = 'border-l-4 border-cyan-500 bg-gray-850';
+                    icon = `<svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>`;
+                    
+                    // Since the provided JSON for SOURCES doesn't contain explicit URLs, we'll use placeholder links based on the post name.
+                    const sourcesPlaceholder = [
+                        { name: "React Official Docs", url: "#" },
+                        { name: "Component Lifecycle Guide", url: "#" },
+                        { name: "State Management Patterns", url: "#" }
+                    ];
+
+                    let sourcesHtml = sourcesPlaceholder.map(source => `
+                        <li class="text-cyan-300 hover:text-cyan-200 transition duration-150">
+                            <a href="${source.url}" target="_blank" class="hover:underline">${source.name}</a>
+                        </li>
+                    `).join('');
+
+                    contentHtml = `
+                        <p class="text-gray-300 mt-1">${post.text}</p>
+                        <div class="mt-3 p-3 bg-gray-900 border border-cyan-600/50 rounded-lg">
+                            <p class="text-cyan-400 font-semibold mb-2 text-sm">Key Links:</p>
+                            <ul class="list-disc list-inside ml-2 text-sm space-y-1">${sourcesHtml}</ul>
+                        </div>
+                    `;
+                    break;
+
+                case 'COMMENT':
+                    specialStyle = 'border-l-4 border-gray-500 bg-gray-850';
+                    icon = `<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>`;
+                    contentHtml = `<p class="text-gray-300 mt-1 italic">${post.text}</p>`;
+                    break;
+
+                case 'MEME':
+                    specialStyle = 'border-l-4 border-pink-500 bg-gray-850';
+                    icon = `<svg class="w-4 h-4 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+                    contentHtml = `
+                        <p class="text-gray-300 mt-1">${post.text}</p>
+                        <div class="mt-3 p-3 bg-gray-900 border border-pink-600/50 rounded-lg">
+                            <p class="text-pink-400 font-semibold text-xs mb-1">Meme Search Query:</p>
+                            <p class="text-gray-400 text-xs italic">Placeholder for meme related to ${post.posterName}</p>
+                        </div>
+                    `;
+                    break;
+
+                case 'BASIC':
+                default:
+                    icon = `<svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>`;
+                    contentHtml = `<p class="text-gray-300 mt-1">${post.text}</p>`;
+                    break;
+            }
+
+            return `
+                <div class="post border-b border-gray-800 p-4 hover:bg-gray-850 transition duration-150 ${specialStyle}">
+                    <div class="flex space-x-3">
+                        ${getAvatar(post.posterName)}
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <p class="text-white font-bold truncate">${post.posterName}</p>
+                                <span class="text-xs text-gray-500 flex items-center space-x-1 flex-shrink-0 ml-2">
+                                    ${icon}
+                                    <span class="hidden sm:inline">${post.displayStyle}</span>
+                                </span>
+                            </div>
+                            ${contentHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSuggestions(suggestions) {
+            const listHtml = suggestions.nextTopicSuggestions.map(topic => `
+                <li class="p-2 bg-gray-700 rounded-lg text-blue-300 hover:bg-blue-900/50 transition duration-150 cursor-pointer text-sm">
+                    ${topic}
+                </li>
+            `).join('');
+
+            return `
+                <div class="p-4 bg-gray-800 border-t border-gray-700 shadow-xl">
+                    <h2 class="text-xl font-bold text-blue-400 mb-3">Next Steps</h2>
+                    <p class="text-gray-400 mb-4 text-sm">Based on this learning path, here are some suggested topics to explore next:</p>
+                    <ul class="space-y-2">
+                        ${listHtml}
+                    </ul>
+                </div>
+            `;
+        }
+
+        // --- Main Rendering Loop ---
+        rawData.array.forEach(item => {
+            if (item.type === 'Post') {
+                feedContainer.innerHTML += renderPost(item);
+            } else if (item.type === 'NewSuggestions') {
+                feedContainer.innerHTML += renderSuggestions(item);
+            }
+        });
+
+        // --- Metadata Rendering ---
+        const queriesHtml = rawData.webSearchQueries.map(query => `
+            <li class="text-gray-400 bg-gray-700/50 p-2 rounded-md text-xs font-mono break-words">${query}</li>
+        `).join('');
+
+        metadataContainer.innerHTML = `
+            <div class="border-b border-gray-700 pb-4">
+                <h3 class="font-semibold text-white mb-2 text-sm">Web Search Queries Generated (${rawData.webSearchQueries.length}):</h3>
+                <ul class="space-y-1 max-h-60 overflow-y-auto pr-1">${queriesHtml}</ul>
+            </div>
+            <div class="pt-4">
+                <h3 class="font-semibold text-white mb-2 text-sm">Total Posts Rendered:</h3>
+                <p class="text-gray-400">${rawData.array.filter(i => i.type === 'Post').length}</p>
+            </div>
+        `;
+
+    </script>
 
 </body>
 </html>
