@@ -40,7 +40,7 @@ export async function visualize(data: string, htmlFilePath?: string) {
 	
 	${
     oldVisualizationHTML
-      ? `The UI should look similar to this: ${oldVisualizationHTML}. DO NOT USE THE DATA FROM THIS EXAMPLE, USE THE DATA FROM ABOVE INSTEAD.`
+      ? `The UI should look similar to this: ${oldVisualizationHTML}. Don't use the data from the provided example HTML, use the data from the JSON above instead.`
       : ""
   }
 	`,

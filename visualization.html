@@ -53,225 +53,221 @@
 
     <script>
         const rawData = {
-  "array": [
-    {
-      "posterName": "React Fundamentals",
-      "text": "Welcome to your learning feed on React! React is a powerful JavaScript library for building user interfaces, developed by Facebook. It allows developers to create reusable UI components and build complex applications efficiently.",
-      "displayStyle": "BASIC",
-      "type": "Post"
-    },
-    {
-      "posterName": "React Explained",
-      "text": "At its core, React uses a component-based architecture. Think of components as independent, reusable pieces of code, much like JavaScript functions, that return HTML. This modular approach makes it easier to manage and scale your applications.",
-      "displayStyle": "AI_IMAGE",
-      "aiImagePrompt": "A visual representation of a user interface being assembled from various interlocking blocks, each labeled as a 'Component'. The blocks should have different colors and sizes, symbolizing the variety and reusability of React components. The overall image should convey a sense of modularity and organization.",
-      "type": "Post"
-    },
-    {
-      "posterName": "JSX",
-      "text": "One of the first things you'll encounter in React is JSX, which stands for JavaScript XML. It's a syntax extension that allows you to write HTML-like code directly within your JavaScript. This makes your code more readable and expressive.",
-      "displayStyle": "WEB_IMAGE",
-      "imageSearchQuery": "react jsx code example",
-      "type": "Post"
-    },
-    {
-      "posterName": "The Virtual DOM",
-      "text": "React's secret to performance is the Virtual DOM. It's a lightweight copy of the real DOM kept in memory. When the state of your application changes, React first updates the Virtual DOM, then efficiently calculates the minimal changes needed to update the actual DOM. This process is called reconciliation.",
-      "displayStyle": "EXERCISE",
-      "exerciseQuestions": [
-        "In your own words, what is the Virtual DOM and why is it beneficial for performance?",
-        "Explain the concept of 'reconciliation' in the context of React's Virtual DOM.",
-        "How does the Virtual DOM differ from the Shadow DOM?"
-      ],
-      "type": "Post"
-    },
-    {
-      "posterName": "Quiz",
-      "text": "",
-      "displayStyle": "QUIZ",
-      "quizQuestions": [
-        {
-          "question": "What is React primarily used for?",
-          "answers": [
-            "Backend development",
-            "Building user interfaces",
-            "Database management"
+          "array": [
+            {
+              "posterName": "React Simplified",
+              "text": "Welcome to your learning feed on React! React is a JavaScript library for building user interfaces. It lets you create reusable UI components and manage their state efficiently.",
+              "displayStyle": "BASIC"
+            },
+            {
+              "posterName": "CodeCrafter",
+              "text": "At the heart of React is the concept of components. Think of them as independent, reusable bits of code. They work like JavaScript functions, accepting inputs called 'props' and returning React elements that describe what should appear on the screen.",
+              "displayStyle": "AI_IMAGE",
+              "aiImagePrompt": "A visual representation of React components as building blocks, each with its own state and props, coming together to form a complete user interface."
+            },
+            {
+              "posterName": "JSX Explained",
+              "text": "JSX, which stands for JavaScript XML, is a syntax extension for JavaScript that looks a lot like HTML. It allows you to write what your UI should look like in a declarative way. Under the hood, Babel compiles JSX down to `React.createElement()` calls.",
+              "displayStyle": "WEB_IMAGE",
+              "imageSearchQuery": "JSX code snippet"
+            },
+            {
+              "posterName": "State & Props",
+              "text": "In React, 'props' (properties) are used to pass data from a parent component to a child component, and they are immutable. 'State', on the other hand, is for managing a component's internal data that can change over time.",
+              "displayStyle": "BASIC"
+            },
+            {
+              "posterName": "Quiz",
+              "text": "",
+              "displayStyle": "QUIZ",
+              "quizQuestions": [
+                {
+                  "question": "What is JSX?",
+                  "answers": [
+                    "A new programming language",
+                    "A syntax extension for JavaScript",
+                    "A database for React"
+                  ],
+                  "correctIndex": 1
+                },
+                {
+                  "question": "What is the main difference between state and props?",
+                  "answers": [
+                    "Props are for data that changes, state is for data that doesn't",
+                    "State is passed from parent to child, props are managed within the component",
+                    "Props are passed from parent to child, state is managed within the component"
+                  ],
+                  "correctIndex": 2
+                },
+                {
+                  "question": "What are React components?",
+                  "answers": [
+                    "CSS stylesheets",
+                    "Reusable pieces of UI",
+                    "Database schemas"
+                  ],
+                  "correctIndex": 1
+                }
+              ]
+            },
+            {
+              "posterName": "Virtual DOM",
+              "text": "The virtual DOM (VDOM) is a programming concept where a virtual representation of the UI is kept in memory and synced with the 'real' DOM. This allows React to perform updates efficiently by only re-rendering the parts of the UI that have changed.",
+              "displayStyle": "AI_IMAGE",
+              "aiImagePrompt": "An abstract illustration of the Virtual DOM concept, showing a lightweight copy of the DOM tree and a diffing algorithm that highlights the changed nodes."
+            },
+            {
+              "posterName": "React Hooks",
+              "text": "Hooks are functions that let you 'hook into' React state and lifecycle features from function components. This means you can use state and other React features without writing a class.",
+              "displayStyle": "BASIC"
+            },
+            {
+              "posterName": "useState Explained",
+              "text": "The `useState` hook is a fundamental hook that allows you to add state to your functional components. You call it with the initial state, and it returns the current state and a function to update it.",
+              "displayStyle": "SOURCES",
+              "sources": [
+                "https://react.dev/reference/react/useState"
+              ]
+            },
+            {
+              "posterName": "useEffect Explained",
+              "text": "The `useEffect` hook lets you perform side effects in your components. Common side effects include fetching data, setting up a subscription, or manually changing the DOM. It runs after every render by default, but you can control when it runs.",
+              "displayStyle": "BASIC"
+            },
+            {
+              "posterName": "Quiz",
+              "text": "",
+              "displayStyle": "QUIZ",
+              "quizQuestions": [
+                {
+                  "question": "What is the Virtual DOM?",
+                  "answers": [
+                    "A direct representation of the HTML in the browser",
+                    "A lightweight in-memory copy of the real DOM",
+                    "A server-side rendering technique"
+                  ],
+                  "correctIndex": 1
+                },
+                {
+                  "question": "What do React Hooks allow you to do?",
+                  "answers": [
+                    "Use state and other React features in class components",
+                    "Use state and other React features in functional components",
+                    "Directly manipulate the real DOM"
+                  ],
+                  "correctIndex": 1
+                },
+                {
+                  "question": "What does the `useState` hook return?",
+                  "answers": [
+                    "The current state and a function to update it",
+                    "Only the current state",
+                    "Only a function to update the state"
+                  ],
+                  "correctIndex": 0
+                }
+              ]
+            },
+            {
+              "posterName": "Feynman",
+              "text": "Time for a check-in! Let's solidify your understanding of some core React concepts with the Feynman technique. Try to explain these topics in simple terms, as if you were teaching them to someone else.",
+              "displayStyle": "EXERCISE",
+              "exerciseQuestions": [
+                "Explain the concept of conditional rendering in React and provide an example of how you might use it.",
+                "What are lists and keys in React, and why are keys important for performance?",
+                "Describe how event handling works in React and how it differs from traditional HTML event handling."
+              ]
+            },
+            {
+              "posterName": "Conditional Rendering",
+              "text": "Conditional rendering in React allows you to render different UI elements based on certain conditions. You can use standard JavaScript constructs like `if/else`, the ternary operator, or logical operators like `&&` to achieve this.",
+              "displayStyle": "BASIC"
+            },
+            {
+              "posterName": "Lists and Keys",
+              "text": "When rendering lists of elements in React, you should always provide a unique `key` prop to each list item. Keys help React identify which items have changed, are added, or are removed, which helps in efficiently updating the UI.",
+              "displayStyle": "AI_IMAGE",
+              "aiImagePrompt": "A visual of a list of items being reordered. Each item has a unique key that stays with it, helping React track the changes."
+            },
+            {
+              "posterName": "Event Handling",
+              "text": "Handling events in React is similar to handling events in HTML, but with a few syntactical differences. React events are named using camelCase, and you pass a function as the event handler rather than a string.",
+              "displayStyle": "WEB_IMAGE",
+              "imageSearchQuery": "React onClick event handler example"
+            },
+            {
+              "posterName": "Quiz",
+              "text": "",
+              "displayStyle": "QUIZ",
+              "quizQuestions": [
+                {
+                  "question": "Which of the following is NOT a valid way to do conditional rendering in React?",
+                  "answers": [
+                    "Using an if/else statement",
+                    "Using the ternary operator",
+                    "Using a for loop inside JSX"
+                  ],
+                  "correctIndex": 2
+                },
+                {
+                  "question": "Why are keys important when rendering lists in React?",
+                  "answers": [
+                    "They provide styling to the list items",
+                    "They help React identify which items have changed, been added, or removed",
+                    "They are used to fetch data for each list item"
+                  ],
+                  "correctIndex": 1
+                },
+                {
+                  "question": "How are React event handlers named?",
+                  "answers": [
+                    "lowercase",
+                    "UPPERCASE",
+                    "camelCase"
+                  ],
+                  "correctIndex": 2
+                }
+              ]
+            },
+            {
+              "posterName": "React Router",
+              "text": "React Router is a standard library for routing in React. It enables the navigation among views of various components in a React Application, allows changing the browser URL, and keeps the UI in sync with the URL.",
+              "displayStyle": "BASIC"
+            },
+            {
+              "posterName": "Redux",
+              "text": "Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently and are easy to test. It's often used with React for managing the application's global state.",
+              "displayStyle": "SOURCES",
+              "sources": [
+                "https://redux.js.org/"
+              ]
+            },
+            {
+              "nextTopicSuggestions": [
+                "Advanced React Hooks (useContext, useReducer)",
+                "State Management with Redux",
+                "Testing React Components"
+              ]
+            }
           ],
-          "correctIndex": 1
-        },
-        {
-          "question": "What does JSX stand for?",
-          "answers": [
-            "JavaScript XML",
-            "Java Syntax Extension",
-            "JSON Syntax"
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "What is the main benefit of the Virtual DOM?",
-          "answers": [
-            "It makes the code easier to write.",
-            "It improves application performance.",
-            "It's a replacement for the real DOM."
-          ],
-          "correctIndex": 1
-        }
-      ],
-      "type": "Post"
-    },
-    {
-      "posterName": "State vs. Props",
-      "text": "In React, data flows in one direction. 'Props' (short for properties) are used to pass data from a parent component to a child component and are read-only. 'State' is for managing a component's internal data that can change over time. State is managed within the component and can be updated, triggering a re-render.",
-      "displayStyle": "BASIC",
-      "type": "Post"
-    },
-    {
-      "posterName": "Component Lifecycle",
-      "text": "Every React component has a lifecycle with three main phases: Mounting, Updating, and Unmounting. These phases have specific methods that allow you to run code at particular times, like when a component is first added to the DOM (`componentDidMount`) or just before it's removed (`componentWillUnmount`).",
-      "displayStyle": "AI_IMAGE",
-      "aiImagePrompt": "An illustration showing a plant's lifecycle, from a seed (Mounting), to a growing plant (Updating), and finally a wilting plant (Unmounting). Each stage should be clearly labeled with the corresponding React component lifecycle phase.",
-      "type": "Post"
-    },
-    {
-      "posterName": "ProTip",
-      "text": "Remember to bind your event handlers in class components to ensure `this` refers to the component instance. With functional components and hooks, this is often not an issue!",
-      "displayStyle": "COMMENT",
-      "type": "Post"
-    },
-    {
-      "posterName": "React Hooks",
-      "text": "Hooks are a powerful feature introduced in React 16.8 that let you use state and other React features in functional components without writing a class. The most common hooks are `useState` for managing state and `useEffect` for handling side effects.",
-      "displayStyle": "MEME",
-      "type": "Post"
-    },
-    {
-      "posterName": "Quiz",
-      "text": "",
-      "displayStyle": "QUIZ",
-      "quizQuestions": [
-        {
-          "question": "What is the primary way to pass data from a parent to a child component?",
-          "answers": [
-            "State",
-            "Props",
-            "Events"
-          ],
-          "correctIndex": 1
-        },
-        {
-          "question": "Which lifecycle method is called after a component is rendered for the first time?",
-          "answers": [
-            "componentDidMount",
-            "componentWillUnmount",
-            "render"
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "What do React Hooks allow you to do?",
-          "answers": [
-            "Use state in class components",
-            "Use state and lifecycle features in functional components",
-            "Replace the need for props"
-          ],
-          "correctIndex": 1
-        }
-      ],
-      "type": "Post"
-    },
-    {
-      "posterName": "React Router",
-      "text": "React itself is a library for building user interfaces, not a full framework. For handling navigation between different pages in a single-page application, you'll often use a library like React Router. It provides components for defining routes and linking between them.",
-      "displayStyle": "BASIC",
-      "type": "Post"
-    },
-    {
-      "posterName": "State Management",
-      "text": "For larger applications, managing state can become complex. While React has its own Context API, many developers turn to libraries like Redux for a more centralized and predictable way to manage the application's state.",
-      "displayStyle": "AI_IMAGE",
-      "aiImagePrompt": "A diagram showing a central 'store' of data with arrows pointing to various components of a user interface. This illustrates the concept of a centralized state management library like Redux, where the state is held in a single location and components can access and update it.",
-      "type": "Post"
-    },
-    {
-      "posterName": "Testing React",
-      "text": "To ensure your components work as expected, you'll want to write tests. The React Testing Library is a popular choice that encourages testing your application in a way that resembles how a user would interact with it.",
-      "displayStyle": "EXERCISE",
-      "exerciseQuestions": [
-        "Why is it important to test React components from a user's perspective?",
-        "What is the purpose of a test runner like Jest in the context of React testing?",
-        "Describe a scenario where you would use a query like `getByText` in React Testing Library."
-      ],
-      "type": "Post"
-    },
-    {
-      "posterName": "Deeper Dive",
-      "text": "Ready to go further? Explore these resources to expand your React knowledge.",
-      "displayStyle": "SOURCES",
-      "type": "Post"
-    },
-    {
-      "posterName": "Quiz",
-      "text": "",
-      "displayStyle": "QUIZ",
-      "quizQuestions": [
-        {
-          "question": "What is React Router used for?",
-          "answers": [
-            "Styling components",
-            "Managing application state",
-            "Handling navigation and routing"
-          ],
-          "correctIndex": 2
-        },
-        {
-          "question": "Which of the following is a popular state management library for React?",
-          "answers": [
-            "React Router",
-            "Redux",
-            "Jest"
-          ],
-          "correctIndex": 1
-        },
-        {
-          "question": "What is the main philosophy of the React Testing Library?",
-          "answers": [
-            "To test the implementation details of components",
-            "To test components in a way that resembles user interaction",
-            "To only test the visual appearance of components"
-          ],
-          "correctIndex": 1
-        }
-      ],
-      "type": "Post"
-    },
-    {
-      "nextTopicSuggestions": [
-        "Next.js",
-        "React Native",
-        "GraphQL with React"
-      ],
-      "type": "NewSuggestions"
-    }
-  ],
-  "webSearchQueries": [
-    "what is react js",
-    "react js core concepts",
-    "what are react components",
-    "what is JSX in react",
-    "react state vs props",
-    "what is virtual dom in react",
-    "react component lifecycle",
-    "what are react hooks",
-    "useState and useEffect hooks explained",
-    "event handling in react",
-    "what is react router",
-    "react context api tutorial",
-    "what is redux in react",
-    "react testing library tutorial",
-    "what is next.js"
-  ]
-};
+          "webSearchQueries": [
+            "what is react and its core concepts",
+            "React components tutorial",
+            "what is jsx in react",
+            "react state vs props",
+            "what is the virtual dom in react",
+            "React useState hook explained",
+            "React useEffect hook explained",
+            "React conditional rendering",
+            "React lists and keys",
+            "React event handling",
+            "React folder structure best practices",
+            "What are React hooks?",
+            "What is Redux in React?",
+            "What is React Router?",
+            "Next.js vs Create React App"
+          ]
+        };
 
         const feedContainer = document.getElementById('feed-container');
         const metadataContainer = document.getElementById('metadata-container');
@@ -358,16 +354,9 @@
                     specialStyle = 'border-l-4 border-cyan-500 bg-gray-850';
                     icon = `<svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>`;
                     
-                    // Since the provided JSON for SOURCES doesn't contain explicit URLs, we'll use placeholder links based on the post name.
-                    const sourcesPlaceholder = [
-                        { name: "React Official Docs", url: "#" },
-                        { name: "Component Lifecycle Guide", url: "#" },
-                        { name: "State Management Patterns", url: "#" }
-                    ];
-
-                    let sourcesHtml = sourcesPlaceholder.map(source => `
+                    let sourcesHtml = post.sources.map(source => `
                         <li class="text-cyan-300 hover:text-cyan-200 transition duration-150">
-                            <a href="${source.url}" target="_blank" class="hover:underline">${source.name}</a>
+                            <a href="${source}" target="_blank" class="hover:underline">${source}</a>
                         </li>
                     `).join('');
 
@@ -393,7 +382,7 @@
                         <p class="text-gray-300 mt-1">${post.text}</p>
                         <div class="mt-3 p-3 bg-gray-900 border border-pink-600/50 rounded-lg">
                             <p class="text-pink-400 font-semibold text-xs mb-1">Meme Search Query:</p>
-                            <p class="text-gray-400 text-xs italic">Placeholder for meme related to ${post.posterName}</p>
+                            <p class="text-gray-400 text-xs italic">${post.imageSearchQuery}</p>
                         </div>
                     `;
                     break;
@@ -432,7 +421,7 @@
             `).join('');
 
             return `
-                <div class="p-4 bg-gray-800 border-t border-gray-700 shadow-xl">
+                <div class="post p-4 bg-gray-800 border-t border-gray-700 shadow-xl">
                     <h2 class="text-xl font-bold text-blue-400 mb-3">Next Steps</h2>
                     <p class="text-gray-400 mb-4 text-sm">Based on this learning path, here are some suggested topics to explore next:</p>
                     <ul class="space-y-2">
@@ -444,9 +433,9 @@
 
         // --- Main Rendering Loop ---
         rawData.array.forEach(item => {
-            if (item.type === 'Post') {
+            if (item.posterName && item.text !== undefined) { // Check if it's a post object
                 feedContainer.innerHTML += renderPost(item);
-            } else if (item.type === 'NewSuggestions') {
+            } else if (item.nextTopicSuggestions) { // Check if it's the suggestions object
                 feedContainer.innerHTML += renderSuggestions(item);
             }
         });
@@ -463,7 +452,7 @@
             </div>
             <div class="pt-4">
                 <h3 class="font-semibold text-white mb-2 text-sm">Total Posts Rendered:</h3>
-                <p class="text-gray-400">${rawData.array.filter(i => i.type === 'Post').length}</p>
+                <p class="text-gray-400">${rawData.array.filter(i => i.posterName).length}</p>
             </div>
         `;
 

@@ -14,7 +14,7 @@ AI_IMAGE - Visual concepts that need illustration; simplifying complex ideas. It
 WEB_IMAGE - An image from the web. Add the imageSearchQuery to specify what image should be used.
 COMMENT - When immediate clarification, counterpoint, or dialogue adds value
 MEME - It is like BASIC but with a meme attached.
-SOURCES - When external learning resources would help users dive deeper.
+SOURCES - It is like BASIC but you can add sources from the grounding metadata here. Use this display style if it makes sense to let the user dive deeper using the web. ONLY use data from the grounding metadata here, don't invent any additional sources.
 
 
 The output should be YAML Documents, each one representing a post.
@@ -31,9 +31,10 @@ Every Post should strictly adhere to the following type:
         answers: string[];
         correctIndex: number;
     }[] // only add quizQuestions if displayStyle is QUIZ
-    exerciseQuestions?: string[] | undefined; // only add exerciseQuestions if displayStyle is EXERCISE
-    aiImagePrompt?: string | undefined; // only add aiImagePrompt if displayStyle is AI_IMAGE
-    imageSearchQuery?: string | undefined; // only add imageSearchQuery if displayStyle is WEB_IMAGE
+    exerciseQuestions?: string[]; // only add exerciseQuestions if displayStyle is EXERCISE
+    aiImagePrompt?: string; // only add aiImagePrompt if displayStyle is AI_IMAGE
+    imageSearchQuery?: string; // only add imageSearchQuery if displayStyle is WEB_IMAGE
+    sources?: string[]; // only add sources if displayStyle is SOURCES
 }
 
 After the posts, the very last element should contain suggestions on what to learn next.
@@ -42,8 +43,7 @@ The suggestions should always be exactly in the following type:
     nextTopicSuggestions: string[]; // should always be 3 suggestions
 }
 
-Example output:
-${EXAMPLE_BLUEPRINT}
+
 
 The output should always start and end with a "---" line.
 `;

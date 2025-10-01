@@ -53,6 +53,7 @@ export const PostSchema = z.looseObject({
   exerciseQuestions: z.array(z.string()).optional(),
   aiImagePrompt: z.string().optional(),
   imageSearchQuery: z.string().optional(),
+  sources: z.array(z.string()).optional(),
 });
 
 export type Post = z.infer<typeof PostSchema>;
@@ -119,6 +120,7 @@ await startActiveObservation("debug-generateFeed", async (span) => {
     "visualization.html"
   );
 
+  console.log("Generating threads...");
   const postsWithChildren = [];
   const generatedThreads: Array<{ post: Post; children: any[] }> = [];
 
