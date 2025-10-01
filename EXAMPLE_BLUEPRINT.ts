@@ -1,4 +1,4 @@
-export const EXAMPLE_BLUEPRINT=`---
+export const EXAMPLE_BLUEPRINT = `---
 type: Post
 posterName: "The Upgrader"
 text: "Thinking of moving from a previous version? Vercel provides codemods to help automate the upgrade process to AI SDK 5, making the transition smoother."
@@ -34,9 +34,8 @@ quizQuestions:
       - "jQuery"
     correctIndex: 2
 ---
-type: NewSuggestion
 nextTopicSuggestions:
   - "Vercel AI SDK"
   - "AI SDK 4"
   - "OpenAI API"
----`
+---`;

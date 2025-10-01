@@ -24,7 +24,7 @@ import { createPrompt } from "./prompt";
 	allowPositionals: true,
 });
  */
-const TOPIC = "AI SDK 5 changes vs 4";
+const TOPIC = "React";
 
 const PostSchema = z.looseObject({
   posterName: z.string(),
@@ -98,11 +98,7 @@ const webSearchQueries = metadata?.groundingMetadata?.webSearchQueries;
 
 Bun.write(
   "output.yaml",
-  JSON.stringify(
-    (await text).replace(/^```yaml\n/, "").replace(/\n```$/, ""),
-    null,
-    2
-  )
+  (await text).replace(/^```yaml\n/, "").replace(/\n```$/, "")
 );
 Bun.write("output.json", JSON.stringify(array, null, 2));
 
