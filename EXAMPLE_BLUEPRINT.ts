@@ -33,4 +33,10 @@ quizQuestions:
       - "Angular"
       - "jQuery"
     correctIndex: 2
+---
+type: NewSuggestion
+nextTopicSuggestions:
+  - "Vercel AI SDK"
+  - "AI SDK 4"
+  - "OpenAI API"
 ---`

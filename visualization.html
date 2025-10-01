@@ -1,378 +1,403 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Debug Viewer - Simplified Twitter Feed</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>AI Debug Feed - Vercel AI SDK 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Simple customization for the debug look */
-        .tweet-container {
-            border-bottom: 1px solid #38444d; /* Twitter-like separator */
+        /* Custom styles for a Twitter-like feed */
+        .feed-container {
+            max-width: 600px;
+            margin: 0 auto;
+            border-left: 1px solid #e5e7eb;
+            border-right: 1px solid #e5e7eb;
+            min-height: 100vh;
+        }
+        .post-card {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px;
+        }
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .avatar-placeholder {
+            width: 40px;
+            height: 40px;
+            border-radius: 9999px;
+            background-color: #d1d5db;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #4b5563;
+        }
+        .poster-name {
+            font-weight: bold;
+            color: #1f2937;
+        }
+        .post-content {
+            color: #374151;
+            line-height: 1.4;
+        }
+        .debug-info {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e5e7eb;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans">
+<body class="bg-gray-50">
 
-    <div class="max-w-xl mx-auto border-x border-gray-700 min-h-screen">
-
+    <div class="feed-container bg-white shadow-lg">
+        
         <!-- Header -->
-        <header class="sticky top-0 bg-gray-900/90 backdrop-blur-sm z-10 p-4 border-b border-gray-700">
-            <h1 class="text-xl font-bold">AI Data Feed <span class="text-sm font-normal text-gray-400">/ Debug View</span></h1>
-        </header>
+        <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 p-4 border-b border-gray-200">
+            <h1 class="text-xl font-extrabold text-gray-900">AI Debug Feed</h1>
+            <p class="text-sm text-gray-500">Data Visualization for AI Generation</p>
+        </div>
 
-        <!-- Main Feed Container -->
-        <main id="feed">
-        </main>
+        <!-- Main Feed -->
+        <div id="feed-posts">
+            <!-- Posts will be injected here -->
+        </div>
 
-        <!-- Sidebar / Metadata -->
-        <div class="fixed right-0 top-0 h-full w-64 bg-gray-800 border-l border-gray-700 p-4 hidden lg:block overflow-y-auto">
-            <h2 class="text-lg font-semibold mb-3 text-blue-400">Web Search Queries (Metadata)</h2>
-            <ul id="web-queries-list" class="space-y-2 text-sm">
-                <!-- Data will be inserted here -->
-            </ul>
+        <!-- Debug Section: Web Search Queries -->
+        <div class="p-4 border-t border-gray-200 bg-gray-50">
+            <h2 class="text-lg font-bold mb-3 text-gray-700">Web Search Queries (Generated)</h2>
+            <div id="web-queries-list" class="space-y-2">
+                <!-- Queries will be injected here -->
+            </div>
         </div>
 
     </div>
 
     <script>
-        const data = {
-  "array": [
-    {
-      "posterName": "The Futurist",
-      "text": "Vercel's AI SDK 5 is here, and it's a game-changer for building AI-powered applications. Get ready for a deep dive into what's new and improved from version 4!",
-      "displayStyle": "WEB_IMAGE",
-      "imageSearchQuery": "futuristic user interface with AI elements"
-    },
-    {
-      "posterName": "Code Architect",
-      "text": "One of the most significant changes in AI SDK 5 is the introduction of Generative UI. This allows large language models to generate UI elements, creating more dynamic and engaging user experiences.",
-      "displayStyle": "AI_IMAGE",
-      "aiImagePrompt": "An AI generating a user interface on a futuristic transparent screen, with components and layouts being drawn by light."
-    },
-    {
-      "posterName": "TypeScript Fan",
-      "text": "AI SDK 5 brings end-to-end type safety to your chat applications. From the server to the client, every piece of data, tool call, and metadata is now fully typed, which is a massive win for developers who love TypeScript.",
-      "displayStyle": "BASIC"
-    },
-    {
-      "posterName": "The Pragmatist",
-      "text": "A key improvement in AI SDK 5 is the clear separation between UI and Model Messages. `UIMessage` is now the source of truth for your application's state, making it easier to manage and persist chat history.",
-      "displayStyle": "BASIC"
-    },
-    {
-      "posterName": "Quiz",
-      "text": "",
-      "displayStyle": "QUIZ",
-      "quizQuestions": [
-        {
-          "question": "What is the primary benefit of the redesigned chat in AI SDK 5?",
-          "answers": [
-            "Reduced bundle size",
-            "End-to-end type safety",
-            "Support for more CSS frameworks"
+        const jsonData = {
+          "array": [
+            {
+              "posterName": "SDK Evolution",
+              "text": "Welcome to the learning feed for Vercel AI SDK 5! We'll explore the biggest changes and improvements from version 4, getting you up to speed on the latest in AI application development.",
+              "displayStyle": "BASIC",
+              "type": "Post"
+            },
+            {
+              "posterName": "Core Change",
+              "text": "One of the most significant changes in AI SDK 5 is the complete redesign of the chat experience. We've moved from a single message type to separate UI and Model messages for better state management and type safety.",
+              "displayStyle": "AI_IMAGE",
+              "aiImagePrompt": "A diagram showing two distinct pipelines. One is labeled 'UI Messages' with icons representing user interface elements, and the other is labeled 'Model Messages' with icons representing AI models and data processing. Arrows indicate a clear separation and controlled interaction between the two.",
+              "type": "Post"
+            },
+            {
+              "posterName": "Developer Insight",
+              "text": "The separation of UI and model messages in AI SDK 5 is a game-changer. It cleans up so much front-end spaghetti code, making chat logic much easier to read and maintain.",
+              "displayStyle": "COMMENT",
+              "type": "Post"
+            },
+            {
+              "posterName": "Upgrade Path",
+              "text": "Thinking of migrating from version 4? Vercel provides codemods to automate many of the breaking changes, but you'll still want to review the official migration guide for manual steps.",
+              "displayStyle": "WEB_IMAGE",
+              "imageSearchQuery": "code migration process flowchart",
+              "type": "Post"
+            },
+            {
+              "posterName": "Quiz",
+              "text": "",
+              "displayStyle": "QUIZ",
+              "quizQuestions": [
+                {
+                  "question": "What is a major architectural change in AI SDK 5's chat functionality?",
+                  "answers": [
+                    "Introduction of PDF support.",
+                    "Separation of UI and Model messages.",
+                    "Added support for the xAI Grok provider."
+                  ],
+                  "correctIndex": 1
+                },
+                {
+                  "question": "What does Vercel provide to help automate the upgrade process from AI SDK 4 to 5?",
+                  "answers": [
+                    "A direct support hotline.",
+                    "Codemods.",
+                    "A graphical user interface for migration."
+                  ],
+                  "correctIndex": 1
+                },
+                {
+                  "question": "Which of these is a new feature introduced in AI SDK 5?",
+                  "answers": [
+                    "Speech Generation & Transcription.",
+                    "PDF support for Anthropic.",
+                    "Computer use support with Claude."
+                  ],
+                  "correctIndex": 0
+                }
+              ],
+              "type": "Post"
+            },
+            {
+              "posterName": "Generative UI",
+              "text": "AI SDK 5 enhances the ability to create Generative UIs, allowing the language model to generate UI components, not just text. This creates a more dynamic and AI-native user experience.",
+              "displayStyle": "AI_IMAGE",
+              "aiImagePrompt": "An AI robot actively building a user interface with floating components like buttons, charts, and text boxes, showcasing a dynamic and intelligent creation process.",
+              "type": "Post"
+            },
+            {
+              "posterName": "Under the Hood",
+              "text": "With AI SDK 5, tool invocations are now type-safe from end-to-end. By defining your tool's input and output schemas, you get type safety across your entire application, from server to client.",
+              "displayStyle": "BASIC",
+              "type": "Post"
+            },
+            {
+              "posterName": "Feynman Challenge",
+              "text": "",
+              "displayStyle": "EXERCISE",
+              "exerciseQuestions": [
+                "Explain the benefits of separating UI and Model messages in AI SDK 5 as if you were explaining it to a junior developer.",
+                "Describe how Generative UI in AI SDK 5 differs from traditional UI development.",
+                "Walk through the key steps and considerations when migrating a project from AI SDK 4 to 5."
+              ],
+              "type": "Post"
+            },
+            {
+              "posterName": "Voice of the Community",
+              "text": "The developer community has praised AI SDK 5 for its increased type-safety and flexibility. Many have noted that it cuts out a lot of boilerplate code, making development faster and more intuitive.",
+              "displayStyle": "COMMENT",
+              "type": "Post"
+            },
+            {
+              "posterName": "Quiz",
+              "text": "",
+              "displayStyle": "QUIZ",
+              "quizQuestions": [
+                {
+                  "question": "What is the benefit of type-safe tool invocations in AI SDK 5?",
+                  "answers": [
+                    "It makes the user interface more colorful.",
+                    "It provides end-to-end type safety for a tool's input and output.",
+                    "It automatically translates the output to different languages."
+                  ],
+                  "correctIndex": 1
+                },
+                {
+                  "question": "What is Generative UI in the context of the AI SDK?",
+                  "answers": [
+                    "A UI that generates its own color schemes.",
+                    "Allowing a large language model to generate UI components beyond just text.",
+                    "A library of pre-built UI components."
+                  ],
+                  "correctIndex": 1
+                },
+                {
+                  "question": "What is a `UIMessage` in AI SDK 5?",
+                  "answers": [
+                    "A message sent from the user's email.",
+                    "The source of truth for your application's UI state, including all messages and metadata.",
+                    "A message that can only contain images."
+                  ],
+                  "correctIndex": 1
+                }
+              ],
+              "type": "Post"
+            },
+            {
+              "posterName": "New Capabilities",
+              "text": "Beyond chat, AI SDK 5 introduces exciting new features like Speech Generation & Transcription and Agentic Loop Control, opening up new possibilities for voice-enabled and autonomous AI applications.",
+              "displayStyle": "BASIC",
+              "type": "Post"
+            },
+            {
+              "posterName": "For the Visual Learners",
+              "text": "The redesigned architecture in AI SDK 5 with its focus on type-safety and customizable messages can be visualized as a well-organized toolbox, where every tool has its specific place and purpose, making it easier to build robust AI applications.",
+              "displayStyle": "AI_IMAGE",
+              "aiImagePrompt": "A sleek, modern, and well-organized toolbox. Each tool is perfectly placed in its designated slot, and the inside of the lid has a clear, easy-to-read diagram of the layout. The toolbox has a futuristic, clean aesthetic.",
+              "type": "Post"
+            },
+            {
+              "posterName": "Looking Back at v4",
+              "text": "While AI SDK 5 is a significant leap forward, it's important to remember the features introduced in version 4, such as PDF support, computer use integration with Anthropic's Claude, and support for the xAI Grok provider, which laid the groundwork for the current advancements.",
+              "displayStyle": "BASIC",
+              "type": "Post"
+            },
+            {
+              "posterName": "Dive Deeper",
+              "text": "To fully grasp the changes and new features in AI SDK 5, the official Vercel documentation and migration guides are invaluable resources. They provide detailed explanations, code examples, and a comprehensive list of breaking changes.",
+              "displayStyle": "SOURCES",
+              "type": "Post"
+            },
+            {
+              "posterName": "Quiz",
+              "text": "",
+              "displayStyle": "QUIZ",
+              "quizQuestions": [
+                {
+                  "question": "Which feature was introduced in AI SDK 4?",
+                  "answers": [
+                    "Agentic Loop Control.",
+                    "Speech Generation.",
+                    "PDF support for document analysis."
+                  ],
+                  "correctIndex": 2
+                },
+                {
+                  "question": "What is the recommended first step before migrating to AI SDK 5?",
+                  "answers": [
+                    "Delete your old project and start fresh.",
+                    "Backup your project.",
+                    "Immediately run the codemods."
+                  ],
+                  "correctIndex": 1
+                },
+                {
+                  "question": "What is the purpose of `UIMessage` in AI SDK 5?",
+                  "answers": [
+                    "To handle the model's internal thinking process.",
+                    "To be the source of truth for the application state and user-facing chat history.",
+                    "To exclusively store error messages."
+                  ],
+                  "correctIndex": 1
+                }
+              ],
+              "type": "Post"
+            }
           ],
-          "correctIndex": 1
-        },
-        {
-          "question": "What is the new standard for streaming data from server to client in AI SDK 5?",
-          "answers": [
-            "WebSockets",
-            "Server-Sent Events (SSE)",
-            "Long Polling"
-          ],
-          "correctIndex": 1
-        },
-        {
-          "question": "Which of these is a new feature in AI SDK 5?",
-          "answers": [
-            "Basic text generation",
-            "Speech Generation & Transcription",
-            "Support for React"
-          ],
-          "correctIndex": 1
-        }
-      ]
-    },
-    {
-      "posterName": "Tool Time",
-      "text": "Tool invocations have been redesigned in AI SDK 5 with type-specific identifiers. This means better type safety for both input and output schemas of your tools.",
-      "displayStyle": "BASIC"
-    },
-    {
-      "posterName": "Streamer",
-      "text": "Heads up, developers! The AI SDK now uses Server-Sent Events (SSE) as the standard for streaming data. This should make debugging easier and the streaming protocol more robust.",
-      "displayStyle": "AI_IMAGE",
-      "aiImagePrompt": "A visual representation of data streaming from a server to a client, depicted as a glowing, futuristic data stream."
-    },
-    {
-      "posterName": "The Upgrader",
-      "text": "Thinking of moving from a previous version? Vercel provides codemods to help automate the upgrade process to AI SDK 5, making the transition smoother.",
-      "displayStyle": "BASIC"
-    },
-    {
-      "posterName": "ReactDev",
-      "text": "For those using React Server Components, the new `createAI` function in the `@ai-sdk/rsc` package is a powerful tool for managing UI and AI state across your application.",
-      "displayStyle": "BASIC"
-    },
-    {
-      "posterName": "Quiz",
-      "text": "",
-      "displayStyle": "QUIZ",
-      "quizQuestions": [
-        {
-          "question": "What is the purpose of codemods provided with AI SDK 5?",
-          "answers": [
-            "To automatically style your UI components.",
-            "To help automate the process of upgrading your codebase from a previous version.",
-            "To generate documentation for your AI application."
-          ],
-          "correctIndex": 1
-        },
-        {
-          "question": "What major enhancement has been made to tool invocations in AI SDK 5?",
-          "answers": [
-            "They now support more programming languages.",
-            "They have been redesigned with type-specific identifiers for improved type safety.",
-            "They are no longer needed for generative UI."
-          ],
-          "correctIndex": 1
-        },
-        {
-          "question": "What does the separation of UI and Model Messages in AI SDK 5 help with?",
-          "answers": [
-            "Increasing the speed of the language model.",
-            "Reducing the number of required dependencies.",
-            "Better management of application state and chat history persistence."
-          ],
-          "correctIndex": 2
-        }
-      ]
-    },
-    {
-      "posterName": "Feynman's Apprentice",
-      "text": "Time to test your understanding of the key changes in AI SDK 5!",
-      "displayStyle": "EXERCISE",
-      "exerciseQuestions": [
-        "Explain the concept of Generative UI in AI SDK 5 and how it differs from traditional UI development.",
-        "Describe the benefits of having separate UI and Model message types.",
-        "Walk me through the advantages of the new type-safe tool invocations."
-      ]
-    },
-    {
-      "posterName": "Framework Fanatic",
-      "text": "Great news for the web dev community! AI SDK 5 offers a highly customizable chat integration for React, Svelte, Vue, and Angular.",
-      "displayStyle": "WEB_IMAGE",
-      "imageSearchQuery": "logos of React, Svelte, Vue, and Angular"
-    },
-    {
-      "posterName": "Agent Smith",
-      "text": "AI SDK 5 introduces Agentic Loop Control, giving you more power to build sophisticated AI agents.",
-      "displayStyle": "AI_IMAGE",
-      "aiImagePrompt": "A futuristic illustration of an AI agent controlling and directing a loop of data and actions."
-    },
-    {
-      "posterName": "DevHumor",
-      "text": "Trying to manage message types and chat history in AI SDK 4 vs. the clean separation in AI SDK 5.",
-      "displayStyle": "MEME"
-    },
-    {
-      "posterName": "Quiz",
-      "text": "",
-      "displayStyle": "QUIZ",
-      "quizQuestions": [
-        {
-          "question": "Which new feature in AI SDK 5 gives developers more control over building complex AI agents?",
-          "answers": [
-            "Improved CSS support",
-            "Agentic Loop Control",
-            "More color themes"
-          ],
-          "correctIndex": 1
-        },
-        {
-          "question": "AI SDK 5's chat integration is highly customizable for which of the following frameworks?",
-          "answers": [
-            "React, Svelte, Vue, and Angular",
-            "Only React and Next.js",
-            "jQuery and MooTools"
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "What is the new function in `@ai-sdk/rsc` for managing UI and AI state with React Server Components?",
-          "answers": [
-            "`createUI`",
-            "`createState`",
-            "`createAI`"
-          ],
-          "correctIndex": 2
-        }
-      ]
-    },
-    {
-      "posterName": "Knowledge Seeker",
-      "text": "Want to dive deeper into the changes and new features of AI SDK 5? Check out the official Vercel documentation and migration guides.",
-      "displayStyle": "SOURCES"
-    },
-    {
-      "posterName": "Audio Aficionado",
-      "text": "Beyond text! AI SDK 5 now includes capabilities for Speech Generation & Transcription, opening up a new world of voice-based interactions.",
-      "displayStyle": "AI_IMAGE",
-      "aiImagePrompt": "A sound wave transforming into a digital text document, symbolizing speech-to-text transcription."
-    },
-    {
-      "posterName": "The Simplifier",
-      "text": "The `useChat` hook has been rebuilt from the ground up in AI SDK 5, building on powerful primitives for working with LLMs to provide a world-class UI integration.",
-      "displayStyle": "BASIC"
-    },
-    {
-      "posterName": "Data Streamer",
-      "text": "A small but important change: the `providerMetadata` input parameter has been renamed to `providerOptions` in AI SDK 5. Keep this in mind during your migration!",
-      "displayStyle": "BASIC"
-    }
-  ],
-  "webSearchQueries": [
-    "AI SDK 5 changes vs 4",
-    "Vercel AI SDK v5 release notes",
-    "Vercel AI SDK 4 to 5 migration guide",
-    "key new features in Vercel AI SDK 5",
-    "Vercel AI SDK 5 generative UI",
-    "Vercel AI SDK 5 createAI function"
-  ]
-};
+          "webSearchQueries": [
+            "AI SDK 5 vs 4 key changes",
+            "Vercel AI SDK 5 new features",
+            "upgrading Vercel AI SDK 4 to 5",
+            "Vercel AI SDK 5 generative UI",
+            "Vercel AI SDK 4 features"
+          ]
+        };
 
-        const feedContainer = document.getElementById('feed');
+        const feedPosts = document.getElementById('feed-posts');
         const webQueriesList = document.getElementById('web-queries-list');
 
-        function createPostElement(post) {
-            const article = document.createElement('article');
-            article.className = 'tweet-container p-4 hover:bg-gray-800 transition duration-150';
+        function getInitials(name) {
+            return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+        }
 
-            const header = `
-                <div class="flex items-center mb-2">
-                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-sm font-bold text-white mr-3">
-                        ${post.posterName.charAt(0)}
-                    </div>
-                    <div>
-                        <p class="font-bold">${post.posterName}</p>
-                        <p class="text-gray-500 text-sm">@${post.posterName.toLowerCase().replace(/[^a-z0-9]/g, '')}</p>
-                    </div>
-                </div>
-            `;
+        function renderQuiz(post) {
+            let html = `<div class="p-4 bg-blue-50 border border-blue-200 rounded-lg mt-2 space-y-4">
+                <h3 class="text-lg font-semibold text-blue-800">🧠 Quiz Time!</h3>`;
             
-            let content = '';
+            post.quizQuestions.forEach((q, qIndex) => {
+                html += `<div class="card bg-white shadow-sm p-3">
+                    <p class="font-medium mb-2 text-gray-800">Q${qIndex + 1}: ${q.question}</p>
+                    <ul class="space-y-1 text-sm">`;
+                
+                q.answers.forEach((a, aIndex) => {
+                    const isCorrect = aIndex === q.correctIndex;
+                    const badgeClass = isCorrect ? 'badge-success' : 'badge-ghost';
+                    const textClass = isCorrect ? 'text-success font-bold' : 'text-gray-600';
+                    
+                    html += `<li class="flex items-start">
+                        <span class="mr-2 ${textClass}">${String.fromCharCode(65 + aIndex)}.</span>
+                        <span class="${textClass}">${a}</span>
+                        ${isCorrect ? '<span class="badge badge-xs badge-success ml-2 mt-1">Correct</span>' : ''}
+                    </li>`;
+                });
+                html += `</ul></div>`;
+            });
+            html += `</div>`;
+            return html;
+        }
 
-            // 1. Main Text Content (if present)
-            if (post.text) {
-                content += `<p class="mb-3 whitespace-pre-wrap">${post.text}</p>`;
-            }
+        function renderExercise(post) {
+            let html = `<div class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg mt-2 space-y-3">
+                <h3 class="text-lg font-semibold text-yellow-800">📝 Exercise / Challenge</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">`;
+            
+            post.exerciseQuestions.forEach((q, index) => {
+                html += `<li><span class="font-medium">Prompt ${index + 1}:</span> ${q}</li>`;
+            });
+            html += `</ul></div>`;
+            return html;
+        }
 
-            // 2. Display Style Content
+        function renderPost(post) {
+            let contentHtml = `<p class="post-content">${post.text}</p>`;
+            let debugDetails = [];
+
             switch (post.displayStyle) {
-                case 'WEB_IMAGE':
-                    content += `
-                        <div class="bg-gray-800 p-3 rounded-xl border border-blue-600/30">
-                            <p class="text-sm font-semibold text-blue-400 mb-1">IMAGE: WEB_IMAGE</p>
-                            <p class="text-sm text-gray-400 italic">Search Query: ${post.imageSearchQuery}</p>
-                            <div class="mt-2 text-center text-gray-600 h-20 flex items-center justify-center border border-dashed border-gray-600 rounded-lg">
-                                Placeholder for image search result
-                            </div>
-                        </div>
-                    `;
-                    break;
                 case 'AI_IMAGE':
-                    content += `
-                        <div class="bg-gray-800 p-3 rounded-xl border border-green-600/30">
-                            <p class="text-sm font-semibold text-green-400 mb-1">IMAGE: AI_IMAGE</p>
-                            <p class="text-sm text-gray-400 italic">AI Prompt: ${post.aiImagePrompt}</p>
-                            <div class="mt-2 text-center text-gray-600 h-20 flex items-center justify-center border border-dashed border-gray-600 rounded-lg">
-                                Placeholder for AI generated image
-                            </div>
-                        </div>
-                    `;
+                    debugDetails.push(`AI Image Prompt: "${post.aiImagePrompt}"`);
+                    contentHtml += `<div class="mt-3 p-3 bg-gray-100 border border-gray-300 rounded-lg text-sm italic text-gray-600">
+                        <p class="font-semibold text-gray-700">🖼️ AI Image Prompt:</p>
+                        <p>${post.aiImagePrompt}</p>
+                    </div>`;
+                    break;
+                case 'WEB_IMAGE':
+                    debugDetails.push(`Web Image Query: "${post.imageSearchQuery}"`);
+                    contentHtml += `<div class="mt-3 p-3 bg-gray-100 border border-gray-300 rounded-lg text-sm italic text-gray-600">
+                        <p class="font-semibold text-gray-700">🌐 Web Image Search Query:</p>
+                        <p>${post.imageSearchQuery}</p>
+                    </div>`;
                     break;
                 case 'QUIZ':
-                    content += `
-                        <div class="bg-gray-800 p-4 rounded-xl border border-yellow-600/30 space-y-4">
-                            <p class="text-sm font-semibold text-yellow-400">Content Type: QUIZ</p>
-                            ${post.quizQuestions.map((q, qIndex) => `
-                                <div class="border-t border-gray-700 pt-3">
-                                    <p class="font-semibold mb-2">${qIndex + 1}. ${q.question}</p>
-                                    <ul class="space-y-1 text-sm">
-                                        ${q.answers.map((a, aIndex) => `
-                                            <li class="${aIndex === q.correctIndex ? 'text-green-400 font-medium bg-gray-700/50 p-1 rounded' : 'text-gray-400'} flex items-start">
-                                                <span class="mr-2">${String.fromCharCode(65 + aIndex)}.</span>
-                                                <span>${a}</span>
-                                                ${aIndex === q.correctIndex ? '<span class="ml-auto text-xs bg-green-800/50 px-2 py-0.5 rounded-full">Correct Answer</span>' : ''}
-                                            </li>
-                                        `).join('')}
-                                    </ul>
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
+                    contentHtml += renderQuiz(post);
+                    debugDetails.push(`Quiz Questions: ${post.quizQuestions.length}`);
                     break;
                 case 'EXERCISE':
-                    content += `
-                        <div class="bg-gray-800 p-4 rounded-xl border border-purple-600/30">
-                            <p class="text-sm font-semibold text-purple-400 mb-2">Content Type: EXERCISE</p>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-300">
-                                ${post.exerciseQuestions.map((ex) => `<li>${ex}</li>`).join('')}
-                            </ul>
-                        </div>
-                    `;
+                    contentHtml += renderExercise(post);
+                    debugDetails.push(`Exercise Prompts: ${post.exerciseQuestions.length}`);
+                    break;
+                case 'COMMENT':
+                    contentHtml = `<div class="p-3 bg-green-50 border border-green-200 rounded-lg">
+                        <p class="post-content italic text-green-800">"${post.text}"</p>
+                    </div>`;
                     break;
                 case 'SOURCES':
-                    content += `
-                        <div class="bg-gray-800 p-4 rounded-xl border border-blue-600/30">
-                            <p class="text-sm font-semibold text-blue-400">Content Type: SOURCES</p>
-                        </div>
-                    `;
-                    break;
-                case 'MEME':
-                    content += `
-                        <div class="bg-gray-800 p-4 rounded-xl border border-red-600/30">
-                            <p class="text-sm font-semibold text-red-400 mb-2">Content Type: MEME</p>
-                            <div class="text-center text-gray-600 h-20 flex items-center justify-center border border-dashed border-gray-600 rounded-lg">
-                                Placeholder for a Meme Image or description
-                            </div>
-                        </div>
-                    `;
+                    contentHtml = `<div class="p-3 bg-purple-50 border border-purple-200 rounded-lg">
+                        <p class="post-content font-medium text-purple-800">📚 ${post.text}</p>
+                    </div>`;
                     break;
                 case 'BASIC':
                 default:
-                    // Basic text is already handled by post.text
+                    // Basic text post
                     break;
             }
 
-            article.innerHTML = header + content;
-            return article;
+            const postElement = document.createElement('div');
+            postElement.className = 'post-card hover:bg-gray-50 transition duration-150';
+            postElement.innerHTML = `
+                <div class="post-header">
+                    <div class="avatar-placeholder">${getInitials(post.posterName)}</div>
+                    <div>
+                        <p class="poster-name">${post.posterName}</p>
+                        <p class="text-xs text-gray-500">@${post.posterName.toLowerCase().replace(/\s/g, '_')}</p>
+                    </div>
+                </div>
+                <div class="post-content-area">
+                    ${contentHtml}
+                </div>
+                <div class="debug-info">
+                    <p><strong>Type:</strong> ${post.type} | <strong>Style:</strong> ${post.displayStyle}</p>
+                    ${debugDetails.length > 0 ? `<p>${debugDetails.join(' | ')}</p>` : ''}
+                </div>
+            `;
+            feedPosts.appendChild(postElement);
         }
 
-        function renderFeed() {
-            data.array.forEach(post => {
-                const postElement = createPostElement(post);
-                feedContainer.appendChild(postElement);
+        function renderWebQueries(queries) {
+            queries.forEach(query => {
+                const queryElement = document.createElement('div');
+                queryElement.className = 'badge badge-outline badge-info p-3 text-sm font-mono text-blue-700';
+                queryElement.textContent = query;
+                webQueriesList.appendChild(queryElement);
             });
         }
 
-        function renderWebQueries() {
-            data.webSearchQueries.forEach(query => {
-                const li = document.createElement('li');
-                li.className = 'bg-gray-700/50 p-2 rounded text-gray-300 hover:bg-gray-700 transition duration-150 cursor-pointer';
-                li.textContent = query;
-                webQueriesList.appendChild(li);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderFeed();
-            // Only render metadata if the sidebar is expected to be visible (desktop)
-            if (window.innerWidth >= 1024) {
-                 renderWebQueries();
-            }
-        });
+        // Render all data
+        jsonData.array.forEach(renderPost);
+        renderWebQueries(jsonData.webSearchQueries);
     </script>
 
 </body>

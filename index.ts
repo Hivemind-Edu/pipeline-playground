@@ -1,4 +1,7 @@
-import { google, type GoogleGenerativeAIProviderMetadata } from "@ai-sdk/google";
+import {
+  google,
+  type GoogleGenerativeAIProviderMetadata,
+} from "@ai-sdk/google";
 import { streamObject, generateText, streamText } from "ai";
 import { parseArgs } from "node:util";
 
@@ -23,80 +26,93 @@ import { createPrompt } from "./prompt";
  */
 const TOPIC = "AI SDK 5 changes vs 4";
 
-const PostSchema = z.union([
-	z.object({
-		posterName: z.string(),
-		text: z.string(),
-		displayStyle: z.enum([
-			"BASIC",
-			"AI_IMAGE",
-			"COMMENT",
-			"MEME",
-			"QUIZ",
-			"SOURCES",
-			"WEB_IMAGE",
-			"EXERCISE",
-		]),
-		quizQuestions: z
-			.array(
-				z.object({
-					question: z.string(),
-					answers: z.array(z.string()),
-					correctIndex: z.number(),
-				}),
-			)
-			.optional(),
-		exerciseQuestions: z.array(z.string()).optional(),
-		aiImagePrompt: z.string().optional(),
-		imageSearchQuery: z.string().optional(),
-	}),
-	z.object({
-		nextTopicSuggestions: z.array(z.string()).min(3).max(3),
-	}),
-]);
+const PostSchema = z.looseObject({
+  posterName: z.string(),
+  text: z.string(),
+  displayStyle: z.enum([
+    "BASIC",
+    "AI_IMAGE",
+    "COMMENT",
+    "MEME",
+    "QUIZ",
+    "SOURCES",
+    "WEB_IMAGE",
+    "EXERCISE",
+  ]),
+  quizQuestions: z
+    .array(
+      z.object({
+        question: z.string(),
+        answers: z.array(z.string()),
+        correctIndex: z.number(),
+      })
+    )
+    .optional(),
+  exerciseQuestions: z.array(z.string()).optional(),
+  aiImagePrompt: z.string().optional(),
+  imageSearchQuery: z.string().optional(),
+});
 
-export type Post = z.infer<typeof PostSchema>;
+const NewSuggestionSchema = z.looseObject({
+  nextTopicSuggestions: z.array(z.string()),
+});
+
+const DataSchema = z.union([PostSchema, NewSuggestionSchema]);
+
+export type Data = z.infer<typeof DataSchema>;
 
 const prompt = createPrompt(TOPIC);
 
 console.log(prompt);
 
-const { textStream, text,providerMetadata } = streamText({
-	model: google("gemini-2.5-pro"), // google("gemini-2.5-flash-preview-09-2025"),
-	prompt,
-	tools: {
-		google_search: google.tools.googleSearch({}),
-	},
-	temperature: 0.7,
-	providerOptions: {
-		google: {
-			thinkingConfig: {
-				thinkingBudget: 128,
-			},
-		},
-	},
-	experimental_telemetry: {
-		isEnabled: true,
-		functionId: "PLAYGROUND-FEED",
-	},
+const { textStream, text, providerMetadata } = streamText({
+  model: google("gemini-2.5-pro"), // google("gemini-2.5-flash-preview-09-2025"),
+  prompt,
+  tools: {
+    google_search: google.tools.googleSearch({}),
+  },
+  temperature: 0.7,
+  providerOptions: {
+    google: {
+      thinkingConfig: {
+        thinkingBudget: 128,
+      },
+    },
+  },
+  experimental_telemetry: {
+    isEnabled: true,
+    functionId: "PLAYGROUND-FEED",
+  },
 });
 
-const array: Post[] = [];
-for await (const item of streamYaml<Post>(textStream, PostSchema)) {
-	console.log(item);
-	array.push(item);
+const array: Data[] = [];
+for await (const item of streamYaml<Data>(textStream, DataSchema)) {
+  console.log(item);
+  array.push(item);
 }
-
 
 const metadata = (await providerMetadata)?.google as
   | GoogleGenerativeAIProviderMetadata
   | undefined;
 const webSearchQueries = metadata?.groundingMetadata?.webSearchQueries;
 
-Bun.write("output.yaml", JSON.stringify((await text).replace(/^```yaml\n/, "").replace(/\n```$/, ""), null, 2));
+Bun.write(
+  "output.yaml",
+  JSON.stringify(
+    (await text).replace(/^```yaml\n/, "").replace(/\n```$/, ""),
+    null,
+    2
+  )
+);
 Bun.write("output.json", JSON.stringify(array, null, 2));
 
-await visualize(JSON.stringify({
-	array,
-	webSearchQueries,
-}, null, 2));
+await visualize(
+  JSON.stringify(
+    {
+      array,
+      webSearchQueries,
+    },
+    null,
+    2
+  )
+);

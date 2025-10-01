@@ -1,8 +1,7 @@
-
 import { EXAMPLE_BLUEPRINT } from "./EXAMPLE_BLUEPRINT";
 
 export const createPrompt = (
-	topic: string,
+  topic: string
 ) => `Create a learning feed for the topic "${topic}".
 Output AT LEAST 15 posts!
     
@@ -23,7 +22,7 @@ Every YAML Document should be separated by a "---" line.
 
 Every Post should strictly adhere to the following type:
 
-type Post = {
+{
     posterName: string; // always provide posterName!
     text: string; // always provide text!
     displayStyle: "BASIC" | "AI_IMAGE" | "COMMENT" | "MEME" | "QUIZ" | "SOURCES" | "WEB_IMAGE" | "EXERCISE";
@@ -37,7 +36,14 @@ type Post = {
     imageSearchQuery?: string | undefined; // only add imageSearchQuery if displayStyle is WEB_IMAGE
 }
 
+After the posts, the very last element should contain suggestions on what to learn next.
+The suggestions should always be exactly in the following type:
+{
+    nextTopicSuggestions: string[]; // should always be 3 suggestions
+}
+
 Example output:
 ${EXAMPLE_BLUEPRINT}
-...
+
+The output should always start and end with a "---" line.
 `;
