@@ -30,11 +30,15 @@ export async function* streamYaml<T>(
 
 		for (let i = numItems; i < docsArray.length; i++) {
 			const doc = docsArray[i];
-			const result = schema.safeParse(doc);
+			const result = Array.isArray(doc)
+				? schema.safeParse(doc[0])
+				: schema.safeParse(doc);
 			if (result.success) {
 				numItems++;
 				yield result.data;
 			}
 		}
 	}
+
+	console.log(fullText);
 }

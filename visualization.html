@@ -3,119 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Debugging Feed</title>
+    <title>AI Debug Feed - Simplified Twitter UI</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        /* Custom styling for UI elements, if needed, otherwise Tailwind handles most */
-        .post-container {
-            border-bottom: 1px solid #ebeef0;
+        /* Custom styles for the simplified Twitter look */
+        .tweet-border {
+            border-bottom: 1px solid #2f3336; /* Twitter dark mode separator */
         }
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #e0e7ff; /* Indigo-100 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #4f46e5; /* Indigo-600 */
+        .tweet-container {
+            border-left: 1px solid #2f3336;
+            border-right: 1px solid #2f3336;
         }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-black text-white antialiased">
 
-    <div id="app" class="max-w-3xl mx-auto bg-white shadow-lg md:mt-4 rounded-lg">
-        
-        <!-- Header Bar -->
-        <header class="p-4 border-b border-gray-200 sticky top-0 bg-white z-10">
-            <h1 class="text-xl font-bold text-gray-900">AI Debug Log Feed</h1>
-            <p class="text-sm text-gray-500">Displaying generated data entries</p>
-        </header>
+    <div class="flex justify-center min-h-screen">
+        <!-- Main Content Area / Feed -->
+        <div class="w-full max-w-xl tweet-container">
 
-        <main id="feed-container">
-            <!-- Posts will be injected here -->
-        </main>
+            <!-- Header -->
+            <header class="sticky top-0 z-10 bg-black bg-opacity-95 p-4 tweet-border">
+                <h1 class="text-xl font-bold">AI Debug Feed</h1>
+                <p class="text-sm text-gray-500">Source Data Visualization</p>
+            </header>
 
+            <!-- Feed Content -->
+            <main id="feed-container">
+                <!-- Posts will be injected here by the script -->
+            </main>
+
+            <!-- Footer Placeholder -->
+            <footer class="p-8 text-center text-gray-600 tweet-border border-t">
+                End of Feed Data
+            </footer>
+        </div>
     </div>
 
     <script>
-        const data = [
+        const jsonData = [
           {
-            "posterName": "JS_Beginner",
-            "text": "In JavaScript, what does 'undefined' actually mean? Is it the same as 'null'?",
+            "posterName": "React Simplified",
+            "text": "Welcome to your learning feed for React! Let's start with the absolute basics. React is a JavaScript library for building user interfaces. It lets you create reusable UI components.",
             "displayStyle": "BASIC"
           },
           {
-            "posterName": "CodeMentor",
-            "text": "No, 'undefined' and 'null' are distinct! 'Undefined' means a variable has been declared but has not been assigned a value. It's the default state.",
-            "displayStyle": "COMMENT"
-          },
-          {
-            "posterName": "TypeWatcher",
-            "text": "If you try to access an object property that doesn't exist, JavaScript also returns 'undefined'. This is a common source of bugs!",
-            "displayStyle": "BASIC"
-          },
-          {
-            "posterName": "TheMathematician",
-            "text": "It's not just programming. In mathematics, 'undefined' often refers to operations that have no meaning, like division by zero. The concept crosses disciplines.",
-            "displayStyle": "WEB_IMAGE",
-            "imageSearchQuery": "mathematical concept of division by zero"
-          },
-          {
-            "posterName": "Quiz",
-            "text": "",
-            "displayStyle": "QUIZ",
-            "quizQuestions": [
-              {
-                "question": "What is the primary difference between 'undefined' and 'null' in JavaScript?",
-                "answers": [
-                  "They are exactly the same.",
-                  "'Undefined' is automatically assigned, 'null' is explicitly assigned.",
-                  "'Null' means the variable hasn't been declared."
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "What happens when you declare a variable in JavaScript but don't assign it a value?",
-                "answers": [
-                  "It is assigned the value 'null'.",
-                  "It throws an error.",
-                  "It is assigned the value 'undefined'."
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Which mathematical operation typically results in an undefined value?",
-                "answers": [
-                  "Multiplication by zero.",
-                  "Division by zero.",
-                  "Taking the square root of a positive number."
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "posterName": "DataScientist",
-            "text": "In data analysis (especially with languages like Python/Pandas), missing data is often represented by NaN (Not a Number), which is conceptually similar to 'undefined' in that it signifies a lack of meaningful value.",
-            "displayStyle": "BASIC"
-          },
-          {
-            "posterName": "TypeChecker",
-            "text": "Pro-Tip: Use the strict equality operator (`===`) when checking for 'undefined' to avoid type coercion issues, which can confuse it with other falsy values.",
+            "posterName": "CodeCrafter",
+            "text": "One of the first things you'll encounter in React is JSX. It looks like HTML, but it's actually a syntax extension for JavaScript. This allows you to write what your UI should look like right inside your JavaScript code.",
             "displayStyle": "AI_IMAGE",
-            "aiImagePrompt": "a magnifying glass focusing on three equal signs (===) next to a ghosted out value"
+            "aiImagePrompt": "A futuristic code editor showing a mix of HTML tags and JavaScript code, with glowing lines connecting them, symbolizing the integration of JSX."
           },
           {
-            "posterName": "Debugger",
-            "text": "A common mistake: When a function doesn't explicitly return a value, it implicitly returns 'undefined'. Always check your return statements!",
-            "displayStyle": "COMMENT"
+            "posterName": "Component King",
+            "text": "In React, everything is a component. Think of them as independent and reusable bits of code. A component is like a JavaScript function that returns a piece of the user interface.",
+            "displayStyle": "WEB_IMAGE",
+            "imageSearchQuery": "Lego bricks being assembled into a structure"
           },
           {
-            "posterName": "JS_Beginner",
-            "text": "So, if I see 'undefined' in my console, it usually means I forgot to initialize something or misspelled a variable name?",
-            "displayStyle": "COMMENT"
+            "posterName": "State & Props",
+            "text": "To pass data to your components, you use 'props'. Props are like function arguments and are passed from a parent component to a child component. They are read-only, meaning a child component cannot change the props it receives.",
+            "displayStyle": "BASIC"
           },
           {
             "posterName": "Quiz",
@@ -123,257 +71,298 @@
             "displayStyle": "QUIZ",
             "quizQuestions": [
               {
-                "question": "What is the implicit return value of a JavaScript function that has no explicit return statement?",
+                "question": "What is React?",
                 "answers": [
-                  "0",
-                  "null",
-                  "undefined"
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "What does the `typeof` operator return for an 'undefined' value?",
-                "answers": [
-                  "'object'",
-                  "'undefined'",
-                  "'null'"
+                  "A JavaScript framework for building mobile apps.",
+                  "A JavaScript library for building user interfaces.",
+                  "A database management system."
                 ],
                 "correctIndex": 1
               },
               {
-                "question": "Which equality operator is recommended when checking for 'undefined' to prevent type coercion?",
+                "question": "What is JSX?",
                 "answers": [
-                  "==",
-                  "!=",
-                  "==="
+                  "A templating language for JavaScript.",
+                  "A syntax extension for JavaScript that looks like HTML.",
+                  "A CSS preprocessor."
                 ],
-                "correctIndex": 2
+                "correctIndex": 1
+              },
+              {
+                "question": "How is data passed from a parent to a child component?",
+                "answers": [
+                  "Through state",
+                  "Through props",
+                  "Through context"
+                ],
+                "correctIndex": 1
               }
             ]
           },
           {
-            "posterName": "Explainer",
-            "text": "Explain the concept of 'undefined' to a non-technical friend. Focus on the difference between 'not having a value' and 'having no value'.",
+            "posterName": "Deep Dive",
+            "text": "Let's talk about 'state'. While props are for passing data down, 'state' is for managing a component's internal data that can change over time. Think of it as a component's personal memory.",
+            "displayStyle": "AI_IMAGE",
+            "aiImagePrompt": "An illustration of a robot with a thought bubble above its head, inside the bubble are various icons representing data and user interactions, symbolizing internal state."
+          },
+          {
+            "posterName": "The Feynman",
+            "text": "Time for a check-in! Explain these concepts in your own words as if you were teaching them to someone else.",
             "displayStyle": "EXERCISE",
             "exerciseQuestions": [
-              "Explain the difference between a variable being 'undefined' and a variable being assigned 'null'.",
-              "Describe a scenario in programming where you would encounter 'undefined' unintentionally.",
-              "How does the mathematical concept of 'undefined' relate to the programming concept?"
+              "What is the difference between props and state?",
+              "Why is it said that data flows one-way in React?",
+              "What is the purpose of JSX and how does it get converted to regular JavaScript?"
             ]
           },
           {
-            "posterName": "FunctionalFan",
-            "text": "In robust programming, try to minimize 'undefined' values. Use default parameters or Optional Chaining (`?.`) to handle potential missing values gracefully, preventing runtime errors.",
+            "posterName": "React Internals",
+            "text": "Ever wondered how React is so fast? It uses a Virtual DOM! Instead of directly manipulating the slow browser DOM, React creates a lightweight copy in memory. When the state changes, it updates this virtual representation first, and then efficiently updates only the changed parts of the real DOM.",
+            "displayStyle": "BASIC"
+          },
+          {
+            "posterName": "Lifecycle Methods",
+            "text": "Every React component goes through a lifecycle of events. You can tap into these events using special methods. The main phases are Mounting (being created and inserted into the DOM), Updating (re-rendering due to prop or state changes), and Unmounting (being removed from the DOM).",
             "displayStyle": "WEB_IMAGE",
-            "imageSearchQuery": "optional chaining operator javascript diagram"
+            "imageSearchQuery": "Diagram of a plant lifecycle from seed to withering"
           },
           {
-            "posterName": "TypeWatcher",
-            "text": "The `typeof` operator for `undefined` correctly returns the string `'undefined'`. However, be careful: `typeof null` returns `'object'`, which is a historical JavaScript mistake!",
-            "displayStyle": "MEME"
+            "posterName": "Quiz",
+            "text": "",
+            "displayStyle": "QUIZ",
+            "quizQuestions": [
+              {
+                "question": "What is the main difference between props and state?",
+                "answers": [
+                  "Props are for external data, state is for internal data.",
+                  "Props can be changed by the component, state cannot.",
+                  "Props are passed from child to parent, state is local."
+                ],
+                "correctIndex": 0
+              },
+              {
+                "question": "What is the Virtual DOM?",
+                "answers": [
+                  "A direct representation of the HTML in the browser.",
+                  "A lightweight in-memory copy of the real DOM.",
+                  "A way to style React components."
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Which is NOT a phase of the component lifecycle?",
+                "answers": [
+                  "Mounting",
+                  "Initializing",
+                  "Updating"
+                ],
+                "correctIndex": 1
+              }
+            ]
           },
           {
-            "posterName": "LibraryLover",
-            "text": "Want to dive deeper into how different programming languages handle missing values? This resource compares JavaScript, Python, and Haskell.",
-            "displayStyle": "SOURCES"
+            "posterName": "List Master",
+            "text": "When rendering lists of elements in React, it's crucial to provide a unique 'key' for each item. Keys help React identify which items have changed, are added, or are removed, which helps in efficiently updating the UI.",
+            "displayStyle": "BASIC"
+          },
+          {
+            "posterName": "The Feynman",
+            "text": "Let's solidify your understanding. Explain these concepts clearly and concisely.",
+            "displayStyle": "EXERCISE",
+            "exerciseQuestions": [
+              "Explain the concept of the Virtual DOM and why it's beneficial for performance.",
+              "Describe the three main phases of a component's lifecycle and give an example of a method for each.",
+              "Why are keys important when rendering lists in React?"
+            ]
+          },
+          {
+            "posterName": "Context is Key",
+            "text": "Tired of passing props down through many levels of components? The Context API is here to help! It provides a way to share data that can be considered “global” for a tree of React components, like themes or user authentication, without having to pass props down manually at every level.",
+            "displayStyle": "AI_IMAGE",
+            "aiImagePrompt": "A glowing orb of data at the top of a tree-like structure, with light trickling down and illuminating various branches (components) directly, bypassing the need to travel down the trunk."
+          },
+          {
+            "posterName": "State Management Pro",
+            "text": "For more complex applications, you might need a dedicated state management library. Redux is a popular choice. It provides a predictable state container, making it easier to manage the state of your entire application in one place.",
+            "displayStyle": "WEB_IMAGE",
+            "imageSearchQuery": "centralized data hub with connections to multiple devices"
+          },
+          {
+            "posterName": "Quiz",
+            "text": "",
+            "displayStyle": "QUIZ",
+            "quizQuestions": [
+              {
+                "question": "What is the primary purpose of the Context API?",
+                "answers": [
+                  "To replace Redux in all applications.",
+                  "To avoid 'prop drilling' by passing data through the component tree without manually passing props at every level.",
+                  "To manage local component state."
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "What is Redux?",
+                "answers": [
+                  "A React component library.",
+                  "A predictable state container for JavaScript apps.",
+                  "A tool for testing React components."
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "When should you use a 'key' prop?",
+                "answers": [
+                  "When creating any React element.",
+                  "When rendering a list of elements.",
+                  "When passing a function as a prop."
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "posterName": "Test Master",
+            "text": "Testing your React components is crucial for building robust applications. Tools like Jest and React Testing Library help you write tests to ensure your components behave as expected. React Testing Library encourages you to test your components in a way that resembles how a user would interact with them.",
+            "displayStyle": "BASIC"
           }
         ];
 
         const feedContainer = document.getElementById('feed-container');
 
-        // Helper function to create a standard tweet-like structure
-        function createBasePost(poster, content, isComment = false) {
-            const baseDiv = document.createElement('div');
-            baseDiv.className = `post-container p-4 transition duration-150 ${isComment ? 'pl-12 border-l-2 border-gray-100 ml-4' : ''}`;
-            
-            const avatarLetter = poster ? poster.charAt(0) : '?';
-            const displayName = poster || 'System';
-            
-            let contentHtml = `
-                <div class="flex mb-2 items-start">
-                    <div class="avatar mr-3 flex-shrink-0">${avatarLetter}</div>
-                    <div class="flex-grow">
-                        <span class="font-bold text-gray-900">${displayName}</span>
-                        <span class="text-gray-500 text-sm ml-2">· ${new Date().toLocaleTimeString()}</span>
+        // Helper function to create HTML for a generic tweet structure
+        function createTweet(post, contentHTML) {
+            // Placeholder for a generic avatar
+            const avatarHTML = `
+                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-xl font-bold text-black uppercase">
+                    ${post.posterName[0]}
+                </div>
+            `;
+
+            return `
+                <div class="p-4 flex space-x-3 tweet-border hover:bg-gray-950 transition duration-150 ease-in-out">
+                    <!-- Avatar -->
+                    <div>${avatarHTML}</div>
+                    
+                    <!-- Content -->
+                    <div class="flex-1">
+                        <!-- Poster Name & Handle -->
+                        <div class="flex items-center space-x-1">
+                            <span class="font-bold hover:underline">${post.posterName}</span>
+                            <span class="text-gray-500 text-sm">@${post.posterName.toLowerCase().replace(/\s/g, '_')}</span>
+                        </div>
+
+                        <!-- Main Content (Text + Media/Interactive) -->
+                        <div class="mt-1">
+                            ${post.text ? `<p class="text-white whitespace-pre-wrap">${post.text}</p>` : ''}
+                            <div class="mt-2">
+                                ${contentHTML}
+                            </div>
+                        </div>
+
+                        <!-- Debug Info (Optional) -->
+                        <div class="mt-2 text-xs text-gray-700">
+                            Style: <span class="font-mono text-gray-500">${post.displayStyle}</span>
+                        </div>
                     </div>
                 </div>
-                <div class="text-gray-800 whitespace-pre-wrap">${content}</div>
             `;
-
-            baseDiv.innerHTML = contentHtml;
-            return baseDiv;
         }
 
-        // --- Renderer Functions for Specific Styles ---
+        // Renderer functions based on displayStyle
+        const renderers = {
+            BASIC: (post) => {
+                return ''; // Basic tweets only have text, which is handled above
+            },
 
-        function renderBasic(item) {
-            const element = createBasePost(item.posterName, item.text);
-            element.querySelector('.text-gray-800').classList.add('text-base', 'font-medium');
-            return element;
-        }
-
-        function renderComment(item) {
-            const element = createBasePost(item.posterName, item.text, true);
-            // Styling comments slightly differently, maybe a lighter text color or bolded name
-            element.querySelector('.text-gray-800').classList.add('text-sm', 'text-gray-700');
-            element.querySelector('.font-bold').classList.add('text-sm');
-            return element;
-        }
-
-        function renderWebImage(item) {
-            const element = createBasePost(item.posterName, item.text);
-            const imageContainer = document.createElement('div');
-            imageContainer.className = "mt-3 border border-gray-200 rounded-lg overflow-hidden bg-gray-100 p-2 shadow-inner";
-            
-            // Since we cannot actually fetch images via search query dynamically in this isolated environment, 
-            // we use a placeholder to represent the intended functionality.
-            const placeholderText = `[WEB_IMAGE Placeholder: Search for "${item.imageSearchQuery}"]`;
-            
-            imageContainer.innerHTML = `
-                <div class="w-full h-40 bg-indigo-100 flex items-center justify-center text-indigo-700 font-semibold text-center p-4">
-                    ${placeholderText}
-                </div>
-                <p class="text-xs text-gray-500 p-1">Context: ${item.imageSearchQuery}</p>
-            `;
-            element.querySelector('.text-gray-800').insertAdjacentElement('afterend', imageContainer);
-            return element;
-        }
-        
-        function renderAIImage(item) {
-            const element = createBasePost(item.posterName, item.text);
-            const imageContainer = document.createElement('div');
-            imageContainer.className = "mt-3 border-2 border-dashed border-purple-300 rounded-lg overflow-hidden bg-purple-50 p-2 shadow-md";
-            
-            const placeholderText = `[AI_IMAGE Placeholder: Prompt: "${item.aiImagePrompt}"]`;
-            
-            imageContainer.innerHTML = `
-                <div class="w-full h-48 flex items-center justify-center text-purple-700 font-semibold text-center p-4">
-                    ${placeholderText}
-                </div>
-                <p class="text-xs text-gray-500 p-1">Prompt used for generation.</p>
-            `;
-            element.querySelector('.text-gray-800').insertAdjacentElement('afterend', imageContainer);
-            return element;
-        }
-
-        function renderQuiz(item) {
-            const element = createBasePost(item.posterName, "🧠 Knowledge Check:", false); // Quiz header
-            element.querySelector('.text-gray-800').innerHTML = "🧠 **Knowledge Check** (See below for details)";
-            
-            let quizHtml = `<div class="mt-3 p-3 border border-yellow-300 bg-yellow-50 rounded-lg shadow-sm">`;
-            
-            item.quizQuestions.forEach((q, index) => {
-                quizHtml += `
-                    <div class="mb-4 p-2 border-b ${index < item.quizQuestions.length - 1 ? 'border-yellow-200' : ''}">
-                        <p class="font-semibold text-sm text-yellow-800 mb-1">${index + 1}. ${q.question}</p>
-                        <ul class="text-xs space-y-1 list-disc list-inside ml-2">
-                            ${q.answers.map((answer, ansIndex) => `
-                                <li class="${ansIndex === q.correctIndex ? 'text-green-700 font-medium' : 'text-gray-700'}">
-                                    ${ansIndex === q.correctIndex ? '✅ Correct: ' : '⚪ Option: '} ${answer}
-                                </li>
-                            `).join('')}
-                        </ul>
+            AI_IMAGE: (post) => {
+                return `
+                    <div class="border border-gray-700 rounded-xl overflow-hidden mt-3 p-3 bg-gray-900">
+                        <p class="text-sm font-semibold text-blue-400">AI Image Prompt:</p>
+                        <p class="text-sm text-gray-400 italic">${post.aiImagePrompt}</p>
+                        <div class="w-full h-40 bg-gray-800 flex items-center justify-center rounded-lg mt-2 text-gray-500">
+                            [Simulated AI Image Placeholder]
+                        </div>
                     </div>
                 `;
-            });
+            },
 
-            quizHtml += `<p class="text-xs italic mt-2 text-yellow-600">Correct answers are marked above for debugging visibility.</p></div>`;
-            
-            element.querySelector('.text-gray-800').insertAdjacentHTML('afterend', quizHtml);
-            return element;
-        }
-        
-        function renderExercise(item) {
-            const element = createBasePost(item.posterName, "📝 Debugging Exercise:", false);
-            element.querySelector('.text-gray-800').innerHTML = `
-                <p class="font-semibold text-base mb-2">${item.text}</p>
-                <div class="mt-3 p-3 border border-blue-300 bg-blue-50 rounded-lg shadow-sm">
-                    <p class="font-bold text-sm text-blue-800 mb-1">Questions to Address:</p>
-                    <ul class="text-sm space-y-2 ml-2">
-                        ${item.exerciseQuestions.map(q => `
-                            <li class="flex items-start text-gray-700">
-                                <span class="mr-2 text-blue-500">&bull;</span> 
-                                <span>${q}</span>
+            WEB_IMAGE: (post) => {
+                return `
+                    <div class="border border-gray-700 rounded-xl overflow-hidden mt-3 p-3 bg-gray-900">
+                        <p class="text-sm font-semibold text-green-400">Web Image Search:</p>
+                        <p class="text-sm text-gray-400 italic">${post.imageSearchQuery}</p>
+                        <div class="w-full h-40 bg-gray-800 flex items-center justify-center rounded-lg mt-2 text-gray-500">
+                            [Simulated Web Image Placeholder]
+                        </div>
+                    </div>
+                `;
+            },
+
+            QUIZ: (post) => {
+                let quizHtml = '<div class="space-y-4 p-4 border border-blue-600 rounded-xl bg-gray-900">';
+                quizHtml += '<h3 class="text-lg font-bold text-blue-400">Interactive Quiz Time!</h3>';
+                
+                post.quizQuestions.forEach((q, qIndex) => {
+                    quizHtml += `<div class="mt-4">
+                        <p class="font-semibold text-white">Q${qIndex + 1}: ${q.question}</p>
+                        <ul class="mt-1 space-y-1">`;
+                    
+                    q.answers.forEach((answer, aIndex) => {
+                        const isCorrect = aIndex === q.correctIndex;
+                        const bgColor = isCorrect ? 'bg-green-700/50' : 'bg-gray-700/50';
+                        const borderColor = isCorrect ? 'border-green-500' : 'border-gray-500';
+                        const status = isCorrect ? ' (Correct Answer)' : '';
+
+                        quizHtml += `
+                            <li class="p-2 border ${borderColor} rounded text-sm flex items-center ${bgColor}">
+                                <span class="font-mono text-xs w-4">${String.fromCharCode(65 + aIndex)}.</span>
+                                <span>${answer}</span>
+                                <span class="ml-auto text-xs ${isCorrect ? 'text-green-300' : 'text-gray-400'}">${status}</span>
                             </li>
-                        `).join('')}
-                    </ul>
-                </div>
-            `;
-            return element;
-        }
+                        `;
+                    });
+                    quizHtml += `</ul></div>`;
+                });
+                
+                quizHtml += '</div>';
+                return quizHtml;
+            },
 
-        function renderSources(item) {
-            const element = createBasePost(item.posterName, item.text);
-            element.querySelector('.text-gray-800').classList.add('text-sm');
-            
-            const sourceDiv = document.createElement('div');
-            sourceDiv.className = "mt-3 p-3 border border-green-300 bg-green-50 rounded-lg shadow-sm";
-            sourceDiv.innerHTML = `
-                <p class="font-semibold text-green-800">References Available:</p>
-                <a href="#" class="text-green-600 hover:text-green-800 text-sm underline block mt-1">[Link Placeholder: Language Comparison Resource]</a>
-            `;
-            element.querySelector('.text-gray-800').insertAdjacentElement('afterend', sourceDiv);
-            return element;
-        }
+            EXERCISE: (post) => {
+                let exerciseHtml = '<div class="space-y-4 p-4 border border-yellow-600 rounded-xl bg-gray-900">';
+                exerciseHtml += '<h3 class="text-lg font-bold text-yellow-400">Exercise / Self-Reflection</h3>';
+                exerciseHtml += `<p class="text-gray-300">${post.text}</p>`;
 
-        function renderMeme(item) {
-            const element = createBasePost(item.posterName, item.text, false);
-            element.querySelector('.text-gray-800').classList.add('text-lg', 'font-bold', 'text-pink-700');
-            
-            const memeDiv = document.createElement('div');
-            memeDiv.className = "mt-3 p-4 border-4 border-pink-500 rounded-xl bg-pink-100 shadow-xl flex items-center justify-center h-40";
-            memeDiv.innerHTML = `<span class="text-2xl font-extrabold text-pink-800">😂 MEME: ${item.posterName} moment</span>`;
-            
-            element.querySelector('.text-gray-800').insertAdjacentElement('afterend', memeDiv);
-            return element;
-        }
+                exerciseHtml += '<ul class="mt-3 space-y-2 list-disc list-inside text-gray-300">';
+                post.exerciseQuestions.forEach((question, index) => {
+                    exerciseHtml += `<li class="pl-1"><span class="font-semibold text-white">Question ${index + 1}:</span> ${question}</li>`;
+                });
+                exerciseHtml += '</ul>';
+                
+                // Add a simple interaction placeholder
+                exerciseHtml += '<div class="mt-4 pt-3 border-t border-gray-700">';
+                exerciseHtml += '<textarea class="w-full h-20 p-2 text-sm bg-black border border-gray-700 rounded placeholder-gray-500 focus:ring-yellow-500 focus:border-yellow-500" placeholder="Type your explanation here for debugging purposes..."></textarea>';
+                exerciseHtml += '</div>';
 
+                exerciseHtml += '</div>';
+                return exerciseHtml;
+            }
+        };
 
-        // --- Main Rendering Logic ---
+        // Main rendering loop
+        jsonData.forEach(post => {
+            const renderer = renderers[post.displayStyle];
+            let contentHTML = '';
 
-        function renderFeed() {
-            data.forEach(item => {
-                let postElement = null;
+            if (renderer) {
+                contentHTML = renderer(post);
+            } else {
+                contentHTML = `<div class="p-2 text-red-500 border border-red-700 rounded bg-red-900/20">Unknown displayStyle: ${post.displayStyle}</div>`;
+            }
 
-                switch (item.displayStyle) {
-                    case "BASIC":
-                        postElement = renderBasic(item);
-                        break;
-                    case "COMMENT":
-                        postElement = renderComment(item);
-                        break;
-                    case "WEB_IMAGE":
-                        postElement = renderWebImage(item);
-                        break;
-                    case "AI_IMAGE":
-                        postElement = renderAIImage(item);
-                        break;
-                    case "QUIZ":
-                        postElement = renderQuiz(item);
-                        break;
-                    case "EXERCISE":
-                        postElement = renderExercise(item);
-                        break;
-                    case "SOURCES":
-                        postElement = renderSources(item);
-                        break;
-                    case "MEME":
-                        postElement = renderMeme(item);
-                        break;
-                    default:
-                        // Default to basic display if style is unknown
-                        postElement = createBasePost(item.posterName, `[Unknown Style: ${item.displayStyle}] ${item.text}`);
-                        break;
-                }
-
-                if (postElement) {
-                    feedContainer.appendChild(postElement);
-                }
-            });
-        }
-
-        renderFeed();
+            feedContainer.innerHTML += createTweet(post, contentHTML);
+        });
     </script>
-
 </body>
 </html>

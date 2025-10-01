@@ -62,8 +62,8 @@ test("streamYaml parses valid posts", async () => {
 		results.push(post);
 	}
 	expect(results).toHaveLength(2);
-	expect(results[0].posterName).toBe("Test User");
-	expect(results[0].displayStyle).toBe("BASIC");
-	expect(results[1].posterName).toBe("Quiz Master");
-	expect(results[1].quizQuestions).toHaveLength(1);
+	expect(results[0]!.posterName).toBe("Test User");
+	expect(results[0]!.displayStyle).toBe("BASIC");
+	expect(results[1]!.posterName).toBe("Quiz Master");
+	expect(results[1]!.quizQuestions).toHaveLength(1);
 });

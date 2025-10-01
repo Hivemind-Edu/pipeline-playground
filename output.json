@@ -1,33 +1,25 @@
 [
   {
-    "posterName": "ReactLearner",
-    "text": "React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called \"components.\"",
-    "displayStyle": "BASIC",
-    "exerciseQuestions": []
+    "posterName": "React Simplified",
+    "text": "Welcome to your learning feed for React! Let's start with the absolute basics. React is a JavaScript library for building user interfaces. It lets you create reusable UI components.",
+    "displayStyle": "BASIC"
   },
   {
-    "posterName": "CoreConcepts",
-    "text": "The Virtual DOM (VDOM) is a programming concept where a virtual representation of a UI is kept in memory and synced with the \"real\" DOM. This process is called reconciliation and makes React fast.",
+    "posterName": "CodeCrafter",
+    "text": "One of the first things you'll encounter in React is JSX. It looks like HTML, but it's actually a syntax extension for JavaScript. This allows you to write what your UI should look like right inside your JavaScript code.",
     "displayStyle": "AI_IMAGE",
-    "exerciseQuestions": [],
-    "aiImagePrompt": "Illustration of a fast, efficient synchronization process between two tree structures labeled \"Virtual DOM\" and \"Real DOM\"."
+    "aiImagePrompt": "A futuristic code editor showing a mix of HTML tags and JavaScript code, with glowing lines connecting them, symbolizing the integration of JSX."
   },
   {
-    "posterName": "ComponentKing",
-    "text": "Everything in React is a component. Think of them as custom, reusable HTML elements. They can be functional (using hooks) or class-based.",
+    "posterName": "Component King",
+    "text": "In React, everything is a component. Think of them as independent and reusable bits of code. A component is like a JavaScript function that returns a piece of the user interface.",
     "displayStyle": "WEB_IMAGE",
-    "exerciseQuestions": [],
-    "imageSearchQuery": "React components structure diagram"
+    "imageSearchQuery": "Lego bricks being assembled into a structure"
   },
   {
-    "posterName": "Feynman",
-    "text": "Time to solidify your understanding of the fundamentals. Explain these concepts as if you were teaching a beginner.",
-    "displayStyle": "EXERCISE",
-    "exerciseQuestions": [
-      "Explain the difference between functional components and class components.",
-      "Describe the role of 'props' in React.",
-      "What is component composition?"
-    ]
+    "posterName": "State & Props",
+    "text": "To pass data to your components, you use 'props'. Props are like function arguments and are passed from a parent component to a child component. They are read-only, meaning a child component cannot change the props it receives.",
+    "displayStyle": "BASIC"
   },
   {
     "posterName": "Quiz",
@@ -35,122 +27,121 @@
     "displayStyle": "QUIZ",
     "quizQuestions": [
       {
-        "question": "What is the primary function of JSX?",
+        "question": "What is React?",
         "answers": [
-          "To render HTML directly in JavaScript files",
-          "To define component logic",
-          "To manage state"
+          "A JavaScript framework for building mobile apps.",
+          "A JavaScript library for building user interfaces.",
+          "A database management system."
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is JSX?",
+        "answers": [
+          "A templating language for JavaScript.",
+          "A syntax extension for JavaScript that looks like HTML.",
+          "A CSS preprocessor."
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "How is data passed from a parent to a child component?",
+        "answers": [
+          "Through state",
+          "Through props",
+          "Through context"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "posterName": "Deep Dive",
+    "text": "Let's talk about 'state'. While props are for passing data down, 'state' is for managing a component's internal data that can change over time. Think of it as a component's personal memory.",
+    "displayStyle": "AI_IMAGE",
+    "aiImagePrompt": "An illustration of a robot with a thought bubble above its head, inside the bubble are various icons representing data and user interactions, symbolizing internal state."
+  },
+  {
+    "posterName": "The Feynman",
+    "text": "Time for a check-in! Explain these concepts in your own words as if you were teaching them to someone else.",
+    "displayStyle": "EXERCISE",
+    "exerciseQuestions": [
+      "What is the difference between props and state?",
+      "Why is it said that data flows one-way in React?",
+      "What is the purpose of JSX and how does it get converted to regular JavaScript?"
+    ]
+  },
+  {
+    "posterName": "React Internals",
+    "text": "Ever wondered how React is so fast? It uses a Virtual DOM! Instead of directly manipulating the slow browser DOM, React creates a lightweight copy in memory. When the state changes, it updates this virtual representation first, and then efficiently updates only the changed parts of the real DOM.",
+    "displayStyle": "BASIC"
+  },
+  {
+    "posterName": "Lifecycle Methods",
+    "text": "Every React component goes through a lifecycle of events. You can tap into these events using special methods. The main phases are Mounting (being created and inserted into the DOM), Updating (re-rendering due to prop or state changes), and Unmounting (being removed from the DOM).",
+    "displayStyle": "WEB_IMAGE",
+    "imageSearchQuery": "Diagram of a plant lifecycle from seed to withering"
+  },
+  {
+    "posterName": "Quiz",
+    "text": "",
+    "displayStyle": "QUIZ",
+    "quizQuestions": [
+      {
+        "question": "What is the main difference between props and state?",
+        "answers": [
+          "Props are for external data, state is for internal data.",
+          "Props can be changed by the component, state cannot.",
+          "Props are passed from child to parent, state is local."
         ],
         "correctIndex": 0
       },
       {
-        "question": "Which method is used to update state in a functional component?",
+        "question": "What is the Virtual DOM?",
         "answers": [
-          "this.setState()",
-          "useState() hook",
-          "componentDidUpdate()"
+          "A direct representation of the HTML in the browser.",
+          "A lightweight in-memory copy of the real DOM.",
+          "A way to style React components."
         ],
         "correctIndex": 1
       },
       {
-        "question": "React uses which mechanism to efficiently update the UI?",
+        "question": "Which is NOT a phase of the component lifecycle?",
         "answers": [
-          "Shadow DOM",
-          "Real DOM manipulation",
-          "Virtual DOM"
-        ],
-        "correctIndex": 2
-      }
-    ],
-    "exerciseQuestions": []
-  },
-  {
-    "posterName": "SyntaxGuru",
-    "text": "JSX (JavaScript XML) is a syntax extension for JavaScript. It looks like HTML but allows you to write JavaScript expressions inside curly braces {}. It gets compiled down to standard JavaScript calls.",
-    "displayStyle": "BASIC",
-    "exerciseQuestions": []
-  },
-  {
-    "posterName": "StateMaster",
-    "text": "Remember, state is data that changes over time and determines how a component renders. It should be managed locally within the component where it's defined, or lifted up if multiple components need access.",
-    "displayStyle": "COMMENT",
-    "exerciseQuestions": []
-  },
-  {
-    "posterName": "HookHumor",
-    "text": "When you realize useState is just a fancy way of saying \"I need to remember this value.\"",
-    "displayStyle": "MEME",
-    "exerciseQuestions": []
-  },
-  {
-    "posterName": "ResourceHub",
-    "text": "Dive deeper into official documentation and modern practices. The official React docs are excellent, and sites like freeCodeCamp and Frontend Masters offer great courses.",
-    "displayStyle": "SOURCES",
-    "exerciseQuestions": []
-  },
-  {
-    "posterName": "Quiz",
-    "text": "",
-    "displayStyle": "QUIZ",
-    "quizQuestions": [
-      {
-        "question": "Which hook is typically used for side effects in functional components?",
-        "answers": [
-          "useContext",
-          "useReducer",
-          "useEffect"
-        ],
-        "correctIndex": 2
-      },
-      {
-        "question": "What does 'lifting state up' mean in React?",
-        "answers": [
-          "Moving state to the global scope",
-          "Moving state to a common ancestor component",
-          "Using Redux for state management"
-        ],
-        "correctIndex": 1
-      },
-      {
-        "question": "Can a functional component have state without hooks?",
-        "answers": [
-          "Yes, using legacy methods",
-          "No, hooks are required for state in functional components",
-          "Only if it's a memoized component"
+          "Mounting",
+          "Initializing",
+          "Updating"
         ],
         "correctIndex": 1
       }
-    ],
-    "exerciseQuestions": []
-  },
-  {
-    "posterName": "LifecycleExpert",
-    "text": "Think of a component's lifecycle as three main phases: Mounting (birth), Updating (growth), and Unmounting (death). Hooks like useEffect help us tap into these phases in functional components.",
-    "displayStyle": "AI_IMAGE",
-    "exerciseQuestions": [],
-    "aiImagePrompt": "Abstract visual representation of a cycle diagram showing three stages: Initialization/Mounting, Rerendering/Updating, and Destruction/Unmounting, related to a digital component."
-  },
-  {
-    "posterName": "Feynman",
-    "text": "Explain the practical use case for these two essential hooks.",
-    "displayStyle": "EXERCISE",
-    "exerciseQuestions": [
-      "Explain the dependency array in the useEffect hook and why it's crucial.",
-      "Describe when you would choose useReducer over useState."
     ]
   },
   {
-    "posterName": "DataFlow",
-    "text": "Props are immutable (read-only) inputs passed from parent to child. State is mutable data managed internally by the component. This distinction is fundamental!",
-    "displayStyle": "WEB_IMAGE",
-    "exerciseQuestions": [],
-    "imageSearchQuery": "React Props vs State comparison diagram"
+    "posterName": "List Master",
+    "text": "When rendering lists of elements in React, it's crucial to provide a unique 'key' for each item. Keys help React identify which items have changed, are added, or are removed, which helps in efficiently updating the UI.",
+    "displayStyle": "BASIC"
   },
   {
-    "posterName": "LogicFlow",
-    "text": "In React, you conditionally render components or elements using standard JavaScript logic, such as if statements, ternary operators, or short-circuit evaluation (&&).",
-    "displayStyle": "BASIC",
-    "exerciseQuestions": []
+    "posterName": "The Feynman",
+    "text": "Let's solidify your understanding. Explain these concepts clearly and concisely.",
+    "displayStyle": "EXERCISE",
+    "exerciseQuestions": [
+      "Explain the concept of the Virtual DOM and why it's beneficial for performance.",
+      "Describe the three main phases of a component's lifecycle and give an example of a method for each.",
+      "Why are keys important when rendering lists in React?"
+    ]
+  },
+  {
+    "posterName": "Context is Key",
+    "text": "Tired of passing props down through many levels of components? The Context API is here to help! It provides a way to share data that can be considered “global” for a tree of React components, like themes or user authentication, without having to pass props down manually at every level.",
+    "displayStyle": "AI_IMAGE",
+    "aiImagePrompt": "A glowing orb of data at the top of a tree-like structure, with light trickling down and illuminating various branches (components) directly, bypassing the need to travel down the trunk."
+  },
+  {
+    "posterName": "State Management Pro",
+    "text": "For more complex applications, you might need a dedicated state management library. Redux is a popular choice. It provides a predictable state container, making it easier to manage the state of your entire application in one place.",
+    "displayStyle": "WEB_IMAGE",
+    "imageSearchQuery": "centralized data hub with connections to multiple devices"
   },
   {
     "posterName": "Quiz",
@@ -158,39 +149,37 @@
     "displayStyle": "QUIZ",
     "quizQuestions": [
       {
-        "question": "Which built-in hook is used for optimizing performance by memoizing expensive calculations?",
+        "question": "What is the primary purpose of the Context API?",
         "answers": [
-          "useMemo",
-          "useCallback",
-          "useRef"
-        ],
-        "correctIndex": 0
-      },
-      {
-        "question": "What is the primary purpose of React Router?",
-        "answers": [
-          "Managing global state",
-          "Handling client-side navigation and routing",
-          "Optimizing component rendering"
+          "To replace Redux in all applications.",
+          "To avoid 'prop drilling' by passing data through the component tree without manually passing props at every level.",
+          "To manage local component state."
         ],
         "correctIndex": 1
       },
       {
-        "question": "What is the default behavior of the useEffect hook if no dependency array is provided?",
+        "question": "What is Redux?",
         "answers": [
-          "It runs only once after initial render",
-          "It runs on every render",
-          "It throws an error"
+          "A React component library.",
+          "A predictable state container for JavaScript apps.",
+          "A tool for testing React components."
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "When should you use a 'key' prop?",
+        "answers": [
+          "When creating any React element.",
+          "When rendering a list of elements.",
+          "When passing a function as a prop."
         ],
         "correctIndex": 1
       }
-    ],
-    "exerciseQuestions": []
+    ]
   },
   {
-    "posterName": "RouteRider",
-    "text": "While React is just a UI library, most applications need routing. React Router is the most common library for handling declarative navigation within your single-page application (SPA).",
-    "displayStyle": "COMMENT",
-    "exerciseQuestions": []
+    "posterName": "Test Master",
+    "text": "Testing your React components is crucial for building robust applications. Tools like Jest and React Testing Library help you write tests to ensure your components behave as expected. React Testing Library encourages you to test your components in a way that resembles how a user would interact with them.",
+    "displayStyle": "BASIC"
   }
 ]

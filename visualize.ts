@@ -4,7 +4,7 @@ import { generateText } from "ai";
 export async function visualize(data: string) {
 	console.log("Visualizing...");
 	const { text: html } = await generateText({
-		model: google("gemini-2.5-flash-lite-preview-09-2025"),
+		model: google("gemini-2.5-flash-preview-09-2025"),
 		prompt: `Please convert this data into a HTML page. It should be functional and simple and display all the data directly, preferrably in a UI that looks like a simplified Twitter
     The site should be for debugging purposes so I can see the data i generate via AI.
 
