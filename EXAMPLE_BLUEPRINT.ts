@@ -34,6 +34,7 @@ quizQuestions:
       - "jQuery"
     correctIndex: 2
 ---
+type: NewSuggestions
 nextTopicSuggestions:
   - "Vercel AI SDK"
   - "AI SDK 4"
