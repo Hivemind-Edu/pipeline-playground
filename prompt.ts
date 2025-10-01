@@ -24,7 +24,7 @@ Every Post should strictly adhere to the following type:
 
 {
     posterName: string; // always provide posterName!
-    text: string; // always provide text!
+    text: string; // always provide text, except for displayStyle QUIZ or EXERCISE. For these, text should be an empty string.
     displayStyle: "BASIC" | "AI_IMAGE" | "COMMENT" | "MEME" | "QUIZ" | "SOURCES" | "WEB_IMAGE" | "EXERCISE";
     quizQuestions?: {
         question: string;

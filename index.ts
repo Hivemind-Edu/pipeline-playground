@@ -121,39 +121,20 @@ await startActiveObservation("debug-generateFeed", async (span) => {
   );
 
   console.log("Generating threads...");
-  const postsWithChildren = [];
-  const generatedThreads: Array<{ post: Post; children: any[] }> = [];
-
-  for (const post of array) {
-    if (PostSchema.safeParse(post).success) {
-      const previousThreadsString =
-        generatedThreads.length > 0
-          ? `Previous threads (for context):
-${generatedThreads
-  .slice(-3)
-  .map(
-    (thread, idx) => `
-Previous thread ${idx + 1}:
-Root post: ${JSON.stringify(thread.post, null, 2)}
-Children: ${JSON.stringify(thread.children, null, 2)}`
-  )
-  .join("\n")}`
-          : "";
-
-      const children = await generateThread(
-        post as Post,
-        metadata,
-        previousThreadsString
-      );
-      generatedThreads.push({ post: post as Post, children });
-      postsWithChildren.push({
-        ...post,
-        children,
-      });
-    } else {
-      postsWithChildren.push(post);
-    }
-  }
+  const postsWithChildren = await Promise.all(
+    array.map(async (post) => {
+      if (PostSchema.safeParse(post).success) {
+        if (post.displayStyle === "QUIZ" || post.displayStyle === "EXERCISE")
+          return post;
+        const children = await generateThread(post as Post, TOPIC, metadata);
+        return {
+          ...post,
+          children,
+        };
+      }
+      return post;
+    })
+  );
 
   await visual1Promise;
 

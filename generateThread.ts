@@ -7,26 +7,20 @@ import { generateObject } from "ai";
 import { z } from "zod";
 
 const ChildPostSchema = z.object({
-  posterName: z.string(),
   text: z.string(),
+  posterName: z.string(),
 });
 
 export async function generateThread(
   firstPost: Post,
-  groundingMetadata?: GoogleGenerativeAIProviderMetadata,
-  previousThreads?: string
+  topic: string,
+  groundingMetadata?: GoogleGenerativeAIProviderMetadata
 ) {
-  const prompt = `Given a post, generate a thread of posts that are answers to the post.
-    Post: ${JSON.stringify(firstPost)}
+  const prompt = `This post is from a Twitter learning feed about ${topic}. Generate a thread of replies that engage with and discuss the post.
+    
+Post: ${JSON.stringify(firstPost)}
 
-    ${previousThreads || ""}
-
-    ${
-      groundingMetadata
-        ? `There is some additional context that you can use to generate the thread.
-    Grounding Metadata: ${JSON.stringify(groundingMetadata)}`
-        : ""
-    }`;
+Generate thoughtful replies that continue the conversation, ask questions, or add insights related to the topic.`;
 
   const { object } = await generateObject({
     model: google("gemini-2.5-flash-lite-preview-09-2025"),
@@ -35,11 +29,15 @@ export async function generateThread(
     providerOptions: {
       google: {
         thinkingConfig: {
-          thinkingBudget: -1,
+          thinkingBudget: 0,
         },
       },
     },
     prompt,
+    experimental_telemetry: {
+      isEnabled: true,
+      functionId: "PLAYGROUND-THREAD",
+    },
   });
 
   return object;

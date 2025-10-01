@@ -1,462 +1,787 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Debug Feed - React Fundamentals</title>
-    <!-- Tailwind CSS 4 CDN -->
+    <title>AI Data Debugger</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        /* Custom dark scrollbar for better aesthetics */
-        body::-webkit-scrollbar {
-            width: 8px;
-        }
-        body::-webkit-scrollbar-track {
-            background: #111827; /* bg-gray-900 */
-        }
-        body::-webkit-scrollbar-thumb {
-            background-color: #374151; /* bg-gray-700 */
-            border-radius: 20px;
-        }
-        /* Custom background color for post bodies to distinguish from main background */
-        .bg-gray-850 {
-            background-color: #1f2937; /* A slightly lighter dark gray */
-        }
-    </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen font-sans">
-
-    <div class="flex justify-center">
-        
-        <!-- Main Feed Container (Twitter-like width) -->
-        <div id="feed-container" class="w-full max-w-xl border-x border-gray-800">
+<body class="bg-base-200">
+    <div class="min-h-screen">
+        <!-- Main Container -->
+        <div class="max-w-2xl mx-auto p-4 space-y-4">
             
-            <!-- Header -->
-            <header class="sticky top-0 bg-gray-900/95 backdrop-blur-sm z-10 p-4 border-b border-gray-800">
-                <h1 class="text-xl font-extrabold">AI Debug Feed</h1>
-                <p class="text-sm text-gray-500">Generated Content: React Fundamentals</p>
-            </header>
-
-            <!-- Posts will be injected here -->
-        </div>
-
-        <!-- Debug/Metadata Sidebar -->
-        <div class="hidden lg:block w-80 ml-8 pt-4">
-            <div class="sticky top-4 bg-gray-800 p-4 rounded-xl shadow-lg">
-                <h2 class="text-lg font-bold mb-3 text-blue-400">System Metadata</h2>
-                <div id="metadata-container" class="space-y-4 text-sm">
-                    <!-- Metadata will be injected here -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const rawData = {
-          "array": [
-            {
-              "posterName": "React Simplified",
-              "text": "Welcome to your learning feed on React! React is a JavaScript library for building user interfaces. It lets you create reusable UI components and manage their state efficiently.",
-              "displayStyle": "BASIC"
-            },
-            {
-              "posterName": "CodeCrafter",
-              "text": "At the heart of React is the concept of components. Think of them as independent, reusable bits of code. They work like JavaScript functions, accepting inputs called 'props' and returning React elements that describe what should appear on the screen.",
-              "displayStyle": "AI_IMAGE",
-              "aiImagePrompt": "A visual representation of React components as building blocks, each with its own state and props, coming together to form a complete user interface."
-            },
-            {
-              "posterName": "JSX Explained",
-              "text": "JSX, which stands for JavaScript XML, is a syntax extension for JavaScript that looks a lot like HTML. It allows you to write what your UI should look like in a declarative way. Under the hood, Babel compiles JSX down to `React.createElement()` calls.",
-              "displayStyle": "WEB_IMAGE",
-              "imageSearchQuery": "JSX code snippet"
-            },
-            {
-              "posterName": "State & Props",
-              "text": "In React, 'props' (properties) are used to pass data from a parent component to a child component, and they are immutable. 'State', on the other hand, is for managing a component's internal data that can change over time.",
-              "displayStyle": "BASIC"
-            },
-            {
-              "posterName": "Quiz",
-              "text": "",
-              "displayStyle": "QUIZ",
-              "quizQuestions": [
-                {
-                  "question": "What is JSX?",
-                  "answers": [
-                    "A new programming language",
-                    "A syntax extension for JavaScript",
-                    "A database for React"
-                  ],
-                  "correctIndex": 1
-                },
-                {
-                  "question": "What is the main difference between state and props?",
-                  "answers": [
-                    "Props are for data that changes, state is for data that doesn't",
-                    "State is passed from parent to child, props are managed within the component",
-                    "Props are passed from parent to child, state is managed within the component"
-                  ],
-                  "correctIndex": 2
-                },
-                {
-                  "question": "What are React components?",
-                  "answers": [
-                    "CSS stylesheets",
-                    "Reusable pieces of UI",
-                    "Database schemas"
-                  ],
-                  "correctIndex": 1
-                }
-              ]
-            },
-            {
-              "posterName": "Virtual DOM",
-              "text": "The virtual DOM (VDOM) is a programming concept where a virtual representation of the UI is kept in memory and synced with the 'real' DOM. This allows React to perform updates efficiently by only re-rendering the parts of the UI that have changed.",
-              "displayStyle": "AI_IMAGE",
-              "aiImagePrompt": "An abstract illustration of the Virtual DOM concept, showing a lightweight copy of the DOM tree and a diffing algorithm that highlights the changed nodes."
-            },
-            {
-              "posterName": "React Hooks",
-              "text": "Hooks are functions that let you 'hook into' React state and lifecycle features from function components. This means you can use state and other React features without writing a class.",
-              "displayStyle": "BASIC"
-            },
-            {
-              "posterName": "useState Explained",
-              "text": "The `useState` hook is a fundamental hook that allows you to add state to your functional components. You call it with the initial state, and it returns the current state and a function to update it.",
-              "displayStyle": "SOURCES",
-              "sources": [
-                "https://react.dev/reference/react/useState"
-              ]
-            },
-            {
-              "posterName": "useEffect Explained",
-              "text": "The `useEffect` hook lets you perform side effects in your components. Common side effects include fetching data, setting up a subscription, or manually changing the DOM. It runs after every render by default, but you can control when it runs.",
-              "displayStyle": "BASIC"
-            },
-            {
-              "posterName": "Quiz",
-              "text": "",
-              "displayStyle": "QUIZ",
-              "quizQuestions": [
-                {
-                  "question": "What is the Virtual DOM?",
-                  "answers": [
-                    "A direct representation of the HTML in the browser",
-                    "A lightweight in-memory copy of the real DOM",
-                    "A server-side rendering technique"
-                  ],
-                  "correctIndex": 1
-                },
-                {
-                  "question": "What do React Hooks allow you to do?",
-                  "answers": [
-                    "Use state and other React features in class components",
-                    "Use state and other React features in functional components",
-                    "Directly manipulate the real DOM"
-                  ],
-                  "correctIndex": 1
-                },
-                {
-                  "question": "What does the `useState` hook return?",
-                  "answers": [
-                    "The current state and a function to update it",
-                    "Only the current state",
-                    "Only a function to update the state"
-                  ],
-                  "correctIndex": 0
-                }
-              ]
-            },
-            {
-              "posterName": "Feynman",
-              "text": "Time for a check-in! Let's solidify your understanding of some core React concepts with the Feynman technique. Try to explain these topics in simple terms, as if you were teaching them to someone else.",
-              "displayStyle": "EXERCISE",
-              "exerciseQuestions": [
-                "Explain the concept of conditional rendering in React and provide an example of how you might use it.",
-                "What are lists and keys in React, and why are keys important for performance?",
-                "Describe how event handling works in React and how it differs from traditional HTML event handling."
-              ]
-            },
-            {
-              "posterName": "Conditional Rendering",
-              "text": "Conditional rendering in React allows you to render different UI elements based on certain conditions. You can use standard JavaScript constructs like `if/else`, the ternary operator, or logical operators like `&&` to achieve this.",
-              "displayStyle": "BASIC"
-            },
-            {
-              "posterName": "Lists and Keys",
-              "text": "When rendering lists of elements in React, you should always provide a unique `key` prop to each list item. Keys help React identify which items have changed, are added, or are removed, which helps in efficiently updating the UI.",
-              "displayStyle": "AI_IMAGE",
-              "aiImagePrompt": "A visual of a list of items being reordered. Each item has a unique key that stays with it, helping React track the changes."
-            },
-            {
-              "posterName": "Event Handling",
-              "text": "Handling events in React is similar to handling events in HTML, but with a few syntactical differences. React events are named using camelCase, and you pass a function as the event handler rather than a string.",
-              "displayStyle": "WEB_IMAGE",
-              "imageSearchQuery": "React onClick event handler example"
-            },
-            {
-              "posterName": "Quiz",
-              "text": "",
-              "displayStyle": "QUIZ",
-              "quizQuestions": [
-                {
-                  "question": "Which of the following is NOT a valid way to do conditional rendering in React?",
-                  "answers": [
-                    "Using an if/else statement",
-                    "Using the ternary operator",
-                    "Using a for loop inside JSX"
-                  ],
-                  "correctIndex": 2
-                },
-                {
-                  "question": "Why are keys important when rendering lists in React?",
-                  "answers": [
-                    "They provide styling to the list items",
-                    "They help React identify which items have changed, been added, or removed",
-                    "They are used to fetch data for each list item"
-                  ],
-                  "correctIndex": 1
-                },
-                {
-                  "question": "How are React event handlers named?",
-                  "answers": [
-                    "lowercase",
-                    "UPPERCASE",
-                    "camelCase"
-                  ],
-                  "correctIndex": 2
-                }
-              ]
-            },
-            {
-              "posterName": "React Router",
-              "text": "React Router is a standard library for routing in React. It enables the navigation among views of various components in a React Application, allows changing the browser URL, and keeps the UI in sync with the URL.",
-              "displayStyle": "BASIC"
-            },
-            {
-              "posterName": "Redux",
-              "text": "Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently and are easy to test. It's often used with React for managing the application's global state.",
-              "displayStyle": "SOURCES",
-              "sources": [
-                "https://redux.js.org/"
-              ]
-            },
-            {
-              "nextTopicSuggestions": [
-                "Advanced React Hooks (useContext, useReducer)",
-                "State Management with Redux",
-                "Testing React Components"
-              ]
-            }
-          ],
-          "webSearchQueries": [
-            "what is react and its core concepts",
-            "React components tutorial",
-            "what is jsx in react",
-            "react state vs props",
-            "what is the virtual dom in react",
-            "React useState hook explained",
-            "React useEffect hook explained",
-            "React conditional rendering",
-            "React lists and keys",
-            "React event handling",
-            "React folder structure best practices",
-            "What are React hooks?",
-            "What is Redux in React?",
-            "What is React Router?",
-            "Next.js vs Create React App"
-          ]
-        };
-
-        const feedContainer = document.getElementById('feed-container');
-        const metadataContainer = document.getElementById('metadata-container');
-
-        function getAvatar(name) {
-            const initial = name ? name[0].toUpperCase() : '?';
-            // Simple color hashing based on initial for variety
-            const colors = ['bg-blue-500', 'bg-red-500', 'bg-green-500', 'bg-yellow-500', 'bg-indigo-500', 'bg-pink-500'];
-            const color = colors[initial.charCodeAt(0) % colors.length];
             
-            return `<div class="w-10 h-10 ${color} rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">${initial}</div>`;
-        }
+            <!-- Data Feed -->
+            
+            <!-- BASIC Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">React Simplified</h3>
+                        <span class="badge badge-ghost badge-sm">BASIC</span>
+                    </div>
+                    <p class="mb-3">Welcome to your learning feed for React! Let's start with the basics. React is a free, open-source JavaScript library used for building user interfaces. It was created by Jordan Walke, a software engineer at Meta (formerly Facebook). React allows developers to create reusable UI components, which makes building and maintaining user interfaces more efficient.</p>
 
-        function renderPost(post) {
-            let contentHtml = '';
-            let specialStyle = '';
-            let icon = '';
-
-            // Determine special content and styling based on displayStyle
-            switch (post.displayStyle) {
-                case 'AI_IMAGE':
-                    specialStyle = 'border-l-4 border-purple-500 bg-gray-850';
-                    icon = `<svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>`;
-                    contentHtml = `
-                        <p class="text-gray-300 mt-1">${post.text}</p>
-                        <div class="mt-3 p-3 bg-gray-900 border border-purple-600/50 rounded-lg">
-                            <p class="text-purple-400 font-semibold text-xs mb-1">AI Image Prompt:</p>
-                            <p class="text-gray-400 text-xs italic">${post.aiImagePrompt}</p>
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
                         </div>
-                    `;
-                    break;
-
-                case 'WEB_IMAGE':
-                    specialStyle = 'border-l-4 border-green-500 bg-gray-850';
-                    icon = `<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>`;
-                    contentHtml = `
-                        <p class="text-gray-300 mt-1">${post.text}</p>
-                        <div class="mt-3 p-3 bg-gray-900 border border-green-600/50 rounded-lg">
-                            <p class="text-green-400 font-semibold text-xs mb-1">Web Search Query:</p>
-                            <p class="text-gray-400 text-xs italic">${post.imageSearchQuery}</p>
-                        </div>
-                    `;
-                    break;
-
-                case 'QUIZ':
-                    specialStyle = 'border-l-4 border-yellow-500 bg-gray-850';
-                    icon = `<svg class="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0121 12c0 3.368-.804 6.502-2.27 9.284M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"></path></svg>`;
-                    
-                    let quizHtml = post.quizQuestions.map((q, qIndex) => `
-                        <div class="mb-4 p-3 border border-yellow-700 rounded-lg bg-gray-900">
-                            <p class="font-semibold text-yellow-300 mb-2">Q${qIndex + 1}: ${q.question}</p>
-                            <ul class="mt-2 space-y-1 text-sm">
-                                ${q.answers.map((a, aIndex) => `
-                                    <li class="${aIndex === q.correctIndex ? 'bg-yellow-900/50 text-yellow-200 font-medium' : 'text-gray-400'} p-1 rounded">
-                                        ${String.fromCharCode(65 + aIndex)}. ${a} 
-                                        ${aIndex === q.correctIndex ? '<span class="text-xs text-yellow-400 ml-2">(Correct)</span>' : ''}
-                                    </li>
-                                `).join('')}
-                            </ul>
-                        </div>
-                    `).join('');
-                    contentHtml = `<p class="text-gray-300 mt-1">Interactive Quiz Time!</p><div class="mt-3">${quizHtml}</div>`;
-                    break;
-
-                case 'EXERCISE':
-                    specialStyle = 'border-l-4 border-red-500 bg-gray-850';
-                    icon = `<svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>`;
-                    
-                    let exerciseHtml = post.exerciseQuestions.map((q, qIndex) => `
-                        <li class="mb-2 text-gray-300">
-                            <span class="font-semibold text-red-300 mr-1">Q${qIndex + 1}:</span> ${q}
-                        </li>
-                    `).join('');
-                    contentHtml = `
-                        <p class="text-gray-300 mt-1">${post.text}</p>
-                        <div class="mt-3 p-3 bg-gray-900 border border-red-600/50 rounded-lg">
-                            <p class="text-red-400 font-semibold mb-2 text-sm">Self-Reflection Prompts:</p>
-                            <ol class="list-decimal list-inside ml-2 text-sm space-y-1">${exerciseHtml}</ol>
-                        </div>
-                    `;
-                    break;
-
-                case 'SOURCES':
-                    specialStyle = 'border-l-4 border-cyan-500 bg-gray-850';
-                    icon = `<svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>`;
-                    
-                    let sourcesHtml = post.sources.map(source => `
-                        <li class="text-cyan-300 hover:text-cyan-200 transition duration-150">
-                            <a href="${source}" target="_blank" class="hover:underline">${source}</a>
-                        </li>
-                    `).join('');
-
-                    contentHtml = `
-                        <p class="text-gray-300 mt-1">${post.text}</p>
-                        <div class="mt-3 p-3 bg-gray-900 border border-cyan-600/50 rounded-lg">
-                            <p class="text-cyan-400 font-semibold mb-2 text-sm">Key Links:</p>
-                            <ul class="list-disc list-inside ml-2 text-sm space-y-1">${sourcesHtml}</ul>
-                        </div>
-                    `;
-                    break;
-
-                case 'COMMENT':
-                    specialStyle = 'border-l-4 border-gray-500 bg-gray-850';
-                    icon = `<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>`;
-                    contentHtml = `<p class="text-gray-300 mt-1 italic">${post.text}</p>`;
-                    break;
-
-                case 'MEME':
-                    specialStyle = 'border-l-4 border-pink-500 bg-gray-850';
-                    icon = `<svg class="w-4 h-4 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
-                    contentHtml = `
-                        <p class="text-gray-300 mt-1">${post.text}</p>
-                        <div class="mt-3 p-3 bg-gray-900 border border-pink-600/50 rounded-lg">
-                            <p class="text-pink-400 font-semibold text-xs mb-1">Meme Search Query:</p>
-                            <p class="text-gray-400 text-xs italic">${post.imageSearchQuery}</p>
-                        </div>
-                    `;
-                    break;
-
-                case 'BASIC':
-                default:
-                    icon = `<svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>`;
-                    contentHtml = `<p class="text-gray-300 mt-1">${post.text}</p>`;
-                    break;
-            }
-
-            return `
-                <div class="post border-b border-gray-800 p-4 hover:bg-gray-850 transition duration-150 ${specialStyle}">
-                    <div class="flex space-x-3">
-                        ${getAvatar(post.posterName)}
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-center justify-between mb-1">
-                                <p class="text-white font-bold truncate">${post.posterName}</p>
-                                <span class="text-xs text-gray-500 flex items-center space-x-1 flex-shrink-0 ml-2">
-                                    ${icon}
-                                    <span class="hidden sm:inline">${post.displayStyle}</span>
-                                </span>
-                            </div>
-                            ${contentHtml}
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
                         </div>
                     </div>
                 </div>
-            `;
-        }
+            </div>
 
-        function renderSuggestions(suggestions) {
-            const listHtml = suggestions.nextTopicSuggestions.map(topic => `
-                <li class="p-2 bg-gray-700 rounded-lg text-blue-300 hover:bg-blue-900/50 transition duration-150 cursor-pointer text-sm">
-                    ${topic}
-                </li>
-            `).join('');
+            <!-- AI_IMAGE Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">CodeCrafter</h3>
+                        <span class="badge badge-primary badge-sm">AI_IMAGE</span>
+                    </div>
+                    <p class="mb-3">React lets you build user interfaces out of individual pieces called components. Think of them like LEGO bricks; you can build something small with one, or combine them to create something big and complex. Buttons, forms, and navigation bars are all examples of elements that can be built as components in a React application.</p>
+                    <div class="badge badge-primary badge-sm mb-1">🎨 AI Generated</div>
+                    <div class="text-xs opacity-60 italic mb-3">Prompt: A colorful illustration of a user interface being assembled from individual, puzzle-like component blocks. Each block has a simple icon representing a UI element like a button, a chart, or a text field. The overall image should be clean, modern, and inviting.</div>
 
-            return `
-                <div class="post p-4 bg-gray-800 border-t border-gray-700 shadow-xl">
-                    <h2 class="text-xl font-bold text-blue-400 mb-3">Next Steps</h2>
-                    <p class="text-gray-400 mb-4 text-sm">Based on this learning path, here are some suggested topics to explore next:</p>
-                    <ul class="space-y-2">
-                        ${listHtml}
-                    </ul>
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
                 </div>
-            `;
-        }
-
-        // --- Main Rendering Loop ---
-        rawData.array.forEach(item => {
-            if (item.posterName && item.text !== undefined) { // Check if it's a post object
-                feedContainer.innerHTML += renderPost(item);
-            } else if (item.nextTopicSuggestions) { // Check if it's the suggestions object
-                feedContainer.innerHTML += renderSuggestions(item);
-            }
-        });
-
-        // --- Metadata Rendering ---
-        const queriesHtml = rawData.webSearchQueries.map(query => `
-            <li class="text-gray-400 bg-gray-700/50 p-2 rounded-md text-xs font-mono break-words">${query}</li>
-        `).join('');
-
-        metadataContainer.innerHTML = `
-            <div class="border-b border-gray-700 pb-4">
-                <h3 class="font-semibold text-white mb-2 text-sm">Web Search Queries Generated (${rawData.webSearchQueries.length}):</h3>
-                <ul class="space-y-1 max-h-60 overflow-y-auto pr-1">${queriesHtml}</ul>
             </div>
-            <div class="pt-4">
-                <h3 class="font-semibold text-white mb-2 text-sm">Total Posts Rendered:</h3>
-                <p class="text-gray-400">${rawData.array.filter(i => i.posterName).length}</p>
+
+            <!-- WEB_IMAGE Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">React Guru</h3>
+                        <span class="badge badge-accent badge-sm">WEB_IMAGE</span>
+                    </div>
+                    <p class="mb-3">One of the key features of React is JSX, which stands for JavaScript XML. It's a syntax extension that allows you to write HTML-like code directly within your JavaScript. This might look a bit strange at first, but it makes writing and visualizing your UI components much more intuitive.</p>
+                    <div class="text-xs opacity-60 mb-3">📸 Image search: React JSX code example</div>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
             </div>
-        `;
 
-    </script>
+            <!-- MEME Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">DevHumor</h3>
+                        <span class="badge badge-warning badge-sm">MEME</span>
+                    </div>
+                    <p class="mb-3">Trying to understand React for the first time.</p>
 
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUIZ Post -->
+            <div class="card bg-base-100 shadow border-l-4 border-info">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">Quiz</h3>
+                        <span class="badge badge-info badge-sm">QUIZ</span>
+                    </div>
+                    <p class="font-semibold mb-4">📝 Test your React knowledge! Can you answer these questions?</p>
+                    
+                    <!-- Quiz Questions -->
+                    <div class="space-y-3 mb-3">
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">1. Who created React?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-0" class="radio radio-info radio-sm" />
+                                    <span class="label-text">Google</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-0" class="radio radio-info radio-sm" />
+                                    <span class="label-text">Jordan Walke</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-0" class="radio radio-info radio-sm" />
+                                    <span class="label-text">Brendan Eich</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">2. What is JSX?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-1" class="radio radio-info radio-sm" />
+                                    <span class="label-text">A new programming language</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-1" class="radio radio-info radio-sm" />
+                                    <span class="label-text">A syntax extension for JavaScript</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-1" class="radio radio-info radio-sm" />
+                                    <span class="label-text">A CSS preprocessor</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">3. What is the primary purpose of React?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-2" class="radio radio-info radio-sm" />
+                                    <span class="label-text">To manage databases</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-2" class="radio radio-info radio-sm" />
+                                    <span class="label-text">To build user interfaces</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-2" class="radio radio-info radio-sm" />
+                                    <span class="label-text">To handle server-side logic</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BASIC Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">React Explorer</h3>
+                        <span class="badge badge-ghost badge-sm">BASIC</span>
+                    </div>
+                    <p class="mb-3">In React, we have 'props' and 'state'. Props (short for properties) are like arguments you pass to a function, allowing a parent component to pass data to a child component. State, on the other hand, is like a component's memory, allowing it to keep track of information and change it in response to user interactions.</p>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMMENT Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">CodeNewbie</h3>
+                        <span class="badge badge-secondary badge-sm">COMMENT</span>
+                    </div>
+                    <p class="mb-3">So, props are for passing data down, and state is for managing data within a component? Is that right?</p>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMMENT Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">React Mentor</h3>
+                        <span class="badge badge-secondary badge-sm">COMMENT</span>
+                    </div>
+                    <p class="mb-3">That's a great way to think about it! A parent component will often hold information in its state and then pass that information down to child components as props.</p>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE Post -->
+            <div class="card bg-base-100 shadow border-l-4 border-success">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">Feynman's Student</h3>
+                        <span class="badge badge-success badge-sm">EXERCISE</span>
+                    </div>
+                    <p class="font-semibold mb-4">💪 Practice makes perfect! Try these React exercises:</p>
+                    
+                    <div class="space-y-2 mb-3">
+                        <div class="alert alert-success">
+                            <div class="flex gap-3">
+                                <div class="badge badge-lg">1</div>
+                                <span>Explain the concept of the Virtual DOM in React and why it's beneficial for performance.</span>
+                            </div>
+                        </div>
+                        <div class="alert alert-success">
+                            <div class="flex gap-3">
+                                <div class="badge badge-lg">2</div>
+                                <span>Describe the difference between a class component and a functional component in React.</span>
+                            </div>
+                        </div>
+                        <div class="alert alert-success">
+                            <div class="flex gap-3">
+                                <div class="badge badge-lg">3</div>
+                                <span>Walk me through the three main phases of a component's lifecycle.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUIZ Post -->
+            <div class="card bg-base-100 shadow border-l-4 border-info">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">Quiz</h3>
+                        <span class="badge badge-info badge-sm">QUIZ</span>
+                    </div>
+                    <p class="font-semibold mb-4">📝 Test your React knowledge! Can you answer these questions?</p>
+                    
+                    <!-- Quiz Questions -->
+                    <div class="space-y-3 mb-3">
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">1. Which of the following is true about props?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-3" class="radio radio-info radio-sm" />
+                                    <span class="label-text">They are mutable and can be changed by the child component.</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-3" class="radio radio-info radio-sm" />
+                                    <span class="label-text">They are used to pass data from a child to a parent component.</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-3" class="radio radio-info radio-sm" />
+                                    <span class="label-text">They are immutable and passed from parent to child.</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">2. What is used to manage data that can change over time within a component?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-4" class="radio radio-info radio-sm" />
+                                    <span class="label-text">Props</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-4" class="radio radio-info radio-sm" />
+                                    <span class="label-text">State</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-4" class="radio radio-info radio-sm" />
+                                    <span class="label-text">Both props and state</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">3. What is the flow of data in React?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-5" class="radio radio-info radio-sm" />
+                                    <span class="label-text">Two-way</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-5" class="radio radio-info radio-sm" />
+                                    <span class="label-text">One-way from parent to child</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-5" class="radio radio-info radio-sm" />
+                                    <span class="label-text">One-way from child to parent</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI_IMAGE Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">ReactInDepth</h3>
+                        <span class="badge badge-primary badge-sm">AI_IMAGE</span>
+                    </div>
+                    <p class="mb-3">Each React component has a lifecycle with three main phases: Mounting, Updating, and Unmounting. Mounting is when the component is being created and inserted into the DOM. Updating occurs when a component's state or props change. Finally, Unmounting is when a component is being removed from the DOM.</p>
+                    <div class="badge badge-primary badge-sm mb-1">🎨 AI Generated</div>
+                    <div class="text-xs opacity-60 italic mb-3">Prompt: A diagram showing the three phases of the React component lifecycle: Mounting (a component being placed into a browser window), Updating (the component's content changing), and Unmounting (the component being removed from the browser window). Use simple icons and arrows to illustrate the flow.</div>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BASIC Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">Code Snippets</h3>
+                        <span class="badge badge-ghost badge-sm">BASIC</span>
+                    </div>
+                    <p class="mb-3">Handling events in React is similar to handling events on DOM elements, but with some syntactical differences. For example, React events are named using camelCase, rather than lowercase. So, `onclick` becomes `onClick`.</p>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BASIC Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">React Router Pro</h3>
+                        <span class="badge badge-ghost badge-sm">BASIC</span>
+                    </div>
+                    <p class="mb-3">React Router is the standard library for routing in React. It allows you to create single-page applications with navigation, without the page refreshing. Key components include &lt;BrowserRouter&gt;, &lt;Routes&gt;, and &lt;Route&gt;.</p>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOURCES Post -->
+            <div class="card bg-base-100 shadow border-l-4 border-warning">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">React Resources</h3>
+                        <span class="badge badge-warning badge-sm">SOURCES</span>
+                    </div>
+                    <p class="mb-4">Want to dive deeper into React Router? Check out these resources.</p>
+                    
+                    <div class="space-y-2 mb-3">
+                        <a href="https://www.w3schools.com/react/react_router.asp" class="link link-hover flex items-center gap-3 p-3 bg-base-200 rounded-lg">
+                            <div class="text-2xl">📖</div>
+                            <div>
+                                <div class="font-semibold text-sm">https://www.w3schools.com/react/react_router.asp</div>
+                                <div class="text-xs opacity-60">https://www.w3schools.com/react/react_router.asp</div>
+                            </div>
+                        </a>
+                        <a href="https://reactrouter.com/en/main" class="link link-hover flex items-center gap-3 p-3 bg-base-200 rounded-lg">
+                            <div class="text-2xl">📖</div>
+                            <div>
+                                <div class="font-semibold text-sm">https://reactrouter.com/en/main</div>
+                                <div class="text-xs opacity-60">https://reactrouter.com/en/main</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUIZ Post -->
+            <div class="card bg-base-100 shadow border-l-4 border-info">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">Quiz</h3>
+                        <span class="badge badge-info badge-sm">QUIZ</span>
+                    </div>
+                    <p class="font-semibold mb-4">📝 Test your React knowledge! Can you answer these questions?</p>
+                    
+                    <!-- Quiz Questions -->
+                    <div class="space-y-3 mb-3">
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">1. What is the correct syntax for a click event in React?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-6" class="radio radio-info radio-sm" />
+                                    <span class="label-text">onclick={myFunction}</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-6" class="radio radio-info radio-sm" />
+                                    <span class="label-text">onClick={myFunction}</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-6" class="radio radio-info radio-sm" />
+                                    <span class="label-text">on-click={myFunction}</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">2. Which React Router component is used to wrap your entire application to enable routing?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-7" class="radio radio-info radio-sm" />
+                                    <span class="label-text">&lt;Routes&gt;</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-7" class="radio radio-info radio-sm" />
+                                    <span class="label-text">&lt;Route&gt;</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-7" class="radio radio-info radio-sm" />
+                                    <span class="label-text">&lt;BrowserRouter&gt;</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">3. What is the purpose of React Router?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-8" class="radio radio-info radio-sm" />
+                                    <span class="label-text">To manage component state</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-8" class="radio radio-info radio-sm" />
+                                    <span class="label-text">To handle navigation in a single-page application</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-8" class="radio radio-info radio-sm" />
+                                    <span class="label-text">To style React components</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BASIC Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">Advanced React</h3>
+                        <span class="badge badge-ghost badge-sm">BASIC</span>
+                    </div>
+                    <p class="mb-3">React Server Components are a newer feature that allow you to write UI that can be rendered on the server. This can improve performance by reducing the amount of JavaScript that needs to be sent to the client.</p>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WEB_IMAGE Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">React History Buff</h3>
+                        <span class="badge badge-accent badge-sm">WEB_IMAGE</span>
+                    </div>
+                    <p class="mb-3">React was first deployed on Facebook's News Feed in 2011 and later on Instagram in 2012. It was open-sourced in May 2013.</p>
+                    <div class="text-xs opacity-60 mb-3">📸 Image search: Facebook News Feed 2011</div>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BASIC Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">React Hooks Fan</h3>
+                        <span class="badge badge-ghost badge-sm">BASIC</span>
+                    </div>
+                    <p class="mb-3">React Hooks, introduced in version 16.8, let you use state and other React features without writing a class. The most common hooks are `useState` and `useEffect`.</p>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE Post -->
+            <div class="card bg-base-100 shadow border-l-4 border-success">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">Feynman's Student</h3>
+                        <span class="badge badge-success badge-sm">EXERCISE</span>
+                    </div>
+                    <p class="font-semibold mb-4">💪 Practice makes perfect! Try these React exercises:</p>
+                    
+                    <div class="space-y-2 mb-3">
+                        <div class="alert alert-success">
+                            <div class="flex gap-3">
+                                <div class="badge badge-lg">1</div>
+                                <span>Explain the purpose of the `useState` hook with a simple example.</span>
+                            </div>
+                        </div>
+                        <div class="alert alert-success">
+                            <div class="flex gap-3">
+                                <div class="badge badge-lg">2</div>
+                                <span>Describe a use case for the `useEffect` hook.</span>
+                            </div>
+                        </div>
+                        <div class="alert alert-success">
+                            <div class="flex gap-3">
+                                <div class="badge badge-lg">3</div>
+                                <span>How do React Server Components differ from traditional server-side rendering (SSR)?</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUIZ Post -->
+            <div class="card bg-base-100 shadow border-l-4 border-info">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">Quiz</h3>
+                        <span class="badge badge-info badge-sm">QUIZ</span>
+                    </div>
+                    <p class="font-semibold mb-4">📝 Test your React knowledge! Can you answer these questions?</p>
+                    
+                    <!-- Quiz Questions -->
+                    <div class="space-y-3 mb-3">
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">1. When was React first open-sourced?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-9" class="radio radio-info radio-sm" />
+                                    <span class="label-text">2011</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-9" class="radio radio-info radio-sm" />
+                                    <span class="label-text">2012</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-9" class="radio radio-info radio-sm" />
+                                    <span class="label-text">2013</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">2. Which hook is used to manage state in a functional component?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-10" class="radio radio-info radio-sm" />
+                                    <span class="label-text">useEffect</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-10" class="radio radio-info radio-sm" />
+                                    <span class="label-text">useState</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-10" class="radio radio-info radio-sm" />
+                                    <span class="label-text">useContext</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">3. What is a benefit of using React Server Components?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-11" class="radio radio-info radio-sm" />
+                                    <span class="label-text">They make it easier to write CSS.</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-11" class="radio radio-info radio-sm" />
+                                    <span class="label-text">They can improve application performance.</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q-11" class="radio radio-info radio-sm" />
+                                    <span class="label-text">They are required for all React applications.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collapsible Replies (Empty for debugging) -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <!-- No replies in data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Search Queries Section (Not part of the feed, but included for debugging) -->
+            <div class="card bg-base-100 shadow border-l-4 border-neutral">
+                <div class="card-body">
+                    <h3 class="font-bold text-lg mb-2">Web Search Queries Generated:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-neutral">what is react js</span>
+                        <span class="badge badge-neutral">react components explained</span>
+                        <span class="badge badge-neutral">react props vs state</span>
+                        <span class="badge badge-neutral">react hooks tutorial</span>
+                        <span class="badge badge-neutral">what is jsx in react</span>
+                        <span class="badge badge-neutral">react virtual dom explained</span>
+                        <span class="badge badge-neutral">react lifecycle methods</span>
+                        <span class="badge badge-neutral">react conditional rendering</span>
+                        <span class="badge badge-neutral">how to handle events in react</span>
+                        <span class="badge badge-neutral">react state management libraries</span>
+                        <span class="badge badge-neutral">react context api tutorial</span>
+                        <span class="badge badge-neutral">react performance optimization techniques</span>
+                        <span class="badge badge-neutral">what is react router</span>
+                        <span class="badge badge-neutral">how to fetch data in react</span>
+                        <span class="badge badge-neutral">react testing library tutorial</span>
+                        <span class="badge badge-neutral">react best practices 2025</span>
+                        <span class="badge badge-neutral">what is server components in react</span>
+                        <span class="badge badge-neutral">react native vs react</span>
+                        <span class="badge badge-neutral">history of react js</span>
+                        <span class="badge badge-neutral">who created react</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Learning Feed</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-base-200">
+    <div class="min-h-screen">
+        <!-- Main Container -->
+        <div class="max-w-2xl mx-auto p-4 space-y-4">
+            
+            <!-- BASIC Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">ReactWizard</h3>
+                        <span class="badge badge-ghost badge-sm">BASIC</span>
+                    </div>
+                    <p class="mb-3">Welcome to your personalized learning feed for React! Let's dive into the world of building amazing user interfaces. 🚀</p>
+
+                    <!-- Collapsible Comments -->
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">DevLearner</div>
+                                <div class="text-sm">Can't wait to learn! Where should I start?</div>
+                            </div>
+                            
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">ReactWizard</div>
+                                <div class="text-sm">Start with components and props! They're the foundation of everything in React.</div>
+                            </div>
+
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">CodingEnthusiast</div>
+                                <div class="text-sm">This is so helpful! Thanks for sharing! 🙏</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMMENT Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">CodeMaster</h3>
+                        <span class="badge badge-secondary badge-sm">COMMENT</span>
+                    </div>
+                    <p class="mb-3">React is a powerful JavaScript library for building user interfaces. It's all about creating reusable UI components.</p>
+
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">ComponentCurious</div>
+                                <div class="text-sm">That's a great summary! Can you elaborate on what makes components 'reusable'?</div>
+                            </div>
+                            
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">CodeMaster</div>
+                                <div class="text-sm">That's where <strong>Props</strong> come in! You pass data into components via props, making them adaptable. 💡</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WEB_IMAGE Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">ReactDev</h3>
+                        <span class="badge badge-accent badge-sm">WEB_IMAGE</span>
+                    </div>
+                    <p class="mb-3">Understanding the React component lifecycle is crucial for building performant applications. Here's a visual guide!</p>
+                    <div class="text-xs opacity-60 mb-3">📸 Image search: "react component lifecycle diagram"</div>
+
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">LifecycleFan</div>
+                                <div class="text-sm">This diagram is super helpful! Do these methods still apply with hooks?</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI_IMAGE Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">AIArtist</h3>
+                        <span class="badge badge-primary badge-sm">AI_IMAGE</span>
+                    </div>
+                    <p class="mb-3">Imagine React hooks as magical tools in your developer toolkit. Each hook gives you a special power! ✨</p>
+                    <div class="badge badge-primary badge-sm mb-1">🎨 AI Generated</div>
+                    <div class="text-xs opacity-60 italic mb-3">Prompt: "fantasy illustration of magical tools representing React hooks"</div>
+
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">HookNewbie</div>
+                                <div class="text-sm">Love this visualization! Which hooks should I learn first?</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEME Post -->
+            <div class="card bg-base-100 shadow">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">MemeKing</h3>
+                        <span class="badge badge-warning badge-sm">MEME</span>
+                    </div>
+                    <p class="mb-3">When you finally understand why you need to use useEffect dependencies array 😂</p>
+
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">LaughingDev</div>
+                                <div class="text-sm">😂😂 I've done this SO many times! The pain is real!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUIZ Post -->
+            <div class="card bg-base-100 shadow border-l-4 border-info">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">QuizMaster</h3>
+                        <span class="badge badge-info badge-sm">QUIZ</span>
+                    </div>
+                    <p class="font-semibold mb-4">📝 Test your React knowledge! Can you answer these questions?</p>
+                    
+                    <!-- Quiz Questions -->
+                    <div class="space-y-3 mb-3">
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">1. What does JSX stand for?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q1" class="radio radio-info radio-sm" />
+                                    <span class="label-text">Java Syntax Extension</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q1" class="radio radio-info radio-sm" />
+                                    <span class="label-text">JavaScript XML</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q1" class="radio radio-info radio-sm" />
+                                    <span class="label-text">JSON Syntax Extension</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bg-base-200 rounded-lg p-4">
+                            <div class="font-semibold mb-3">2. Which hook is used for side effects?</div>
+                            <div class="form-control space-y-2">
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q2" class="radio radio-info radio-sm" />
+                                    <span class="label-text">useState</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q2" class="radio radio-info radio-sm" />
+                                    <span class="label-text">useEffect</span>
+                                    <span class="badge badge-success badge-xs">Correct!</span>
+                                </label>
+                                <label class="label cursor-pointer justify-start gap-2">
+                                    <input type="radio" name="q2" class="radio radio-info radio-sm" />
+                                    <span class="label-text">useContext</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">QuizTaker</div>
+                                <div class="text-sm">Got them both right! 🎉 These quizzes are really helpful for retention.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXERCISE Post -->
+            <div class="card bg-base-100 shadow border-l-4 border-success">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">CodeTrainer</h3>
+                        <span class="badge badge-success badge-sm">EXERCISE</span>
+                    </div>
+                    <p class="font-semibold mb-4">💪 Practice makes perfect! Try these React exercises:</p>
+                    
+                    <div class="space-y-2 mb-3">
+                        <div class="alert alert-success">
+                            <div class="flex gap-3">
+                                <div class="badge badge-lg">1</div>
+                                <span>Build a counter component using useState that increments and decrements a number.</span>
+                            </div>
+                        </div>
+                        <div class="alert alert-success">
+                            <div class="flex gap-3">
+                                <div class="badge badge-lg">2</div>
+                                <span>Create a form that captures user input and displays it in real-time using controlled components.</span>
+                            </div>
+                        </div>
+                        <div class="alert alert-success">
+                            <div class="flex gap-3">
+                                <div class="badge badge-lg">3</div>
+                                <span>Implement a list component that fetches data from an API using useEffect and displays it.</span>
+                            </div>
+                        </div>
+                        <div class="alert alert-success">
+                            <div class="flex gap-3">
+                                <div class="badge badge-lg">4</div>
+                                <span>Build a theme switcher using Context API to toggle between light and dark modes.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">CodePractitioner</div>
+                                <div class="text-sm">Just finished exercise 1! The counter works perfectly. Moving to exercise 2 now 🚀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOURCES Post -->
+            <div class="card bg-base-100 shadow border-l-4 border-warning">
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h3 class="font-bold">Scholar</h3>
+                        <span class="badge badge-warning badge-sm">SOURCES</span>
+                    </div>
+                    <p class="mb-4">Deep dive into React performance optimization! Here are the best resources to learn more:</p>
+                    
+                    <div class="space-y-2 mb-3">
+                        <a href="#" class="link link-hover flex items-center gap-3 p-3 bg-base-200 rounded-lg">
+                            <div class="text-2xl">📖</div>
+                            <div>
+                                <div class="font-semibold text-sm">React Official Documentation</div>
+                                <div class="text-xs opacity-60">react.dev/learn/render-and-commit</div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="link link-hover flex items-center gap-3 p-3 bg-base-200 rounded-lg">
+                            <div class="text-2xl">📖</div>
+                            <div>
+                                <div class="font-semibold text-sm">Optimizing Performance - React Docs</div>
+                                <div class="text-xs opacity-60">react.dev/learn/render-and-commit#optimizing-performance</div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="link link-hover flex items-center gap-3 p-3 bg-base-200 rounded-lg">
+                            <div class="text-2xl">🎥</div>
+                            <div>
+                                <div class="font-semibold text-sm">React Performance Tips by Kent C. Dodds</div>
+                                <div class="text-xs opacity-60">kentcdodds.com/blog/optimize-react-re-renders</div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="link link-hover flex items-center gap-3 p-3 bg-base-200 rounded-lg">
+                            <div class="text-2xl">📄</div>
+                            <div>
+                                <div class="font-semibold text-sm">Profiling React Components</div>
+                                <div class="text-xs opacity-60">blog.logrocket.com/react-profiler-api</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-base-200">
+                        <input type="checkbox" /> 
+                        <div class="collapse-title text-sm font-medium min-h-0 py-2">
+                            Replies
+                        </div>
+                        <div class="collapse-content space-y-2">
+                            <div class="bg-base-300 rounded-lg p-3">
+                                <div class="font-semibold text-sm mb-1">ResourceHunter</div>
+                                <div class="text-sm">Bookmarked! These resources are gold 🏆 Thanks for sharing!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

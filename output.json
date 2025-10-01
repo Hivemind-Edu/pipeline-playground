@@ -1,144 +1,84 @@
 [
   {
     "posterName": "React Simplified",
-    "text": "Welcome to your learning feed on React! React is a JavaScript library for building user interfaces. It lets you create reusable UI components and manage their state efficiently.",
+    "text": "Welcome to your learning feed for React! Let's start with the basics. React is a free, open-source JavaScript library used for building user interfaces. It was created by Jordan Walke, a software engineer at Meta (formerly Facebook). React allows developers to create reusable UI components, which makes building and maintaining user interfaces more efficient.",
     "displayStyle": "BASIC"
   },
   {
     "posterName": "CodeCrafter",
-    "text": "At the heart of React is the concept of components. Think of them as independent, reusable bits of code. They work like JavaScript functions, accepting inputs called 'props' and returning React elements that describe what should appear on the screen.",
+    "text": "React lets you build user interfaces out of individual pieces called components. Think of them like LEGO bricks; you can build something small with one, or combine them to create something big and complex. Buttons, forms, and navigation bars are all examples of elements that can be built as components in a React application.",
     "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "A visual representation of React components as building blocks, each with its own state and props, coming together to form a complete user interface."
+    "aiImagePrompt": "A colorful illustration of a user interface being assembled from individual, puzzle-like component blocks. Each block has a simple icon representing a UI element like a button, a chart, or a text field. The overall image should be clean, modern, and inviting."
   },
   {
-    "posterName": "JSX Explained",
-    "text": "JSX, which stands for JavaScript XML, is a syntax extension for JavaScript that looks a lot like HTML. It allows you to write what your UI should look like in a declarative way. Under the hood, Babel compiles JSX down to `React.createElement()` calls.",
+    "posterName": "React Guru",
+    "text": "One of the key features of React is JSX, which stands for JavaScript XML. It's a syntax extension that allows you to write HTML-like code directly within your JavaScript. This might look a bit strange at first, but it makes writing and visualizing your UI components much more intuitive.",
     "displayStyle": "WEB_IMAGE",
-    "imageSearchQuery": "JSX code snippet"
+    "imageSearchQuery": "React JSX code example"
   },
   {
-    "posterName": "State & Props",
-    "text": "In React, 'props' (properties) are used to pass data from a parent component to a child component, and they are immutable. 'State', on the other hand, is for managing a component's internal data that can change over time.",
-    "displayStyle": "BASIC"
+    "posterName": "DevHumor",
+    "text": "Trying to understand React for the first time.",
+    "displayStyle": "MEME"
   },
   {
     "posterName": "Quiz",
     "text": "",
     "displayStyle": "QUIZ",
     "quizQuestions": [
+      {
+        "question": "Who created React?",
+        "answers": [
+          "Google",
+          "Jordan Walke",
+          "Brendan Eich"
+        ],
+        "correctIndex": 1
+      },
       {
         "question": "What is JSX?",
         "answers": [
           "A new programming language",
           "A syntax extension for JavaScript",
-          "A database for React"
+          "A CSS preprocessor"
         ],
         "correctIndex": 1
       },
       {
-        "question": "What is the main difference between state and props?",
+        "question": "What is the primary purpose of React?",
         "answers": [
-          "Props are for data that changes, state is for data that doesn't",
-          "State is passed from parent to child, props are managed within the component",
-          "Props are passed from parent to child, state is managed within the component"
-        ],
-        "correctIndex": 2
-      },
-      {
-        "question": "What are React components?",
-        "answers": [
-          "CSS stylesheets",
-          "Reusable pieces of UI",
-          "Database schemas"
+          "To manage databases",
+          "To build user interfaces",
+          "To handle server-side logic"
         ],
         "correctIndex": 1
       }
     ]
   },
   {
-    "posterName": "Virtual DOM",
-    "text": "The virtual DOM (VDOM) is a programming concept where a virtual representation of the UI is kept in memory and synced with the 'real' DOM. This allows React to perform updates efficiently by only re-rendering the parts of the UI that have changed.",
-    "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "An abstract illustration of the Virtual DOM concept, showing a lightweight copy of the DOM tree and a diffing algorithm that highlights the changed nodes."
-  },
-  {
-    "posterName": "React Hooks",
-    "text": "Hooks are functions that let you 'hook into' React state and lifecycle features from function components. This means you can use state and other React features without writing a class.",
+    "posterName": "React Explorer",
+    "text": "In React, we have 'props' and 'state'. Props (short for properties) are like arguments you pass to a function, allowing a parent component to pass data to a child component. State, on the other hand, is like a component's memory, allowing it to keep track of information and change it in response to user interactions.",
     "displayStyle": "BASIC"
   },
   {
-    "posterName": "useState Explained",
-    "text": "The `useState` hook is a fundamental hook that allows you to add state to your functional components. You call it with the initial state, and it returns the current state and a function to update it.",
-    "displayStyle": "SOURCES",
-    "sources": [
-      "https://react.dev/reference/react/useState"
-    ]
+    "posterName": "CodeNewbie",
+    "text": "So, props are for passing data down, and state is for managing data within a component? Is that right?",
+    "displayStyle": "COMMENT"
   },
   {
-    "posterName": "useEffect Explained",
-    "text": "The `useEffect` hook lets you perform side effects in your components. Common side effects include fetching data, setting up a subscription, or manually changing the DOM. It runs after every render by default, but you can control when it runs.",
-    "displayStyle": "BASIC"
+    "posterName": "React Mentor",
+    "text": "That's a great way to think about it! A parent component will often hold information in its state and then pass that information down to child components as props.",
+    "displayStyle": "COMMENT"
   },
   {
-    "posterName": "Quiz",
+    "posterName": "Feynman's Student",
     "text": "",
-    "displayStyle": "QUIZ",
-    "quizQuestions": [
-      {
-        "question": "What is the Virtual DOM?",
-        "answers": [
-          "A direct representation of the HTML in the browser",
-          "A lightweight in-memory copy of the real DOM",
-          "A server-side rendering technique"
-        ],
-        "correctIndex": 1
-      },
-      {
-        "question": "What do React Hooks allow you to do?",
-        "answers": [
-          "Use state and other React features in class components",
-          "Use state and other React features in functional components",
-          "Directly manipulate the real DOM"
-        ],
-        "correctIndex": 1
-      },
-      {
-        "question": "What does the `useState` hook return?",
-        "answers": [
-          "The current state and a function to update it",
-          "Only the current state",
-          "Only a function to update the state"
-        ],
-        "correctIndex": 0
-      }
-    ]
-  },
-  {
-    "posterName": "Feynman",
-    "text": "Time for a check-in! Let's solidify your understanding of some core React concepts with the Feynman technique. Try to explain these topics in simple terms, as if you were teaching them to someone else.",
     "displayStyle": "EXERCISE",
     "exerciseQuestions": [
-      "Explain the concept of conditional rendering in React and provide an example of how you might use it.",
-      "What are lists and keys in React, and why are keys important for performance?",
-      "Describe how event handling works in React and how it differs from traditional HTML event handling."
+      "Explain the concept of the Virtual DOM in React and why it's beneficial for performance.",
+      "Describe the difference between a class component and a functional component in React.",
+      "Walk me through the three main phases of a component's lifecycle."
     ]
-  },
-  {
-    "posterName": "Conditional Rendering",
-    "text": "Conditional rendering in React allows you to render different UI elements based on certain conditions. You can use standard JavaScript constructs like `if/else`, the ternary operator, or logical operators like `&&` to achieve this.",
-    "displayStyle": "BASIC"
-  },
-  {
-    "posterName": "Lists and Keys",
-    "text": "When rendering lists of elements in React, you should always provide a unique `key` prop to each list item. Keys help React identify which items have changed, are added, or are removed, which helps in efficiently updating the UI.",
-    "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "A visual of a list of items being reordered. Each item has a unique key that stays with it, helping React track the changes."
-  },
-  {
-    "posterName": "Event Handling",
-    "text": "Handling events in React is similar to handling events in HTML, but with a few syntactical differences. React events are named using camelCase, and you pass a function as the event handler rather than a string.",
-    "displayStyle": "WEB_IMAGE",
-    "imageSearchQuery": "React onClick event handler example"
   },
   {
     "posterName": "Quiz",
@@ -146,52 +86,151 @@
     "displayStyle": "QUIZ",
     "quizQuestions": [
       {
-        "question": "Which of the following is NOT a valid way to do conditional rendering in React?",
+        "question": "Which of the following is true about props?",
         "answers": [
-          "Using an if/else statement",
-          "Using the ternary operator",
-          "Using a for loop inside JSX"
+          "They are mutable and can be changed by the child component.",
+          "They are used to pass data from a child to a parent component.",
+          "They are immutable and passed from parent to child."
         ],
         "correctIndex": 2
       },
       {
-        "question": "Why are keys important when rendering lists in React?",
+        "question": "What is used to manage data that can change over time within a component?",
         "answers": [
-          "They provide styling to the list items",
-          "They help React identify which items have changed, been added, or removed",
-          "They are used to fetch data for each list item"
+          "Props",
+          "State",
+          "Both props and state"
         ],
         "correctIndex": 1
       },
       {
-        "question": "How are React event handlers named?",
+        "question": "What is the flow of data in React?",
         "answers": [
-          "lowercase",
-          "UPPERCASE",
-          "camelCase"
+          "Two-way",
+          "One-way from parent to child",
+          "One-way from child to parent"
         ],
-        "correctIndex": 2
+        "correctIndex": 1
       }
     ]
   },
   {
-    "posterName": "React Router",
-    "text": "React Router is a standard library for routing in React. It enables the navigation among views of various components in a React Application, allows changing the browser URL, and keeps the UI in sync with the URL.",
+    "posterName": "ReactInDepth",
+    "text": "Each React component has a lifecycle with three main phases: Mounting, Updating, and Unmounting. Mounting is when the component is being created and inserted into the DOM. Updating occurs when a component's state or props change. Finally, Unmounting is when a component is being removed from the DOM.",
+    "displayStyle": "AI_IMAGE",
+    "aiImagePrompt": "A diagram showing the three phases of the React component lifecycle: Mounting (a component being placed into a browser window), Updating (the component's content changing), and Unmounting (the component being removed from the browser window). Use simple icons and arrows to illustrate the flow."
+  },
+  {
+    "posterName": "Code Snippets",
+    "text": "Handling events in React is similar to handling events on DOM elements, but with some syntactical differences. For example, React events are named using camelCase, rather than lowercase. So, `onclick` becomes `onClick`.",
     "displayStyle": "BASIC"
   },
   {
-    "posterName": "Redux",
-    "text": "Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently and are easy to test. It's often used with React for managing the application's global state.",
+    "posterName": "React Router Pro",
+    "text": "React Router is the standard library for routing in React. It allows you to create single-page applications with navigation, without the page refreshing. Key components include `<BrowserRouter>`, `<Routes>`, and `<Route>`.",
+    "displayStyle": "BASIC"
+  },
+  {
+    "posterName": "React Resources",
+    "text": "Want to dive deeper into React Router? Check out these resources.",
     "displayStyle": "SOURCES",
     "sources": [
-      "https://redux.js.org/"
+      "https://www.w3schools.com/react/react_router.asp",
+      "https://reactrouter.com/en/main"
     ]
   },
   {
-    "nextTopicSuggestions": [
-      "Advanced React Hooks (useContext, useReducer)",
-      "State Management with Redux",
-      "Testing React Components"
+    "posterName": "Quiz",
+    "text": "",
+    "displayStyle": "QUIZ",
+    "quizQuestions": [
+      {
+        "question": "What is the correct syntax for a click event in React?",
+        "answers": [
+          "onclick={myFunction}",
+          "onClick={myFunction}",
+          "on-click={myFunction}"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which React Router component is used to wrap your entire application to enable routing?",
+        "answers": [
+          "<Routes>",
+          "<Route>",
+          "<BrowserRouter>"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is the purpose of React Router?",
+        "answers": [
+          "To manage component state",
+          "To handle navigation in a single-page application",
+          "To style React components"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "posterName": "Advanced React",
+    "text": "React Server Components are a newer feature that allow you to write UI that can be rendered on the server. This can improve performance by reducing the amount of JavaScript that needs to be sent to the client.",
+    "displayStyle": "BASIC"
+  },
+  {
+    "posterName": "React History Buff",
+    "text": "React was first deployed on Facebook's News Feed in 2011 and later on Instagram in 2012. It was open-sourced in May 2013.",
+    "displayStyle": "WEB_IMAGE",
+    "imageSearchQuery": "Facebook News Feed 2011"
+  },
+  {
+    "posterName": "React Hooks Fan",
+    "text": "React Hooks, introduced in version 16.8, let you use state and other React features without writing a class. The most common hooks are `useState` and `useEffect`.",
+    "displayStyle": "BASIC"
+  },
+  {
+    "posterName": "Feynman's Student",
+    "text": "",
+    "displayStyle": "EXERCISE",
+    "exerciseQuestions": [
+      "Explain the purpose of the `useState` hook with a simple example.",
+      "Describe a use case for the `useEffect` hook.",
+      "How do React Server Components differ from traditional server-side rendering (SSR)?"
+    ]
+  },
+  {
+    "posterName": "Quiz",
+    "text": "",
+    "displayStyle": "QUIZ",
+    "quizQuestions": [
+      {
+        "question": "When was React first open-sourced?",
+        "answers": [
+          "2011",
+          "2012",
+          "2013"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which hook is used to manage state in a functional component?",
+        "answers": [
+          "useEffect",
+          "useState",
+          "useContext"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is a benefit of using React Server Components?",
+        "answers": [
+          "They make it easier to write CSS.",
+          "They can improve application performance.",
+          "They are required for all React applications."
+        ],
+        "correctIndex": 1
+      }
     ]
   }
 ]
