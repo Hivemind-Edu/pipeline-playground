@@ -1,4 +1,3 @@
-import { z } from "zod";
 
 import { EXAMPLE_BLUEPRINT } from "./EXAMPLE_BLUEPRINT";
 
@@ -25,8 +24,8 @@ Every YAML Document should be separated by a "---" line.
 Every Post should strictly adhere to the following type:
 
 type Post = {
-    posterName: string;
-    text: string;
+    posterName: string; // always provide posterName!
+    text: string; // always provide text!
     displayStyle: "BASIC" | "AI_IMAGE" | "COMMENT" | "MEME" | "QUIZ" | "SOURCES" | "WEB_IMAGE" | "EXERCISE";
     quizQuestions?: {
         question: string;
@@ -40,4 +39,5 @@ type Post = {
 
 Example output:
 ${EXAMPLE_BLUEPRINT}
+...
 `;

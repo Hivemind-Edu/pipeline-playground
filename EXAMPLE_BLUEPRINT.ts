@@ -11,11 +11,6 @@ displayStyle: "AI_IMAGE"
 aiImagePrompt: "An animated user interface that is actively being constructed and modified by an AI, with elements appearing and rearranging in a fluid, intelligent manner."
 ---
 type: Post
-posterName: "The Pragmatist"
-text: "AI SDK 5 introduces a clearer distinction between UI messages and model messages. This separation helps in cleaning up front-end code and makes it more readable."
-displayStyle: "BASIC"
----
-type: Post
 posterName: "Quiz"
 text: ""
 displayStyle: "QUIZ"

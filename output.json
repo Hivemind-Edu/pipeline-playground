@@ -1,23 +1,24 @@
 [
   {
-    "posterName": "AI Navigator",
-    "text": "Welcome to your learning feed on AI SDK 5! Get ready to dive into the world of building AI-powered applications with the latest and greatest toolkit for TypeScript developers.",
-    "displayStyle": "BASIC"
+    "posterName": "The Futurist",
+    "text": "Vercel's AI SDK 5 is here, and it's a game-changer for building AI-powered applications. Get ready for a deep dive into what's new and improved from version 4!",
+    "displayStyle": "WEB_IMAGE",
+    "imageSearchQuery": "futuristic user interface with AI elements"
   },
   {
     "posterName": "Code Architect",
-    "text": "AI SDK 5, from the creators of Next.js, is a free, open-source library that provides the tools you need to build AI-powered products. It's designed to be framework-agnostic, working seamlessly with React, Next, Vue, Nuxt, SvelteKit, and more.",
+    "text": "One of the most significant changes in AI SDK 5 is the introduction of Generative UI. This allows large language models to generate UI elements, creating more dynamic and engaging user experiences.",
+    "displayStyle": "AI_IMAGE",
+    "aiImagePrompt": "An AI generating a user interface on a futuristic transparent screen, with components and layouts being drawn by light."
+  },
+  {
+    "posterName": "TypeScript Fan",
+    "text": "AI SDK 5 brings end-to-end type safety to your chat applications. From the server to the client, every piece of data, tool call, and metadata is now fully typed, which is a massive win for developers who love TypeScript.",
     "displayStyle": "BASIC"
   },
   {
-    "posterName": "Feature Spotlight",
-    "text": "One of the standout features of AI SDK 5 is its end-to-end type safety. From the server to the client, every piece of data, tool call, and metadata is fully typed, which is a huge win for TypeScript developers.",
-    "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "A futuristic cityscape with glowing lines of code and the TypeScript logo prominently displayed, representing the type-safe environment of AI SDK 5."
-  },
-  {
-    "posterName": "Dr. DX",
-    "text": "The developer experience with AI SDK 5 is a dream. It offers a unified provider API, meaning you can switch between different AI models from providers like OpenAI, Anthropic, and Google with just a single line of code.",
+    "posterName": "The Pragmatist",
+    "text": "A key improvement in AI SDK 5 is the clear separation between UI and Model Messages. `UIMessage` is now the source of truth for your application's state, making it easier to manage and persist chat history.",
     "displayStyle": "BASIC"
   },
   {
@@ -26,100 +27,44 @@
     "displayStyle": "QUIZ",
     "quizQuestions": [
       {
-        "question": "Which of the following is a key feature of AI SDK 5?",
+        "question": "What is the primary benefit of the redesigned chat in AI SDK 5?",
         "answers": [
-          "Exclusive support for React",
-          "A unified provider API for various language models",
-          "A closed-source, paid library"
+          "Reduced bundle size",
+          "End-to-end type safety",
+          "Support for more CSS frameworks"
         ],
         "correctIndex": 1
       },
       {
-        "question": "What is a major benefit of AI SDK 5's fully typed nature?",
+        "question": "What is the new standard for streaming data from server to client in AI SDK 5?",
         "answers": [
-          "It makes the code harder to read.",
-          "It introduces more runtime errors.",
-          "It enhances code quality and reduces runtime errors."
-        ],
-        "correctIndex": 2
-      },
-      {
-        "question": "AI SDK 5 is primarily designed for which programming language?",
-        "answers": [
-          "Python",
-          "TypeScript",
-          "Java"
+          "WebSockets",
+          "Server-Sent Events (SSE)",
+          "Long Polling"
         ],
         "correctIndex": 1
-      }
-    ]
-  },
-  {
-    "posterName": "The Streamer",
-    "text": "Don't keep your users waiting! AI SDK 5 enables streaming of AI responses, allowing you to send them to the user instantly for a much more responsive experience.",
-    "displayStyle": "WEB_IMAGE",
-    "imageSearchQuery": "data streaming animation"
-  },
-  {
-    "posterName": "Agent Smith",
-    "text": "Building AI agents is a breeze with AI SDK 5. It provides robust support for type-safe tool calls using Zod schemas, allowing your AI to interact with external systems.",
-    "displayStyle": "BASIC"
-  },
-  {
-    "posterName": "UI Master",
-    "text": "AI SDK 5 isn't just for the backend. It includes a UI component that works with popular frameworks like React, Svelte, Vue, and Angular to create highly customizable chat integrations.",
-    "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "A user interface for a chatbot with sleek, modern design elements, showcasing the customizability of AI SDK 5's chat components."
-  },
-  {
-    "posterName": "Deep Dive",
-    "text": "Let's talk about 'Agentic Loop Control.' This new feature in AI SDK 5 gives you more fine-grained control over the execution flow of your AI agents.",
-    "displayStyle": "EXERCISE",
-    "exerciseQuestions": [
-      "In your own words, what do you think 'Agentic Loop Control' might refer to in the context of an AI agent?",
-      "How might this feature be beneficial when building a complex AI-powered application?",
-      "Can you think of a specific use case where precise control over an agent's execution loop would be critical?"
-    ]
-  },
-  {
-    "posterName": "Quiz",
-    "text": "",
-    "displayStyle": "QUIZ",
-    "quizQuestions": [
+      },
       {
-        "question": "Which new capabilities were introduced in AI SDK 5 for richer interactions?",
+        "question": "Which of these is a new feature in AI SDK 5?",
         "answers": [
-          "Video editing and 3D modeling",
+          "Basic text generation",
           "Speech Generation & Transcription",
-          "Database management"
+          "Support for React"
         ],
         "correctIndex": 1
-      },
-      {
-        "question": "What is the recommended way to handle different AI model providers in AI SDK 5?",
-        "answers": [
-          "Write separate code for each provider.",
-          "Use the unified provider API.",
-          "AI SDK 5 only supports one provider."
-        ],
-        "correctIndex": 1
-      },
-      {
-        "question": "For what purpose can you use Zod schemas with AI SDK 5?",
-        "answers": [
-          "Styling the user interface.",
-          "Defining the database structure.",
-          "Ensuring type-safe tool calls for AI agents."
-        ],
-        "correctIndex": 2
       }
     ]
   },
   {
-    "posterName": "Sound On",
-    "text": "AI SDK 5 is not just about text! It introduces Speech Generation & Transcription capabilities, opening up a whole new world of voice-based AI applications.",
-    "displayStyle": "WEB_IMAGE",
-    "imageSearchQuery": "sound wave visualization"
+    "posterName": "Tool Time",
+    "text": "Tool invocations have been redesigned in AI SDK 5 with type-specific identifiers. This means better type safety for both input and output schemas of your tools.",
+    "displayStyle": "BASIC"
+  },
+  {
+    "posterName": "Streamer",
+    "text": "Heads up, developers! The AI SDK now uses Server-Sent Events (SSE) as the standard for streaming data. This should make debugging easier and the streaming protocol more robust.",
+    "displayStyle": "AI_IMAGE",
+    "aiImagePrompt": "A visual representation of data streaming from a server to a client, depicted as a glowing, futuristic data stream."
   },
   {
     "posterName": "The Upgrader",
@@ -127,14 +72,8 @@
     "displayStyle": "BASIC"
   },
   {
-    "posterName": "Generative UI",
-    "text": "Go beyond simple text responses. With AI SDK 5, you can create dynamic, AI-powered user interfaces that can amaze your users.",
-    "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "An animated user interface that is actively being constructed and modified by an AI, with elements appearing and rearranging in a fluid, intelligent manner."
-  },
-  {
-    "posterName": "The Pragmatist",
-    "text": "AI SDK 5 introduces a clearer distinction between UI messages and model messages. This separation helps in cleaning up front-end code and makes it more readable.",
+    "posterName": "ReactDev",
+    "text": "For those using React Server Components, the new `createAI` function in the `@ai-sdk/rsc` package is a powerful tool for managing UI and AI state across your application.",
     "displayStyle": "BASIC"
   },
   {
@@ -143,42 +82,114 @@
     "displayStyle": "QUIZ",
     "quizQuestions": [
       {
-        "question": "What is the purpose of the UI component in AI SDK 5?",
+        "question": "What is the purpose of codemods provided with AI SDK 5?",
         "answers": [
-          "To manage server-side logic.",
-          "To provide hooks for building chat interfaces.",
-          "To handle database migrations."
+          "To automatically style your UI components.",
+          "To help automate the process of upgrading your codebase from a previous version.",
+          "To generate documentation for your AI application."
         ],
         "correctIndex": 1
       },
       {
-        "question": "What does 'streaming AI responses' mean in the context of AI SDK 5?",
+        "question": "What major enhancement has been made to tool invocations in AI SDK 5?",
         "answers": [
-          "Watching videos about AI.",
-          "Sending the complete AI response at once.",
-          "Sending the AI response token by token as it's generated."
+          "They now support more programming languages.",
+          "They have been redesigned with type-specific identifiers for improved type safety.",
+          "They are no longer needed for generative UI."
         ],
-        "correctIndex": 2
+        "correctIndex": 1
       },
       {
-        "question": "Which of these frameworks is NOT explicitly mentioned as being supported by AI SDK 5's chat integration?",
+        "question": "What does the separation of UI and Model Messages in AI SDK 5 help with?",
         "answers": [
-          "React",
-          "Angular",
-          "jQuery"
+          "Increasing the speed of the language model.",
+          "Reducing the number of required dependencies.",
+          "Better management of application state and chat history persistence."
         ],
         "correctIndex": 2
       }
     ]
   },
   {
-    "posterName": "The Explorer",
-    "text": "Ready to start building? The official documentation and playground are the best places to begin your journey with AI SDK 5.",
+    "posterName": "Feynman's Apprentice",
+    "text": "Time to test your understanding of the key changes in AI SDK 5!",
+    "displayStyle": "EXERCISE",
+    "exerciseQuestions": [
+      "Explain the concept of Generative UI in AI SDK 5 and how it differs from traditional UI development.",
+      "Describe the benefits of having separate UI and Model message types.",
+      "Walk me through the advantages of the new type-safe tool invocations."
+    ]
+  },
+  {
+    "posterName": "Framework Fanatic",
+    "text": "Great news for the web dev community! AI SDK 5 offers a highly customizable chat integration for React, Svelte, Vue, and Angular.",
+    "displayStyle": "WEB_IMAGE",
+    "imageSearchQuery": "logos of React, Svelte, Vue, and Angular"
+  },
+  {
+    "posterName": "Agent Smith",
+    "text": "AI SDK 5 introduces Agentic Loop Control, giving you more power to build sophisticated AI agents.",
+    "displayStyle": "AI_IMAGE",
+    "aiImagePrompt": "A futuristic illustration of an AI agent controlling and directing a loop of data and actions."
+  },
+  {
+    "posterName": "DevHumor",
+    "text": "Trying to manage message types and chat history in AI SDK 4 vs. the clean separation in AI SDK 5.",
+    "displayStyle": "MEME"
+  },
+  {
+    "posterName": "Quiz",
+    "text": "",
+    "displayStyle": "QUIZ",
+    "quizQuestions": [
+      {
+        "question": "Which new feature in AI SDK 5 gives developers more control over building complex AI agents?",
+        "answers": [
+          "Improved CSS support",
+          "Agentic Loop Control",
+          "More color themes"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "AI SDK 5's chat integration is highly customizable for which of the following frameworks?",
+        "answers": [
+          "React, Svelte, Vue, and Angular",
+          "Only React and Next.js",
+          "jQuery and MooTools"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What is the new function in `@ai-sdk/rsc` for managing UI and AI state with React Server Components?",
+        "answers": [
+          "`createUI`",
+          "`createState`",
+          "`createAI`"
+        ],
+        "correctIndex": 2
+      }
+    ]
+  },
+  {
+    "posterName": "Knowledge Seeker",
+    "text": "Want to dive deeper into the changes and new features of AI SDK 5? Check out the official Vercel documentation and migration guides.",
     "displayStyle": "SOURCES"
   },
   {
-    "posterName": "Meme Lord",
-    "text": "When you realize you can swap out massive language models with a single line of code in AI SDK 5.",
-    "displayStyle": "MEME"
+    "posterName": "Audio Aficionado",
+    "text": "Beyond text! AI SDK 5 now includes capabilities for Speech Generation & Transcription, opening up a new world of voice-based interactions.",
+    "displayStyle": "AI_IMAGE",
+    "aiImagePrompt": "A sound wave transforming into a digital text document, symbolizing speech-to-text transcription."
+  },
+  {
+    "posterName": "The Simplifier",
+    "text": "The `useChat` hook has been rebuilt from the ground up in AI SDK 5, building on powerful primitives for working with LLMs to provide a world-class UI integration.",
+    "displayStyle": "BASIC"
+  },
+  {
+    "posterName": "Data Streamer",
+    "text": "A small but important change: the `providerMetadata` input parameter has been renamed to `providerOptions` in AI SDK 5. Keep this in mind during your migration!",
+    "displayStyle": "BASIC"
   }
 ]

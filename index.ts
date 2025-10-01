@@ -1,4 +1,4 @@
-import { google } from "@ai-sdk/google";
+import { google, type GoogleGenerativeAIProviderMetadata } from "@ai-sdk/google";
 import { streamObject, generateText, streamText } from "ai";
 import { parseArgs } from "node:util";
 
@@ -21,7 +21,7 @@ import { createPrompt } from "./prompt";
 	allowPositionals: true,
 });
  */
-const TOPIC = "AI SDK 5";
+const TOPIC = "AI SDK 5 changes vs 4";
 
 const PostSchema = z.union([
 	z.object({
@@ -61,7 +61,7 @@ const prompt = createPrompt(TOPIC);
 
 console.log(prompt);
 
-const { textStream } = streamText({
+const { textStream, text,providerMetadata } = streamText({
 	model: google("gemini-2.5-pro"), // google("gemini-2.5-flash-preview-09-2025"),
 	prompt,
 	tools: {
@@ -87,6 +87,16 @@ for await (const item of streamYaml<Post>(textStream, PostSchema)) {
 	array.push(item);
 }
 
+
+const metadata = (await providerMetadata)?.google as
+  | GoogleGenerativeAIProviderMetadata
+  | undefined;
+const webSearchQueries = metadata?.groundingMetadata?.webSearchQueries;
+
+Bun.write("output.yaml", JSON.stringify((await text).replace(/^```yaml\n/, "").replace(/\n```$/, ""), null, 2));
 Bun.write("output.json", JSON.stringify(array, null, 2));
 
-await visualize(JSON.stringify(array, null, 2));
+await visualize(JSON.stringify({
+	array,
+	webSearchQueries,
+}, null, 2));

@@ -3,384 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Debug Feed - AI SDK 5 Data</title>
+    <title>AI Debug Viewer - Simplified Twitter Feed</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        /* Custom styles for the Twitter-like UI */
-        .tweet-border {
-            border-bottom: 1px solid #2f3336; /* Darker Twitter line */
-        }
-        .tweet-hover:hover {
-            background-color: #080808; /* Slightly lighter dark on hover */
+        /* Simple customization for the debug look */
+        .tweet-container {
+            border-bottom: 1px solid #38444d; /* Twitter-like separator */
         }
     </style>
 </head>
-<body class="bg-black text-white font-sans">
+<body class="bg-gray-900 text-gray-100 font-sans">
 
-    <div class="max-w-xl mx-auto border-x border-[#2f3336] min-h-screen">
+    <div class="max-w-xl mx-auto border-x border-gray-700 min-h-screen">
 
         <!-- Header -->
-        <header class="sticky top-0 bg-black/95 backdrop-blur-sm px-4 py-3 border-b border-[#2f3336] z-10">
-            <h1 class="text-xl font-bold">AI Debug Feed</h1>
+        <header class="sticky top-0 bg-gray-900/90 backdrop-blur-sm z-10 p-4 border-b border-gray-700">
+            <h1 class="text-xl font-bold">AI Data Feed <span class="text-sm font-normal text-gray-400">/ Debug View</span></h1>
         </header>
 
-        <!-- Main Feed -->
-        <main id="feed-container">
-            <!-- Tweets will be injected here -->
+        <!-- Main Feed Container -->
+        <main id="feed">
         </main>
+
+        <!-- Sidebar / Metadata -->
+        <div class="fixed right-0 top-0 h-full w-64 bg-gray-800 border-l border-gray-700 p-4 hidden lg:block overflow-y-auto">
+            <h2 class="text-lg font-semibold mb-3 text-blue-400">Web Search Queries (Metadata)</h2>
+            <ul id="web-queries-list" class="space-y-2 text-sm">
+                <!-- Data will be inserted here -->
+            </ul>
+        </div>
 
     </div>
 
     <script>
-        const jsonData = [
-          {
-            "posterName": "AI Navigator",
-            "text": "Welcome to your learning feed on AI SDK 5! Get ready to dive into the world of building AI-powered applications with the latest and greatest toolkit for TypeScript developers.",
-            "displayStyle": "BASIC"
-          },
-          {
-            "posterName": "Code Architect",
-            "text": "AI SDK 5, from the creators of Next.js, is a free, open-source library that provides the tools you need to build AI-powered products. It's designed to be framework-agnostic, working seamlessly with React, Next, Vue, Nuxt, SvelteKit, and more.",
-            "displayStyle": "BASIC"
-          },
-          {
-            "posterName": "Feature Spotlight",
-            "text": "One of the standout features of AI SDK 5 is its end-to-end type safety. From the server to the client, every piece of data, tool call, and metadata is fully typed, which is a huge win for TypeScript developers.",
-            "displayStyle": "AI_IMAGE",
-            "aiImagePrompt": "A futuristic cityscape with glowing lines of code and the TypeScript logo prominently displayed, representing the type-safe environment of AI SDK 5."
-          },
-          {
-            "posterName": "Dr. DX",
-            "text": "The developer experience with AI SDK 5 is a dream. It offers a unified provider API, meaning you can switch between different AI models from providers like OpenAI, Anthropic, and Google with just a single line of code.",
-            "displayStyle": "BASIC"
-          },
-          {
-            "posterName": "Quiz",
-            "text": "",
-            "displayStyle": "QUIZ",
-            "quizQuestions": [
-              {
-                "question": "Which of the following is a key feature of AI SDK 5?",
-                "answers": [
-                  "Exclusive support for React",
-                  "A unified provider API for various language models",
-                  "A closed-source, paid library"
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "What is a major benefit of AI SDK 5's fully typed nature?",
-                "answers": [
-                  "It makes the code harder to read.",
-                  "It introduces more runtime errors.",
-                  "It enhances code quality and reduces runtime errors."
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "AI SDK 5 is primarily designed for which programming language?",
-                "answers": [
-                  "Python",
-                  "TypeScript",
-                  "Java"
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "posterName": "The Streamer",
-            "text": "Don't keep your users waiting! AI SDK 5 enables streaming of AI responses, allowing you to send them to the user instantly for a much more responsive experience.",
-            "displayStyle": "WEB_IMAGE",
-            "imageSearchQuery": "data streaming animation"
-          },
-          {
-            "posterName": "Agent Smith",
-            "text": "Building AI agents is a breeze with AI SDK 5. It provides robust support for type-safe tool calls using Zod schemas, allowing your AI to interact with external systems.",
-            "displayStyle": "BASIC"
-          },
-          {
-            "posterName": "UI Master",
-            "text": "AI SDK 5 isn't just for the backend. It includes a UI component that works with popular frameworks like React, Svelte, Vue, and Angular to create highly customizable chat integrations.",
-            "displayStyle": "AI_IMAGE",
-            "aiImagePrompt": "A user interface for a chatbot with sleek, modern design elements, showcasing the customizability of AI SDK 5's chat components."
-          },
-          {
-            "posterName": "Deep Dive",
-            "text": "Let's talk about 'Agentic Loop Control.' This new feature in AI SDK 5 gives you more fine-grained control over the execution flow of your AI agents.",
-            "displayStyle": "EXERCISE",
-            "exerciseQuestions": [
-              "In your own words, what do you think 'Agentic Loop Control' might refer to in the context of an AI agent?",
-              "How might this feature be beneficial when building a complex AI-powered application?",
-              "Can you think of a specific use case where precise control over an agent's execution loop would be critical?"
-            ]
-          },
-          {
-            "posterName": "Quiz",
-            "text": "",
-            "displayStyle": "QUIZ",
-            "quizQuestions": [
-              {
-                "question": "Which new capabilities were introduced in AI SDK 5 for richer interactions?",
-                "answers": [
-                  "Video editing and 3D modeling",
-                  "Speech Generation & Transcription",
-                  "Database management"
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "What is the recommended way to handle different AI model providers in AI SDK 5?",
-                "answers": [
-                  "Write separate code for each provider.",
-                  "Use the unified provider API.",
-                  "AI SDK 5 only supports one provider."
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "For what purpose can you use Zod schemas with AI SDK 5?",
-                "answers": [
-                  "Styling the user interface.",
-                  "Defining the database structure.",
-                  "Ensuring type-safe tool calls for AI agents."
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "posterName": "Sound On",
-            "text": "AI SDK 5 is not just about text! It introduces Speech Generation & Transcription capabilities, opening up a whole new world of voice-based AI applications.",
-            "displayStyle": "WEB_IMAGE",
-            "imageSearchQuery": "sound wave visualization"
-          },
-          {
-            "posterName": "The Upgrader",
-            "text": "Thinking of moving from a previous version? Vercel provides codemods to help automate the upgrade process to AI SDK 5, making the transition smoother.",
-            "displayStyle": "BASIC"
-          },
-          {
-            "posterName": "Generative UI",
-            "text": "Go beyond simple text responses. With AI SDK 5, you can create dynamic, AI-powered user interfaces that can amaze your users.",
-            "displayStyle": "AI_IMAGE",
-            "aiImagePrompt": "An animated user interface that is actively being constructed and modified by an AI, with elements appearing and rearranging in a fluid, intelligent manner."
-          },
-          {
-            "posterName": "The Pragmatist",
-            "text": "AI SDK 5 introduces a clearer distinction between UI messages and model messages. This separation helps in cleaning up front-end code and makes it more readable.",
-            "displayStyle": "BASIC"
-          },
-          {
-            "posterName": "Quiz",
-            "text": "",
-            "displayStyle": "QUIZ",
-            "quizQuestions": [
-              {
-                "question": "What is the purpose of the UI component in AI SDK 5?",
-                "answers": [
-                  "To manage server-side logic.",
-                  "To provide hooks for building chat interfaces.",
-                  "To handle database migrations."
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "What does 'streaming AI responses' mean in the context of AI SDK 5?",
-                "answers": [
-                  "Watching videos about AI.",
-                  "Sending the complete AI response at once.",
-                  "Sending the AI response token by token as it's generated."
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Which of these frameworks is NOT explicitly mentioned as being supported by AI SDK 5's chat integration?",
-                "answers": [
-                  "React",
-                  "Angular",
-                  "jQuery"
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "posterName": "The Explorer",
-            "text": "Ready to start building? The official documentation and playground are the best places to begin your journey with AI SDK 5.",
-            "displayStyle": "SOURCES"
-          },
-          {
-            "posterName": "Meme Lord",
-            "text": "When you realize you can swap out massive language models with a single line of code in AI SDK 5.",
-            "displayStyle": "MEME"
-          }
-        ];
+        const data = {
+  "array": [
+    {
+      "posterName": "The Futurist",
+      "text": "Vercel's AI SDK 5 is here, and it's a game-changer for building AI-powered applications. Get ready for a deep dive into what's new and improved from version 4!",
+      "displayStyle": "WEB_IMAGE",
+      "imageSearchQuery": "futuristic user interface with AI elements"
+    },
+    {
+      "posterName": "Code Architect",
+      "text": "One of the most significant changes in AI SDK 5 is the introduction of Generative UI. This allows large language models to generate UI elements, creating more dynamic and engaging user experiences.",
+      "displayStyle": "AI_IMAGE",
+      "aiImagePrompt": "An AI generating a user interface on a futuristic transparent screen, with components and layouts being drawn by light."
+    },
+    {
+      "posterName": "TypeScript Fan",
+      "text": "AI SDK 5 brings end-to-end type safety to your chat applications. From the server to the client, every piece of data, tool call, and metadata is now fully typed, which is a massive win for developers who love TypeScript.",
+      "displayStyle": "BASIC"
+    },
+    {
+      "posterName": "The Pragmatist",
+      "text": "A key improvement in AI SDK 5 is the clear separation between UI and Model Messages. `UIMessage` is now the source of truth for your application's state, making it easier to manage and persist chat history.",
+      "displayStyle": "BASIC"
+    },
+    {
+      "posterName": "Quiz",
+      "text": "",
+      "displayStyle": "QUIZ",
+      "quizQuestions": [
+        {
+          "question": "What is the primary benefit of the redesigned chat in AI SDK 5?",
+          "answers": [
+            "Reduced bundle size",
+            "End-to-end type safety",
+            "Support for more CSS frameworks"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "What is the new standard for streaming data from server to client in AI SDK 5?",
+          "answers": [
+            "WebSockets",
+            "Server-Sent Events (SSE)",
+            "Long Polling"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Which of these is a new feature in AI SDK 5?",
+          "answers": [
+            "Basic text generation",
+            "Speech Generation & Transcription",
+            "Support for React"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "posterName": "Tool Time",
+      "text": "Tool invocations have been redesigned in AI SDK 5 with type-specific identifiers. This means better type safety for both input and output schemas of your tools.",
+      "displayStyle": "BASIC"
+    },
+    {
+      "posterName": "Streamer",
+      "text": "Heads up, developers! The AI SDK now uses Server-Sent Events (SSE) as the standard for streaming data. This should make debugging easier and the streaming protocol more robust.",
+      "displayStyle": "AI_IMAGE",
+      "aiImagePrompt": "A visual representation of data streaming from a server to a client, depicted as a glowing, futuristic data stream."
+    },
+    {
+      "posterName": "The Upgrader",
+      "text": "Thinking of moving from a previous version? Vercel provides codemods to help automate the upgrade process to AI SDK 5, making the transition smoother.",
+      "displayStyle": "BASIC"
+    },
+    {
+      "posterName": "ReactDev",
+      "text": "For those using React Server Components, the new `createAI` function in the `@ai-sdk/rsc` package is a powerful tool for managing UI and AI state across your application.",
+      "displayStyle": "BASIC"
+    },
+    {
+      "posterName": "Quiz",
+      "text": "",
+      "displayStyle": "QUIZ",
+      "quizQuestions": [
+        {
+          "question": "What is the purpose of codemods provided with AI SDK 5?",
+          "answers": [
+            "To automatically style your UI components.",
+            "To help automate the process of upgrading your codebase from a previous version.",
+            "To generate documentation for your AI application."
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "What major enhancement has been made to tool invocations in AI SDK 5?",
+          "answers": [
+            "They now support more programming languages.",
+            "They have been redesigned with type-specific identifiers for improved type safety.",
+            "They are no longer needed for generative UI."
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "What does the separation of UI and Model Messages in AI SDK 5 help with?",
+          "answers": [
+            "Increasing the speed of the language model.",
+            "Reducing the number of required dependencies.",
+            "Better management of application state and chat history persistence."
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "posterName": "Feynman's Apprentice",
+      "text": "Time to test your understanding of the key changes in AI SDK 5!",
+      "displayStyle": "EXERCISE",
+      "exerciseQuestions": [
+        "Explain the concept of Generative UI in AI SDK 5 and how it differs from traditional UI development.",
+        "Describe the benefits of having separate UI and Model message types.",
+        "Walk me through the advantages of the new type-safe tool invocations."
+      ]
+    },
+    {
+      "posterName": "Framework Fanatic",
+      "text": "Great news for the web dev community! AI SDK 5 offers a highly customizable chat integration for React, Svelte, Vue, and Angular.",
+      "displayStyle": "WEB_IMAGE",
+      "imageSearchQuery": "logos of React, Svelte, Vue, and Angular"
+    },
+    {
+      "posterName": "Agent Smith",
+      "text": "AI SDK 5 introduces Agentic Loop Control, giving you more power to build sophisticated AI agents.",
+      "displayStyle": "AI_IMAGE",
+      "aiImagePrompt": "A futuristic illustration of an AI agent controlling and directing a loop of data and actions."
+    },
+    {
+      "posterName": "DevHumor",
+      "text": "Trying to manage message types and chat history in AI SDK 4 vs. the clean separation in AI SDK 5.",
+      "displayStyle": "MEME"
+    },
+    {
+      "posterName": "Quiz",
+      "text": "",
+      "displayStyle": "QUIZ",
+      "quizQuestions": [
+        {
+          "question": "Which new feature in AI SDK 5 gives developers more control over building complex AI agents?",
+          "answers": [
+            "Improved CSS support",
+            "Agentic Loop Control",
+            "More color themes"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "AI SDK 5's chat integration is highly customizable for which of the following frameworks?",
+          "answers": [
+            "React, Svelte, Vue, and Angular",
+            "Only React and Next.js",
+            "jQuery and MooTools"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "What is the new function in `@ai-sdk/rsc` for managing UI and AI state with React Server Components?",
+          "answers": [
+            "`createUI`",
+            "`createState`",
+            "`createAI`"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "posterName": "Knowledge Seeker",
+      "text": "Want to dive deeper into the changes and new features of AI SDK 5? Check out the official Vercel documentation and migration guides.",
+      "displayStyle": "SOURCES"
+    },
+    {
+      "posterName": "Audio Aficionado",
+      "text": "Beyond text! AI SDK 5 now includes capabilities for Speech Generation & Transcription, opening up a new world of voice-based interactions.",
+      "displayStyle": "AI_IMAGE",
+      "aiImagePrompt": "A sound wave transforming into a digital text document, symbolizing speech-to-text transcription."
+    },
+    {
+      "posterName": "The Simplifier",
+      "text": "The `useChat` hook has been rebuilt from the ground up in AI SDK 5, building on powerful primitives for working with LLMs to provide a world-class UI integration.",
+      "displayStyle": "BASIC"
+    },
+    {
+      "posterName": "Data Streamer",
+      "text": "A small but important change: the `providerMetadata` input parameter has been renamed to `providerOptions` in AI SDK 5. Keep this in mind during your migration!",
+      "displayStyle": "BASIC"
+    }
+  ],
+  "webSearchQueries": [
+    "AI SDK 5 changes vs 4",
+    "Vercel AI SDK v5 release notes",
+    "Vercel AI SDK 4 to 5 migration guide",
+    "key new features in Vercel AI SDK 5",
+    "Vercel AI SDK 5 generative UI",
+    "Vercel AI SDK 5 createAI function"
+  ]
+};
 
-        const feedContainer = document.getElementById('feed-container');
+        const feedContainer = document.getElementById('feed');
+        const webQueriesList = document.getElementById('web-queries-list');
 
-        const styleColors = {
-            'BASIC': 'border-blue-500 bg-gray-900',
-            'AI_IMAGE': 'border-purple-500 bg-purple-900/20',
-            'WEB_IMAGE': 'border-green-500 bg-green-900/20',
-            'QUIZ': 'border-yellow-500 bg-yellow-900/20',
-            'EXERCISE': 'border-orange-500 bg-orange-900/20',
-            'SOURCES': 'border-indigo-500 bg-indigo-900/20',
-            'MEME': 'border-red-500 bg-red-900/20'
-        };
+        function createPostElement(post) {
+            const article = document.createElement('article');
+            article.className = 'tweet-container p-4 hover:bg-gray-800 transition duration-150';
 
-        function renderPost(post) {
-            const styleClass = styleColors[post.displayStyle] || styleColors['BASIC'];
+            const header = `
+                <div class="flex items-center mb-2">
+                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-sm font-bold text-white mr-3">
+                        ${post.posterName.charAt(0)}
+                    </div>
+                    <div>
+                        <p class="font-bold">${post.posterName}</p>
+                        <p class="text-gray-500 text-sm">@${post.posterName.toLowerCase().replace(/[^a-z0-9]/g, '')}</p>
+                    </div>
+                </div>
+            `;
+            
+            let content = '';
 
-            let contentHTML = '';
-
-            // 1. Main Text
+            // 1. Main Text Content (if present)
             if (post.text) {
-                contentHTML += `<p class="whitespace-pre-wrap mb-2">${post.text}</p>`;
+                content += `<p class="mb-3 whitespace-pre-wrap">${post.text}</p>`;
             }
 
-            // 2. Specific Content based on displayStyle
+            // 2. Display Style Content
             switch (post.displayStyle) {
-                case 'AI_IMAGE':
-                    contentHTML += `
-                        <div class="p-3 mt-2 rounded-lg border border-purple-700 bg-purple-900/30">
-                            <h4 class="text-sm text-purple-400 font-semibold mb-1">AI Image Prompt (Data Only)</h4>
-                            <p class="text-xs italic">${post.aiImagePrompt}</p>
-                            <div class="mt-2 text-center text-xs text-purple-300 bg-purple-800/50 p-1 rounded">
-                                [Placeholder for AI-generated Image]
+                case 'WEB_IMAGE':
+                    content += `
+                        <div class="bg-gray-800 p-3 rounded-xl border border-blue-600/30">
+                            <p class="text-sm font-semibold text-blue-400 mb-1">IMAGE: WEB_IMAGE</p>
+                            <p class="text-sm text-gray-400 italic">Search Query: ${post.imageSearchQuery}</p>
+                            <div class="mt-2 text-center text-gray-600 h-20 flex items-center justify-center border border-dashed border-gray-600 rounded-lg">
+                                Placeholder for image search result
                             </div>
                         </div>
                     `;
                     break;
-                case 'WEB_IMAGE':
-                    contentHTML += `
-                        <div class="p-3 mt-2 rounded-lg border border-green-700 bg-green-900/30">
-                            <h4 class="text-sm text-green-400 font-semibold mb-1">Web Image Search Query (Data Only)</h4>
-                            <p class="text-xs italic">${post.imageSearchQuery}</p>
-                            <div class="mt-2 text-center text-xs text-green-300 bg-green-800/50 p-1 rounded">
-                                [Placeholder for Web Image]
+                case 'AI_IMAGE':
+                    content += `
+                        <div class="bg-gray-800 p-3 rounded-xl border border-green-600/30">
+                            <p class="text-sm font-semibold text-green-400 mb-1">IMAGE: AI_IMAGE</p>
+                            <p class="text-sm text-gray-400 italic">AI Prompt: ${post.aiImagePrompt}</p>
+                            <div class="mt-2 text-center text-gray-600 h-20 flex items-center justify-center border border-dashed border-gray-600 rounded-lg">
+                                Placeholder for AI generated image
                             </div>
                         </div>
                     `;
                     break;
                 case 'QUIZ':
-                    if (post.quizQuestions && post.quizQuestions.length > 0) {
-                        contentHTML += `<div class="p-3 mt-2 rounded-lg border border-yellow-700 bg-yellow-900/30">
-                            <h4 class="text-base text-yellow-400 font-semibold mb-3">QUIZ: Test Your Knowledge!</h4>`;
-                        post.quizQuestions.forEach((q, qIndex) => {
-                            contentHTML += `
-                                <div class="mb-4 p-2 border-l-4 border-yellow-500 bg-black/30 rounded">
-                                    <p class="font-medium mb-2">Q${qIndex + 1}: ${q.question}</p>
+                    content += `
+                        <div class="bg-gray-800 p-4 rounded-xl border border-yellow-600/30 space-y-4">
+                            <p class="text-sm font-semibold text-yellow-400">Content Type: QUIZ</p>
+                            ${post.quizQuestions.map((q, qIndex) => `
+                                <div class="border-t border-gray-700 pt-3">
+                                    <p class="font-semibold mb-2">${qIndex + 1}. ${q.question}</p>
                                     <ul class="space-y-1 text-sm">
-                            `;
-                            q.answers.forEach((answer, aIndex) => {
-                                const isCorrect = aIndex === q.correctIndex;
-                                const answerClass = isCorrect ? 'text-green-400 bg-green-900/30 border-green-600' : 'text-gray-400 bg-gray-800 border-gray-700';
-                                contentHTML += `
-                                    <li class="flex items-start p-1 rounded border ${answerClass}">
-                                        <span class="mr-2 font-bold">${String.fromCharCode(65 + aIndex)}.</span>
-                                        <span>${answer}</span>
-                                        ${isCorrect ? '<span class="ml-auto text-xs font-bold">(Correct)</span>' : ''}
-                                    </li>
-                                `;
-                            });
-                            contentHTML += `</ul></div>`;
-                        });
-                        contentHTML += `</div>`;
-                    }
+                                        ${q.answers.map((a, aIndex) => `
+                                            <li class="${aIndex === q.correctIndex ? 'text-green-400 font-medium bg-gray-700/50 p-1 rounded' : 'text-gray-400'} flex items-start">
+                                                <span class="mr-2">${String.fromCharCode(65 + aIndex)}.</span>
+                                                <span>${a}</span>
+                                                ${aIndex === q.correctIndex ? '<span class="ml-auto text-xs bg-green-800/50 px-2 py-0.5 rounded-full">Correct Answer</span>' : ''}
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
                     break;
                 case 'EXERCISE':
-                    if (post.exerciseQuestions && post.exerciseQuestions.length > 0) {
-                        contentHTML += `<div class="p-3 mt-2 rounded-lg border border-orange-700 bg-orange-900/30">
-                            <h4 class="text-base text-orange-400 font-semibold mb-3">EXERCISE: Deep Dive Questions</h4>`;
-                        post.exerciseQuestions.forEach((q, qIndex) => {
-                            contentHTML += `
-                                <div class="mb-3 p-2 border-l-4 border-orange-500 bg-black/30 rounded">
-                                    <p class="font-medium mb-1">Question ${qIndex + 1}:</p>
-                                    <p class="text-sm italic">${q}</p>
-                                </div>
-                            `;
-                        });
-                        contentHTML += `<p class="text-xs text-orange-300 mt-2">These are open-ended thought questions.</p></div>`;
-                    }
+                    content += `
+                        <div class="bg-gray-800 p-4 rounded-xl border border-purple-600/30">
+                            <p class="text-sm font-semibold text-purple-400 mb-2">Content Type: EXERCISE</p>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                                ${post.exerciseQuestions.map((ex) => `<li>${ex}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
                     break;
                 case 'SOURCES':
-                    contentHTML += `
-                        <div class="p-3 mt-2 rounded-lg border border-indigo-700 bg-indigo-900/30">
-                            <h4 class="text-sm text-indigo-400 font-semibold mb-1">Sources/Resources (Data Only)</h4>
-                            <p class="text-xs">This post indicates external resources are available.</p>
-                            <div class="mt-2 text-center text-xs text-indigo-300 bg-indigo-800/50 p-1 rounded">
-                                [Placeholder for Documentation Links]
-                            </div>
+                    content += `
+                        <div class="bg-gray-800 p-4 rounded-xl border border-blue-600/30">
+                            <p class="text-sm font-semibold text-blue-400">Content Type: SOURCES</p>
                         </div>
                     `;
                     break;
                 case 'MEME':
-                    contentHTML += `
-                        <div class="p-3 mt-2 rounded-lg border border-red-700 bg-red-900/30 text-center">
-                            <h4 class="text-sm text-red-400 font-semibold mb-1">Meme Content (Data Only)</h4>
-                            <p class="text-xl my-4">😂🤣</p>
-                            <div class="mt-2 text-xs text-red-300 bg-red-800/50 p-1 rounded">
-                                [Placeholder for Image/GIF]
+                    content += `
+                        <div class="bg-gray-800 p-4 rounded-xl border border-red-600/30">
+                            <p class="text-sm font-semibold text-red-400 mb-2">Content Type: MEME</p>
+                            <div class="text-center text-gray-600 h-20 flex items-center justify-center border border-dashed border-gray-600 rounded-lg">
+                                Placeholder for a Meme Image or description
                             </div>
                         </div>
                     `;
                     break;
+                case 'BASIC':
+                default:
+                    // Basic text is already handled by post.text
+                    break;
             }
 
-            // Tweet structure
-            const tweetHTML = `
-                <div class="p-4 tweet-border tweet-hover flex transition-colors duration-200">
-                    <!-- Avatar Placeholder -->
-                    <div class="w-10 h-10 bg-gray-600 rounded-full mr-3 flex-shrink-0 flex items-center justify-center text-lg font-bold">
-                        ${post.posterName.charAt(0)}
-                    </div>
-
-                    <!-- Content -->
-                    <div class="flex-grow">
-                        <div class="flex items-center space-x-1">
-                            <span class="font-bold hover:underline">${post.posterName}</span>
-                            <span class="text-gray-500">@${post.posterName.toLowerCase().replace(/\s/g, '')}</span>
-                            <span class="text-gray-500">·</span>
-                            <span class="text-gray-500">now</span>
-                        </div>
-                        
-                        <!-- Main Text & Specific Content -->
-                        <div class="mt-1">
-                            ${contentHTML}
-                        </div>
-
-                        <!-- Debug/Style Tag -->
-                        <div class="mt-3 inline-block px-2 py-0.5 text-xs font-mono rounded-full border ${styleClass} text-gray-200 opacity-80">
-                            Style: ${post.displayStyle}
-                        </div>
-
-                        <!-- Footer (Simulated Twitter actions) -->
-                        <div class="flex justify-between mt-3 text-gray-500 text-sm max-w-sm">
-                            <div class="flex items-center space-x-1 hover:text-blue-500 cursor-pointer">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                                <span>${Math.floor(Math.random() * 50)}</span>
-                            </div>
-                            <div class="flex items-center space-x-1 hover:text-green-500 cursor-pointer">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                                <span>${Math.floor(Math.random() * 20)}</span>
-                            </div>
-                            <div class="flex items-center space-x-1 hover:text-red-500 cursor-pointer">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                                <span>${Math.floor(Math.random() * 100)}</span>
-                            </div>
-                            <div class="flex items-center space-x-1 hover:text-blue-500 cursor-pointer">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            feedContainer.innerHTML += tweetHTML;
+            article.innerHTML = header + content;
+            return article;
         }
 
-        // Render all posts
-        jsonData.forEach(renderPost);
+        function renderFeed() {
+            data.array.forEach(post => {
+                const postElement = createPostElement(post);
+                feedContainer.appendChild(postElement);
+            });
+        }
+
+        function renderWebQueries() {
+            data.webSearchQueries.forEach(query => {
+                const li = document.createElement('li');
+                li.className = 'bg-gray-700/50 p-2 rounded text-gray-300 hover:bg-gray-700 transition duration-150 cursor-pointer';
+                li.textContent = query;
+                webQueriesList.appendChild(li);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFeed();
+            // Only render metadata if the sidebar is expected to be visible (desktop)
+            if (window.innerWidth >= 1024) {
+                 renderWebQueries();
+            }
+        });
     </script>
 
 </body>
