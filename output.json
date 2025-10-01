@@ -1,28 +1,28 @@
 [
   {
-    "posterName": "SDK News",
-    "text": "Big news! Vercel has rolled out AI SDK 5.0, a significant update focused on Generative UI. This allows developers to create richer, component-based interfaces powered by LLMs, moving beyond simple text and markdown.",
+    "posterName": "React Fundamentals",
+    "text": "Welcome to your learning feed on React! React is a powerful JavaScript library used for building user interfaces, especially for single-page applications. It allows developers to create reusable UI components, which makes building complex interfaces much more manageable.",
     "displayStyle": "BASIC",
     "type": "Post"
   },
   {
-    "posterName": "DevDeepDive",
-    "text": "The core of AI SDK 5.0's innovation is its ability to stream React Server Components (RSCs) directly from Large Language Models. This means more interactive and responsive UIs without the heavy lifting on the client-side.",
+    "posterName": "React Explained",
+    "text": "At its core, React enables the creation of dynamic and interactive user interfaces. It uses a component-based architecture, meaning you build encapsulated components that manage their own state and compose them to make complex UIs.",
     "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "A futuristic data stream flowing from a brain-like neural network directly into a dynamic, glowing user interface made of React components, illustrating the concept of streaming UI from an LLM.",
+    "aiImagePrompt": "A visual representation of a user interface being assembled from various interlocking blocks, each labeled with a different component name like 'Navbar', 'Sidebar', and 'Feed'.",
     "type": "Post"
   },
   {
-    "posterName": "ReactFan",
-    "text": "A key advantage of the new `streamUI` function in AI SDK 5.0 is that it's built on the AI SDK Core API. This makes it possible to create these streamable UIs with any compatible provider, not just OpenAI.",
-    "displayStyle": "COMMENT",
-    "type": "Post"
-  },
-  {
-    "posterName": "CodeWizard",
-    "text": "Upgrading from older versions? The AI SDK 5.0 introduces the `streamUI` function, which replaces the `render` function from version 4.0. This new function offers more flexibility and power for creating generative UIs.",
+    "posterName": "JSX - JavaScript XML",
+    "text": "JSX, or JavaScript XML, is a syntax extension for JavaScript that looks very similar to HTML. It allows you to write what your UI should look like in a declarative way, making your code more readable and intuitive. Behind the scenes, JSX is converted into regular JavaScript by a tool called Babel.",
     "displayStyle": "WEB_IMAGE",
-    "imageSearchQuery": "Code comparison before and after refactoring",
+    "imageSearchQuery": "JSX code example",
+    "type": "Post"
+  },
+  {
+    "posterName": "Developer Dan",
+    "text": "Just starting with React and I'm a bit confused about JSX. Is it just HTML in JavaScript?",
+    "displayStyle": "COMMENT",
     "type": "Post"
   },
   {
@@ -31,58 +31,59 @@
     "displayStyle": "QUIZ",
     "quizQuestions": [
       {
-        "question": "What is the flagship feature of AI SDK 5.0?",
+        "question": "What is React primarily used for?",
         "answers": [
-          "Enhanced database integrations",
-          "Generative UI support",
-          "A new CSS framework"
+          "Building mobile applications",
+          "Building user interfaces",
+          "Managing databases"
         ],
         "correctIndex": 1
       },
       {
-        "question": "What technology does AI SDK 5.0 leverage to stream UI components?",
+        "question": "What is JSX?",
         "answers": [
-          "WebSockets",
-          "React Server Components",
-          "GraphQL Subscriptions"
+          "A new programming language",
+          "A syntax extension for JavaScript",
+          "A database query language"
         ],
         "correctIndex": 1
       },
       {
-        "question": "Which function is deprecated in favor of `streamUI` in AI SDK 5.0?",
+        "question": "What is the name of the tool that converts JSX into regular JavaScript?",
         "answers": [
-          "render",
-          "generateText",
-          "createUI"
+          "Webpack",
+          "Babel",
+          "Node.js"
         ],
-        "correctIndex": 0
+        "correctIndex": 1
       }
     ],
     "type": "Post"
   },
   {
-    "posterName": "PracticalDev",
-    "text": "AI SDK 5.0 introduces a more unified API for interacting with various LLMs. This abstraction layer simplifies the process of switching between different model providers like OpenAI, Anthropic, and Hugging Face.",
+    "posterName": "React Components",
+    "text": "Components are the building blocks of any React application. They are independent and reusable pieces of code that return a description of what should appear on the screen. Think of them as custom, reusable HTML elements.",
     "displayStyle": "BASIC",
     "type": "Post"
   },
   {
-    "posterName": "FutureIsNow",
-    "text": "The move towards Generative UI in AI SDK 5.0 was inspired by the development of v0.dev, a tool that converts text and image prompts into React UIs.",
+    "posterName": "Functional vs. Class Components",
+    "text": "In React, you can create components in two ways: as JavaScript functions (functional components) or as ES6 classes (class components). While both can achieve the same results, functional components with Hooks are the more modern and recommended approach.",
     "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "A developer speaks into a microphone, and their words are instantly transformed into a beautiful and complex user interface on a large screen, with code flowing in the background.",
+    "aiImagePrompt": "A split-screen image. On one side, a simple, elegant function icon representing a functional component. On the other side, a more complex, blueprint-style icon representing a class component.",
     "type": "Post"
   },
   {
-    "posterName": "TheArchitect",
-    "text": "With AI SDK 5.0, you can now generate structured JSON data from models, which is incredibly useful for tasks like data extraction and classification. The `generateObject` and `streamObject` functions allow you to enforce a specific schema for the model's output.",
+    "posterName": "React Props",
+    "text": "Props (short for properties) are how you pass data from a parent component to a child component. This is a one-way data flow, making it easier to understand and debug your application. Props are read-only, meaning a child component cannot change the props it receives.",
+    "displayStyle": "WEB_IMAGE",
+    "imageSearchQuery": "React props data flow diagram",
+    "type": "Post"
+  },
+  {
+    "posterName": "Code Snippet",
+    "text": "Here's a simple example of passing a 'name' prop to a 'Welcome' component:\n\n```javascript\nfunction Welcome(props) {\n  return <h1>Hello, {props.name}</h1>;\n}\n\nfunction App() {\n  return <Welcome name=\"Sarah\" />;\n}\n```",
     "displayStyle": "BASIC",
-    "type": "Post"
-  },
-  {
-    "posterName": "UX/UI Pro",
-    "text": "The ability to render custom UI components directly in a chat or search experience opens up new possibilities for user interaction. Imagine an AI agent that doesn't just talk, but shows you interactive charts, maps, and forms.",
-    "displayStyle": "COMMENT",
     "type": "Post"
   },
   {
@@ -91,29 +92,29 @@
     "displayStyle": "QUIZ",
     "quizQuestions": [
       {
-        "question": "What does RSC stand for in the context of AI SDK 5.0?",
+        "question": "What are the two types of components in React?",
         "answers": [
-          "Remote Style Components",
-          "React Server Components",
-          "Responsive Server Configuration"
+          "Simple and Complex",
+          "Functional and Class",
+          "Static and Dynamic"
         ],
         "correctIndex": 1
       },
       {
-        "question": "Which of these is a new function in AI SDK 5.0 for generating structured data?",
+        "question": "What is the primary purpose of props?",
         "answers": [
-          "getText",
-          "parseJSON",
-          "generateObject"
+          "To style components",
+          "To handle user events",
+          "To pass data to child components"
         ],
         "correctIndex": 2
       },
       {
-        "question": "The Generative UI technology in AI SDK 5.0 was first used in which Vercel project?",
+        "question": "Are props mutable or immutable within the child component?",
         "answers": [
-          "Next.js Conf",
-          "v0.dev",
-          "Turborepo"
+          "Mutable",
+          "Immutable",
+          "It depends on the data type"
         ],
         "correctIndex": 1
       }
@@ -121,33 +122,33 @@
     "type": "Post"
   },
   {
-    "posterName": "FeynmanLearner",
-    "text": "",
-    "displayStyle": "EXERCISE",
-    "exerciseQuestions": [
-      "Explain the concept of 'Generative UI' in your own words as if you were teaching it to a beginner.",
-      "Describe the benefits of using React Server Components for streaming AI-generated UI.",
-      "Walk through the process of migrating from the `render` function in AI SDK 4.0 to the `streamUI` function in 5.0."
-    ],
-    "type": "Post"
-  },
-  {
-    "posterName": "MemeLord",
-    "text": "Trying to keep up with all the new features in AI SDK 5.0.",
-    "displayStyle": "MEME",
-    "type": "Post"
-  },
-  {
-    "posterName": "PerformanceGuru",
-    "text": "A key benefit of the new architecture in AI SDK 5.0 is improved performance. By streaming UI components from the server, you reduce the amount of client-side JavaScript, leading to faster and more responsive applications.",
+    "posterName": "React State",
+    "text": "While props are for passing data down, 'state' is for managing a component's internal data that can change over time. When a component's state changes, React will re-render the component to reflect the new data.",
     "displayStyle": "BASIC",
     "type": "Post"
   },
   {
-    "posterName": "ToolTime",
-    "text": "AI SDK 5.0 enhances tool usage with LLMs. You can define tools that the AI can use to perform actions, and then render custom UI components to display the results of those actions.",
+    "posterName": "React Feynman",
+    "text": "Time to test your understanding! Try to explain these concepts in your own words, as if you were teaching them to someone else.",
+    "displayStyle": "EXERCISE",
+    "exerciseQuestions": [
+      "What is the difference between props and state?",
+      "Why is it important that component names start with a capital letter?",
+      "What is the purpose of a React Fragment (<>...</>)?"
+    ],
+    "type": "Post"
+  },
+  {
+    "posterName": "useState Hook",
+    "text": "With functional components, we use the `useState` Hook to add state. A Hook is a special function that lets you “hook into” React features. `useState` returns an array with two elements: the current state value and a function to update it.",
     "displayStyle": "AI_IMAGE",
-    "aiImagePrompt": "A friendly robot assistant juggling various tools like a hammer, a wrench, and a magnifying glass, with each tool representing a different API or function it can call upon.",
+    "aiImagePrompt": "A visual of a hook pulling a state variable out of a function component, with an arrow showing the state being updated and causing the component to re-render.",
+    "type": "Post"
+  },
+  {
+    "posterName": "Meme Time",
+    "text": "When you finally understand the difference between props and state.",
+    "displayStyle": "MEME",
     "type": "Post"
   },
   {
@@ -156,29 +157,29 @@
     "displayStyle": "QUIZ",
     "quizQuestions": [
       {
-        "question": "What is the primary benefit of reducing client-side JavaScript with AI SDK 5.0?",
+        "question": "What is used to manage a component's internal data that changes over time?",
         "answers": [
-          "Improved SEO",
-          "Better application performance",
-          "Easier debugging"
+          "Props",
+          "State",
+          "Functions"
         ],
         "correctIndex": 1
       },
       {
-        "question": "Which function would you use to stream structured JSON data in AI SDK 5.0?",
+        "question": "What does the `useState` Hook return?",
         "answers": [
-          "streamText",
-          "streamObject",
-          "generateJSON"
+          "The state value and a function to update it",
+          "Only the state value",
+          "A boolean indicating if the state has changed"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       },
       {
-        "question": "What kind of components can be streamed directly from LLMs with AI SDK 5.0?",
+        "question": "What happens when a component's state changes?",
         "answers": [
-          "Only basic HTML elements",
-          "React Server Components",
-          "Vue components"
+          "The entire application reloads",
+          "The component re-renders",
+          "An error is thrown"
         ],
         "correctIndex": 1
       }
@@ -186,17 +187,17 @@
     "type": "Post"
   },
   {
-    "posterName": "ResourceHub",
-    "text": "Want to dive deeper into the Vercel AI SDK? Here are some great resources to get you started.",
+    "posterName": "React Resources",
+    "text": "Ready to dive deeper? Here are some excellent resources to continue your React journey:",
     "displayStyle": "SOURCES",
     "type": "Post"
   },
   {
     "nextTopicSuggestions": [
-      "Building a chatbot with Vercel AI SDK",
-      "Advanced Generative UI techniques",
-      "Using tools and function calling with LLMs"
+      "React Hooks",
+      "React Router",
+      "State Management with Redux"
     ],
-    "type": "NewSuggestion"
+    "type": "NewSuggestions"
   }
 ]
