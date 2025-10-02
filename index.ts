@@ -115,7 +115,7 @@ const prompt = createPrompt(TOPIC, priorKnowledge);
 console.log(prompt);
 
 const { textStream, text, providerMetadata } = streamText({
-  model: google("gemini-2.5-flash"), // google("gemini-2.5-flash-preview-09-2025"),
+  model: google("gemini-2.5-pro"), // google("gemini-2.5-flash-preview-09-2025"),
   prompt,
   tools: {
     google_search: google.tools.googleSearch({}),
