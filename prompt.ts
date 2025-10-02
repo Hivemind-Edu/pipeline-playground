@@ -152,7 +152,9 @@ That "photograph" has a name: a **commit**.
 
 OUTPUT FORMAT:
 
-Your entire output must be a stream of YAML documents. It must start with the learning goal, followed by a --- line, and end with a final --- line. Each post is a separate YAML document, delineated by ---.
+Your entire output must be a stream of YAML documents.
+Each post is a separate YAML document, delineated by ---.
+The output MUST start and end with a --- line.
 
 The very first element must be the learning goal:
 
@@ -239,6 +241,19 @@ Post 8 (Build - Next piece):
 ... and so on.
 
 Notice: ONE concept per post. Each builds on the last. Examples before quiz. Vue knowledge used as anchor points.
-
-The output must always start and end with a "---" line.`;
+`;
 };
+
+if (import.meta.main) {
+  const topic = process.argv[2];
+  if (!topic) {
+    console.error(
+      "Please provide a topic. Example: bun run prompt.ts 'React Hooks'"
+    );
+    process.exit(1);
+  }
+  const prompt = createPrompt(topic);
+  console.log(prompt);
+  await Bun.write("prompt.txt", prompt);
+  console.log("\n✓ Prompt written to prompt.txt");
+}
