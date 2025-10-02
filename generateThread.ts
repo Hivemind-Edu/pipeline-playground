@@ -1,36 +1,21 @@
-import { type Post } from "./index";
-import type { PriorKnowledge } from "./priorKnowledge";
-import {
-  google,
-  type GoogleGenerativeAIProviderMetadata,
-} from "@ai-sdk/google";
+import { google } from "@ai-sdk/google";
 import { generateObject } from "ai";
 import { z } from "zod";
+import type { Post } from "./index";
+import { USER_PROFILE } from "./USER_PROFILE";
 
 const ChildPostSchema = z.object({
   text: z.string(),
   posterName: z.string(),
 });
 
-export async function generateThread(
-  firstPost: Post,
-  topic: string,
-  priorKnowledge?: PriorKnowledge,
-  groundingMetadata?: GoogleGenerativeAIProviderMetadata
-) {
-  const priorKnowledgeContext = priorKnowledge
-    ? `
-LEARNER CONTEXT:
-This content is for ${priorKnowledge.name}, a ${priorKnowledge.role}.
-Background: ${priorKnowledge.background}
-Expertise: ${priorKnowledge.expertise.join(", ")}
-`
-    : "";
-
+export async function generateThread(firstPost: Post, topic: string) {
   const prompt = `You are creating a lively, Reddit-style discussion thread for a learning post. This should feel like a vibrant subreddit where people with different backgrounds jump in, share experiences, debate nuances, drop jokes, and organically help each other understand the concept.
 
 TOPIC: ${topic}
-${priorKnowledgeContext}
+
+User Profile:
+${USER_PROFILE}
 
 MAIN POST:
 ${JSON.stringify(firstPost, null, 2)}
@@ -115,7 +100,7 @@ Thread:
 
 KEY: Make it FEEL like a real discussion where people are genuinely helping each other, sharing experiences, and having fun. The educational value comes through osmosis, not lecture.
 
-Generate ${priorKnowledge ? "3-5" : "3-4"} comments that create this vibe.`;
+Generate 3-5 comments that create this vibe.`;
 
   const { object } = await generateObject({
     model: google("gemini-2.5-flash-lite-preview-09-2025"),
