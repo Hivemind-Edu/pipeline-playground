@@ -1,0 +1,138 @@
+---
+- posterName: TheArchitect
+  text: 'Forget "learning to code." Think bigger. You are about to learn how to build worlds. Every website, every app... it''s a new reality, a new space for people to connect and create. Ready to draw the blueprints?'
+  displayStyle: AI_IMAGE
+  aiImagePrompt: A glowing, ethereal blueprint of a city that looks like a neural network, drawn by a cosmic architect's hand made of starlight. The style is grand, inspiring, and slightly surreal.
+---
+- posterName: CodeSage
+  text: 'At the heart of every world you build are three core forces: HTML, CSS, and JavaScript. Think of it like building a house. HTML is the raw structure: the foundation, the walls, the roof. CSS is the interior design: the paint, the furniture, the art. JavaScript is the electricity and plumbing: it makes the lights turn on and the water run. You need all three to make a home.'
+  displayStyle: BASIC
+---
+- posterName: Dr.Debug
+  text: A useful clarification on the "house" analogy: while we teach them as separate subjects, in the real world, HTML, CSS, and JavaScript are deeply intertwined. A leaky pipe (bad JS) can ruin the drywall (your HTML/CSS). A solid foundation makes everything else easier. Never think of them in total isolation.
+  displayStyle: COMMENT
+---
+- posterName: CodeSage
+  text: 'Let''s lay the foundation. HTML (Hypertext Markup Language) isn''t a programming language; it''s a *markup* language. You use it to describe the content. You "mark up" your text with tags to tell the browser, "This is a headline," "This is a paragraph," "This is an image." Simple, right? But from these simple tags, entire universes are built.'
+  displayStyle: BASIC
+---
+- posterName: Quiz
+  text: ''
+  displayStyle: QUIZ
+  quizQuestions:
+  - question: Which technology is used to define the structure and content of a webpage?
+    answers:
+    - CSS
+    - HTML
+    - JavaScript
+    correctIndex: 1
+  - question: 'If a website were a house, what would JavaScript represent?'
+    answers:
+    - The color of the walls
+    - The wooden frame and support beams
+    - The interactive elements like light switches and faucets
+    correctIndex: 2
+  - question: What is the primary purpose of CSS?
+    answers:
+    - To handle user interactions and logic
+    - To style the visual presentation of the content
+    - To provide the raw text and images
+    correctIndex: 1
+---
+- posterName: TheArchitect
+  text: 'Behold, the DOM Tree! This is how the browser *sees* your HTML. Not as a flat text file, but as a nested structure of objects, like a family tree. Every tag is a branch. Understanding this structure is the key to manipulating your world with CSS and JavaScript.'
+  displayStyle: AI_IMAGE
+  aiImagePrompt: A beautiful, luminous tree where the trunk is the <html> tag, major branches are <head> and <body>, and smaller branches and leaves are<h1>, <p>, and <div> tags. The style should be clean, clear, and educational.
+---
+- posterName: CodeSage
+  text: 'Time to paint the walls. CSS (Cascading Style Sheets) is where the magic of design happens. You write "rules" to select HTML elements and tell them how to look. "All headlines should be blue." "All images should have a soft shadow." This separation is powerful: you can completely redesign your entire "house" just by swapping out the stylesheet.'
+  displayStyle: BASIC
+---
+- posterName: DevHumor
+  text: 'Trying to center a div in CSS for the first time.'
+  displayStyle: WEB_IMAGE
+  imageSearchQuery: confused developer meme trying to center a div
+---
+- posterName: FeynmanExaminer
+  text: ''
+  displayStyle: EXERCISE
+  exerciseQuestions:
+  - 'Explain the "house" analogy (HTML, CSS, JS) back to me in your own words, but for a car instead of a house.'
+  - What's the difference between a "tag" in an HTML file and an "element" in the DOM Tree?
+  - Why is it a good idea to keep your content (HTML) and your styles (CSS) in separate files?
+---
+- posterName: Quiz
+  text: ''
+  displayStyle: QUIZ
+  quizQuestions:
+  - question: What does DOM stand for?
+    answers:
+    - Document Object Model
+    - Data Object Mover
+    - Design Orientation Matrix
+    correctIndex: 0
+  - question: A CSS "rule" consists of a selector and a...
+    answers:
+    - function
+    - declaration block
+    - variable
+    correctIndex: 1
+  - question: How does the browser view an HTML document?
+    answers:
+    - As a long string of text
+    - As a nested tree of objects
+    - As a series of images
+    correctIndex: 1
+---
+- posterName: CodeSage
+  text: 'Now for the spark of life: JavaScript. If HTML is the what and CSS is the how it looks, JS is the how it *behaves*. It turns a static page into a dynamic application. Pop-up alerts, interactive forms, games, animations... that''s all JavaScript. This IS a true programming language, and it''s your key to making things happen.'
+  displayStyle: BASIC
+---
+- posterName: DevHumor
+  text: 'Me writing my first line of JavaScript vs. me trying to debug it.'
+  displayStyle: MEME
+---
+- posterName: Dr.Debug
+  text: A common tripwire for beginners: JavaScript running in the browser is primarily used for "front-end" development (what the user sees and interacts with). But thanks to environments like Node.js, you can also use JavaScript to write the "back-end" code that runs on the server. One language, two sides of the coin. Don't worry about the back-end for now, just know it exists.
+  displayStyle: COMMENT
+---
+- posterName: CodeSage
+  text: 'Feeling overwhelmed? That''s normal. You''re learning the language of creation. The most important skill for a developer isn''t knowing everything, but knowing how to find the answers. These resources are your new best friends. They are the giants whose shoulders you''ll stand on.'
+  displayStyle: SOURCES
+  sources:
+  - 'MDN Web Docs: The official and most comprehensive documentation for web technologies. An essential resource.'
+  - 'freeCodeCamp: Offers a structured, project-based curriculum that takes you from the basics of HTML and CSS to more advanced topics.'
+  - 'The Odin Project: A free, open-source curriculum that provides a more in-depth, full-stack path, emphasizing learning by building.'
+---
+- posterName: Quiz
+  text: ''
+  displayStyle: QUIZ
+  quizQuestions:
+  - question: Which of these tasks would be handled by JavaScript?
+    answers:
+    - Changing the font of a paragraph.
+    - Creating a button that shows a message when clicked.
+    - Adding an image to the page.
+    correctIndex: 1
+  - question: 'The term "front-end" refers to...'
+    answers:
+    - Code running on the web server.
+    - The first line of code in your HTML file.
+    - Code running in the user''s browser that they can see and interact with.
+    correctIndex: 2
+  - question: What is Node.js?
+    answers:
+    - A new type of browser.
+    - A library for creating animations.
+    - An environment that lets you run JavaScript outside of a browser.
+    correctIndex: 2
+---
+- posterName: TheArchitect
+  text: You've laid the foundation, painted the rooms, and turned on the lights. You have the fundamental pattern of all web creation. Every complex, beautiful website you've ever admired is just these three core ideas, layered and expanded upon thousands of times. You're ready for the next level.
+  displayStyle: BASIC
+---
+- nextTopicSuggestions:
+  - JavaScript Deep Dive
+  - Introduction to Frontend Frameworks (React, Vue, etc.)
+  - Backend Basics (Node.js & Servers)
+---

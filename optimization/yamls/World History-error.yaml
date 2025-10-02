@@ -1,0 +1,206 @@
+---
+- posterName: TheHistorian
+  text: 'Let''s get one thing straight: "World History" isn''t a straight line. It''s
+    not a neat progression from cavemen to computers. Forget the timeline you memorized
+    in school. History is a chaotic, beautiful, terrifying web of connections, collisions,
+    and echoes. And we''re all caught in it.'
+  displayStyle: BASIC
+---
+- posterName: CriticalLens
+  text: Exactly. The first question shouldn't be "What happened?" but "Who's telling
+    the story?" Every history book, every documentary, every feed... it's a map.
+    And the map is never the territory. It's a version. An argument.
+  displayStyle: COMMENT
+---
+- posterName: TheHistorian
+  text: Think of it this way: History is the grandest, most complex detective story
+    ever told, except most of the witnesses are gone, the evidence is buried, and
+    half the clues were written by the culprits. Our job isn't just to learn the
+    "facts," but to learn how to read the silences.
+  displayStyle: AI_IMAGE
+  aiImagePrompt: A vast, dusty library where the books are dissolving into swirling
+    patterns of light and shadow. In the center, a single, determined detective with
+    a magnifying glass examines a glowing thread that connects multiple fading tomes.
+    Cinematic, moody lighting.
+---
+- posterName: TheHistorian
+  text: 'Let''s take a simple example: Christopher Columbus. We celebrate him "discovering"
+    America. But you can''t discover a place that''s already inhabited. His arrival
+    in 1492 wasn''t a discovery; it was a collision. The start of a massive, world-altering,
+    often brutal exchange. The story looks very different depending
+    on which side of the ocean you''re standing on.'
+  displayStyle: BASIC
+---
+- posterName: Quiz
+  text: ''
+  displayStyle: QUIZ
+  quizQuestions:
+  - question: Which statement best describes the "Columbian Exchange"?
+    answers:
+    - A peaceful trade agreement between Europe and the Americas.
+    - The transfer of plants, animals, diseases, and people between the Eastern and
+      Western Hemispheres.
+    - The discovery of new sea routes to Asia by Columbus.
+    correctIndex: 1
+  - question: Why is it important to question who writes a historical account?
+    answers:
+    - Because older historical accounts are usually less accurate.
+    - Because historians from different countries are natural rivals.
+    - Because every author has a perspective, biases, and a specific audience in
+      mind.
+    correctIndex: 2
+  - question: The concept of history as a "map" rather than the "territory" suggests
+      that...
+    answers:
+    - Historical accounts are simplified representations of a much more complex past.
+    - We should only trust histories that include geographical maps.
+    - Most historical events are about disputes over land.
+    correctIndex: 0
+---
+- posterName: TheHistorian
+  text: 'Okay, let''s leave the world of "great men" and empires for a moment. Let''s
+    talk about a network. For over 1,500 years, the "Silk Road" wasn''t a single
+    road but a sprawling web of trade routes connecting Asia, Europe, and Africa.
+    It was the internet of the ancient world.'
+  displayStyle: BASIC
+---
+- posterName: TheHistorian
+  text: It wasn't just silk. It was ideas, religions, technologies, languages, art,
+    and, yes, diseases. Gunpowder and paper went west, while Buddhism
+    traveled east. This network fundamentally shaped civilizations
+    that barely knew the other existed.
+  displayStyle: AI_IMAGE
+  aiImagePrompt: An abstract, glowing visualization of the Silk Road as a complex
+    neural network overlaid on a stylized, antique map of Afro-Eurasia. Bright pulses
+    of light travel along the pathways, representing the exchange of goods and ideas.
+---
+- posterName: Devil'sAdvocate
+  text: Let's not romanticize it. For every scholar and merchant, there were soldiers,
+    slaves, and plagues traveling those same routes. "Exchange" sounds nice, but
+    it was often driven by greed and conquest. It wasn't a utopia.
+  displayStyle: COMMENT
+---
+- posterName: TheHistorian
+  text: A Roman glass bead, excavated from a 5th-century tomb in Japan. A tangible
+    ghost of the Silk Road. Proof that worlds were connected in ways we're still
+    piecing together.
+  displayStyle: WEB_IMAGE
+  imageSearchQuery: Roman glass bead found in Japan
+---
+- posterName: ''
+  text: ''
+  displayStyle: EXERCISE
+  exerciseQuestions:
+  - Explain to a friend why saying Columbus "discovered" America is problematic.
+    What's a better word for what happened?
+  - Describe the Silk Road to someone who thinks it was just a single road for trading
+    silk. What were three non-material things that "traveled" on it?
+  - How is the study of history like being a detective? What kind of "evidence" do
+    historians use?
+---
+- posterName: TheHistorian
+  text: History isn't just about vast networks; it's also about the individuals who
+    traveled them. Meet Ibn Battuta. Born in Morocco in 1304,
+    he set out on a pilgrimage to Mecca and just... kept going.
+  displayStyle: BASIC
+---
+- posterName: TheHistorian
+  text: For 30 years, he traveled over 75,000 miles, visiting almost the entire Muslim
+    world and beyond – from West Africa to China. His book, the Rihla,
+    is one of the greatest travelogues ever written. He gives us a ground-level view
+    of the 14th-century world.
+  displayStyle: AI_IMAGE
+  aiImagePrompt: A stylized map showing the vast travels of Ibn Battuta across Africa,
+    the Middle East, and Asia. A single, winding path is illuminated, with key cities
+    glowing faintly. The style is that of an illuminated manuscript with modern graphic
+    design elements.
+---
+- posterName: MemeLord
+  text: |-
+    Marco Polo: "I traveled 15,000 miles! I'm the greatest explorer ever."
+    Ibn Battuta, having traveled 75,000 miles: "Hold my mint tea."
+  displayStyle: MEME
+---
+- posterName: TheHistorian
+  text: Want to read the words of a 14th-century globetrotter? Ibn Battuta's own
+    account of his travels, "The Rihla," is available in translation. It's a breathtaking
+    window into a lost world, filled with details of courtly life, local customs,
+    and personal adventures.
+  displayStyle: SOURCES
+  sources:
+  - https://en.wikipedia.org/wiki/Ibn_Battuta
+  - https://www.britannica.com/biography/Ibn-Battuta
+---
+- posterName: Quiz
+  text: ''
+  displayStyle: QUIZ
+  quizQuestions:
+  - question: What was the primary significance of the Silk Road?
+    answers:
+    - It was mainly for the export of Chinese silk to the Roman Empire.
+    - It was a network for the exchange of goods, cultures, ideas, and diseases across
+      Afro-Eurasia.
+    - It was the first paved road connecting East and West.
+    correctIndex: 1
+  - question: Who was Ibn Battuta?
+    answers:
+    - A 14th-century Moroccan scholar and explorer who traveled extensively across
+      the Islamic world.
+    - A Venetian merchant who traveled to China.
+    - The founder of the Ottoman Empire.
+    correctIndex: 0
+  - question: The spread of Buddhism from India to China is an example of what?
+    answers:
+    - Cultural diffusion along trade routes.
+    - The failure of Chinese merchants.
+    - The military conquest of China by India.
+    correctIndex: 0
+---
+- posterName: TheHistorian
+  text: Remember the Columbian Exchange? The collision of worlds? Let's visualize
+    it. It wasn't just about gold and potatoes. It was a biological and cultural
+    earthquake. Sugarcane and horses came to the Americas; tomatoes and
+    maize went to Europe. And diseases, tragically, flowed mostly in one
+    direction.
+  displayStyle: AI_IMAGE
+  aiImagePrompt: A diptych image. The left panel shows the Eastern Hemisphere with
+    glowing arrows pointing west, carrying images of horses, wheat, and smallpox
+    viruses. The right panel shows the Western Hemisphere with glowing arrows pointing
+    east, carrying images of corn, potatoes, and tomatoes. The arrows converge messily
+    in the Atlantic.
+---
+- posterName: CriticalLens
+  text: Calling it an "exchange" still feels too neutral. One hemisphere was colonized,
+    its population decimated by disease, and its people enslaved. The
+    other hemisphere got new food sources that fueled a population boom. It was one
+    of the most unequal transactions in history.
+  displayStyle: COMMENT
+---
+- posterName: TheHistorian
+  text: Before 1492, there were no tomatoes in Italy, no potatoes in Ireland, no
+    chili peppers in Thailand, and no chocolate in Switzerland. Think about
+    that. The Columbian Exchange didn't just change the world – it created the modern
+    world's cuisines.
+  displayStyle: BASIC
+---
+- posterName: MemeLord
+  text: My ancestors, looking at a potato for the first time: "You're telling me
+    I just... put this in the ground? And more of them... appear? What sorcery is
+    this?"
+  displayStyle: MEME
+---
+- posterName: ''
+  text: ''
+  displayStyle: EXERCISE
+  exerciseQuestions:
+  - In your own words, what was the most significant long-term consequence of the
+    Columbian Exchange?
+  - Compare the Silk Road and the Columbian Exchange. What are two key similarities
+    and two key differences?
+  - How has this feed changed your initial understanding of "World History"? What
+    was the most surprising thing you learned?
+---
+- nextTopicSuggestions:
+  - The History of Money
+  - Decolonization and the 20th Century
+  - Environmental History: A Story of Climate and Civilization

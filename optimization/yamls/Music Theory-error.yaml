@@ -1,0 +1,169 @@
+---
+- posterName: "Your_Theory_Godfather"
+  text: "Forget everything you think you know about music theory. It's not a dusty old rulebook. It's the 'why' behind the goosebumps you get from your favorite songs. Ready to pull back the curtain?"
+  displayStyle: "BASIC"
+---
+- posterName: "Visual_Vibes"
+  text: ""
+  displayStyle: "AI_IMAGE"
+  aiImagePrompt: "A minimalist, artistic representation of the seven letters of the musical alphabet (A, B, C, D, E, F, G) glowing on a dark, moody background. The letters are arranged in a circle, suggesting an endless loop."
+---
+- posterName: "The_Pragmatist"
+  text: "Music theory is the language musicians use to communicate. Learning the basics will improve your musical development and help you break through creative blocks. It's not about restricting creativity, but giving it a stronger foundation."
+  displayStyle: "BASIC"
+---
+- posterName: "Skeptical_Sam"
+  text: "Ugh, another 'music theory is easy' spiel. I've tried before. It's always a bunch of abstract nonsense that has nothing to do with the music I actually want to make."
+  displayStyle: "COMMENT"
+---
+- posterName: "Quiz"
+  text: ""
+  displayStyle: "QUIZ"
+  quizQuestions:
+    - question: "How many notes are in the Western musical alphabet before they repeat?"
+      answers:
+        - "12"
+        - "7"
+        - "8"
+      correctIndex: 1
+    - question: "What are the fundamental components of music?"
+      answers:
+        - "Melody, Harmony, and Rhythm"
+        - "Notes, Chords, and Scales"
+        - "Loud, Soft, and Fast"
+      correctIndex: 0
+    - question: "Is music theory a strict set of rules?"
+      answers:
+        - "Yes, you can't break them."
+        - "No, it's a way to understand and communicate musical ideas."
+        - "Only for classical music."
+      correctIndex: 1
+---
+- posterName: "Your_Theory_Godfather"
+  text: "Let's talk SCALES. Think of them as the color palette for your melodies. The most important one, the one that's the foundation for so much Western music, is the Major Scale."
+  displayStyle: "BASIC"
+---
+- posterName: "Visual_Vibes"
+  text: ""
+  displayStyle: "AI_IMAGE"
+  aiImagePrompt: "A stylized piano keyboard with the notes of the C Major scale (C, D, E, F, G, A, B) highlighted in a vibrant, glowing color. The pattern of whole and half steps is clearly visualized with 'W' and 'H' markers between the keys."
+---
+- posterName: "The_Pragmatist"
+  text: "The major scale has a specific pattern of whole and half steps: Whole-Whole-Half-Whole-Whole-Whole-Half. This pattern is what gives the major scale its characteristic bright and happy sound."
+  displayStyle: "BASIC"
+---
+- posterName: "Skeptical_Sam"
+  text: "Okay, so it's a pattern. How does that help me write a song that doesn't sound like a nursery rhyme?"
+  displayStyle: "COMMENT"
+---
+- posterName: "Quiz"
+  text: ""
+  displayStyle: "QUIZ"
+  quizQuestions:
+    - question: "What is the pattern of whole (W) and half (H) steps for a major scale?"
+      answers:
+        - "W-H-W-W-H-W-W"
+        - "W-W-H-W-W-W-H"
+        - "W-W-W-H-W-W-H"
+      correctIndex: 1
+    - question: "Which of these is the C Major scale?"
+      answers:
+        - "C, D, E, F#, G, A, B"
+        - "C, D, Eb, F, G, Ab, Bb"
+        - "C, D, E, F, G, A, B"
+      correctIndex: 2
+    - question: "What is a scale?"
+      answers:
+        - "A sequence of notes that provides the raw material for a piece of music."
+        - "A type of musical instrument."
+        - "The volume of a song."
+      correctIndex: 0
+---
+- posterName: "Your_Theory_Godfather"
+  text: "Now for the magic. Chords. These are the foundation of harmony, created by playing multiple notes at the same time. And guess what? They're built directly from scales."
+  displayStyle: "BASIC"
+---
+- posterName: "Visual_Vibes"
+  text: ""
+  displayStyle: "WEB_IMAGE"
+  imageSearchQuery: "C Major Chord on Piano"
+---
+- posterName: "The_Pragmatist"
+  text: "The most basic chords are called triads, which consist of three notes. A major chord, for example, is built from the 1st, 3rd, and 5th notes of a major scale. So, a C Major chord is made up of the notes C, E, and G."
+  displayStyle: "BASIC"
+---
+- posterName: "Meme_Machine"
+  text: "Me when I realize all my favorite songs are just different combinations of a few simple chords:"
+  displayStyle: "MEME"
+---
+- posterName: "Quiz"
+  text: ""
+  displayStyle: "QUIZ"
+  quizQuestions:
+    - question: "What is a chord?"
+      answers:
+        - "A single note played very loudly."
+        - "Two or more notes played at the same time."
+        - "A type of musical scale."
+      correctIndex: 1
+    - question: "How is a major triad built from a major scale?"
+      answers:
+        - "The 1st, 2nd, and 3rd notes."
+        - "The 1st, 3rd, and 5th notes."
+        - "Any three notes from the scale."
+      correctIndex: 1
+    - question: "What are the notes in a G Major chord (the G Major scale is G-A-B-C-D-E-F#)?"
+      answers:
+        - "G-A-B"
+        - "G-B-D"
+        - "G-C-E"
+      correctIndex: 1
+---
+- posterName: "Your_Theory_Godfather"
+  text: "Let's talk about the relationship between chords and scales. This is where the music really starts to open up. Every chord comes from a parent scale. This is the key to understanding how to write melodies that fit your chords, and vice-versa."
+  displayStyle: "BASIC"
+---
+- posterName: "Visual_Vibes"
+  text: ""
+  displayStyle: "AI_IMAGE"
+  aiImagePrompt: "An infographic showing the C Major scale and how the C Major, F Major, and G Major chords are derived from it. The notes of each chord are highlighted within the scale."
+---
+- posterName: "The_Pragmatist"
+  text: "The relationship between chords and scales is the foundation of chord-scale theory. This theory helps musicians, especially improvisers, choose which notes to play over a given chord progression."
+  displayStyle: "BASIC"
+---
+- posterName: "Feynman_Fanatic"
+  text: ""
+  displayStyle: "EXERCISE"
+  exerciseQuestions:
+    - "Explain to a 10-year-old the relationship between a major scale and a major chord, using an analogy that isn't about music."
+    - "How would you describe the difference in sound between a major and minor chord to someone who has never played an instrument?"
+    - "You've been given a simple three-chord song. How would you start to figure out what key the song is in?"
+---
+- posterName: "Quiz"
+  text: ""
+  displayStyle: "QUIZ"
+  quizQuestions:
+    - question: "What is the relationship between a chord and a scale?"
+      answers:
+        - "They are unrelated."
+        - "Chords are built from the notes of a scale."
+        - "Scales are built from the notes of a chord."
+      correctIndex: 1
+    - question: "What does chord-scale theory help with?"
+      answers:
+        - "Choosing which notes to play over a chord progression."
+        - "Determining the tempo of a song."
+        - "Tuning an instrument."
+      correctIndex: 0
+    - question: "The chords C Major, F Major, and G Major are all derived from which scale?"
+      answers:
+        - "G Major"
+        - "F Major"
+        - "C Major"
+      correctIndex: 2
+---
+- nextTopicSuggestions:
+    - "Harmony and Chord Progressions"
+    - "Rhythm and Meter"
+    - "Minor Scales and Modes"

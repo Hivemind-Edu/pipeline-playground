@@ -1,0 +1,198 @@
+---
+type: Post
+posterName: "The Compass"
+text: "Feeling lost in the world of finance? Don't worry, we've all been there. Think of this as your personal map to navigating the world of money. Let's start with the absolute basics, no jargon, no judgment."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "The Architect"
+text: "Before you can build wealth, you need a blueprint. That blueprint is your budget. It's not about restriction; it's about understanding where your money is going so you can tell it where to go next."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A friendly, approachable blueprint of a house, but instead of rooms, the sections are labeled 'Income,' 'Savings,' 'Needs,' and 'Wants.' The style is clean, modern, and encouraging."
+---
+type: Post
+posterName: "The Pragmatist"
+text: "Let's get real. The first step is to track everything. Every coffee, every subscription, every impulse buy. Use an app, a spreadsheet, or a notebook. Knowledge is power."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "The Guardian"
+text: "Life is unpredictable. Before you invest a dime, you need an emergency fund. This is your financial safety net. Aim for 3-6 months of living expenses in a separate savings account. This isn't an investment; it's insurance against chaos."
+displayStyle: "WEB_IMAGE"
+imageSearchQuery: "A person holding a large, transparent umbrella that is shielding them from a storm, symbolizing financial protection."
+---
+type: Post
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+  - question: "What is the primary purpose of a budget?"
+    answers:
+      - "To restrict all your spending."
+      - "To understand and control where your money goes."
+      - "To impress your friends with your financial knowledge."
+    correctIndex: 1
+  - question: "What is the recommended size of an emergency fund?"
+    answers:
+      - "One week's worth of expenses."
+      - "One year's worth of expenses."
+      - "3-6 months' worth of living expenses."
+    correctIndex: 2
+  - question: "What's the first step in creating a budget?"
+    answers:
+      - "Guessing your monthly expenses."
+      - "Tracking your income and expenses."
+      - "Asking a friend how much they spend."
+    correctIndex: 1
+---
+type: Post
+posterName: "The Sage"
+text: "Let's talk about the magic of compound interest. It's what happens when your interest starts earning its own interest. Time is your most powerful ally here. The earlier you start, the more dramatic the growth."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A small snowball at the top of a snowy hill, gradually growing larger and larger as it rolls down, representing the power of compound interest over time."
+---
+type: Post
+posterName: "The Contrarian"
+text: "Everyone's obsessed with gains, but let's talk about the enemy: high-interest debt. Credit cards, payday loans... these are wealth-destroying monsters. Taming this beast should be your top priority."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "The Mentor"
+text: "Ready to move from saving to investing? The goal of investing is to make your money work for you, to grow it over time. It's not about getting rich quick; it's about building a secure future."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "The Explorer"
+text: "Let's explore the world of investments. Stocks, bonds, mutual funds, ETFs... they're all just tools. Each has its own purpose, its own level of risk and reward. We'll break them down one by one."
+displayStyle: "WEB_IMAGE"
+imageSearchQuery: "A diverse toolkit with different financial instruments like a stock chart, a bond certificate, and a pie chart representing a mutual fund."
+---
+type: Post
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+  - question: "What is compound interest?"
+    answers:
+      - "Interest that is paid only on the initial principal."
+      - "Interest earned on both the principal and the accumulated interest."
+      - "A type of complicated interest that only experts can understand."
+    correctIndex: 1
+  - question: "What is generally considered 'bad debt'?"
+    answers:
+      - "A mortgage on a house."
+      - "A student loan for a valuable degree."
+      - "High-interest credit card debt."
+    correctIndex: 2
+  - question: "What is the primary goal of investing?"
+    answers:
+      - "To get rich overnight."
+      - "To grow your money over the long term."
+      - "To have something to talk about at parties."
+    correctIndex: 1
+---
+type: Post
+posterName: "The Strategist"
+text: "Don't put all your eggs in one basket. That's the core of diversification. By spreading your investments across different asset classes, you reduce your risk. If one area goes down, another might go up."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "The Visualizer"
+text: "Asset allocation is how you slice your investment pie. The mix of stocks, bonds, and cash you choose depends on your goals, your timeline, and your comfort with risk."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A pie chart divided into three sections labeled 'Stocks,' 'Bonds,' and 'Cash.' The style is clean and simple, with vibrant colors to make it visually appealing."
+---
+type: Post
+posterName: "The Realist"
+text: "Investing involves risk. Let's be clear about that. The value of your investments can go down as well as up. The key is to understand the risks you're taking and to be comfortable with them."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "The Coach"
+text: ""
+displayStyle: "EXERCISE"
+exerciseQuestions:
+  - "Explain to a friend why a budget is not a financial straitjacket, but a tool for freedom."
+  - "Describe the concept of 'paying yourself first' and how it relates to saving and investing."
+  - "In your own words, what is the difference between saving and investing?"
+---
+type: Post
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+  - question: "What is diversification in investing?"
+    answers:
+      - "Putting all your money in the hottest stock."
+      - "Spreading your investments across different assets to reduce risk."
+      - "Only investing in companies from your home country."
+    correctIndex: 1
+  - question: "What is asset allocation?"
+    answers:
+      - "Choosing only one type of asset to invest in."
+      - "The mix of different asset classes in your portfolio."
+      - "A strategy for allocating your assets to your heirs."
+    correctIndex: 1
+  - question: "What is the relationship between risk and return in investing?"
+    answers:
+      - "Higher risk is always associated with lower returns."
+      - "Lower risk is always associated with higher returns."
+      - "Generally, higher potential returns come with higher risk."
+    correctIndex: 2
+---
+type: Post
+posterName: "The Futurist"
+text: "Thinking about retirement might feel like planning a trip to a distant planet, but the sooner you start, the smoother the journey will be. Your future self will thank you."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "The Guide"
+text: "Employer-sponsored retirement plans like a 401(k) are a great place to start. If your employer offers a match, contribute at least enough to get the full match. It's free money!"
+displayStyle: "WEB_IMAGE"
+imageSearchQuery: "A person happily adding money to a piggy bank that has a '401(k)' label on it, with their employer adding a matching coin."
+---
+type: Post
+posterName: "The Mythbuster"
+text: "Common mistake: Thinking you need a lot of money to start investing. You don't. You can start with a small amount and build from there. Consistency is more important than the amount."
+displayStyle: "MEME"
+imageSearchQuery: "Drake meme format: Drake looking displeased at the text 'You need thousands to invest', and looking pleased at the text 'You can start investing with just a few dollars'."
+---
+type: Post
+posterName: "The Librarian"
+text: "Want to dive deeper? There are tons of great, free resources out there to continue your learning journey."
+displayStyle: "SOURCES"
+sources:
+  - "https://www.investopedia.com/"
+  - "https://www.nerdwallet.com/"
+  - "https://www.thebalance.com/"
+---
+type: Post
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+  - question: "Why is it a good idea to contribute to a 401(k) if your employer offers a match?"
+    answers:
+      - "Because it's a complicated investment."
+      - "Because your employer's match is essentially free money."
+      - "Because you can't access the money until you retire."
+    correctIndex: 1
+  - question: "What's a common misconception about investing?"
+    answers:
+      - "It's only for wealthy people."
+      - "It's a guaranteed way to get rich quick."
+      - "Both of the above."
+    correctIndex: 2
+  - question: "What is a key factor for success in long-term investing?"
+    answers:
+      - "Timing the market perfectly."
+      - "Picking the winning stocks every time."
+      - "Consistency and starting early."
+    correctIndex: 2
+---
+type: Post
+nextTopicSuggestions:
+  - "Advanced Investing Strategies"
+  - "Retirement Planning in Detail"
+  - "Real Estate Investing"
+---

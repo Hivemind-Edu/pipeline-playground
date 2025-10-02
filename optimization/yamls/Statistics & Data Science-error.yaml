@@ -1,0 +1,128 @@
+---
+- posterName: TheDataWhisperer
+  text: 'You''re already a data scientist. You just don''t have the title yet. Ever
+    chosen the shortest checkout line? That''s intuitive statistical modeling. We''re
+    just going to give your intuition a vocabulary.'
+  displayStyle: BASIC
+---
+- posterName: StatisticallySound
+  text: 'Statistics vs. Data Science. Think of statistics as the seasoned detective,
+    meticulously examining evidence (data) to solve a specific case (hypothesis).
+    Data Science is the whole precinct – using that detective work, plus hacking
+    skills and business smarts, to predict and prevent future crime waves.'
+  displayStyle: AI_IMAGE
+  aiImagePrompt: A split-screen image. On the left, a classic, Sherlock Holmes-style
+    detective with a magnifying glass, looking closely at a single footprint. The
+    background is a dusty, atmospheric library. On the right, a bustling, modern
+    police command center with multiple glowing screens showing data visualizations,
+    predictive maps, and code. The overall style is cinematic and high-contrast.
+---
+- posterName: DescriptiveDave
+  text: 'Before you predict the future, you have to describe the present. That''s the
+    first pillar: Descriptive Statistics. Mean, median, mode. It''s not just boring
+    math; it''s the art of telling a clear, honest story about your data.'
+  displayStyle: BASIC
+---
+- posterName: InferentialIngrid
+  text: 'Replying to @DescriptiveDave: And once your story is straight, you can start
+    making educated guesses about the whole universe based on your tiny sample. That''s
+    the magic trick: Inferential Statistics. It''s where the real power lies.'
+  displayStyle: COMMENT
+---
+- posterName: Quiz
+  text: ''
+  displayStyle: QUIZ
+  quizQuestions:
+  - question: Which of these is a question for DESCRIPTIVE statistics?
+    answers:
+    - What is the average height of students in this class?
+    - Will taller students get better grades in the future?
+    - Is there a significant height difference between students in this class and
+      the national average?
+    correctIndex: 0
+  - question: A data scientist predicts which customers are likely to churn. This is
+      an example of...
+    answers:
+    - Inferential Statistics
+    - Descriptive Statistics
+    - Data Entry
+    correctIndex: 0
+  - question: You use a small poll to guess the outcome of a national election. You
+      are using...
+    answers:
+    - Guesswork
+    - Inferential Statistics
+    - Descriptive Statistics
+    correctIndex: 1
+---
+- posterName: CentralLimitGuru
+  text: The Central Limit Theorem is the secret sauce. It says that if you take enough
+    random samples from ANY population (no matter how weirdly shaped), the averages
+    of those samples will form a nice, predictable bell curve. This is why we can
+    make inferences about everyone without talking to everyone. It's the foundation
+    of modern statistics.
+  displayStyle: AI_IMAGE
+  aiImagePrompt: A chaotic, jagged, and unpredictable landscape representing a 'weird
+    population'. From this landscape, several helicopters are airlifting small, square
+    plots of land. These plots are being arranged on a separate, clean grid. As more
+    plots are added, the stacks of plots begin to form a perfect, glowing bell curve
+    shape. The style is futuristic and illustrative.
+---
+- posterName: CorrelationIsNotCausation
+  text: 'Your daily reminder. Just because two things happen at the same time, doesn''t
+    mean one caused the other. Always question the data.'
+  displayStyle: WEB_IMAGE
+  imageSearchQuery: Spurious correlation chart ice cream sales vs shark attacks
+---
+- posterName: ExplainItToMe
+  text: ''
+  displayStyle: EXERCISE
+  exerciseQuestions:
+  - Explain the difference between descriptive and inferential statistics to a 10-year-old
+    using a lemonade stand as an example.
+  - Your manager shows you a chart suggesting sales go up whenever you wear your "lucky
+    socks." How do you gently explain the concept of correlation vs. causation?
+  - Why is the Central Limit Theorem so important for a company that wants to use
+    surveys to understand all of its customers?
+---
+- posterName: DataScienceMemes
+  text: My model on day 1 vs. my model after seeing real-world data.
+  displayStyle: MEME
+  imageSearchQuery: kitten looking in mirror seeing lion meme
+---
+- posterName: Quiz
+  text: ''
+  displayStyle: QUIZ
+  quizQuestions:
+  - question: The bell curve, often seen in statistics, is also known as the...
+    answers:
+    - Normal Distribution
+    - Standard Deviation
+    - The Money Curve
+    correctIndex: 0
+  - question: A study finds that cities with more libraries have higher crime rates.
+      This is likely an example of:
+    answers:
+    - Causation (libraries cause crime)
+    - A spurious correlation (a confounding variable, like population size, causes
+      both)
+    - A data error
+    correctIndex: 1
+  - question: The Central Limit Theorem is most useful when you want to...
+    answers:
+    - Describe a single dataset perfectly
+    - Make inferences about a population from a sample
+    - Visualize your data
+    correctIndex: 1
+---
+- posterName: TheDataWhisperer
+  text: At the end of the day, every number has a story. The tools of statistics
+    and data science are just ways to become a better storyteller. To find the narrative
+    hidden in the noise.
+  displayStyle: BASIC
+---
+- nextTopicSuggestions:
+  - 'Data Visualization: Telling Stories with Data'
+  - 'Introduction to Python for Data Science'
+  - 'Probability: The Language of Uncertainty'
+---

@@ -1,0 +1,76 @@
+---
+- posterName: "Your_French_Bestie"
+  text: "So, you want to learn French. Forget the dusty textbooks and the soul-crushing grammar drills for a second. Why are you *really* here? Is it for the flaky croissants? The moody films? The dream of ordering wine without pointing? Hold onto that feeling. That's your fuel. This isn't about memorizing words; it's about unlocking a new way to see the world. Let's do this, together."
+  displayStyle: "BASIC"
+---
+- posterName: "The_Language_Architect"
+  text: "First things first: in French, everything has a gender. A table? Feminine. A book? Masculine. Don't fight it, just accept it as a charming quirk. Think of it like this: every object in the French-speaking world has a secret identity. Your mission is to learn their secrets. We'll start with 'un' for masculine things and 'une' for feminine things."
+  displayStyle: "AI_IMAGE"
+  aiImagePrompt: "A whimsical, slightly surreal illustration of a book wearing a tiny fedora (masculine) and a table wearing a string of pearls (feminine). The style should be charming and a little bit quirky, like a children's book illustration for adults."
+---
+- posterName: "Le_Mot_Juste"
+  text: "Let's get you talking. Here are the absolute essentials. Master these, and you can walk into any French bakery with your head held high:\n\n*   **Bonjour** - Hello (The classic, use it everywhere)\n*   **Au revoir** - Goodbye\n*   **Merci** - Thank you\n*   **S'il vous plaît** - Please (formal) / **S'il te plaît** (informal)\n*   **Oui** - Yes\n*   **Non** - No"
+  displayStyle: "BASIC"
+---
+- posterName: "French_Culture_Clips"
+  text: "A quick tip on 'Bonjour': it's not just a greeting, it's a key. In France, you say 'Bonjour' to the bus driver, the shopkeeper, the person you make eye contact with in an elevator. It's a sign of respect, and it will open doors for you, literally and figuratively."
+  displayStyle: "COMMENT"
+---
+- posterName: "Quiz"
+  text: ""
+  displayStyle: "QUIZ"
+  quizQuestions:
+    - question: "Which of these is the formal way to say 'hello' in the evening?"
+      answers:
+        - "Salut"
+        - "Bonsoir"
+        - "Bonjour"
+      correctIndex: 1
+    - question: "A book ('livre') is..."
+      answers:
+        - "Masculine"
+        - "Feminine"
+        - "It depends on the book"
+      correctIndex: 0
+    - question: "How would you say 'a chair' ('chaise')?"
+      answers:
+        - "Un chaise"
+        - "Une chaise"
+        - "Le chaise"
+      correctIndex: 1
+---
+- posterName: "Visual_Vocab"
+  text: "Think of 'S'il vous plaît' as a little gift you give someone when you're asking for something. The more you give, the more you'll get in return (like that extra pain au chocolat)."
+  displayStyle: "WEB_IMAGE"
+  imageSearchQuery: "beautifully wrapped gift with a French ribbon"
+---
+- posterName: "The_Sound_Weaver"
+  text: "Ready for a little magic? It's called 'liaison'. Sometimes, a silent consonant at the end of a word comes to life when the next word starts with a vowel. For example, 'vous êtes' (you are) isn't 'voo et', it's 'voo-Zet'. This is the secret sauce to sounding less like a tourist and more like a local."
+  displayStyle: "BASIC"
+---
+- posterName: "Francly_Speaking"
+  text: ""
+  displayStyle: "MEME"
+  imageSearchQuery: "meme of a person struggling to pronounce French words"
+---
+- posterName: "The_Feynman_Technique"
+  text: ""
+  displayStyle: "EXERCISE"
+  exerciseQuestions:
+    - "Explain the concept of grammatical gender in French to a friend who knows nothing about it. Use the examples of 'un livre' and 'une table'."
+    - "Describe a situation where you would use 'bonjour', 'bonsoir', and 'salut'. What's the difference between them?"
+    - "What is a 'liaison' in French pronunciation? Give an example and explain why it's important."
+---
+- posterName: "The_Librarian"
+  text: "Feeling inspired? Here are some fantastic, free resources to take your learning to the next level:"
+  displayStyle: "SOURCES"
+  sources:
+    - "https://www.lawlessfrench.com/learn-french-for-beginners/"
+    - "https://www.gouvernement.fr/ressources-pedagogiques-pour-apprendre-le-francais"
+    - "https://www.frenchpod101.com/french-resources/"
+---
+- nextTopicSuggestions:
+    - "Mastering French numbers 1-100"
+    - "Introduction to common French verbs: être and avoir"
+    - "Basic French sentence structure"
+---

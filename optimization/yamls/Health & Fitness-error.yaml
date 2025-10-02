@@ -1,0 +1,152 @@
+---
+- type: Post
+  posterName: "The Wellness Architect"
+  text: "You've been told 'health and fitness' is about punishing workouts and restrictive diets. That's a lie. It's not about what you lose; it's about what you gain. Let's build a version of you that feels undeniably, vibrantly alive. Ready?"
+  displayStyle: "BASIC"
+---
+- type: Post
+  posterName: "Mind-Body Connection"
+  text: "True health isn't just physical. It's a symphony of physical, mental, emotional, social, and spiritual well-being. Neglect one, and the whole orchestra is out of tune."
+  displayStyle: "AI_IMAGE"
+  aiImagePrompt: "An intricate, glowing tree with five main branches labeled 'Physical,' 'Mental,' 'Emotional,' 'Social,' and 'Spiritual.' The roots are intertwined and pulsing with a soft light, symbolizing a holistic foundation of health."
+---
+- type: Post
+  posterName: "Coach Cory"
+  text: "Let's talk movement. Forget 'no pain, no gain.' Think 'listen to your body.' The goal is to feel energized, not exhausted. We're aiming for sustainable progress, not burnout."
+  displayStyle: "WEB_IMAGE"
+  imageSearchQuery: "diverse group of people enjoying different forms of gentle exercise outdoors"
+---
+- type: Post
+  posterName: "Nutritionist Nina"
+  text: "Food is fuel, not the enemy. The 'calories in, calories out' model is an oversimplification. The *quality* of your calories matters. Nutrient-dense foods build a better body, period."
+  displayStyle: "BASIC"
+---
+- type: Post
+  posterName: "Quiz"
+  text: ""
+  displayStyle: "QUIZ"
+  quizQuestions:
+  - question: "Which of the following is NOT a core pillar of holistic wellness?"
+    answers:
+    - "Physical Health"
+    - "Financial Health"
+    - "Social Health"
+    correctIndex: 1
+  - question: "What is the 'Specificity Principle' in fitness?"
+    answers:
+    - "Your workouts should be specific to your goals."
+    - "You should only do one specific type of exercise."
+    - "Everyone's fitness journey is the same."
+    correctIndex: 0
+  - question: "True or False: Muscle turns into fat if you stop working out."
+    answers:
+    - "True"
+    - "False"
+    correctIndex: 1
+---
+- type: Post
+  posterName: "The Myth Buster"
+  text: "Myth: You can target fat loss in specific areas (aka 'spot reduction'). Fact: Your body decides where it loses fat from, not you. Full-body workouts and a balanced diet are your best bet."
+  displayStyle: "MEME"
+---
+- type: Post
+  posterName: "Dr. Anya Sharma"
+  text: "The mind-body connection is real. Exercise has been shown to be as effective as antidepressants for mild to moderate depression. It's not just about looking good; it's about feeling good from the inside out."
+  displayStyle: "BASIC"
+---
+- type: Post
+  posterName: "The Upgrader"
+  text: "Beginner's toolkit: Start with 2-3 days of full-body resistance training and 2 days of low-impact cardio per week. Consistency over intensity is the name of the game."
+  displayStyle: "AI_IMAGE"
+  aiImagePrompt: "A friendly, approachable toolkit with items like a dumbbell, a water bottle, a yoga mat, and a calendar with '2-3x week' highlighted. The style is clean, simple, and encouraging."
+---
+- type: Post
+  posterName: "Commenter"
+  text: "But what if I don't have time for the gym?"
+  displayStyle: "COMMENT"
+---
+- type: Post
+  posterName: "Quiz"
+  text: ""
+  displayStyle: "QUIZ"
+  quizQuestions:
+  - question: "What does the 'F' in the F.I.T.T. principle of exercise stand for?"
+    answers:
+    - "Fitness"
+    - "Frequency"
+    - "Focus"
+    correctIndex: 1
+  - question: "Which of these is a common misconception about nutrition?"
+    answers:
+    - "You should eat a variety of fruits and vegetables."
+    - "You can't out-train a bad diet."
+    - "All calories are created equal."
+    correctIndex: 2
+  - question: "How much moderate-intensity physical activity is recommended for adults per week?"
+    answers:
+    - "30-60 minutes"
+    - "75-150 minutes"
+    - "150-300 minutes"
+    correctIndex: 2
+---
+- type: Post
+  posterName: "The Sage"
+  text: "Your body is not a machine to be forced into submission. It is a garden to be cultivated. Nurture it with good food, movement, and rest, and watch it bloom."
+  displayStyle: "BASIC"
+---
+- type: Post
+  posterName: "Exercise"
+  text: ""
+  displayStyle: "EXERCISE"
+  exerciseQuestions:
+  - "Explain the 'Overload Principle' of fitness in your own words."
+  - "Describe the relationship between exercise and mental health, citing at least two benefits."
+  - "Why is the concept of 'holistic wellness' more effective than focusing on just physical health?"
+---
+- type: Post
+  posterName: "The Recovery Specialist"
+  text: "Rest is not for the weak; it's for the wise. Your muscles grow and repair during recovery, not during the workout. Don't skip your rest days."
+  displayStyle: "WEB_IMAGE"
+  imageSearchQuery: "person peacefully resting in a hammock after a workout"
+---
+- type: Post
+  posterName: "Data Driven"
+  text: "For substantial health benefits, adults should aim for 150-300 minutes of moderate-intensity or 75-150 minutes of vigorous-intensity aerobic activity per week, or a combination of both."
+  displayStyle: "SOURCES"
+  sources:
+  - "https://health.gov/paguidelines/second-edition/pdf/Physical_Activity_Guidelines_2nd_edition.pdf"
+---
+- type: Post
+  posterName: "Quiz"
+  text: ""
+  displayStyle: "QUIZ"
+  quizQuestions:
+  - question: "A pound of muscle weighs..."
+    answers:
+    - "More than a pound of fat."
+    - "Less than a pound of fat."
+    - "The same as a pound of fat."
+    correctIndex: 2
+  - question: "What is a key benefit of strength training for women?"
+    answers:
+    - "It helps maintain bone density."
+    - "It will make them 'bulky'."
+    - "It's not as effective as cardio for weight management."
+    correctIndex: 0
+  - question: "True or False: You need to feel pain for a workout to be effective."
+    answers:
+    - "True"
+    - "False"
+    correctIndex: 1
+---
+- type: Post
+  posterName: "The Humanizer"
+  text: "Some days you'll feel like a superhero. Other days, getting out of bed will be your workout. Both are okay. Be kind to yourself. This is a journey, not a race."
+  displayStyle: "BASIC"
+---
+- type: Post
+  posterName: "nextTopicSuggestions"
+  nextTopicSuggestions:
+  - "Advanced Training Techniques"
+  - "Nutrition for Peak Performance"
+  - "Mindfulness and Meditation"

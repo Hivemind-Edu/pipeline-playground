@@ -1,0 +1,141 @@
+---
+type: Post
+posterName: "Your Guide"
+text: "So, you want to learn French. Forget the dry textbooks and soulless apps. We're going on a journey. It’ll be messy, frustrating, and utterly beautiful. Ready?"
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "The Skeptic"
+text: "Yeah, yeah, another 'learn a language' feed. Promise me this won't be just a bunch of random vocabulary words I'll forget in five minutes."
+displayStyle: "COMMENT"
+---
+type: Post
+posterName: "Your Guide"
+text: "Promise. We're going to build a foundation. Let's start with a weird, wonderful, and absolutely critical concept: everything has a gender."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "Le Prof"
+text: "In French, every noun is either masculine or feminine. 'A book' is 'un livre' (masculine), and 'a table' is 'une table' (feminine). This isn't about logic; it's about grammar. It's a feature inherited from Latin. Don't ask 'why' a table is female. Just accept it. For now."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A surrealist painting where a book has a mustache and a bow tie (le livre) and a dining table is wearing a dress and pearls (la table). The style is whimsical and slightly absurd, reminiscent of René Magritte."
+---
+type: Post
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+  - question: "Which article would you use for 'voiture' (car)?"
+    answers:
+      - "un (masculine)"
+      - "une (feminine)"
+      - "It can be either."
+    correctIndex: 1
+  - question: "The word 'livre' (book) is:"
+    answers:
+      - "Masculine"
+      - "Feminine"
+      - "Neutral"
+    correctIndex: 0
+  - question: "Why do French nouns have genders?"
+    answers:
+      - "Because objects are considered male or female."
+      - "It's a grammatical classification inherited from Latin."
+      - "To make it harder for English speakers."
+    correctIndex: 1
+---
+type: Post
+posterName: "RealTalk"
+text: "Memorizing the gender of every single noun is a nightmare. Pro-tip: learn the noun WITH its article ('un' or 'une', 'le' or 'la'). It bakes the gender into your brain from the start. Trust me on this."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "LanguageNerd"
+text: "It's not just articles! Adjectives, pronouns, and some verb forms change to agree with the noun's gender. It's like a grammatical ecosystem where everything is connected. Messy, but cool."
+displayStyle: "COMMENT"
+---
+type: Post
+posterName: "Your Guide"
+text: "Let's talk pronunciation. A lot of French looks familiar to an English speaker, but it's a trap. The letters are the same, but the sounds are a whole different world."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "The Sound Master"
+text: "Forget the English 'r'. The French 'r' is born in the back of your throat. Think of a light gargle. Practice with words like 'rue' (street) or 'merci' (thank you). It will feel weird. That means you're doing it right."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "An anatomical illustration of the throat, with a glowing pulse of energy at the very back, where the uvula is. Arrows show the sound resonating there, not from the front of the mouth. The style is a clean, modern infographic."
+---
+type: Post
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+  - question: "A key feature of French pronunciation is the presence of:"
+    answers:
+      - "Nasal vowels."
+      - "Hard 'g' sounds."
+      - "Silent vowels."
+    correctIndex: 0
+  - question: "In French, word stress is typically on the:"
+    answers:
+      - "First syllable."
+      - "Second syllable."
+      - "Last pronounced syllable."
+    correctIndex: 2
+  - question: "The letters 'c', 'r', 'f', and 'l' at the end of a word are often:"
+    answers:
+      - "Silent."
+      - "Pronounced."
+      - "Pronounced with a nasal sound."
+    correctIndex: 1
+---
+type: Post
+posterName: "MemeMaster"
+text: "How English speakers feel when they see a French word vs. when they try to pronounce it."
+displayStyle: "MEME"
+imageSearchQuery: "Kombucha girl meme trying French wine"
+---
+type: Post
+posterName: "CultureCorner"
+text: "Let's take a break for some culture. The beret. It's not just a cliché, it's a symbol with a rich history. It started with shepherds in the Pyrenees, was adopted by the military, and became a badge of the French Resistance in WWII. It represents resilience, artistry, and rebellion."
+displayStyle: "WEB_IMAGE"
+imageSearchQuery: "Vintage black and white photo of French resistance fighters wearing berets"
+---
+type: Post
+posterName: "Your Guide"
+text: "Okay, you've wrestled with gender and gargled with your 'r's. Time to actually say something. Let's arm you with the essentials."
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "The Essentials"
+text: |-
+  *   Bonjour - Hello
+  *   Merci - Thank you
+  *   Oui / Non - Yes / No
+  *   S'il vous plaît - Please
+  *   Excusez-moi - Excuse me
+  *   Je ne comprends pas - I don't understand
+displayStyle: "BASIC"
+---
+type: Post
+posterName: "Exercise"
+text: ""
+displayStyle: "EXERCISE"
+exerciseQuestions:
+  - "Explain to a friend why a 'chair' (la chaise) is feminine in French. What does this mean for the words you use with it?"
+  - "Describe, as if you were a vocal coach, how to produce the French 'r' sound. What common mistake should be avoided?"
+  - "You're in a French bakery. How would you politely get the baker's attention, ask for a croissant, and say thank you?"
+---
+type: Post
+posterName: "The Sage"
+text: "You will make mistakes. You will sound silly. You will feel frustrated. This is not failure. This is the only way to learn. Every garbled 'r', every mixed-up gender, is a step forward. Embrace the beautiful mess."
+displayStyle: "BASIC"
+---
+{
+    "nextTopicSuggestions": [
+        "Basic French Greetings and Introductions",
+        "Introduction to French Verbs: Être and Avoir",
+        "French Numbers and Telling Time"
+    ]
+}
+---

@@ -1,0 +1,87 @@
+---
+posterName: "The Signal"
+text: "Let's be honest, 'Statistics' sounds about as exciting as watching paint dry. But what if I told you it's the closest thing we have to a superpower? It's the art of seeing the signal through the noise, of turning endless data into a clear story. Forget the formulas for a second. This is about learning to see the world differently. Ready?"
+displayStyle: "BASIC"
+---
+posterName: "DataCompass"
+text: "First mission: find the center. In any pile of data, you need a landmark. We call this 'central tendency'. The three most common ways to find it are the Mean (the average you know), the Median (the middle value), and the Mode (the most frequent value). They're three different tools for telling you 'what's a typical value here?'"
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A stylized, glowing compass rose on a dark background of scattered data points. The needle of the compass points to a bright central node. The three main compass directions are labeled 'Mean', 'Median', and 'Mode'."
+---
+posterName: "CriticalThinker"
+text: "Careful with that 'Mean'. A billionaire walks into a cafe with 10 people. Suddenly, on average, everyone in the cafe is a millionaire. Did the 'typical' person's wealth change? Not really. The median (the middle person's wealth) would tell a much truer story here. The mean is easily skewed by outliers."
+displayStyle: "COMMENT"
+---
+posterName: "The Storyteller"
+text: "Okay, we found the center. But how spread out is the data? Are all the points huddled together, or are they scattered all over? This 'spread' is called variability or dispersion. Standard Deviation is the star player here – it's a single number that tells you how much, on average, your data points stray from the mean. Low standard deviation = tight cluster. High standard deviation = wide spray."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "Two beautiful galaxies side-by-side in deep space. The first galaxy is a tight, dense spiral, labeled 'Low Standard Deviation'. The second is a sprawling, diffuse irregular galaxy, labeled 'High Standard Deviation'."
+---
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+  - question: "You're analyzing customer satisfaction scores (1-10). One customer accidentally leaves a score of 1,000. Which measure of central tendency will be most affected?"
+    answers:
+      - "Median"
+      - "Mean"
+      - "Mode"
+    correctIndex: 1
+  - question: "A dataset has a mean of 50 and a standard deviation of 5. This means that most data points are:"
+    answers:
+      - "Clustered tightly around 50."
+      - "Spread very far apart."
+      - "Exactly 5 or 50."
+    correctIndex: 0
+  - question: "Which of these scenarios would likely have the highest standard deviation?"
+    answers:
+      - "The heights of all players on a professional basketball team."
+      - "The daily temperature in a desert."
+      - "The ages of people at a family reunion (from babies to grandparents)."
+    correctIndex: 2
+---
+posterName: "PatternSeeker"
+text: "Ever notice how many things in the world follow a similar pattern? Heights, test scores, errors in measurement... they often cluster around an average in a beautiful, symmetrical 'Bell Curve'. This is the Normal Distribution, and it's a cornerstone of statistics. It tells us that values near the average are common, while extreme values are rare."
+displayStyle: "WEB_IMAGE"
+imageSearchQuery: "real world example of bell curve distribution"
+---
+posterName: "The Pragmatist"
+text: "So what's the point of all this? Imagine you're launching a product. If customer reviews have a mean of 4 stars but a HUGE standard deviation, it means you have a divisive product - some people love it, some hate it. If the standard deviation is tiny, the experience is consistent. This isn't just theory; it's business intelligence."
+displayStyle: "BASIC"
+---
+posterName: "MemeLord"
+text: "My brain trying to remember the difference between mean, median, and mode under pressure."
+displayStyle: "MEME"
+imageSearchQuery: "confused math lady meme"
+---
+posterName: "The Bridge"
+text: "Now for the magic. Let's move from describing *one* thing to seeing how *two* things relate. This is called Correlation. When one variable goes up, does the other go up too (positive correlation) or down (negative correlation)? It's the first step to finding hidden relationships in the world. But it comes with a HUGE warning..."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A split-panel image. On the left, a graph shows a strong positive correlation, with the line going up and to the right, labeled 'Ice Cream Sales'. On the right, another graph shows an identical positive correlation, labeled 'Shark Attacks'. A giant, bold question mark connects the two panels."
+---
+posterName: "The Mentor"
+text: ""
+displayStyle: "EXERCISE"
+exerciseQuestions:
+  - "Explain to a friend why 'correlation does not imply causation' using the example of ice cream sales and shark attacks. What's the likely 'third variable' that's actually causing both?"
+  - "You're looking at two stocks. Stock A has a higher average return (mean) than Stock B, but it also has a much higher standard deviation. How would you explain the risk vs. reward of each stock?"
+  - "Describe a real-world scenario where the median would be a much more useful and honest summary of the data than the mean."
+---
+posterName: "The Librarian"
+text: "Feeling the pull to go deeper? These concepts are the bedrock. Here are some excellent places to get more formal definitions and examples."
+displayStyle: "SOURCES"
+sources:
+  - "https://www.scribbr.com/statistics/descriptive-statistics/"
+  - "https://www.investopedia.com/terms/n/normaldistribution.asp"
+  - "https://www.scribbr.com/statistics/correlation-vs-causation/"
+  - "https://www.simplilearn.com/what-is-descriptive-statistics-article"
+---
+posterName: "The Futurist"
+text: "You've just taken your first steps. You learned how to describe the shape of data (central tendency, variability) and how to spot a potential relationship (correlation). This is the foundation of everything. From here, we can start asking bigger questions. Is that correlation *real* or just a coincidence? Can we use it to *predict* the future? Stick around. This is where it gets really powerful."
+displayStyle: "BASIC"
+---
+nextTopicSuggestions:
+  - "Hypothesis Testing"
+  - "Regression Analysis"
+  - "Data Visualization"
+---

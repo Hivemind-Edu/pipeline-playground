@@ -13,10 +13,13 @@
   "dependencies": {
     "@ai-sdk/google": "^2.0.17",
     "@ai-sdk/openai": "^2.0.42",
+    "@ax-llm/ax": "^14.0.28",
     "@langfuse/otel": "^4.2.0",
     "@langfuse/tracing": "^4.2.0",
     "@opentelemetry/sdk-trace-node": "^2.1.0",
     "ai": "^5.0.59",
-    "jsonrepair": "^3.13.1"
+    "csv-parse": "^6.1.0",
+    "jsonrepair": "^3.13.1",
+    "p-retry": "^7.0.0"
   }
 }

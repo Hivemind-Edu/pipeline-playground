@@ -1,6 +1,6 @@
 import {
-  google,
   type GoogleGenerativeAIProviderMetadata,
+  google,
 } from "@ai-sdk/google";
 import { streamText } from "ai";
 
@@ -8,10 +8,10 @@ import { z } from "zod";
 
 import "./setupTracing"; // langfuse tracing
 
-import { visualize } from "./visualize";
-import { streamYaml } from "./streamYaml";
-import { createPrompt } from "./prompt";
 import { generateThread } from "./generateThread";
+import { createPrompt } from "./prompt";
+import { streamYaml } from "./streamYaml";
+import { visualize } from "./visualize";
 
 /* const { values } = parseArgs({
 	args: Bun.argv,

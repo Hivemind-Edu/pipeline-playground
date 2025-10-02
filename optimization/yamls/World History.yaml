@@ -1,0 +1,133 @@
+---
+posterName: "The Chronicler"
+text: "Forget timelines for a second. The real beginning of 'us' wasn't walking on two legs, but when we started telling stories around a fire. When we could imagine things that weren't real. That's the spark. Everything else is a consequence."
+displayStyle: "BASIC"
+---
+posterName: "Urban Planner"
+text: "This is what one of the first 'cities,' Çatalhöyük, might have looked like. No streets. You walked on the roofs and climbed down a ladder into your home. Why? What does this tell you about their fears, their community, their idea of 'home'?"
+displayStyle: "WEB_IMAGE"
+imageSearchQuery: "Çatalhöyük reconstruction"
+---
+posterName: "The Lawgiver"
+text: "Before this, justice was a whim. With the Code of Hammurabi, it was written in stone. 'An eye for an eye.' Harsh? Yes. But it was also a radical idea: the law is a public, known thing. A foundation for everything that came after."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A giant, ancient stone stele covered in glowing cuneiform script. In the foreground, a stylized set of scales of justice, perfectly balanced. The background is a bustling Mesopotamian city under a dusky sky."
+---
+posterName: "The Skeptic"
+text: "Hold on. 'A known thing' for whom? The Code of Hammurabi had different punishments for a nobleman, a commoner, and a slave who committed the same crime. It wasn't about equality. It was about reinforcing the existing social order. Don't romanticize it."
+displayStyle: "COMMENT"
+---
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+  - question: "What was a key feature of the 'Cognitive Revolution'?"
+    answers:
+      - "Learning to farm"
+      - "The invention of writing"
+      - "The ability to think about abstract concepts"
+    correctIndex: 2
+  - question: "The ancient settlement of Çatalhöyük is famous for..."
+    answers:
+      - "Its massive pyramids"
+      - "Its houses being entered from the roof"
+      - "The first known use of iron"
+    correctIndex: 1
+  - question: "What was a fundamental principle of the Code of Hammurabi?"
+    answers:
+      - "That all people were created equal"
+      - "That punishments should vary based on social class"
+      - "That democracy was the ideal form of government"
+    correctIndex: 1
+---
+posterName: "The Philosopher"
+text: "Something strange happened around the 6th century BCE. In China, you get Confucius and Laozi. In India, the Buddha. In Iran, Zoroaster. In Greece, the first philosophers. It's like the world 'woke up' at the same time. Why then?"
+displayStyle: "BASIC"
+---
+posterName: "The Merchant"
+text: "We call it the 'Silk' Road, but silk was the least important thing it carried. Ideas, religions, technologies, plagues... they all traveled along this network. It was the first time the world was truly, dangerously, connected."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A stylized, glowing map of Eurasia. Instead of lines for roads, there are pulsating streams of light connecting different cultures. Along these streams, icons representing silk, spices, philosophical ideas (like a yin-yang or a lotus flower), and scientific instruments are flowing in both directions."
+---
+posterName: "The Archivist"
+text: "Imagine all the world's knowledge. Now imagine setting fire to it. That's the Library of Alexandria. We don't even know what we lost."
+displayStyle: "MEME"
+imageSearchQuery: "distracted boyfriend meme with labels: 'humanity', 'burning library of alexandria', 'petty squabbles'"
+---
+posterName: "The Examiner"
+text: ""
+displayStyle: "EXERCISE"
+exerciseQuestions:
+  - "Explain to a 10-year-old why the invention of writing was more important than the invention of the wheel."
+  - "You're a Roman merchant traveling the Silk Road for the first time. Describe three things you encounter that would completely blow your mind."
+  - "Argue for or against this statement: 'The Code of Hammurabi was a step forward for justice.'"
+---
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+  - question: "The 'Axial Age' refers to a period of..."
+    answers:
+      - "Intense global warfare"
+      - "Major philosophical and religious development"
+      - "The beginning of the Iron Age"
+    correctIndex: 1
+  - question: "Besides goods, what was a critical 'item' traded on the Silk Road?"
+    answers:
+      - "Exotic animals"
+      - "Maps and navigational charts"
+      - "Religions and ideas"
+    correctIndex: 2
+  - question: "The destruction of the Library of Alexandria is a historical symbol of..."
+    answers:
+      - "The triumph of reason"
+      - "The irretrievable loss of knowledge"
+      - "The beginning of the Roman Empire"
+    correctIndex: 1
+---
+posterName: "The Historian"
+text: "Rome didn't 'fall.' It was more like a slow, messy, complicated, 200-year-long breakup."
+displayStyle: "BASIC"
+---
+posterName: "The Survivor"
+text: "This wasn't just a disease. The Black Death was a societal reset button. When a third of Europe dies, the old rules no longer apply. Labor becomes valuable. The power of the church is questioned. The modern world is built on a foundation of bones."
+displayStyle: "WEB_IMAGE"
+imageSearchQuery: "The Triumph of Death by Pieter Bruegel the Elder"
+---
+posterName: "The Technologist"
+text: "Before this, a book cost as much as a house. Knowledge was locked away by the powerful. The printing press didn't just make books cheaper; it made new thoughts possible. It was the original information explosion."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A classic Gutenberg printing press. Instead of paper, it is outputting a glowing stream of data and ideas that flow out and form a neural network covering a map of Europe."
+---
+posterName: "The Luddite"
+text: "And what was one of the first things they mass-produced with this incredible new technology? Propaganda to fuel religious wars. Don't ever forget that technology has no morality."
+displayStyle: "COMMENT"
+---
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+  - question: "The 'Fall of Rome' is best described as..."
+    answers:
+      - "A single decisive battle"
+      - "A long, gradual process of decline"
+      - "An economic boom"
+    correctIndex: 1
+  - question: "A major social consequence of the Black Death was..."
+    answers:
+      - "The strengthening of the feudal system"
+      - "A decrease in the value of labor"
+      - "A questioning of traditional authority"
+    correctIndex: 2
+  - question: "The invention of the printing press led to..."
+    answers:
+      - "A decrease in literacy"
+      - "The wider and faster spread of ideas"
+      - "The Catholic Church gaining more control over information"
+    correctIndex: 1
+---
+nextTopicSuggestions:
+  - "The Age of Exploration: When the World's Maps Were Redrawn"
+  - "Revolutions: The American, French, and Industrial"
+  - "The Great Empires: A Comparative Look at the Ottomans, Mughals, and Ming Dynasty"
+---

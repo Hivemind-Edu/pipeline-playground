@@ -1,0 +1,87 @@
+---
+posterName: "The Alchemist"
+text: "Forget recipes for a second. The real secret to cooking is understanding heat. It's not just 'on' or 'off.' It's an ingredient, just like salt. High heat sears, low heat tenderizes. Your first step to becoming a great cook is to stop following instructions and start *controlling* the fire."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A glowing, ethereal flame hovering over a pan, with lines of energy radiating outwards, transforming a raw piece of food into a golden-brown masterpiece. The style should be slightly magical and awe-inspiring."
+---
+posterName: "Captain Control"
+text: "\"Controlling the fire\" isn't just about the knob. It's about the *pan*. A thick, heavy pan holds heat evenly. A thin, cheap one creates hot spots that burn your food while other parts are still raw. Your pan is your partner. Choose wisely."
+displayStyle: "WEB_IMAGE"
+imageSearchQuery: "cast iron skillet vs thin frying pan side by side"
+---
+posterName: "The Flavor Architect"
+text: "Salt isn't just about making things 'salty.' It's a flavor *enhancer*. It suppresses bitterness and makes sweet and savory notes pop. Think of it less like a spice and more like a volume knob for taste. The right amount doesn't taste salty; it makes food taste more like itself."
+displayStyle: "BASIC"
+---
+posterName: "Veteran in the Trenches"
+text: "You know why restaurant food tastes so good? They use more salt and fat than you'd dare to at home. I'm not saying you should go crazy, but if your food tastes like it's 'missing something,' it's probably salt. Season at every stage, not just the end."
+displayStyle: "COMMENT"
+---
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+- question: "What is the primary role of salt in cooking?"
+  answers:
+  - "To make food salty."
+  - "To enhance and balance other flavors."
+  - "To preserve food."
+  correctIndex: 1
+- question: "What is a key advantage of a heavy pan?"
+  answers:
+  - "It heats up very quickly."
+  - "It's easier to clean."
+  - "It distributes and retains heat evenly."
+  correctIndex: 2
+- question: "When is the best time to season your food?"
+  answers:
+  - "Only at the very end."
+  - "Throughout the cooking process."
+  - "Only at the beginning."
+  correctIndex: 1
+---
+posterName: "Dr. Science"
+text: "That beautiful brown crust on a steak? The toasty flavor of good bread? That's the Maillard reaction. It's a chemical reaction between amino acids and reducing sugars that creates a symphony of flavor and aroma. It's not burning; it's a controlled transformation. Your goal: make things brown, not grey."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A microscopic view of amino acids and sugars dancing and combining on the surface of a piece of food, creating complex, golden-brown structures that release aromatic clouds."
+---
+posterName: "The Sear-geant"
+text: "Two enemies of a good sear: moisture and crowding. Pat your meat dry before it hits the pan. Bone dry. And don't crowd the pan! Give everything space to breathe. Otherwise, you're just steaming your food, and steamed food is sad, grey food."
+displayStyle: "WEB_IMAGE"
+imageSearchQuery: "perfectly seared steak in cast iron pan"
+---
+posterName: "The Foundation Layer"
+text: "Want to build incredible flavor in almost any savory dish? Start with an aromatic base. For many French dishes, that's a 'mirepoix' (onion, celery, carrot). For others, it's the 'holy trinity' (onion, celery, bell pepper). Sauté these slowly in fat at the beginning, and you're building a foundation of flavor that can't be added at the end."
+displayStyle: "BASIC"
+---
+posterName: "The Jester"
+text: "My brain telling me to let the pan get hot enough vs. my impatience."
+displayStyle: "MEME"
+imageSearchQuery: "distracted boyfriend meme with labels: me, putting food in a cold pan, a properly preheated pan"
+---
+posterName: "The Mentor"
+text: ""
+displayStyle: "EXERCISE"
+exerciseQuestions:
+- "Explain to a friend who always complains their chicken is bland and rubbery what the Maillard reaction is and two specific things they must do to achieve it."
+- "You're tasting a soup you made, and it tastes flat. It's not 'missing' a specific spice, just... dull. What is the most likely culprit, and how does it work to fix the problem?"
+- "Describe the difference in the *purpose* of high heat versus low heat when cooking a tough piece of meat. What are you trying to achieve with each?"
+---
+posterName: "The Brightener"
+text: "If salt is the volume knob, acid is the focus knob. A squeeze of lemon or a splash of vinegar at the end of cooking can cut through richness, brighten up dull flavors, and make the whole dish feel alive. It's the secret weapon of chefs everywhere."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A dull, muted-color painting of a food dish being splashed with a vibrant, neon-colored liquid (representing acid), which causes all the colors in the painting to become sharp, bright, and vivid."
+---
+posterName: "The Librarian"
+text: "These concepts are just the beginning. To truly understand the 'why' behind the 'how,' I highly recommend exploring the work of those who've dedicated their lives to it."
+displayStyle: "SOURCES"
+sources:
+- "Salt, Fat, Acid, Heat by Samin Nosrat"
+- "The Food Lab by J. Kenji López-Alt"
+- "On Food and Cooking by Harold McGee"
+---
+nextTopicSuggestions:
+- "Knife Skills: The Foundation of Speed and Safety"
+- "Flavor Profiles: Building a Dish Beyond the Recipe"
+- "Braising and Stewing: The Art of Low and Slow"
+---

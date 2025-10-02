@@ -1,0 +1,153 @@
+---
+posterName: "Your Guide"
+text: "Forget what you think you know. Music theory isn't a dusty old textbook of rules designed to make you feel dumb. It's the key to unlocking the 'why' behind the music you love. It's the difference between randomly throwing paint at a canvas and understanding how colors work together to create a masterpiece. Ready to peek behind the curtain?"
+displayStyle: "BASIC"
+---
+posterName: "The Architect"
+text: "Let's start with the absolute basics. Western music is built on just 12 notes. That's it. Think of them as the 12 letters of the musical alphabet. Every song, every symphony, every banger you've ever heard is just a creative combination of these 12 sounds."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A minimalist, elegant circular diagram showing 12 distinct points, each labeled with a musical note (C, C#, D, D#, E, F, F#, G, G#, A, A#, B). The style should be clean and modern, like an infographic."
+---
+posterName: "Captain Obvious"
+text: "You've heard the term 'octave,' right? It's just the same note, but higher or lower in pitch. Sing a note, then sing it again in a squeaky voice. That's an octave. On a piano, it's the distance from one C to the next C. Same letter, different address."
+displayStyle: "BASIC"
+---
+posterName: "RealTalk"
+text: "Hot take: A lot of amazing musicians don't have formal theory training. They just have incredible ears. But here's the secret: they *still* understand theory, they just learned it intuitively. We're just putting a name to the things you've already felt in music your whole life."
+displayStyle: "COMMENT"
+---
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+- question: "How many unique notes are there in Western music before they repeat?"
+  answers:
+  - "7"
+  - "12"
+  - "10"
+  correctIndex: 1
+- question: "What is an octave?"
+  answers:
+  - "A type of musical scale."
+  - "The same note at a higher or lower pitch."
+  - "A chord with eight notes."
+  correctIndex: 1
+- question: "Music theory is primarily..."
+  answers:
+  - "A strict set of rules you must follow."
+  - "A way to describe and understand how music works."
+  - "Only for classical musicians."
+  correctIndex: 1
+---
+posterName: "The Pathfinder"
+text: "Okay, you have your 12 notes. Now what? You arrange them into SCALES. A scale is just a specific sequence of notes that creates a certain mood or flavor. The most common one? The Major Scale. It's the 'do-re-mi-fa-so-la-ti-do' you've known since you were a kid."
+displayStyle: "BASIC"
+---
+posterName: "The Pattern-Seeker"
+text: "The secret sauce for a major scale isn't the notes themselves, but the *distance* between them. It's a simple pattern of whole steps (W) and half steps (H): W-W-H-W-W-W-H. This formula works starting on ANY of the 12 notes. It's musical algebra."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A stylized image of a staircase with 8 steps. The gaps between steps are labeled 'Whole' or 'Half' to represent the major scale formula: Whole, Whole, Half, Whole, Whole, Whole, Half. Each step is a note in the C Major scale (C, D, E, F, G, A, B, C)."
+---
+posterName: "The Empath"
+text: "Why do some songs sound happy and upbeat, while others sound sad and introspective? A huge part of it is the scale. Major scales (like C Major) tend to sound bright and cheerful. Minor scales, which have a different pattern of whole and half steps, sound more melancholic or serious. It's emotional architecture."
+displayStyle: "BASIC"
+---
+posterName: "MemeLord"
+text: "Major key vs. Minor key"
+displayStyle: "MEME"
+imageSearchQuery: "drake hotline bling meme major key minor key"
+---
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+- question: "What is the formula for a major scale?"
+  answers:
+  - "W-H-W-W-H-W-W"
+  - "W-W-H-W-W-W-H"
+  - "H-W-W-H-W-W-W"
+  correctIndex: 1
+- question: "If you want to write a song that sounds sad or pensive, which type of scale would be a good starting point?"
+  answers:
+  - "Major scale"
+  - "Chromatic scale"
+  - "Minor scale"
+  correctIndex: 2
+- question: "Can you start a major scale on any of the 12 notes?"
+  answers:
+  - "Yes, as long as you follow the W-W-H-W-W-W-H pattern."
+  - "No, only on C."
+  - "No, only on white keys."
+  correctIndex: 0
+---
+posterName: "The Bridge Builder"
+text: "Now for the concept that separates the novices from the pros: INTERVALS. An interval is simply the distance between any two notes. This is the foundation of everything else we're going to talk about. It's how you build chords, create melodies, and understand harmony. It's the secret language of music."
+displayStyle: "BASIC"
+---
+posterName: "The Visualizer"
+text: "Seeing is believing. Here's what some common intervals look like on a piano. The 'major third' is a classic 'happy' sounding interval, while the 'minor third' is the 'sad' one we talked about."
+displayStyle: "WEB_IMAGE"
+imageSearchQuery: "piano keyboard with C to E and C to Eb intervals highlighted"
+---
+posterName: "The Alchemist"
+text: "Let's make some magic. A CHORD is just three or more notes played at the same time. The most basic? A triad. To build a major triad (a happy-sounding chord), you pick a starting note (the 'root'), go up a major third, and then add a minor third on top of that. Root + Major Third + Minor Third = Major Chord. You're literally stacking intervals."
+displayStyle: "BASIC"
+---
+posterName: "The Encourager"
+text: "Don't just take my word for it. If you have an instrument, try it! Find a C. Find the E above it. Play them together. Now find the G above that. Play all three. That's a C Major chord. You just made music. Seriously."
+displayStyle: "COMMENT"
+---
+posterName: "Quiz"
+text: ""
+displayStyle: "QUIZ"
+quizQuestions:
+- question: "What is an interval?"
+  answers:
+  - "A break in the music."
+  - "The time signature of a song."
+  - "The distance between two notes."
+  correctIndex: 2
+- question: "A basic major triad is made of which combination of intervals?"
+  answers:
+  - "Minor Third + Major Third"
+  - "Major Third + Minor Third"
+  - "Major Third + Major Third"
+  correctIndex: 1
+- question: "How many notes are typically in a basic triad?"
+  answers:
+  - "2"
+  - "3"
+  - "4"
+  correctIndex: 1
+---
+posterName: "The Storyteller"
+text: "If notes are letters and chords are words, then CHORD PROGRESSIONS are sentences. They're a series of chords that lead the listener on a journey. The most famous sentence in pop music? The I-V-vi-IV progression. It's in thousands of songs. You've heard it. I promise."
+displayStyle: "BASIC"
+---
+posterName: "MemeLord"
+text: "Songwriters discovering the I-V-vi-IV chord progression."
+displayStyle: "MEME"
+imageSearchQuery: "guy looking at butterfly meme I-V-vi-IV"
+---
+posterName: "The Heartbeat"
+text: "So far we've talked about pitch (how high or low a note is). But what about time? That's RHYTHM and METER. Meter is the pulse of the music, how we group the beats. Most of the music you listen to is in 4/4 time, which is just a steady 'one-two-three-four, one-two-three-four...' It's the musical heartbeat."
+displayStyle: "BASIC"
+---
+posterName: "The Conductor"
+text: "Imagine a measure of music as a container. In 4/4 time, that container can hold four quarter notes. It gives the music a sense of structure and flow. It's the invisible grid that all the notes and chords live on."
+displayStyle: "AI_IMAGE"
+aiImagePrompt: "A simple, clear infographic showing a musical measure with a 4/4 time signature. Inside the measure are four quarter notes, clearly labeled '1', '2', '3', '4'. The style is clean, modern, and educational."
+---
+posterName: "The Examiner"
+text: ""
+displayStyle: "EXERCISE"
+exerciseQuestions:
+- "Explain to a friend who knows nothing about music how to build a major scale starting on the note G. What is the formula and what are the resulting notes?"
+- "What's the difference between a major chord and a minor chord? Don't just say one is 'happy' and one is 'sad.' Explain it in terms of the intervals used to build them."
+- "Why are chord progressions more important for a song than just playing a single, repeating chord? What is their function?"
+---
+nextTopicSuggestions:
+- "Circle of Fifths"
+- "Reading Sheet Music"
+- "Songwriting with Chord Progressions"
+---
