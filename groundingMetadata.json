@@ -1,0 +1,371 @@
+{
+  "webSearchQueries": [
+    "TypeScript for JavaScript developers tutorial",
+    "What is TypeScript and why use it over JavaScript?",
+    "TypeScript basic types for JavaScript developers",
+    "TypeScript interfaces and types for JS developers",
+    "TypeScript enums and their use cases",
+    "TypeScript generics explained for JavaScript developers",
+    "TypeScript utility types for beginners",
+    "How to set up a TypeScript project",
+    "Compiling TypeScript to JavaScript",
+    "TypeScript vs JavaScript key differences"
+  ],
+  "searchEntryPoint": {
+    "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFj6C0WVl3MIvP2YXBnFSGem-ErpNQuhrl8Eo8RSJDd_lTlwcfWG0uB9anKglfLg8e6up7V-HbbktRQMwljEqCZALYSo91VePCnmv_yDWaty35RhIEv8PfbSuwY8Oq5cOsjYstyzQnh7KYSbrpDnJ4el3gXvLFMAOM72BSS2eIfOSxKtOhMg1kkp1feaWGuy1SkeZyITqhA8ZQWqlueTCdfhMoh7_HNyg==\">TypeScript enums and their use cases</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxO1A11r4n2ep6rVC-UbiiuZDv-HfltOVrtcB3afr6UgrZythiwoYPfjgEwfFdChUFRzBLG6H5gMNznF4Tdffbng9FW2ViVe-WJBY4I580BqKPP2Ah49AyXvw2-Hr0__RBaZm9ALWF8EVD516KTlQzao_DLtPzp_nd6tXjwI97oCx23hC93IFGPSzGzedeTJ5T-0AKHIgL-iea3z6dUS_9BxS-KwcHS7nnfuuuUY84sOaz0bD4rEO4\">What is TypeScript and why use it over JavaScript?</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzruJaaQY-NUBmwA-xlCwCPjDBTcBnVzEjlvHf6F_R9KFIfLm6unl9ygrkzEMVIfPi0PDn01kBBwJC4CAcGgCmNov0b1E9miFc5SAaNpvKFljKZ41pTrFH7I_c4RhMywjiRY6MBTuUy8X6jutYeRPSA9Cnm8lKKT5O5cjXyMb6qaguaOXBatEfcqlI18ueDrRptXEEtSkUSVm993E8s3xlHdt6-5-MIVaWhMndSWRMGA==\">TypeScript for JavaScript developers tutorial</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHbmOh6b9O_QUtgb35i7_WYSV4EtPYztSyirHf-WrAq7C435NnEEhRWVL_ztplx6K2TW0olpLeHTWyjAg6xTFoiQly6778WY1zA7TxqUkRqnd6GMiGYZucvLQHWfwOURDyv3jo23RoA0K3BV2SoVC5ZEXEG-bZhfH2G-TAVCSwAjGKq-xRG82WoaSKvw6y1Ckz9fnAcluEMQvMFjzL0G5T9ve2tC3zxW0HEhqSdQyNoNiAXuA==\">TypeScript basic types for JavaScript developers</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGD0rmBnsHUwasMVQdrBYNPLZr4KAcXl1EFKcZkv1gyo6sgCBOyYGi7nyywpVOxhoWK31UEEGYNEvLlATnRRRZfzm21-QVRTJq7mlnQaT6k1ZEZ6CPyPOvmNVvQpzOmw4eMTogJjO906NrrFED8aRG5aSatgVj1IDzBM59DxLT-byacgpZb9qigMws-yVaX9d2_w89BLtKZlGYDrYhIjkPSgAVUbId7pe5D5w7dcL5mKZi8OOmQU3zHS0hf\">TypeScript generics explained for JavaScript developers</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEA6IXO05TeCjtHWA8JYcCpVzofol587g7nntHLYuqmrbx7AKcNo1MaI25Q1of_YeunB2Owhc_5KTK5ZOh17002kDjx1yNipKreHnlHwPICZrtUHxQI2tlRHnwuxd5V4OIPym3xF-f8xzJwWJ4-HDh2K4AYGS7hjhiD-F6902ifDG95p5wqMaaB5wFBTzOi8ZX60kj7VI5FiAKShBxIvVAZNd7OKXGdJdDL\">TypeScript utility types for beginners</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGmwnYyN_wImyzLSMUnQMdlr7XFKntG4SRoZyLZlWQiK2KPG31fL47gSrqvsgWaO2-AsDrhpe4Cgkk8vvxkd3iPY1BKJDyJ0EdZYkgSljWZfsfHRlbneQKM7Mqtwbl2HrLX4ATuauMYEEQXM2sPKOGwsNxF4sNiVBtrPncCu1_MswYuLnZfHUi-ZQQbOrB27oC9u28Gycs9aF1kc6Rb6UrsFw-Rsl4rjED6pBbs7orR1bpWA54=\">TypeScript interfaces and types for JS developers</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHIZ5tjNrwcpj046cC6NXN_Gmp6Ro_a5u7JEvlTrRsM3sbNa9bLSsDDBQgNBN-BtlGDaOW8GLfxq5DGh2QMevPIFI1DLJnH7cy5-OJKW7_dmgADYRNFV3uyhARWgZcWllsBU9kIE1eWvoKZGJbIa7lB95EgQjtLwJ4rZ9rP69RbRDaJkyIxblvQdMVwY9VxPJzX12RcGgd6POQX4Y18ESg1WHgfg0E=\">Compiling TypeScript to JavaScript</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6JiLctT0hcm2GcLD9WHvlEJsqYOPPhcxhOCOkvuB7NyJ4ynVrK3JaaCx1z-jsHtoYqDgy1oi_JVZQtOUyHrR3ftzFCjwjJPs-iziGOWwUNf9WM2tuzcuefzBf9qD31vHQtqU4gl8f76f_WuOFQFACxDGM7aktFTMBEPjWxD5VduF-qGIslYb63xs6yEJXubNjVaXY4V9rCcRaOe1obUafsksEFYrcNKGUrBw=\">TypeScript vs JavaScript key differences</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXr4ZXl6LII324fFJR1kX5y0gslg3H0gYOyeSgT9dW28cMX-lbHbFT-vgrd4n5P3vTbwaLTS5zN4l8A6XTnoUlAbjPVYHrilbQGKf5M2y2MZkPU1-IkogNP8ECbrE9Py7sH4miTLIgChEMYtCr92i4aPq1OmkR-4o3LS9QeKaJzqnwyTrJ0tpH4Vjzu-QNaUA4VdNzxYt0Ptuzaj0YWUxDJIcEmso=\">How to set up a TypeScript project</a>\n  </div>\n</div>\n"
+  },
+  "groundingChunks": [
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGq75slAs_txsvalihCeRp1dzwWlZTnBJP7a_BzXhCeaMa7SpR-k_oIDstWBVUzNPsQ19eyPgs9iG5U-WbxV4rHZQttFCRmURaB7i0Oh0pqz_MEKoOi46jljq3gXyzPFG25XSl6UDwMh6TV30C-sOUCC-bCqeFv_u1gT9zHwrAUOVULAxI=",
+        "title": "typescriptlang.org"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEM0u_N0oSFRjTedaTr5BIzF7Rp6VYJzJty7BM5LF8o4EmT4tYj9Y3AKWJ4ZqfLYn1ekUu30z0DgEEi0wERnrtO6XgpdFz6uCGxymlEAq-x2dDxceribYjz7VBnCv4u0wOQc8oaiJ-x3JQA-rdt7-9nP-BKAK3c3wx1FDon6iGujtTL5RW3dnl9Y0yszqsOIYEN",
+        "title": "geeksforgeeks.org"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKb546meUWTu9vM5wH--LfwM3nmf7Nh6Qfut2kYE7qgtnXPPrTX2_A10759YPXF9PQ4KAWz0vPhHHJxMMqd4ybIwt0ZHylVGw0BG051tHnDtHeXmyfT9C9CqUT-FcgDLn78f4tZqVLVA4=",
+        "title": "sanity.io"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHn-j7tbcBnmzOYJedlgXKyKvZFR2PdR8Wf89-WjV9hZK73ufEWQqx0wn1V1cLX2q11QG0HXuJ2y_DvFK-IaWGSh4ixMdYi604NvH-7rytTVs4B_3YhhkVntt2M73y6zlzRJlnS1dYO4mymlYE9RAe01VWb2XqJ-THS5aCkqnnbH2nutOp5",
+        "title": "geeksforgeeks.org"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHe6N-9kKkOMvWKGQDJRddUKVv7brlO9B9QRdkxn4hm-BSXEm1piixKf9Y3NQHPKKMA71D4kxG6tmHcZIAKrxOvLWMoQ65ioFp9BxsLnOooUUc0ZEbkJt6FPLTavPC3MhYCo3NusrA=",
+        "title": "youtube.com"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNYtf97BedqKX0gp5es-EaUEyCK1-rkC72rdJhYyGm2tPIgzZagFbxZaEgbIDh-eXxRhNEMlKFqx-TxBzx6emQ9U4_tc83dmqegYD8Ox6idusYx72DZ-S3pvnOZinWTYDaioOYNNMbKztHdt01dmejjTP2kL4BbMP9cpZsSgtgwdjE2LlHp5MVud0ZUQzxKtTJE2VJfzwXdunV6u623YeYhLKGuCRMWA==",
+        "title": "dev.to"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEom1tmb4-AdimputzBEO4WwYPHOS2I99rziD31jwWyFCGQ8MQr-dcLXoqQGIHV2lzfV6brII6NTLMZNratGoF69F1an0WJ9IsSAFpZxx2ruJFTImQb0SiSnaDuq-aU45j5CmCwIQrKl22THGfOTSVGi49_ZKExTHIV7iO_Mwo=",
+        "title": "freecodecamp.org"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEtCRncv_rkhDnoTw5QoPsqQ7lUzzaCo4rXo6uk6mJyThbCPp15BVmUh9CJPC70Ibi48qMAMkEUDnCU55WJbDF41tm8NcoC0er6PHgGZix8f49TPE8U5KHpR0SMLq3OPiim3p2DWII1QMVRdJSJ-BtQxrFcA61JNrjI8RwoqQ==",
+        "title": "visualstudio.com"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG99Gv8asQYsWpj0b8aoselwKPlNObN4n0IpM6QNAXTEFsA7EUfzJNQ_Q-ob1L2Vezw-3im6Gactbro5GzGHrqXavOuY4KOp6nZRvA12_cUoGl2Mlk1kdVBrRD2NsA8ArMC3EawEcX7yyWLGi8sgJWMW0mNUG7-bq8Jayl-QeSgnT4b",
+        "title": "digitalocean.com"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuiL8jRr7SmvSP3vekN_4AzynkDBjBhiH7V2eMo-bIchUxWfGQvZWtrwQQs0Pj_93nS81spFbkzyrubbRApw_dsFVmRqHYcuHW-C_OxKv0PVkslwBBXsQ57bs1TcZ0dt2WorjbxjZAPNLCu1oOsIaaSDCOTR67FsMVquf7Mq3bxo-b4edPMIjEsT-kwg==",
+        "title": "dev.to"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEk5s5eAqN-fALVQZO__HLjyzQrufzNfe3YFimsdyxri4DKaJTzk60G3GFnAiMRJ2dvzyEAqzJLeoXXjm_p0BHCvBXH2bREr1Rfklsq2fRy7UOahafj8Y5ZMHZgorPV503nHkIqsRWWVDoBtjGBnInxnt3_Lg==",
+        "title": "daily.dev"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGGbFVOwVeFoDf9Vd5_Y--qRkdwPU5EIBK1EtfqZc6zA87Rm1R0zouHxAxwXZ0_vk_EN8qL_P-1cAPCXVlBMxaYEV1lK0bUadq5XdPjoxt-YjC4E8WuLG_Bz1twW4XMOPId1UP1xEhqZU-XcLKoXXeRN2ehDMiY0uP0eS1_0El2gkal2I0PgGXUqX6Jsw==",
+        "title": "dev.to"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHg3MgpGoeWetw6tDmeQVa2jXr5EC9UaSon47bQdXbHU9SBbqSd5hW6Eeo_9o-0w7NOoXQ1liTG-ab_zOfwN4eAJxcZ0urGvATz7nDc78Fr8cT2h_Yp8KhYODFtockAX5IBKy_N3025nmmtWHOqarXD_-dJFUQBzKY=",
+        "title": "typescriptlang.org"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGmbWG2sqWatvGabcD8IN7DePjtNt_aLXvr11gU4FhWLjgEs4R9-87TOoHYkjyaj9-bXTvLFLztvt6_Jo74ipflbpeNicfIZy7H91MRzCKUAvrKXfIepCJ6FD95MvTjFE2UvS5bLJn_AUV4wQPJZp2Nu2NeiOX9sg==",
+        "title": "typescriptlang.org"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGLiD1XZPKZbGv7YcZDs1ZT00S0JmoJYp63DL4eWX3cN1ZcjrW4K8-_iq8S3sm5zDDSZlj3pdXee_cJOLWul1jRy5TWwTpdC9EzngNxb2JB4Ro_BB3U9vt7mHa2Mq-ueXvRsDXFBf7icQKSe3Q703tApk0gu9rZQiYK6my2",
+        "title": "freecodecamp.org"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8QYva8TyZoQLl5O9Hs4N1ZI_RiylNjTtpOEf3Bi9Ddq76Ut179p3DqNbwETJuE2kqPW636sTo4VFF66fqYXydPeu8rpAIUmQuwxCJ93E1XQgm_ZnnnHMJT0lzDvSSrCr3vgWnaWU12FcTXBaZEYW5d20=",
+        "title": "typescriptlang.org"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHogdWpeJW8XO5jJ75jOnmDXYScPrMi8LVl0CSHhr6PCzkgI14eco052mNi1xw1It1rZyK6eknj6hfgVKhrg-O6JTt3mi0wfQZA-d31EADMZaicYrYpdyBfwAVFM1II1Dpd7BvjFWCzB7xrHly1T1amFW5sYhg2Xw1Np3bH_KS5Gu6HwaP7XPPw2FdYhwsOaZWAuexrXyOXvSF9BKdEjk6y2KJang==",
+        "title": "medium.com"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBiekNvYybNXqXVGVuREjkd7sHA2ABwZ7Y2P_567Y0rHwoNf7EfHz8pX7uErBXHy39ZfOH1lMI5hpYVmsiOcukJpAu_LYFk9xtVbQ4zi_2HUtBIvM3bJxqMZq0oIImsNpY4710SkpWlgqCjieNShWSR8FjnYN86suY5lHYzsbFR4NeXMr4Gch2FxDjKySLWq24LZ_LWjnD8bpJSl22sZXlx0L0wp50vNuxnRx88BVl2Qt4Tw==",
+        "title": "medium.com"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5wD2Ke7LnNpChbeKDFk22rwd76eF4_Gttz6wEF22kOMVEN1-R1dDHEi745G4YdxmUXPN97YZ8j7o8VnkfCrP63tvdNoTRxVxEzVV36ZCYvq8CfqnHkX_efMFoz3s5bRQFSXd883WGXAYmbNZKaB-Qy2ITpTUhTZriloFL47EfQ89y6mYUWUkZ",
+        "title": "plainenglish.io"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGpJ3PfhHI3ZH14mhz1Xryobnx2WgRw1xiR15hlHyBYQRb_aqdu0iFe78aShBX1ZvkOmzgnB7BXBGwsaPsVmMZBwOYtC91O_NCqJMvLBPAB3k-uMDgSzYFHL1zTw3Fpg46R_hxn49G48reIeAsI3kL5JLFZVmcecZwbAsVa",
+        "title": "w3schools.com"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYxXTuup1xgnAFN9xlAz-0bIYll10BEkm1SYJXE2pXtXFzH1NCNXuZqH-m_nbU5n4Inykou0genlnD6N93C7SIQyx6qX_onlrTpaulTQtwtANJgSNsR2qb8JZhjmFrOr6pkf7Csy_DNCpj6H9Lg7JL9uhioL5dhm4GlhAukv2B9m_aHvJrD0OiFq4D-8GTozH1zrb01Rc6bwsbDgKL",
+        "title": "medium.com"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6U3u1uUaucczINNdOt57lasEAE7OpS6VUzEiZy0ow_o50KAWmCTT2tX0CQBxMLLAH0QrXOPnR0FyghyfCglviFASfckbuaRZ225RW-irZUkeuP9ipKP0WfwjEozaYx7ANLZT8s_kM4E_9-QK_7Rgpou9mdaGYG9LFMtZrObsP4g==",
+        "title": "syncfusion.com"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH2cEcxZGhEZNTndM3GQy7-lZefPFawQXKjcOq33_Ebs8I2K01CqiAvYj5tRYbJnavo1ANuz5wIlcyrSwYg8EMbrwhBO_tqr0S4d5aAo9_cnPwQ_lZZ-QREXActHU6pGSBWPIvzgDwdCEScY3y8YBzbVBxAsQBiCym4lIlfZnwPuBBu7wSaBw1xaaUlNOQjxkD79C_PNOGksQ==",
+        "title": "dev.to"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFLBDnlYHJbglyrgxuuGz4M58E6MELg2iht0iOuXG2nscA0VuZ6rUvDhi9xKXOa2a1FWO7vnh9MNg--Mnu8NrnTPhZox95JU53kL8EEIRtwJLRHGZpBsKFZ7y71EBUkIYkybCjugx8jV9fYl6pdzOz943o=",
+        "title": "zerotomastery.io"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEehHTjh5jhzVzEPrXFmvo8MJuXm57WfByslZNZWEXv5WR8c92KmeYWiSPJOLD5CrnNXogYn795ZNdI8h-sVM4YQBhzXpdXGA2Dj-3HgafyOVi17ggPzO8sfDFnGoPpdUDO2fxA-zfjtvJSQxQOql_NC8IUm56j3GQfawQ0c7vhTUD-luUTafJDQyXjFsD8IduxSCto_693SGZVkmADQrYbNMs9FwMAuNazOrTCPSKsjRpL",
+        "title": "medium.com"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUEFlHQy1Y9gLyIWftiiiDwJop9Npbx-4gKw11KaqtK8xEznf75yft0cHg2CazvLkszQnLMeuPkxsmJ5QG9mYRqgTKEoXNul3ROqRNWIMmwmBFdz5g0d8vDkc_rH5Agw1RC1s_63bosIstOd9a3W-ovMVv_v3RChf3duqa3lxAAr4NJ7Cls6czSOh9nT9rqfuZ8pSrTyxzUV8Irg==",
+        "title": "medium.com"
+      }
+    },
+    {
+      "web": {
+        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEk9yKYUD1VnFU6in_fOYREhbXMGEGq2vyOi5t-xDxs-Zs37PoeOq8AzSJL4u677Qt3BDFo7-oL4UxVbsTX8LoGHZCMHIb_DumNCu-cAZSzlIFPmF57QKDsBbIyCj9EALz-T9kLIAPmHuAe7V_illSe8ZmCsmk=",
+        "title": "logrocket.com"
+      }
+    }
+  ],
+  "groundingSupports": [
+    {
+      "segment": {
+        "startIndex": 409,
+        "endIndex": 467,
+        "text": "It's JavaScript, but with an added layer of a type system."
+      },
+      "groundingChunkIndices": [
+        0
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 589,
+        "endIndex": 714,
+        "text": "It's a win-win!\"\ndisplayStyle: \"BASIC\"\n---\nposterName: \"DevGuru\"\ntext: \"One of TypeScript's core principles is static typing."
+      },
+      "groundingChunkIndices": [
+        1,
+        2
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 791,
+        "endIndex": 893,
+        "text": "TypeScript lets you lock in the type, catching potential bugs before they ever make it to the browser."
+      },
+      "groundingChunkIndices": [
+        1,
+        2
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 1405,
+        "endIndex": 1487,
+        "text": "This gives you the TypeScript compiler, `tsc`, which will be your new best friend."
+      },
+      "groundingChunkIndices": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 1605,
+        "endIndex": 1657,
+        "text": "It needs to be compiled into plain JavaScript first."
+      },
+      "groundingChunkIndices": [
+        3,
+        6
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 1752,
+        "endIndex": 1793,
+        "text": "js` file that any browser can understand."
+      },
+      "groundingChunkIndices": [
+        3,
+        7
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 2226,
+        "endIndex": 2312,
+        "text": "json` file to configure the compiler to watch for changes and automatically recompile."
+      },
+      "groundingChunkIndices": [
+        8,
+        9
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 2313,
+        "endIndex": 2426,
+        "text": "Many modern build tools and IDEs also have excellent TypeScript integration that handles this for you seamlessly."
+      },
+      "groundingChunkIndices": [
+        10
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 2521,
+        "endIndex": 2621,
+        "text": "TypeScript has all the basic types you know from JavaScript, like `string`, `number`, and `boolean`."
+      },
+      "groundingChunkIndices": [
+        11,
+        5,
+        12
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 2843,
+        "endIndex": 2898,
+        "text": "An interface is a way to define the shape of an object."
+      },
+      "groundingChunkIndices": [
+        13,
+        14
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 2899,
+        "endIndex": 3354,
+        "text": "It's like a contract that says any object of this type must have these specific properties with these specific types.\"\ndisplayStyle: \"AI_IMAGE\"\naiImagePrompt: \"A blueprint of a house, but instead of architectural details, it shows the properties of a TypeScript interface like 'user' with fields for 'id: number', 'name: string', and 'email: string'.\"\n---\nposterName: \"EnumExplorer\"\ntext: \"Enums in TypeScript allow you to define a set of named constants."
+      },
+      "groundingChunkIndices": [
+        15
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 4325,
+        "endIndex": 4366,
+        "text": "Generics are like placeholders for types."
+      },
+      "groundingChunkIndices": [
+        16
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 4367,
+        "endIndex": 4485,
+        "text": "They allow you to write reusable functions and classes that can work with any data type while maintaining type safety."
+      },
+      "groundingChunkIndices": [
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 4485,
+        "endIndex": 4661,
+        "text": "\"\ndisplayStyle: \"BASIC\"\n---\nposterName: \"UtilityTypeUser\"\ntext: \"TypeScript comes with a set of built-in utility types that can help you manipulate your types in powerful ways."
+      },
+      "groundingChunkIndices": [
+        19,
+        20,
+        21
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 4662,
+        "endIndex": 4813,
+        "text": "For example, `Partial<T>` makes all properties of a type `T` optional, and `Pick<T, K>` creates a new type by picking a set of properties `K` from `T`."
+      },
+      "groundingChunkIndices": [
+        19,
+        22,
+        23
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 5169,
+        "endIndex": 5334,
+        "text": "While they are often interchangeable for defining object shapes, a key difference is that interfaces can be extended through declaration merging, while types cannot."
+      },
+      "groundingChunkIndices": [
+        24,
+        25
+      ]
+    },
+    {
+      "segment": {
+        "startIndex": 5335,
+        "endIndex": 5418,
+        "text": "Types, on the other hand, are more versatile and can be used for unions and tuples."
+      },
+      "groundingChunkIndices": [
+        24,
+        26
+      ]
+    }
+  ]
+}

@@ -13,7 +13,7 @@ export async function visualize(data: string, htmlFilePath?: string) {
     model: google("gemini-2.5-flash-preview-09-2025"),
     prompt: `Please convert this data into a HTML page.
 	It should display all the data directly.
-	Do NOT include any additional text or images that do not come out of the JSON data.
+	Important: Do NOT include any additional text or images that do not come out of the JSON data!! The html should be a direct representation of the JSON data!
     The site should be for debugging purposes so I can see the data i generate via AI.
 	No interactivity is needed.
 
