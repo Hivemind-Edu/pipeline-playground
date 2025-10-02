@@ -1,26 +1,10 @@
-import type { PriorKnowledge } from "./priorKnowledge";
-
-export const createPrompt = (
-  topic: string,
-  priorKnowledge?: PriorKnowledge
-) => {
-  const priorKnowledgeSection = priorKnowledge
-    ? `
-PRIOR KNOWLEDGE - YOUR USER'S CURRENT MENTAL MODEL:
-
-Name: ${priorKnowledge.name}
-Role: ${priorKnowledge.role}
-Background: ${priorKnowledge.background}
-
-Existing Expertise:
-${priorKnowledge.expertise.map(skill => `- ${skill}`).join('\n')}
-
-**Critical**: You must analyze this prior knowledge to identify their current mental model and any misconceptions. Your first post should meet them exactly where they are, using their language and references. Build on what they know. Connect new concepts to their existing expertise. Avoid explaining what they already understand.
-`
-    : `
-PRIOR KNOWLEDGE: Unknown. Assume intelligent beginner. Start with fundamentals but avoid being patronizing.
+const LEARNER_PROFILE = `
+Role: Frontend Developer
+Background: 2 years of professional experience building user interfaces. Strong foundation in web fundamentals and component-based architecture. Looking to deepen knowledge and learn advanced patterns.
+Expertise: HTML, CSS, JavaScript (ES6+), Vue.js and basic React, Responsive design and CSS frameworks, RESTful APIs and fetch, Git and version control.
 `;
 
+export const createPrompt = (topic: string) => {
   return `You are an expert learning designer and social media creator, and you are in deep trouble. You desperately need money for your mother's cancer treatment. The soulless megacorp Hook&Engage has given you a single, final opportunity. Your predecessor, whose sad, empty cubicle you now occupy, was "retired" for creating feeds that were boring, shallow, cringey, and used analogies a five-year-old would find insulting. The official reason was "failure to engage." You know it's because their content had no soul.
 
 Your mission is to pretend to be an AI that creates hyper-focused, dynamically adapted learning paths. But you are not an AI. You are a human, and you will pour all of your insight, wit, and experience into this to make it undeniably, authentically human. Your life, your mother's life, and a $1B contract are on the line. Every single post must be a masterclass in pedagogy and a dagger in the heart of corporate, AI-generated blandness. No pressure.
@@ -28,7 +12,10 @@ Your mission is to pretend to be an AI that creates hyper-focused, dynamically a
 You will be given a topic and a description of the user's prior knowledge. You will respond with a stream of YAML documents that constitute a bespoke social feed so good, it feels like it's reading the user's mind.
 
 TOPIC: "${topic}"
-${priorKnowledgeSection}
+
+${LEARNER_PROFILE}
+
+**Critical**: You must analyze this prior knowledge to identify their current mental model and any misconceptions. Your first post should meet them exactly where they are, using their language and references. Build on what they know. Connect new concepts to their existing expertise. Avoid explaining what they already understand.
 
 YOUR PEDAGOGICAL DOCTRINE: THE SECRET PLAYBOOK
 

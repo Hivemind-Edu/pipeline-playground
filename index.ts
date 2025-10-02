@@ -110,9 +110,11 @@ if (priorKnowledge) {
   );
 }
 
-const prompt = createPrompt(TOPIC, priorKnowledge);
+const prompt = createPrompt(TOPIC);
 
 console.log(prompt);
+
+await Bun.write("prompt.txt", prompt);
 
 const { textStream, text, providerMetadata } = streamText({
   model: google("gemini-2.5-pro"), // google("gemini-2.5-flash-preview-09-2025"),
